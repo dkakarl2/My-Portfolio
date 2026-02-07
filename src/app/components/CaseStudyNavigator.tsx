@@ -76,7 +76,14 @@ const UNIVERSAL_SECTIONS: SectionDef[] = [
   {
     id: 'nav-testing',
     label: 'User Testing',
-    texts: ['User testing', 'User Testing', 'Testing & Iteration'],
+    texts: [
+      'Listening, learning, and improving',
+      'Listening, learning, and improving - shaping care through feedback',
+      'User testing',
+      'User Testing',
+      'Testing & Iteration',
+      'Testing & Iterating',
+    ],
   },
   {
     id: 'nav-reflection',
@@ -230,6 +237,14 @@ export function CaseStudyNavigator() {
   const normalizedPath = location.pathname.replace(/\/$/, '') || '/';
   const isCaseStudy = CASE_STUDY_ROUTES.includes(normalizedPath);
 
+  // Filter sections based on the current route
+  const displayedSections = UNIVERSAL_SECTIONS.filter((sec) => {
+    if (normalizedPath === '/rocket-design-system-case-study') {
+      return !['nav-ideation', 'nav-design', 'nav-testing'].includes(sec.id);
+    }
+    return true;
+  });
+
   const [activeSection, setActiveSection] = useState('Overview');
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const elemCacheRef = useRef<Map<string, HTMLElement>>(new Map());
@@ -239,7 +254,7 @@ export function CaseStudyNavigator() {
   const injectAnchors = useCallback(() => {
     if (!isCaseStudy) return;
     const cache = new Map<string, HTMLElement>();
-    for (const sec of UNIVERSAL_SECTIONS) {
+    for (const sec of displayedSections) {
       // Check if previously found element is still valid
       const existing = elemCacheRef.current.get(sec.id);
       if (existing && document.body.contains(existing) && isReallyVisible(existing)) {
@@ -253,7 +268,7 @@ export function CaseStudyNavigator() {
       }
     }
     elemCacheRef.current = cache;
-  }, [isCaseStudy]);
+  }, [isCaseStudy, displayedSections]);
 
   // ---- Anchor injection on mount + periodically ----
   useEffect(() => {
@@ -267,7 +282,7 @@ export function CaseStudyNavigator() {
 
     // Also re-inject when DOM changes
     const observer = new MutationObserver(() => {
-      if (elemCacheRef.current.size < UNIVERSAL_SECTIONS.length) {
+      if (elemCacheRef.current.size < displayedSections.length) {
         injectAnchors();
       }
     });
@@ -277,7 +292,7 @@ export function CaseStudyNavigator() {
       timers.forEach(clearTimeout);
       observer.disconnect();
     };
-  }, [normalizedPath, isCaseStudy, injectAnchors]);
+  }, [normalizedPath, isCaseStudy, injectAnchors, displayedSections]);
 
   // ---- Track scroll position & active section (scroll spy) ----
   useEffect(() => {
@@ -298,7 +313,7 @@ export function CaseStudyNavigator() {
       let bestLabel = '';
       let bestDist = Infinity;
 
-      for (const sec of UNIVERSAL_SECTIONS) {
+      for (const sec of displayedSections) {
         const el = elemCacheRef.current.get(sec.id);
         if (!el || !document.body.contains(el)) continue;
 
@@ -326,7 +341,7 @@ export function CaseStudyNavigator() {
     requestAnimationFrame(onScroll);
 
     return () => window.removeEventListener('scroll', onScroll);
-  }, [isCaseStudy, injectAnchors]);
+  }, [isCaseStudy, injectAnchors, displayedSections]);
 
   // ---- Scroll to section on click ----
   const handleSectionClick = (sec: SectionDef) => {
@@ -377,11 +392,11 @@ export function CaseStudyNavigator() {
     >
       <div
         style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.97)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          borderBottom: '1px solid #e5e7eb',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+          backgroundColor: 'rgba(255, 255, 255, 0.8)',
+          backdropFilter: 'blur(4px)',
+          WebkitBackdropFilter: 'blur(4px)',
+          borderBottom: '1px solid rgba(208, 208, 208, 0.3)',
+          boxShadow: 'none',
         }}
       >
         <div
@@ -396,7 +411,7 @@ export function CaseStudyNavigator() {
             overflowX: 'auto',
           }}
         >
-          {UNIVERSAL_SECTIONS.map((sec) => {
+          {displayedSections.map((sec) => {
             const isActive = activeSection === sec.label;
             return (
               <button

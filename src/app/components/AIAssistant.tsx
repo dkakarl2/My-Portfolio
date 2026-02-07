@@ -20,85 +20,91 @@ const suggestions = [
 
 function getResponse(question: string): string {
   const lowerQuestion = question.toLowerCase().trim();
-  
-  // Mayo Clinic / ChemoBuddy project
-  if (lowerQuestion.includes('mayo') || lowerQuestion.includes('chemobuddy') || lowerQuestion.includes('best project') || lowerQuestion.includes('favorite project')) {
-    return `ChemoBuddy is a chemotherapy education and support platform I designed in collaboration with Mayo Clinic. It helps patients better understand their treatment journey through simplified medical information, visual guidance, and an AI-powered support assistant.\n\nThe goal was to reduce confusion and anxiety by turning overwhelming clinical content into clear, empathetic, and easy-to-follow experiences that help patients feel more prepared and in control.`;
-  }
-  
-  // Tools & Skills
-  if (lowerQuestion.includes('tool') || lowerQuestion.includes('software') || lowerQuestion.includes('figma') || lowerQuestion.includes('what do you use')) {
-    return `I specialize in end-to-end product design, from research and problem framing to interaction design and polished UI. My strengths include user flows, wireframing, prototyping, usability testing, and turning complex problems into intuitive experiences.\n\nI work primarily with Figma, FigJam, and prototyping tools, and I'm comfortable collaborating with developers using design systems, handoff documentation, and iterative feedback workflows.`;
-  }
-  
-  // All Projects / Portfolio / Work
-  if (lowerQuestion.includes('project') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('work') || lowerQuestion.includes('browse')) {
-    let response = "I'd love to show you my work! Here are my key projects:\n\n";
-    portfolioData.projects.forEach(project => {
-      response += `• **${project.title}** (${project.company}): ${project.description}\n`;
-    });
-    response += "\nEach project showcases my research-driven, user-centered approach to design.";
+
+  // 1. Dynamic Project Search
+  // Search through all projects for matching keywords in title, company, or description
+  const matchedProject = portfolioData.projects.find(p =>
+    lowerQuestion.includes(p.title.toLowerCase()) ||
+    lowerQuestion.includes(p.company.toLowerCase()) ||
+    (p.id && lowerQuestion.includes(p.id)) ||
+    (lowerQuestion.includes('project') && lowerQuestion.includes(p.title.split(' ')[0].toLowerCase()))
+  );
+
+  if (matchedProject) {
+    let response = `**${matchedProject.title}**\n\n${matchedProject.description}\n\n**Role:** ${matchedProject.role}\n**Impact:** ${matchedProject.impact}\n\n${matchedProject.details}`;
+    if (matchedProject.link) {
+      response += `\n\n[View Case Study](${matchedProject.link})`;
+    }
     return response;
   }
-  
-  // Skills overview
-  if (lowerQuestion.includes('skill') || lowerQuestion.includes('expertise') || lowerQuestion.includes('what can you do') || lowerQuestion.includes('view my skills')) {
-    const designSkills = portfolioData.skills.design.join(', ');
+
+  // 2. Skills & Tools
+  if (lowerQuestion.includes('skill') || lowerQuestion.includes('tool') || lowerQuestion.includes('stack') || lowerQuestion.includes('use') || lowerQuestion.includes('tech')) {
+    const design = portfolioData.skills.design.join(', ');
     const tools = portfolioData.skills.tools.join(', ');
-    return `I specialize in ${designSkills}. My toolkit includes ${tools}. I focus on creating scalable, accessible, and user-centered design systems.`;
+    return `**My Toolkit & Expertise:**\n\n**Design:** ${design}\n\n**Tools:** ${tools}\n\n**Core Strengths:** ${portfolioData.skills.strengths.join(', ')}`;
   }
-  
-  // Experience / Background
-  if (lowerQuestion.includes('experience') || lowerQuestion.includes('background') || lowerQuestion.includes('worked') || lowerQuestion.includes('career')) {
-    let response = `${portfolioData.personal.description}\n\nMy experience includes:\n`;
+
+  // 3. Experience / Work History
+  if (lowerQuestion.includes('experience') || lowerQuestion.includes('work') || lowerQuestion.includes('history') || lowerQuestion.includes('resume') || lowerQuestion.includes('job')) {
+    let response = `${portfolioData.personal.description}\n\n**Work History:**\n`;
     portfolioData.experience.forEach(exp => {
-      response += `• **${exp.company}** (${exp.period}) - ${exp.description}\n`;
+      response += `• **${exp.company}** - ${exp.role} (${exp.period})\n`;
     });
-    response += "\nI've worked across healthcare tech, fintech, and educational platforms.";
     return response;
   }
-  
-  // Design Process / Approach
-  if (lowerQuestion.includes('process') || lowerQuestion.includes('approach') || lowerQuestion.includes('method') || lowerQuestion.includes('how do you')) {
-    return `${portfolioData.approach.process}\n\nKey principles I follow: ${portfolioData.approach.principles.join(', ')}.`;
+
+  // 4. About / Bio
+  if (lowerQuestion.includes('about') || lowerQuestion.includes('who') || lowerQuestion.includes('intro')) {
+    return `I'm **${portfolioData.personal.name}**, a ${portfolioData.personal.title}.\n\n"${portfolioData.personal.tagline}"\n\n${portfolioData.personal.focus}\n\n${portfolioData.personal.approach}`;
   }
-  
-  // Roles / Jobs / Opportunities
-  if (lowerQuestion.includes('role') || lowerQuestion.includes('job') || lowerQuestion.includes('hiring') || lowerQuestion.includes('opportunity') || lowerQuestion.includes('looking for')) {
-    const roles = portfolioData.opportunities.roles.join(', ');
-    const interests = portfolioData.opportunities.interests.join(', ');
-    return `I'm open to ${roles} — especially opportunities in ${interests}. ${portfolioData.opportunities.availability}`;
+
+  // 5. Contact
+  if (lowerQuestion.includes('contact') || lowerQuestion.includes('email') || lowerQuestion.includes('reach') || lowerQuestion.includes('hire')) {
+    return `${portfolioData.opportunities.availability}\n\nEmail: ${portfolioData.personal.contact.email}\nLinkedIn: [LinkedIn Profile](${portfolioData.personal.contact.linkedin})`;
   }
-  
-  // Rocket Design System
-  if (lowerQuestion.includes('rocket') || lowerQuestion.includes('design system') || lowerQuestion.includes('edplus') || lowerQuestion.includes('asu')) {
-    const rocketProject = portfolioData.projects.find(p => p.id === 'rocket-design-system');
-    return `${rocketProject?.description} ${rocketProject?.details} This work is ongoing since ${rocketProject?.duration}.`;
+
+  // 6. Generic "Projects" query
+  if (lowerQuestion.includes('project') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('case study')) {
+    let response = "Here are my key projects:\n\n";
+    portfolioData.projects.forEach(project => {
+      response += `• **${project.title}**: ${project.description}\n`;
+    });
+    return response;
   }
-  
-  // EduFund
-  if (lowerQuestion.includes('edufund') || lowerQuestion.includes('fintech') || lowerQuestion.includes('financial')) {
-    const edufundProject = portfolioData.projects.find(p => p.id === 'edufund');
-    return `${edufundProject?.description} ${edufundProject?.details} This internship was in ${edufundProject?.duration}.`;
-  }
-  
-  // About / Introduction
-  if (lowerQuestion.includes('about') || lowerQuestion.includes('who are you') || lowerQuestion.includes('tell me about') || lowerQuestion.includes('introduce')) {
-    return `I'm a curious product designer who loves turning messy, complex problems into experiences that just make sense. I pay close attention to how people think, feel, and move through digital spaces — the small details are where the magic happens.\n\nOutside of screens, I'm someone who enjoys observing everyday interactions, finding inspiration in simple moments, and constantly learning new ways to design with empathy and intention.`;
-  }
-  
-  // Contact
-  if (lowerQuestion.includes('contact') || lowerQuestion.includes('email') || lowerQuestion.includes('reach') || lowerQuestion.includes('get in touch')) {
-    return `${portfolioData.opportunities.availability}\n\nYou can reach me at:\n• Email: ${portfolioData.personal.contact.email}\n• LinkedIn: ${portfolioData.personal.contact.linkedin}`;
-  }
-  
-  // Ask me anything / General
-  if (lowerQuestion.includes('ask me anything') || lowerQuestion.includes('what can i ask')) {
-    return `Great! I'm ${portfolioData.personal.name}, a ${portfolioData.personal.title} passionate about creating user-centered designs. Feel free to ask about:\n\n• My projects (Mayo Clinic ChemoBuddy, Rocket Design System, EduFund, etc.)\n• My design process and approach\n• Tools and skills I use\n• What kind of roles I'm looking for\n• My background and experience\n\nWhat would you like to know?`;
-  }
-  
-  // Default response
-  return `Great question! I'm passionate about creating user-centered designs that solve real problems. ${portfolioData.personal.tagline}\n\nFeel free to ask me about my projects, design process, tools, experience, or the kind of roles I'm looking for!`;
+
+  // Default Fallback
+  return `I'd love to chat! Ask me about:\n• My **Projects** (ChemoBuddy, Rocket, EduFund...)\n• My **Skills** & Tools\n• My **Experience** & Background\n• My **Design Process**\n• Or just say hi!`;
+}
+
+// Helper to render bold text and links
+function renderFormattedText(text: string) {
+  // Split by bold (**...**) and links ([...](...))
+  const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
+  return (
+    <>
+      {parts.map((part, index) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          return <strong key={index} className="font-semibold text-gray-900">{part.slice(2, -2)}</strong>;
+        }
+        if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
+          const [label, url] = part.slice(1, -1).split('](');
+          return (
+            <a
+              key={index}
+              href={url}
+              className="text-blue-600 hover:text-blue-800 underline font-medium"
+              target={url.startsWith('http') ? "_blank" : "_self"}
+              rel={url.startsWith('http') ? "noopener noreferrer" : undefined}
+            >
+              {label}
+            </a>
+          );
+        }
+        return <span key={index}>{part}</span>;
+      })}
+    </>
+  );
 }
 
 export function AIAssistant() {
@@ -196,11 +202,10 @@ export function AIAssistant() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className={`fixed ${
-              isMaximized 
-                ? 'inset-4 w-auto h-auto' 
-                : 'bottom-6 left-1/2 -translate-x-1/2 w-[800px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-120px)]'
-            } z-[9999] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col`}
+            className={`fixed ${isMaximized
+              ? 'inset-4 w-auto h-auto'
+              : 'bottom-6 left-1/2 -translate-x-1/2 w-[800px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-120px)]'
+              } z-[9999] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col`}
           >
             {/* Header */}
             <div className="bg-white border-b border-gray-200 p-4 flex-shrink-0">
@@ -239,7 +244,7 @@ export function AIAssistant() {
             </div>
 
             {/* Content Area */}
-            <div 
+            <div
               ref={chatContainerRef}
               onScroll={handleScroll}
               className="flex-1 overflow-y-auto bg-gray-50 relative"
@@ -322,13 +327,18 @@ export function AIAssistant() {
                       className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                       <div
-                        className={`max-w-[70%] rounded-2xl px-4 py-3 ${
-                          message.type === 'user'
-                            ? 'bg-black text-white'
-                            : 'bg-white text-gray-800 shadow-sm border border-gray-100'
-                        }`}
+                        className={`max-w-[85%] rounded-2xl px-5 py-3.5 ${message.type === 'user'
+                          ? 'bg-black text-white'
+                          : 'bg-white text-gray-800 shadow-sm border border-gray-100'
+                          }`}
                       >
-                        <p className="text-sm leading-relaxed">{message.content}</p>
+                        <div className="text-sm leading-relaxed whitespace-pre-wrap">
+                          {message.type === 'user' ? (
+                            message.content
+                          ) : (
+                            renderFormattedText(message.content)
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}

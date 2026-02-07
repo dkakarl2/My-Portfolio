@@ -165,7 +165,12 @@ function Frame144() {
 function Frame143() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0">
+        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
+      </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="mb-0">At EduFund, the mission is to make educational financial planning simple and trustworthy. While mutual fund investments were already available, many parents were looking for safer, fixed-return options.</p>
         <p>To meet this need, we introduced Fixed Deposits (FDs) in partnership with Shriram Finance, bringing a secure investment option directly into the EduFund app.</p>
@@ -181,17 +186,17 @@ function Frame188() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">{`The opportunity `}</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="leading-[normal] mb-0">EduFund users were planning long-term educational goals but not all were comfortable with market-linked investments. Parents wanted:</p>
-        <ul className="list-disc mb-0">
+        <ol className="mb-0" start={1}>
           <li className="mb-0 ms-[30px]">
-            <span className="leading-[normal]">Stable, low-risk returns</span>
+            <span className="leading-[normal]">1. Stable, low-risk returns</span>
           </li>
           <li className="mb-0 ms-[30px]">
-            <span className="leading-[normal]">Transparent maturity and payout details</span>
+            <span className="leading-[normal]">2. Transparent maturity and payout details</span>
           </li>
           <li className="ms-[30px]">
-            <span className="leading-[normal]">A process that felt secure and easy to follow</span>
+            <span className="leading-[normal]">3. A process that felt secure and easy to follow</span>
           </li>
-        </ul>
+        </ol>
         <p className="leading-[normal]">However, most FD platforms felt outdated, complex, and difficult to navigate on mobile.</p>
       </div>
     </div>
@@ -314,7 +319,12 @@ function Frame182() {
 function Frame185() {
   return (
     <div className="content-stretch flex items-center justify-center relative shrink-0">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
+      <div className="content-stretch flex items-center justify-center gap-[12px] relative shrink-0">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
+      </div>
     </div>
   );
 }
@@ -377,7 +387,7 @@ function Frame() {
     <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[298px]">
       <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
         <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[21px] text-[#5d5d5d] text-[20px] top-[32px] w-[238px] whitespace-pre-wrap">Increase in engagement on the Invest tab by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[21px] text-[56px] text-[rgb(120,190,32)] top-[119px]">
+        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[21px] text-[56px] text-black top-[119px]">
           <EduFundAnimatedCounter target={30} suffix="%" />
         </p>
       </div>
@@ -391,7 +401,7 @@ function Frame2() {
     <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[303px]">
       <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
         <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[22px] text-[#5d5d5d] text-[20px] top-[32px] w-[240px] whitespace-pre-wrap">Reduction in onboarding drop-off by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[22px] text-[56px] text-[rgb(0,163,224)] top-[119px]">
+        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[22px] text-[56px] text-black top-[119px]">
           <EduFundAnimatedCounter target={15} suffix="%" />
         </p>
       </div>
@@ -405,7 +415,7 @@ function Frame1() {
     <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[345px]">
       <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
         <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[18px] text-[#5d5d5d] text-[20px] top-[32px] w-[288px] whitespace-pre-wrap">{`Positive user feedback highlighting clarity and `}</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[18px] text-[56px] text-[rgb(255,127,50)] top-[119px]">ease</p>
+        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[18px] text-[56px] text-black top-[119px]">ease</p>
       </div>
       <div aria-hidden="true" className="absolute border border-[#ece2e2] border-solid inset-0 pointer-events-none rounded-[24px]" />
     </div>
@@ -449,7 +459,12 @@ function Frame183() {
 function Frame149() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[698px] whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Designing Clarity in a Complex Journey</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">As the UX Designer, I led the end-to-end design of the Fixed Deposit integration. I conducted competitive research, collaborated closely with product managers, stakeholders, and Shriram’s tech team, and designed the experience from wireframes to high-fidelity screens. I ensured brand harmony between EduFund and Shriram and conducted usability testing to refine clarity, usability, and trust throughout the journey.</p>
     </div>
@@ -472,7 +487,12 @@ function Frame160() {
 function Frame150() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">But… why is something meant to feel secure often the most confusing step in financial planning?</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="mb-0">{`As EduFund expanded its digital financial planning platform for parents, users began seeking safer and more predictable investment options alongside mutual funds. However, traditional Fixed Deposit journeys across financial platforms were often complex, jargon-heavy, and difficult to navigate on mobile. Long KYC processes, unclear return breakdowns, and rigid third-party flows created friction and uncertainty, especially for first-time investors. `}</p>
@@ -497,17 +517,17 @@ function Frame130() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black w-[162px]">Competitive Analysis</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]">
         <p className="leading-[normal] mb-0">I studied FD journeys from:</p>
-        <ul className="list-disc">
+        <ol start={1}>
           <li className="mb-0 ms-[30px]">
-            <span className="leading-[normal]">Mahindra Finance</span>
+            <span className="leading-[normal]">1. Mahindra Finance</span>
           </li>
           <li className="mb-0 ms-[30px]">
-            <span className="leading-[normal]">Bajaj Finance</span>
+            <span className="leading-[normal]">2. Bajaj Finance</span>
           </li>
           <li className="ms-[30px]">
-            <span className="leading-[normal]">Stable Money</span>
+            <span className="leading-[normal]">3. Stable Money</span>
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   );
@@ -516,7 +536,12 @@ function Frame130() {
 function Frame154() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Research</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Research</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Before designing, I conducted deep research to understand both user needs and the financial product landscape.</p>
       <Frame130 />
     </div>
@@ -731,7 +756,12 @@ function Frame189() {
 function Frame155() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Ideation</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Ideation</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">User Flow Overview</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="mb-0">
@@ -981,7 +1011,12 @@ function Frame190() {
 function Frame156() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Ideation</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Ideation</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Investment Flow Design</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="leading-[normal] mb-0">Once verified, users move into the FD purchase flow where they:</p>
@@ -1036,21 +1071,21 @@ function Frame132() {
   return (
     <div className="content-stretch flex items-start justify-between not-italic relative shrink-0 text-[20px] w-full whitespace-pre-wrap">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black w-[136px]">Key design decisions</p>
-      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" start="1">
+      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" style={{ listStyle: 'none' }}>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Clear entry point for FDs under the Invest section</span>
+          <span className="leading-[normal]">1. Clear entry point for FDs under the Invest section</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Step-by-step onboarding with progress indicators</span>
+          <span className="leading-[normal]">2. Step-by-step onboarding with progress indicators</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Simplified KYC and address verification</span>
+          <span className="leading-[normal]">3. Simplified KYC and address verification</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Transparent return summary before payment</span>
+          <span className="leading-[normal]">4. Transparent return summary before payment</span>
         </li>
         <li className="ms-[30px]">
-          <span className="leading-[normal]">Calm, reassuring confirmation screens</span>
+          <span className="leading-[normal]">5. Calm, reassuring confirmation screens</span>
         </li>
       </ol>
     </div>
@@ -1130,18 +1165,18 @@ function Frame139() {
   return (
     <div className="content-stretch flex items-start justify-between not-italic relative shrink-0 text-[20px] w-full whitespace-pre-wrap">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black w-[171px]">Trust-focused design choices</p>
-      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" start="1">
+      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" style={{ listStyle: 'none' }}>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Used EduFund’s fonts, color palette, and UI components</span>
+          <span className="leading-[normal]">1. Used EduFund’s fonts, color palette, and UI components</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Included Shriram branding at key verification moments</span>
+          <span className="leading-[normal]">2. Included Shriram branding at key verification moments</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Added trust signals during onboarding and payment</span>
+          <span className="leading-[normal]">3. Added trust signals during onboarding and payment</span>
         </li>
         <li className="ms-[30px]">
-          <span className="leading-[normal]">Wrote friendly microcopy to guide users through complex steps</span>
+          <span className="leading-[normal]">4. Wrote friendly microcopy to guide users through complex steps</span>
         </li>
       </ol>
     </div>
@@ -1151,7 +1186,12 @@ function Frame139() {
 function Frame163() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Building Trust Through Design</p>
       <Frame134 />
       <Frame139 />
@@ -4965,18 +5005,18 @@ function Frame140() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">We tested</p>
-      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" style={{ listStyle: 'none' }}>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">KYC form comprehension</span>
+          <span className="leading-[normal]">1. KYC form comprehension</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Ease of uploading address proof</span>
+          <span className="leading-[normal]">2. Ease of uploading address proof</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">User confidence before payment</span>
+          <span className="leading-[normal]">3. User confidence before payment</span>
         </li>
         <li className="ms-[30px]">
-          <span className="leading-[normal]">Handling payment success and failure states</span>
+          <span className="leading-[normal]">4. Handling payment success and failure states</span>
         </li>
       </ol>
     </div>
@@ -4987,18 +5027,18 @@ function Frame141() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full whitespace-pre-wrap">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black w-[153px]">Improvements made</p>
-      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" start="1">
+      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" style={{ listStyle: 'none' }}>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Added real-time form validation</span>
+          <span className="leading-[normal]">1. Added real-time form validation</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Simplified document upload instructions</span>
+          <span className="leading-[normal]">2. Simplified document upload instructions</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Clarified return breakdowns</span>
+          <span className="leading-[normal]">3. Clarified return breakdowns</span>
         </li>
         <li className="ms-[30px]">
-          <span className="leading-[normal]">Improved success/failure feedback messaging</span>
+          <span className="leading-[normal]">4. Improved success/failure feedback messaging</span>
         </li>
       </ol>
     </div>
@@ -5008,7 +5048,12 @@ function Frame141() {
 function Frame152() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`Testing & Iterating`}</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`Testing & Iterating`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Once high-fidelity designs were ready, we conducted internal usability testing</p>
       <Frame140 />
       <Frame141 />
@@ -5052,19 +5097,24 @@ function Frame193() {
 function Frame165() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Key Learnings</p>
-      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full" start="1">
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Key Learnings</p>
+      </div>
+      <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full" style={{ listStyle: 'none' }}>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Financial products require clarity before persuasion</span>
+          <span className="leading-[normal]">1. Financial products require clarity before persuasion</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Trust is built through consistent visuals and supportive microcopy</span>
+          <span className="leading-[normal]">2. Trust is built through consistent visuals and supportive microcopy</span>
         </li>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">Mobile-first simplification is essential for complex flows</span>
+          <span className="leading-[normal]">3. Mobile-first simplification is essential for complex flows</span>
         </li>
         <li className="ms-[30px]">
-          <span className="leading-[normal]">Close collaboration ensures both compliance and usability</span>
+          <span className="leading-[normal]">4. Close collaboration ensures both compliance and usability</span>
         </li>
       </ol>
     </div>
@@ -5082,7 +5132,12 @@ function Frame194() {
 function Frame166() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap mt-[0px] mr-[0px] mb-[64px] ml-[0px] pt-[0px] pr-[0px] pb-[64px] pl-[0px]">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Final Reflection</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Final Reflection</p>
+      </div>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">This project wasn’t just about adding a new feature, it was about helping parents make confident financial decisions for their children’s futures. By combining thoughtful UX, clear communication, and strong collaboration with financial partners, we created an experience that felt safe, simple, and empowering.</p>
     </div>
   );
@@ -5117,7 +5172,136 @@ function Frame184() {
 export default function EduFundFixedDeposit() {
   return (
     <div className="bg-white relative size-full" data-name="EduFund fixed deposit">
-      <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[50px] left-[222px] not-italic text-[36px] text-black top-[185px] w-[993px] whitespace-pre-wrap">Digital financial experience at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.</p>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        padding: '0px',
+        gap: '24px',
+        position: 'absolute',
+        width: '993px',
+        height: '181px',
+        left: '260px',
+        top: '150px'
+      }}>
+        {/* Title & Subtext */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          padding: '0px',
+          gap: '16px',
+          width: '993px',
+          height: '114px',
+          flex: 'none',
+          order: 0,
+          alignSelf: 'stretch',
+          flexGrow: 0
+        }}>
+          <h1 style={{
+            width: '993px',
+            height: '50px',
+            fontFamily: 'Inter',
+            fontStyle: 'normal',
+            fontWeight: 700,
+            fontSize: '40px',
+            lineHeight: '50px',
+            color: '#000000',
+            margin: 0
+          }}>
+            EduFund’s Fixed deposit model
+          </h1>
+          <p style={{
+            width: '993px',
+            height: '48px',
+            fontFamily: 'Inter',
+            fontStyle: 'normal',
+            fontWeight: 400,
+            fontSize: '20px',
+            lineHeight: '24px',
+            color: '#484848',
+            margin: 0
+          }}>
+            Digital financial experience at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys
+          </p>
+        </div>
+
+        {/* Badges */}
+        <div style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'flex-start',
+          padding: '0px',
+          gap: '24px',
+          width: '592px',
+          height: '43px',
+          flex: 'none',
+          order: 1,
+          flexGrow: 0
+        }}>
+          {/* Badge 1 */}
+          <div style={{
+            boxSizing: 'border-box',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '12px',
+            gap: '10px',
+            width: '153px',
+            height: '43px',
+            background: 'rgba(81, 206, 162, 0.25)',
+            border: '2px solid #51CEA2',
+            borderRadius: '24px',
+            flex: 'none',
+            order: 0,
+            flexGrow: 0
+          }}>
+            <span style={{
+              width: '129px',
+              height: '19px',
+              fontFamily: 'Inter',
+              fontStyle: 'normal',
+              fontWeight: 700,
+              fontSize: '16px',
+              lineHeight: '19px',
+              color: '#0F6949',
+              whiteSpace: 'nowrap'
+            }}>Shipped in 2024</span>
+          </div>
+
+          {/* Badge 2 */}
+          <div style={{
+            boxSizing: 'border-box',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: '12px',
+            gap: '10px',
+            width: '415px',
+            height: '43px',
+            background: 'rgba(81, 206, 162, 0.25)',
+            border: '2px solid #51CEA2',
+            borderRadius: '24px',
+            flex: 'none',
+            order: 1,
+            flexGrow: 0
+          }}>
+            <span style={{
+              width: '391px',
+              height: '19px',
+              fontFamily: 'Inter',
+              fontStyle: 'normal',
+              fontWeight: 700,
+              fontSize: '16px',
+              lineHeight: '19px',
+              color: '#0F6949',
+              whiteSpace: 'nowrap'
+            }}>Used by more than 250,000 families across India.</span>
+          </div>
+        </div>
+      </div>
       <Frame144 />
       <Frame184 />
       <div className="absolute h-[632px] left-0 top-[392px] w-full" data-name="image 16903">

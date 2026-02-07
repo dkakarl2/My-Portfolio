@@ -287,7 +287,7 @@ export default function AboutTestimonials() {
       <div className="hidden lg:block relative w-full h-full">
         <Frame />
         <Frame10 />
-        
+
         {/* Decorative elements - Desktop only */}
         <div className="absolute flex h-[187.006px] items-center justify-center left-[1151px] top-[340.71px] w-[187.138px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
           <div className="flex-none rotate-[18.95deg]">
@@ -317,7 +317,7 @@ export default function AboutTestimonials() {
         <h2 className="font-['Inter:Bold',sans-serif] font-bold text-3xl text-black text-center mb-4">
           What It's Like to Work With Me
         </h2>
-        
+
         <div className="flex flex-col gap-16">
           {/* Testimonial 1 */}
           <div className="flex flex-col items-center gap-6">

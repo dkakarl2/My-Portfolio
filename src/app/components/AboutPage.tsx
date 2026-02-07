@@ -17,12 +17,12 @@ export function AboutPage() {
     <div className="min-h-screen bg-white relative">
       <div className="overflow-x-hidden">
         <Navigation />
-        
+
         <main className="py-20 px-8 lg:px-0">
           {/* Hero Section - Centered within max-width */}
           <div className="max-w-[1320px] mx-auto overflow-hidden">
-            <div className="relative min-h-[auto] lg:min-h-[800px] flex flex-col lg:block gap-12 lg:gap-0">
-              
+            <div className="relative min-h-[auto] lg:min-h-[860px] flex flex-col lg:block gap-12 lg:gap-0">
+
               {/* Main Headline - Mobile: Top, Desktop: Absolute */}
               <div className="relative lg:absolute lg:left-[204px] lg:left-[20px] lg:top-[330px] order-1 lg:order-none">
                 <p className="font-['Inter'] font-bold text-3xl lg:text-[48px] leading-tight lg:leading-[50px] text-black max-w-full lg:max-w-[743px]">
@@ -41,28 +41,28 @@ export function AboutPage() {
               </div>
 
               {/* Variables Label and Image - Mobile: Stacked, Desktop: Absolute */}
-              <motion.div 
+              <motion.div
                 className="relative lg:absolute lg:left-[120px] lg:top-[60px] order-2 lg:order-none mx-auto lg:mx-0"
                 initial={{ x: -600, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1.8, delay: 0.8, ease: "easeOut" }}
               >
                 <div className="relative">
-                  <img 
-                    alt="Design system variables screenshot" 
-                    className="w-[280px] lg:w-[301px] h-[216px] lg:h-[233px] object-cover border-2 border-[#FF7F32]" 
-                    src={imgScreenshot20260125At113228Am1} 
+                  <img
+                    alt="Design system variables screenshot"
+                    className="w-[280px] lg:w-[301px] h-[216px] lg:h-[233px] object-cover border-2 border-[#FF7F32]"
+                    src={imgScreenshot20260125At113228Am1}
                   />
                   {/* Corner dots */}
                   <div className="absolute left-[-9px] top-[-6px] w-[8px] h-[8px] bg-[#FF7F32]" />
                   <div className="absolute right-[-9px] top-[-6px] w-[8px] h-[8px] bg-[#FF7F32]" />
                   <div className="absolute left-[-9px] bottom-[-6px] w-[8px] h-[8px] bg-[#FF7F32]" />
                   <div className="absolute right-[-9px] bottom-[-6px] w-[8px] h-[8px] bg-[#FF7F32]" />
-                  
+
                   {/* Variables label - Hidden on mobile or adjusted */}
                   <div className="hidden lg:flex absolute top-[111px] left-[351px] items-center gap-2">
-                    <motion.div 
-                      className="relative flex items-center justify-center" 
+                    <motion.div
+                      className="relative flex items-center justify-center"
                       style={{ transform: 'rotate(-93.2deg)' }}
                     >
                       <svg className="w-[14.548px] h-[12.735px]" fill="none" viewBox="0 0 13.9782 15.9022">
@@ -83,24 +83,24 @@ export function AboutPage() {
               </motion.div>
 
               {/* Component Label and Image */}
-              <motion.div 
+              <motion.div
                 className="hidden lg:block absolute left-[111px] top-[696px]"
                 initial={{ x: -600, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1.8, delay: 1.8, ease: "easeOut" }}
               >
                 <div className="relative">
-                  <img 
-                    alt="Design system component screenshot" 
-                    className="w-[449px] h-[92px] object-cover border-2 border-[#78BE20]" 
-                    src={imgImage57} 
+                  <img
+                    alt="Design system component screenshot"
+                    className="w-[449px] h-[92px] object-cover border-2 border-[#78BE20]"
+                    src={imgImage57}
                   />
                   {/* Corner dots */}
                   <div className="absolute left-[-9px] top-[-6px] w-[8px] h-[8px] bg-[#78BE20]" />
                   <div className="absolute right-[-9px] top-[-6px] w-[8px] h-[8px] bg-[#78BE20]" />
                   <div className="absolute left-[-9px] bottom-[-6px] w-[8px] h-[8px] bg-[#78BE20]" />
                   <div className="absolute right-[-9px] bottom-[-6px] w-[8px] h-[8px] bg-[#78BE20]" />
-                  
+
                   {/* Component label */}
                   <div className="absolute top-[105px] left-[246px]">
                     <div className="relative">
@@ -113,7 +113,7 @@ export function AboutPage() {
                           </g>
                         </svg>
                       </div>
-                      
+
                       {/* Button */}
                       <div className="relative">
                         <svg className="w-[114px] h-[32px]" fill="none" preserveAspectRatio="none" viewBox="0 0 114 32">
@@ -129,17 +129,17 @@ export function AboutPage() {
               </motion.div>
 
               {/* Spacing Label and Image - Hidden on mobile to reduce clutter */}
-              <motion.div 
+              <motion.div
                 className="hidden lg:block absolute left-[1095px] top-[169px]"
                 initial={{ x: 600, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1.8, delay: 2.8, ease: "easeOut" }}
               >
                 <div className="relative">
-                  <img 
-                    alt="Design system spacing screenshot" 
-                    className="w-[200px] h-[269px] object-cover border-2 border-[#00A3E0]" 
-                    src={imgScreenshot20260125At113416Am1} 
+                  <img
+                    alt="Design system spacing screenshot"
+                    className="w-[200px] h-[269px] object-cover border-2 border-[#00A3E0]"
+                    src={imgScreenshot20260125At113416Am1}
                   />
                   {/* Corner dots */}
                   <div className="absolute left-[-9px] top-[-6px] w-[8px] h-[8px] bg-[#00A3E0]" />
@@ -174,10 +174,10 @@ export function AboutPage() {
 
               {/* Doodle Character - Hidden on mobile */}
               <div className="hidden lg:block absolute left-[170px] top-[480px]" style={{ transform: 'rotate(-10.22deg)' }}>
-                <img 
-                  alt="Doodle character" 
-                  className="w-[116px] h-[103px] object-contain" 
-                  src={image_b666cafd2dcbbabf097ae8f0dc06bfaface97220} 
+                <img
+                  alt="Doodle character"
+                  className="w-[116px] h-[103px] object-contain"
+                  src={image_b666cafd2dcbbabf097ae8f0dc06bfaface97220}
                 />
               </div>
 
@@ -186,7 +186,7 @@ export function AboutPage() {
 
           {/* My Journey So Far Section */}
           <div className="max-w-[1320px] mx-auto mt-20 lg:mt-32">
-            <div className="relative min-h-[500px] lg:h-[900px] lg:ml-[-70px] lg:overflow-hidden">
+            <div className="relative min-h-[500px] lg:h-[1050px] lg:ml-[-70px] lg:overflow-hidden">
               <AboutMyJourneySoFar />
             </div>
           </div>

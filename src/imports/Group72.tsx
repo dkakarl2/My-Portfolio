@@ -19,7 +19,7 @@ export default function Group1() {
   return (
     <div className="relative size-full">
       <Group />
-      <p className="absolute css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] h-[29px] leading-[normal] left-0 not-italic text-[#bfbfbf] text-[14px] top-[37.35px] w-[87px]">Hover to say hi</p>
+      <p className="absolute css-4hzbpn font-['Caveat_Brush',cursive] h-[29px] leading-[normal] left-0 not-italic text-[#bfbfbf] text-[14px] top-[37.35px] w-[87px]">Hover to say hi</p>
     </div>
   );
 }

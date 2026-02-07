@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import Group72 from "@/imports/Group72";
 import Group45 from "@/imports/Group45";
+import { ScribbleHighlight } from "@/app/components/ScribbleHighlight";
 
 export function Hero() {
   const [activeTab, setActiveTab] = useState<string>("anyone");
@@ -20,41 +21,37 @@ export function Hero() {
     <section className="pt-32 lg:pt-56 pb-20 lg:pb-60 px-8 lg:px-0 lg:pl-[204px] max-w-[1224px] mx-auto overflow-hidden lg:overflow-visible">
       <div className="relative flex flex-col lg:block">
         {/* Category tabs */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="flex flex-wrap gap-4 lg:gap-6 mb-8 lg:mb-12"
         >
-          <button 
+          <button
             onClick={() => setActiveTab("anyone")}
-            className={`font-['Inter'] font-bold text-sm transition-colors ${
-              activeTab === "anyone" ? "text-black" : "text-[#bfbfbf] hover:text-black"
-            }`}
+            className={`font-['Inter'] font-bold text-sm transition-colors ${activeTab === "anyone" ? "text-black" : "text-[#bfbfbf] hover:text-black"
+              }`}
           >
             For anyone
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab("recruiters")}
-            className={`font-['Inter'] font-bold text-sm transition-colors ${
-              activeTab === "recruiters" ? "text-black" : "text-[#bfbfbf] hover:text-black"
-            }`}
+            className={`font-['Inter'] font-bold text-sm transition-colors ${activeTab === "recruiters" ? "text-black" : "text-[#bfbfbf] hover:text-black"
+              }`}
           >
             For recruiters
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab("designers")}
-            className={`font-['Inter'] font-bold text-sm transition-colors ${
-              activeTab === "designers" ? "text-black" : "text-[#bfbfbf] hover:text-black"
-            }`}
+            className={`font-['Inter'] font-bold text-sm transition-colors ${activeTab === "designers" ? "text-black" : "text-[#bfbfbf] hover:text-black"
+              }`}
           >
             For product designers
           </button>
-          <button 
+          <button
             onClick={() => setActiveTab("engineers")}
-            className={`font-['Inter'] font-bold text-sm transition-colors ${
-              activeTab === "engineers" ? "text-black" : "text-[#bfbfbf] hover:text-black"
-            }`}
+            className={`font-['Inter'] font-bold text-sm transition-colors ${activeTab === "engineers" ? "text-black" : "text-[#bfbfbf] hover:text-black"
+              }`}
           >
             For engineers
           </button>
@@ -63,7 +60,7 @@ export function Hero() {
         {/* Content container */}
         <div className="flex flex-col gap-[18px] mb-16">
           {/* Hello intro */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -73,9 +70,9 @@ export function Hero() {
               Hello, I'm Deepika
             </p>
             <div className="w-[20px] h-[23px] lg:w-[23px] lg:h-[26px] relative">
-              <img 
-                src={imgImage49} 
-                alt="" 
+              <img
+                src={imgImage49}
+                alt=""
                 className="absolute left-[-38.58%] top-[-24.59%] w-[173.27%] h-[150.81%] max-w-none object-contain"
               />
             </div>
@@ -85,7 +82,7 @@ export function Hero() {
           <div className="relative min-h-[160px] lg:min-h-[200px]">
             <AnimatePresence mode="wait">
               {activeTab === "anyone" && (
-                <motion.div 
+                <motion.div
                   key="anyone"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -97,19 +94,12 @@ export function Hero() {
                 >
                   <h1 className="font-['Inter'] font-bold lg:text-[48px] leading-tight lg:leading-[50px] text-black text-[28px]">
                     I{" "}
-                    <motion.span 
-                      className="inline-block"
-                      initial={{ color: "#000000" }}
-                      animate={{ color: isHovered ? "#4AB7C4" : "#E74973" }}
-                      transition={{ 
-                        duration: 0.8, 
-                        delay: 0.5, 
-                        ease: "easeInOut"
-                      }}
-                    >
-                      design digital products
-                    </motion.span>{" "}
-                    the way<br className="hidden lg:block" />
+                    <div className="inline-block relative z-10 mx-2 lg:mx-3 align-bottom lg:align-baseline">
+                      <ScribbleHighlight active={true} color={isHovered ? "#4AB7C4" : "#E74973"}>
+                        design
+                      </ScribbleHighlight>
+                    </div>{" "}
+                    digital products the way<br className="hidden lg:block" />
                     architects design spaces - with<br className="hidden lg:block" />
                     intention, usability, and flow.
                   </h1>
@@ -117,7 +107,7 @@ export function Hero() {
               )}
 
               {activeTab === "recruiters" && (
-                <motion.div 
+                <motion.div
                   key="recruiters"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -131,24 +121,18 @@ export function Hero() {
                     A Systems-minded UX designer and<br className="hidden lg:block" />
                     researcher, collaborative team player<br className="hidden lg:block" />
                     seeking{" "}
-                    <motion.span 
-                      className="inline-block"
-                      initial={{ color: "#000000" }}
-                      animate={{ color: isHovered ? "#4AB7C4" : "#E74973" }}
-                      transition={{ 
-                        duration: 0.8, 
-                        delay: 0.5, 
-                        ease: "easeInOut"
-                      }}
-                    >
-                      internship opportunities
-                    </motion.span>.
+                    <div className="inline-block relative z-10 mx-2 lg:mx-3 align-bottom lg:align-baseline">
+                      <ScribbleHighlight active={true} color={isHovered ? "#4AB7C4" : "#E74973"}>
+                        internship
+                      </ScribbleHighlight>
+                    </div>{" "}
+                    opportunities.
                   </h1>
                 </motion.div>
               )}
 
               {activeTab === "designers" && (
-                <motion.div 
+                <motion.div
                   key="designers"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -162,24 +146,18 @@ export function Hero() {
                     A Product designer focused on<br className="hidden lg:block" />
                     interaction logic, scalable usability,<br className="hidden lg:block" />
                     and consistent{" "}
-                    <motion.span 
-                      className="inline-block"
-                      initial={{ color: "#000000" }}
-                      animate={{ color: isHovered ? "#4AB7C4" : "#E74973" }}
-                      transition={{ 
-                        duration: 0.8, 
-                        delay: 0.5, 
-                        ease: "easeInOut"
-                      }}
-                    >
-                      experience systems
-                    </motion.span>.
+                    <div className="inline-block relative z-10 mx-2 lg:mx-3 align-bottom lg:align-baseline">
+                      <ScribbleHighlight active={true} color={isHovered ? "#4AB7C4" : "#E74973"}>
+                        experience
+                      </ScribbleHighlight>
+                    </div>{" "}
+                    systems.
                   </h1>
                 </motion.div>
               )}
 
               {activeTab === "engineers" && (
-                <motion.div 
+                <motion.div
                   key="engineers"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -191,18 +169,11 @@ export function Hero() {
                 >
                   <h1 className="font-['Inter'] font-bold lg:text-[48px] leading-tight lg:leading-[50px] text-black text-[28px]">
                     I design with{" "}
-                    <motion.span 
-                      className="inline-block"
-                      initial={{ color: "#000000" }}
-                      animate={{ color: isHovered ? "#4AB7C4" : "#E74973" }}
-                      transition={{ 
-                        duration: 0.8, 
-                        delay: 0.5, 
-                        ease: "easeInOut"
-                      }}
-                    >
-                      feasibility
-                    </motion.span>{" "}
+                    <div className="inline-block relative z-10 mx-2 lg:mx-3 align-bottom lg:align-baseline">
+                      <ScribbleHighlight active={true} color={isHovered ? "#4AB7C4" : "#E74973"}>
+                        feasibility
+                      </ScribbleHighlight>
+                    </div>{" "}
                     in mind,<br className="hidden lg:block" />
                     clear flows, edge cases, and<br className="hidden lg:block" />
                     implementation-ready systems.
@@ -214,7 +185,7 @@ export function Hero() {
         </div>
 
         {/* Doodle illustration - positioned absolutely on desktop, relative on mobile */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -223,15 +194,15 @@ export function Hero() {
           onMouseEnter={() => setIsImageHovered(true)}
           onMouseLeave={() => setIsImageHovered(false)}
         >
-          <img 
-            src={isImageHovered ? imgImage48Hover : imgImage47} 
-            alt="Doodle character" 
+          <img
+            src={isImageHovered ? imgImage48Hover : imgImage47}
+            alt="Doodle character"
             className="w-full h-full object-contain transition-opacity duration-300"
           />
         </motion.div>
 
         {/* Hover to say hi text - positioned near doodle */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -241,7 +212,7 @@ export function Hero() {
         </motion.div>
 
         {/* Current role - positioned parallel to doodle */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}

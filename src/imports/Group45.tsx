@@ -13,7 +13,7 @@ function NewAsuEdplusColor() {
 export default function Group() {
   return (
     <div className="relative size-full">
-      <div className="absolute css-g0mm18 font-['Caveat_Brush:Regular',sans-serif] leading-[normal] left-0 not-italic text-[#747474] text-[24px] top-[5.77px]">
+      <div className="absolute css-g0mm18 font-['Caveat_Brush',cursive] leading-[normal] left-0 not-italic text-[#747474] text-[24px] top-[5.77px]">
         <p className="css-ew64yg mb-0">{`I’m currently at `}</p>
         <p className="css-ew64yg">as UX Design Assistant</p>
       </div>

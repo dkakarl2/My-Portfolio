@@ -14,7 +14,7 @@ export function MayoClinicCaseStudy() {
       <Navigation />
 
       {/* Top Project Navigation */}
-      
+
       {/* Main content */}
       <motion.main
         initial={{ opacity: 0 }}

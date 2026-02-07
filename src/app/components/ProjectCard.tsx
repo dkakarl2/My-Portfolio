@@ -49,14 +49,14 @@ interface ProjectCardProps {
   caseStudyLink?: string;
 }
 
-export function ProjectCard({ 
-  title, 
-  description, 
-  role, 
-  company, 
-  timeline, 
-  duration, 
-  images, 
+export function ProjectCard({
+  title,
+  description,
+  role,
+  company,
+  timeline,
+  duration,
+  images,
   folderColor,
   reverse = false,
   hoverImage,
@@ -64,18 +64,18 @@ export function ProjectCard({
   caseStudyLink
 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  
+
   // Check if images is an array or detailed object
   const isArrayFormat = Array.isArray(images);
 
   const cardContent = (
     <div className={`grid grid-cols-1 lg:grid-cols-2 items-center py-6 gap-6 lg:gap-0 ${caseStudyLink ? 'cursor-pointer' : ''}`}>
       {/* Folder with images */}
-      <div className={`relative p-0 ${reverse ? 'lg:col-start-2' : 'lg:col-start-1'} flex justify-center lg:block`}>
+      <div className={`relative p-0 ${reverse ? 'lg:col-start-2' : 'lg:col-start-1'} flex justify-center items-center`}>
         {/* Layered collage card - Scaled for mobile */}
         <div className="relative w-[320px] h-[300px] sm:w-[488px] sm:h-[462px] lg:w-[488px] lg:h-[462px] transition-transform origin-center lg:origin-top-left">
           {/* Inner container with original fixed dimensions, scaled via transform on parent or using style scale */}
-          <div 
+          <div
             className="absolute top-0 left-0 w-[488px] h-[462px] scale-[0.65] sm:scale-100 origin-top-left"
             onMouseEnter={() => (hoverImage || hoverComponent) && setIsHovered(true)}
             onMouseLeave={() => (hoverImage || hoverComponent) && setIsHovered(false)}
@@ -93,16 +93,16 @@ export function ProjectCard({
             {/* Default state (visible when not hovered) */}
             {/* On mobile, we always show this state and ignore hover effects */}
             <div className={`transition-opacity duration-500 ${isHovered && (hoverImage || hoverComponent) ? 'lg:opacity-0 lg:pointer-events-none' : 'opacity-100'}`}>
-              <div className="relative w-full max-w-[422px] mx-auto h-[334px]">
+              <div className="relative w-full max-w-[422px] mx-auto h-[334px] drop-shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
                 {/* Left rotated image */}
                 <div className="absolute flex h-[220.677px] items-center justify-center left-[45.74px] top-0 w-[176.658px]">
                   <div className="flex-none rotate-[-9.77deg]">
                     <div className="h-[198.95px] relative rounded-[12.376px] w-[144.986px]">
                       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[12.376px]">
-                        <img 
-                          alt="" 
-                          className="absolute inset-0 w-full h-full object-cover" 
-                          src={isArrayFormat ? images[0] : images.rotated1?.src} 
+                        <img
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover"
+                          src={isArrayFormat ? images[0] : images.rotated1?.src}
                         />
                       </div>
                     </div>
@@ -114,10 +114,10 @@ export function ProjectCard({
                   <div className="flex-none rotate-[6.37deg]">
                     <div className="h-[204.447px] relative rounded-[9.89px] w-[149.584px]">
                       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[9.89px]">
-                        <img 
-                          alt="" 
-                          className="absolute inset-0 w-full h-full object-cover" 
-                          src={isArrayFormat ? images[1] : images.rotated2?.src} 
+                        <img
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover"
+                          src={isArrayFormat ? images[1] : images.rotated2?.src}
                         />
                       </div>
                     </div>
@@ -127,10 +127,10 @@ export function ProjectCard({
                 {/* Main center background image */}
                 <div className="absolute h-[187px] left-[10px] rounded-[21.016px] top-[37px] w-[403px]">
                   <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[21.016px]">
-                    <img 
-                      alt="" 
-                      className="absolute inset-0 w-full h-full object-cover" 
-                      src={isArrayFormat ? images[2] : images.background?.src} 
+                    <img
+                      alt=""
+                      className="absolute inset-0 w-full h-full object-cover"
+                      src={isArrayFormat ? images[2] : images.background?.src}
                     />
                   </div>
                 </div>
@@ -143,12 +143,12 @@ export function ProjectCard({
                 </div>
 
                 {/* Text content inside white panel */}
-                <div className="absolute content-stretch flex flex-col font-['Inter'] font-medium gap-[73px] h-[160px] items-start leading-[normal] left-[26.54px] not-italic top-[146.58px] w-[190px]">
+                <div className="absolute content-stretch flex flex-col font-['Inter'] font-medium gap-[73px] h-[160px] items-start leading-[normal] left-[26.54px] not-italic top-[146.58px] w-auto">
                   <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-[20px] w-[152.056px]">
                     <p className="relative shrink-0 text-black w-full">{timeline}</p>
                     <p className="relative shrink-0 text-[#797979] w-full">{duration}</p>
                   </div>
-                  <p className="min-w-full relative shrink-0 text-[24px] text-black w-[min-content]">{company}</p>
+                  <p className="min-w-full relative shrink-0 text-[24px] text-black w-auto whitespace-nowrap">{company}</p>
                 </div>
               </div>
             </div>
@@ -156,9 +156,9 @@ export function ProjectCard({
             {/* Hover state (visible when hovered) - hidden on touch devices */}
             <div className={`absolute inset-0 transition-opacity duration-500 hidden lg:block ${isHovered && (hoverImage || hoverComponent) ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
               <div className="relative w-full h-full flex items-center justify-center">
-                {hoverImage && <img 
-                  src={hoverImage} 
-                  alt="Mayo Clinic project details" 
+                {hoverImage && <img
+                  src={hoverImage}
+                  alt="Mayo Clinic project details"
                   className="w-full h-auto object-contain"
                 />}
                 {hoverComponent && hoverComponent}
@@ -169,20 +169,20 @@ export function ProjectCard({
       </div>
 
       {/* Project description */}
-      <div 
-        className={`space-y-4 w-full lg:w-fit px-4 lg:px-0 ${reverse ? 'lg:col-start-1 lg:row-start-1 lg:ml-[86px]' : 'lg:col-start-2'}`}
+      <div
+        className={`space-y-4 w-full lg:w-fit px-4 lg:px-0 mx-auto ${reverse ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-2'}`}
         onMouseEnter={() => (hoverImage || hoverComponent) && setIsHovered(true)}
         onMouseLeave={() => (hoverImage || hoverComponent) && setIsHovered(false)}
       >
         <h3 className="font-['Inter'] font-semibold text-lg lg:text-xl leading-normal text-black max-w-full lg:max-w-[430px]">
           {description}
         </h3>
-        
+
         <div className="flex items-start gap-4">
           <div className="w-5 h-6 lg:w-6 lg:h-7 relative flex-shrink-0">
-            <img 
-              src={imgImage49} 
-              alt="" 
+            <img
+              src={imgImage49}
+              alt=""
               className="absolute inset-0 w-full h-full object-contain"
             />
           </div>

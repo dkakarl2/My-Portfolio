@@ -104,7 +104,7 @@ function Frame1() {
   return (
     <div className="content-stretch flex gap-[10px] items-center justify-center relative shrink-0 w-full">
       <Group />
-      <p className="css-4hzbpn flex-[1_0_0] font-['Caveat_Brush:Regular',sans-serif] leading-[normal] min-h-px min-w-px not-italic relative text-[#747474] text-[20px]">Currently at</p>
+      <p className="css-4hzbpn flex-[1_0_0] font-['Caveat_Brush',cursive] leading-[normal] min-h-px min-w-px not-italic relative text-[#747474] text-[20px]">Currently at</p>
     </div>
   );
 }
@@ -112,10 +112,10 @@ function Frame1() {
 function Frame6() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[1090px] top-[152px] w-[255px]">
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic relative shrink-0 text-[#747474] text-[16px] w-full">Support UX research, design QA, and component enhancements for ASU Online used by online learners worldwide.</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Intern</p>
+      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium leading-[normal] not-italic relative shrink-0 text-[#747474] text-[16px] w-full">Support UX research, design QA, and component enhancements for ASU Online used by online learners worldwide.</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] leading-[normal] not-italic relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Intern</p>
       <Frame1 />
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] leading-[normal] not-italic relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
     </div>
   );
 }
@@ -123,10 +123,10 @@ function Frame6() {
 function Frame3() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[504px] not-italic top-[169px] w-[271px]">
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Worked on the Rocket Design System (RDS) at ASU EdPlus, improving component consistency, accessibility, and scalable UX patterns across digital products.</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Student Worker</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Jun 25’ - Jan 26’</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
+      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Worked on the Rocket Design System (RDS) at ASU EdPlus, improving component consistency, accessibility, and scalable UX patterns across digital products.</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Student Worker</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">Jun 25’ - Jan 26’</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
     </div>
   );
 }
@@ -134,10 +134,10 @@ function Frame3() {
 function Frame5() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[111px] not-italic top-[222px] w-[293px]">
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Architecture Intern at Offcentered Architects, contributing to concept development, spatial planning, and design documentation across residential and commercial projects.</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">Architect Intern</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Jan 22’ - Jun 22’</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#ddb81f] text-[40px] w-full">Offcentered architects</p>
+      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Architecture Intern at Offcentered Architects, contributing to concept development, spatial planning, and design documentation across residential and commercial projects.</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">Architect Intern</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">Jan 22’ - Jun 22’</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#ddb81f] text-[40px] w-full">Offcentered architects</p>
     </div>
   );
 }
@@ -145,10 +145,10 @@ function Frame5() {
 function Frame2() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[396px] not-italic top-[772px] w-[264px]">
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#24cfa4] text-[40px] w-full">Edufund</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">{`Apr 24’ - Oct 24’ `}</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Intern</p>
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">At Edufund, I designed end-to-end experiences for fintech products, focusing on clarity, accessibility, and reducing friction in complex financial processes.</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#24cfa4] text-[40px] w-full">Edufund</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">{`Apr 24’ - Oct 24’ `}</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Intern</p>
+      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">At Edufund, I designed end-to-end experiences for fintech products, focusing on clarity, accessibility, and reducing friction in complex financial processes.</p>
     </div>
   );
 }
@@ -156,18 +156,18 @@ function Frame2() {
 function Frame4() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[834px] not-italic top-[508px] w-[282px]">
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#0044b3] text-[40px] w-full">Mayo Clinic</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Aug 25’ - Dec 25’</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">{`UX Research & Design Apprenticeship`}</p>
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Collaborated with Mayo Clinic as a UX Design Apprentice to design ChemoBuddy, focusing on clarity, accessibility, and emotional support in healthcare technology.</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#0044b3] text-[40px] w-full">Mayo Clinic</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">Aug 25’ - Dec 25’</p>
+      <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">{`UX Research & Design Apprenticeship`}</p>
+      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Collaborated with Mayo Clinic as a UX Design Apprentice to design ChemoBuddy, focusing on clarity, accessibility, and emotional support in healthcare technology.</p>
     </div>
   );
 }
 
 function Frame() {
   return (
-    <div className="absolute content-stretch flex items-center left-[222px] top-[43px] w-[977px]">
-      <p className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-[50px] not-italic relative shrink-0 text-[48px] text-black">My Journey So Far</p>
+    <div className="absolute content-stretch flex items-center left-[300px] top-[43px]">
+      <p className="css-ew64yg font-['Inter',sans-serif] font-bold leading-[50px] not-italic relative shrink-0 text-[48px] text-black">My Journey So Far</p>
     </div>
   );
 }
@@ -176,29 +176,29 @@ export default function AboutMyJourneySoFar() {
   return (
     <div className="bg-white relative size-full">
       {/* Desktop View */}
-      <motion.div 
-        className="hidden lg:block relative size-full" 
+      <motion.div
+        className="hidden lg:block relative size-full"
         data-name="About -My Journey So Far"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
         {/* Timeline Path */}
-        <motion.div 
-          className="absolute h-[433.813px] left-[-14.5px] top-[332.19px] w-[1498.803px]"
+        <motion.div
+          className="absolute h-[433.813px] left-0 right-0 top-[332.19px]"
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1 }
           }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <div className="absolute inset-[-2.31%_-0.67%]">
+          <div className="absolute inset-0">
             <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1518.81 453.815">
               <path d={svgPaths.p34e40a00} id="Vector 112" stroke="var(--stroke-0, black)" strokeLinecap="round" strokeWidth="20" />
             </svg>
           </div>
         </motion.div>
-        
+
         {/* Arrow 1 - Between EdPlus roles */}
         <motion.div
           variants={{
@@ -209,10 +209,10 @@ export default function AboutMyJourneySoFar() {
         >
           <Group1 />
         </motion.div>
-        
+
         {/* Arrow 2 - Offcentered to EdPlus */}
-        <motion.div 
-          className="absolute flex h-[56.155px] items-center justify-center left-[130.51px] top-[490.08px] w-[51.364px]" 
+        <motion.div
+          className="absolute flex h-[56.155px] items-center justify-center left-[130.51px] top-[490.08px] w-[51.364px]"
           style={{ "--transform-inner-width": "0", "--transform-inner-height": "0" } as React.CSSProperties}
           variants={{
             hidden: { opacity: 0 },
@@ -224,7 +224,7 @@ export default function AboutMyJourneySoFar() {
             <Group2 />
           </div>
         </motion.div>
-        
+
         {/* Arrow 3 - Mayo Clinic */}
         <motion.div
           variants={{
@@ -235,7 +235,7 @@ export default function AboutMyJourneySoFar() {
         >
           <Group4 />
         </motion.div>
-        
+
         {/* Arrow 4 - Edufund */}
         <motion.div
           variants={{
@@ -246,7 +246,7 @@ export default function AboutMyJourneySoFar() {
         >
           <Group3 />
         </motion.div>
-        
+
         {/* Arrow 5 - Current EdPlus */}
         <motion.div
           variants={{
@@ -257,7 +257,7 @@ export default function AboutMyJourneySoFar() {
         >
           <Group5 />
         </motion.div>
-        
+
         {/* Card 1 - Current EdPlus */}
         <motion.div
           variants={{
@@ -268,7 +268,7 @@ export default function AboutMyJourneySoFar() {
         >
           <Frame6 />
         </motion.div>
-        
+
         {/* Card 2 - Previous EdPlus */}
         <motion.div
           variants={{
@@ -279,7 +279,7 @@ export default function AboutMyJourneySoFar() {
         >
           <Frame3 />
         </motion.div>
-        
+
         {/* Card 3 - Offcentered */}
         <motion.div
           variants={{
@@ -290,7 +290,7 @@ export default function AboutMyJourneySoFar() {
         >
           <Frame5 />
         </motion.div>
-        
+
         {/* Card 4 - Edufund */}
         <motion.div
           variants={{
@@ -301,7 +301,7 @@ export default function AboutMyJourneySoFar() {
         >
           <Frame2 />
         </motion.div>
-        
+
         {/* Card 5 - Mayo Clinic */}
         <motion.div
           variants={{
@@ -312,10 +312,10 @@ export default function AboutMyJourneySoFar() {
         >
           <Frame4 />
         </motion.div>
-        
+
         {/* Logo 1 - Edufund */}
-        <motion.div 
-          className="absolute left-[411px] rounded-[100px] shadow-[0px_37px_10px_0px_rgba(0,0,0,0),0px_24px_9px_0px_rgba(0,0,0,0.01),0px_13px_8px_0px_rgba(0,0,0,0.05),0px_6px_6px_0px_rgba(0,0,0,0.09),0px_1px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[604px]" 
+        <motion.div
+          className="absolute left-[411px] rounded-[100px] shadow-[0px_37px_10px_0px_rgba(0,0,0,0),0px_24px_9px_0px_rgba(0,0,0,0.01),0px_13px_8px_0px_rgba(0,0,0,0.05),0px_6px_6px_0px_rgba(0,0,0,0.09),0px_1px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[604px]"
           data-name="image 59"
           variants={{
             hidden: { opacity: 0 },
@@ -328,10 +328,10 @@ export default function AboutMyJourneySoFar() {
             <img alt="" className="absolute h-full left-[-49.5%] max-w-none top-0 w-[199.34%]" src={imgImage59} />
           </div>
         </motion.div>
-        
+
         {/* Logo 2 - Previous EdPlus */}
-        <motion.div 
-          className="absolute left-[627px] rounded-[100px] shadow-[0px_31px_9px_0px_rgba(0,0,0,0),0px_20px_8px_0px_rgba(0,0,0,0.01),0px_11px_7px_0px_rgba(0,0,0,0.05),0px_5px_5px_0px_rgba(0,0,0,0.09),0px_1px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[453px]" 
+        <motion.div
+          className="absolute left-[627px] rounded-[100px] shadow-[0px_31px_9px_0px_rgba(0,0,0,0),0px_20px_8px_0px_rgba(0,0,0,0.01),0px_11px_7px_0px_rgba(0,0,0,0.05),0px_5px_5px_0px_rgba(0,0,0,0.09),0px_1px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[453px]"
           data-name="image 60"
           variants={{
             hidden: { opacity: 0 },
@@ -347,10 +347,10 @@ export default function AboutMyJourneySoFar() {
             </div>
           </div>
         </motion.div>
-        
+
         {/* Logo 3 - Current EdPlus */}
-        <motion.div 
-          className="absolute left-[1219px] rounded-[100px] shadow-[0px_31px_9px_0px_rgba(0,0,0,0),0px_20px_8px_0px_rgba(0,0,0,0.01),0px_11px_7px_0px_rgba(0,0,0,0.05),0px_5px_5px_0px_rgba(0,0,0,0.09),0px_1px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[417px]" 
+        <motion.div
+          className="absolute left-[1219px] rounded-[100px] shadow-[0px_31px_9px_0px_rgba(0,0,0,0),0px_20px_8px_0px_rgba(0,0,0,0.01),0px_11px_7px_0px_rgba(0,0,0,0.05),0px_5px_5px_0px_rgba(0,0,0,0.09),0px_1px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[417px]"
           data-name="image 65"
           variants={{
             hidden: { opacity: 0 },
@@ -366,10 +366,10 @@ export default function AboutMyJourneySoFar() {
             </div>
           </div>
         </motion.div>
-        
+
         {/* Logo 4 - Offcentered */}
-        <motion.div 
-          className="absolute left-[117px] rounded-[100px] shadow-[0px_38px_11px_0px_rgba(0,0,0,0),0px_24px_10px_0px_rgba(0,0,0,0.01),0px_14px_8px_0px_rgba(0,0,0,0.05),0px_6px_6px_0px_rgba(0,0,0,0.09),0px_2px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[549px]" 
+        <motion.div
+          className="absolute left-[117px] rounded-[100px] shadow-[0px_38px_11px_0px_rgba(0,0,0,0),0px_24px_10px_0px_rgba(0,0,0,0.01),0px_14px_8px_0px_rgba(0,0,0,0.05),0px_6px_6px_0px_rgba(0,0,0,0.09),0px_2px_3px_0px_rgba(0,0,0,0.1)] size-[81px] top-[549px]"
           data-name="image 62"
           variants={{
             hidden: { opacity: 0 },
@@ -385,10 +385,10 @@ export default function AboutMyJourneySoFar() {
             </div>
           </div>
         </motion.div>
-        
+
         {/* Logo 5 - Mayo Clinic */}
-        <motion.div 
-          className="absolute left-[884px] rounded-[100px] shadow-[0px_43px_12px_0px_rgba(0,0,0,0),0px_27px_11px_0px_rgba(0,0,0,0.01),0px_15px_9px_0px_rgba(0,0,0,0.05),0px_7px_7px_0px_rgba(0,0,0,0.09),0px_2px_4px_0px_rgba(0,0,0,0.1)] size-[81px] top-[332px]" 
+        <motion.div
+          className="absolute left-[884px] rounded-[100px] shadow-[0px_43px_12px_0px_rgba(0,0,0,0),0px_27px_11px_0px_rgba(0,0,0,0.01),0px_15px_9px_0px_rgba(0,0,0,0.05),0px_7px_7px_0px_rgba(0,0,0,0.09),0px_2px_4px_0px_rgba(0,0,0,0.1)] size-[81px] top-[332px]"
           data-name="image 63"
           variants={{
             hidden: { opacity: 0 },
@@ -399,13 +399,13 @@ export default function AboutMyJourneySoFar() {
         >
           <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[100px] size-full" src={imgImage63} />
         </motion.div>
-        
+
         <Frame />
       </motion.div>
 
       {/* Mobile View */}
       <div className="lg:hidden w-full px-4">
-        <h2 className="font-['Inter'] font-bold text-3xl mb-8">My Journey So Far</h2>
+        <h2 className="font-['Inter',sans-serif] font-bold text-3xl mb-8">My Journey So Far</h2>
         <div className="space-y-12">
           {/* EdPlus (Current) */}
           <div className="flex flex-col gap-2">

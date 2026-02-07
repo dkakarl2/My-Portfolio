@@ -109,10 +109,20 @@ export function CustomCursor() {
         "ontouchstart" in window || navigator.maxTouchPoints > 0;
       const small = window.matchMedia("(max-width: 1023px)").matches;
       setIsTouchDevice(hasTouch && small);
+
+      // Manage system cursor visibility
+      if (!hasTouch) {
+        document.documentElement.style.cursor = 'none';
+      } else {
+        document.documentElement.style.cursor = '';
+      }
     };
     check();
     window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    return () => {
+      window.removeEventListener("resize", check);
+      document.documentElement.style.cursor = '';
+    };
   }, []);
 
   // Is the element (or an ancestor) clickable?
@@ -165,8 +175,18 @@ export function CustomCursor() {
       }
 
       const lum = getLuminance(rgb[0], rgb[1], rgb[2]);
-      // Dark background → white cursor, light background → black cursor
-      setCursorColor(lum < 0.4 ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)");
+
+      // Chameleon Effect:
+      // 1. Very dark background (< 0.15) -> White cursor
+      // 2. Very light background (> 0.85) -> Black cursor
+      // 3. Mid-tones -> Match the sampled background color
+      if (lum < 0.15) {
+        setCursorColor("rgba(255, 255, 255, 1)");
+      } else if (lum > 0.85) {
+        setCursorColor("rgba(0, 0, 0, 1)");
+      } else {
+        setCursorColor(`rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, 1)`);
+      }
     };
 
     const onMouseDown = () => setIsClicking(true);
@@ -231,6 +251,7 @@ export function CustomCursor() {
         style={{
           translateX: "-50%",
           translateY: "-50%",
+          border: "1px solid rgba(255, 255, 255, 0.5)", // Ensure visibility on matching backgrounds
         }}
       />
     </motion.div>

@@ -165,8 +165,8 @@ function Frame4() {
 
 function Frame() {
   return (
-    <div className="absolute content-stretch flex items-center left-[222px] top-[43px] w-[977px]">
-      <p className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-[50px] not-italic relative shrink-0 text-[48px] text-black">My Journey So Far</p>
+    <div className="absolute content-stretch flex items-center justify-center left-0 right-0 top-[43px]">
+      <p className="css-ew64yg font-['Caveat_Brush',sans-serif] leading-[50px] not-italic relative shrink-0 text-[48px] text-black">My Journey So Far</p>
     </div>
   );
 }
@@ -174,8 +174,8 @@ function Frame() {
 export default function AboutMyJourneySoFar() {
   return (
     <div className="bg-white relative size-full" data-name="About -My Journey So Far">
-      <div className="absolute h-[433.813px] left-[-14.5px] top-[332.19px] w-[1498.803px]">
-        <div className="absolute inset-[-2.31%_-0.67%]">
+      <div className="absolute h-[433.813px] left-0 right-0 top-[332.19px]">
+        <div className="absolute inset-0">
           <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1518.81 453.815">
             <path d={svgPaths.p34e40a00} id="Vector 112" stroke="var(--stroke-0, black)" strokeLinecap="round" strokeWidth="20" />
           </svg>

@@ -5,7 +5,7 @@ import svgPaths from "./svg-guyf3ua2we";
 import imgComponent5 from "figma:asset/da71ab60a626af85354ff4eeeb327e6711792b31.png";
 import heroAnimationGif from "@/assets/hero-animation.gif";
 import rdsHeroAnimationGif from "@/assets/rds-hero-animation.gif";
-import rdsHeroImage from "figma:asset/2cda5f1e9c179f5f50d2ebbb303d067da1411ded.png";
+import rdsHeroImage from "@/assets/Rocket design system hero image.png";
 import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
 import imgImage115 from "figma:asset/adf2f7f090fc9d8b0bc367bedff3d83b1ce9b693.png";
 import imgImage116 from "figma:asset/c550bafe6716d9f9ac000d2bfa546a5610cdb757.png";
@@ -141,7 +141,12 @@ function Frame49() {
 function Frame48() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0">
+        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
+      </div>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">The Rocket Design System (RDS) is a centralized design system used across ASU Online platforms and digital learning materials. It provides reusable components, design patterns, accessibility standards, and documentation that help teams create consistent, scalable, and user-friendly educational experiences.</p>
     </div>
   );
@@ -224,7 +229,12 @@ function Frame75() {
 function Frame78() {
   return (
     <div className="content-stretch flex items-center justify-center relative shrink-0">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
+      <div className="content-stretch flex items-center justify-center gap-[12px] relative shrink-0">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
+      </div>
     </div>
   );
 }
@@ -287,7 +297,7 @@ function Frame1() {
     <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[298px]">
       <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
         <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[21px] text-[#5d5d5d] text-[20px] top-[32px] w-[194px] whitespace-pre-wrap">Reduced design-to-dev QA cycles by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[21px] text-[56px] text-[rgb(255,127,50)] top-[119px]">
+        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[21px] text-[56px] text-black top-[119px]">
           <RdsAnimatedCounter target={30} suffix="%" />
         </p>
       </div>
@@ -301,7 +311,7 @@ function Frame14() {
     <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[303px]">
       <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
         <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[22px] text-[#5d5d5d] text-[20px] top-[32px] w-[218px] whitespace-pre-wrap">Improved accessibility compliance by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[22px] text-[56px] text-[rgb(231,73,115)] top-[119px]">
+        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[22px] text-[56px] text-black top-[119px]">
           <RdsAnimatedCounter target={15} suffix="%" />
         </p>
       </div>
@@ -315,7 +325,7 @@ function Frame3() {
     <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[345px]">
       <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
         <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[18px] text-[#5d5d5d] text-[20px] top-[32px] w-[288px] whitespace-pre-wrap">Delivered consistent, scalable components powering</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[18px] text-[56px] text-[rgb(120,190,32)] top-[119px]">
+        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[18px] text-[56px] text-black top-[119px]">
           <RdsAnimatedCounter target={15} suffix="+ sites" />
         </p>
       </div>
@@ -361,7 +371,12 @@ function Frame76() {
 function Frame60() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">But… why do growing digital platforms struggle with consistency, scalability, and accessibility?</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">As ASU EdPlus expanded its digital learning ecosystem, design and development teams began facing increasing complexity. Multiple products were being built in parallel, often without a shared foundation, leading to inconsistent UI patterns, repeated design effort, and accessibility being addressed too late in the process. At the same time, unclear handoff between design and engineering created friction in implementation. Together, these challenges slowed production and resulted in experiences that didn’t always feel cohesive for users.</p>
     </div>
@@ -379,7 +394,12 @@ function Frame67() {
 function Frame61() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[698px] whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Crafting Clarity Through Design Systems Thinking</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">As a UX Designer focused on design systems, I contributed to the growth and refinement of the Rocket Design System by designing and improving reusable components, conducting UX audits across multiple products, and ensuring alignment through design QA. I also helped develop system documentation and the component playbook, while collaborating closely with engineers to maintain consistency between design and implementation.</p>
     </div>
@@ -402,7 +422,12 @@ function Frame69() {
 function Frame63() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Design system library</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Design system library</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">{`Component Creation & Design QA`}</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">This was the heart of my contribution, designing, testing, and documenting reusable components that drive ASU Online’s web experiences.</p>
     </div>
@@ -1008,7 +1033,12 @@ function Frame15() {
 function Frame65() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`Research & System Audit`}</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`Research & System Audit`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Before building new components, we analyzed existing products.</p>
       <Frame15 />
     </div>
@@ -1139,7 +1169,12 @@ function Frame68() {
 function Frame66() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Documentation</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Documentation</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">The Component Playbook</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">A design system only works if teams understand how to use it.</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
@@ -1200,7 +1235,12 @@ function Frame73() {
 function Frame70() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Key Learnings</p>
+      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
+        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
+          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
+        </div>
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Key Learnings</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">It reminded me that great systems are living organisms, they evolve, adapt, and grow with every contribution.</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="mb-0">Working on Rocket Design System taught me that a design system isn’t just components, it’s communication.</p>
@@ -1237,7 +1277,25 @@ export default function RdsEdPlus() {
     <div className="bg-white relative w-full">
       {/* Desktop Layout - Preserved */}
       <div className="hidden lg:block relative min-h-[4500px] w-full mx-auto" data-name="RDS EdPlus">
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[50px] left-[222px] not-italic text-[36px] text-black top-[185px] w-[993px] whitespace-pre-wrap">Rocket Design System, built at ASU EdPlus, to transform digital products into consistent, accessible, and scalable design experiences</p>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          padding: '0px',
+          gap: '24px',
+          position: 'absolute',
+          width: '993px',
+          height: '114px',
+          left: '260px',
+          top: '180px'
+        }}>
+          <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
+            Rocket Design System
+          </h1>
+          <p className="font-['Inter'] text-[20px] leading-normal text-[#484848] m-0 p-0">
+            Built at ASU EdPlus to transform digital products into consistent, accessible, and scalable design experiences.
+          </p>
+        </div>
         <Component />
         <Frame49 />
         <Frame77 />
@@ -1247,22 +1305,27 @@ export default function RdsEdPlus() {
       <div className="lg:hidden w-full flex flex-col items-center pb-32 bg-white">
         {/* Mobile Header */}
         <div className="w-full px-6 py-4 flex justify-between items-center bg-white/90 backdrop-blur sticky top-0 z-50 border-b border-gray-100">
-           <span className="font-['Caveat_Brush'] text-[28px] text-[#747474]">d.</span>
+          <span className="font-['Caveat_Brush'] text-[28px] text-[#747474]">d.</span>
         </div>
 
         {/* 1. Hero & Title */}
         <div className="w-full px-6 pt-8 pb-12">
-           <h1 className="font-['Inter'] font-bold text-2xl leading-tight text-black mb-6">
-             Rocket Design System, built at ASU EdPlus, to transform digital products into consistent, accessible, and scalable design experiences
-           </h1>
-           <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg mb-8">
-              <img src={rdsHeroImage} alt="Rocket Design System Hero" className="w-full h-full object-cover" />
-           </div>
+          <div className="flex flex-col gap-4 mb-6">
+            <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black">
+              Rocket Design System
+            </h1>
+            <p className="font-['Inter'] text-lg leading-snug text-[#484848]">
+              Built at ASU EdPlus to transform digital products into consistent, accessible, and scalable design experiences.
+            </p>
+          </div>
+          <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg mb-8">
+            <img src={rdsHeroImage} alt="Rocket Design System Hero" className="w-full h-full object-cover" />
+          </div>
         </div>
 
         {/* Mobile Content Stack */}
         <div className="w-full px-6 space-y-16 max-w-md mx-auto">
-          
+
           {/* 2. Overview */}
           <div className="space-y-6">
             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Overview</h2>
@@ -1273,176 +1336,176 @@ export default function RdsEdPlus() {
 
           {/* 3. Context & Problem */}
           <div className="space-y-8">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Context & Problem</h2>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               As ASU EdPlus expanded, different teams were building new features without a shared foundation. Interfaces started to feel disconnected, work was duplicated, and accessibility was often addressed too late.
-             </p>
-             
-             <div className="bg-gray-50 p-6 rounded-xl space-y-3">
-               <p className="font-bold text-black">The Goal:</p>
-               <p className="text-[#484848]">To bring structure to this growing ecosystem, creating a unified design language that connects products through consistent, accessible patterns.</p>
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Context & Problem</h2>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              As ASU EdPlus expanded, different teams were building new features without a shared foundation. Interfaces started to feel disconnected, work was duplicated, and accessibility was often addressed too late.
+            </p>
 
-             <div className="space-y-6">
-                <h3 className="font-bold text-lg">3 Major Obstacles:</h3>
-                <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
-                   <img src={imgImage115} alt="Inconsistency" className="w-full h-32 object-contain mb-2" />
-                   <p className="font-['Inter'] italic text-sm text-[#484848]">Fragmented experiences across platforms.</p>
-                </div>
-                <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
-                   <img src={imgImage116} alt="Rework" className="w-full h-32 object-contain mb-2" />
-                   <p className="font-['Inter'] italic text-sm text-[#484848]">Redundant work recreating components.</p>
-                </div>
-                <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
-                   <img src={imgImage117} alt="Accessibility" className="w-full h-32 object-contain mb-2" />
-                   <p className="font-['Inter'] italic text-sm text-[#484848]">Accessibility issues addressed too late.</p>
-                </div>
-             </div>
+            <div className="bg-gray-50 p-6 rounded-xl space-y-3">
+              <p className="font-bold text-black">The Goal:</p>
+              <p className="text-[#484848]">To bring structure to this growing ecosystem, creating a unified design language that connects products through consistent, accessible patterns.</p>
+            </div>
+
+            <div className="space-y-6">
+              <h3 className="font-bold text-lg">3 Major Obstacles:</h3>
+              <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
+                <img src={imgImage115} alt="Inconsistency" className="w-full h-32 object-contain mb-2" />
+                <p className="font-['Inter'] italic text-sm text-[#484848]">Fragmented experiences across platforms.</p>
+              </div>
+              <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
+                <img src={imgImage116} alt="Rework" className="w-full h-32 object-contain mb-2" />
+                <p className="font-['Inter'] italic text-sm text-[#484848]">Redundant work recreating components.</p>
+              </div>
+              <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
+                <img src={imgImage117} alt="Accessibility" className="w-full h-32 object-contain mb-2" />
+                <p className="font-['Inter'] italic text-sm text-[#484848]">Accessibility issues addressed too late.</p>
+              </div>
+            </div>
           </div>
 
           {/* 4. Results & Impact */}
           <div className="space-y-8">
-             <div className="text-center">
-                <h3 className="font-['Inter'] font-bold text-2xl text-black mb-2">Results & Impact</h3>
-                <p className="font-['Inter'] text-[#484848]">Measuring how design decisions improved clarity and confidence.</p>
-             </div>
+            <div className="text-center">
+              <h3 className="font-['Inter'] font-bold text-2xl text-black mb-2">Results & Impact</h3>
+              <p className="font-['Inter'] text-[#484848]">Measuring how design decisions improved clarity and confidence.</p>
+            </div>
 
-             <div className="grid gap-6">
-                <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
-                   <p className="font-['Inter'] font-medium text-[#5d5d5d] mb-2">Reduced QA cycles by</p>
-                   <p className="font-['Inter'] font-bold text-5xl text-black">30%</p>
-                </div>
-                <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
-                   <p className="font-['Inter'] font-medium text-[#5d5d5d] mb-2">Improved accessibility by</p>
-                   <p className="font-['Inter'] font-bold text-5xl text-black">15%</p>
-                </div>
-                <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
-                   <p className="font-['Inter'] font-medium text-[#5d5d5d] mb-2">Powering</p>
-                   <p className="font-['Inter'] font-bold text-5xl text-black">15+ sites</p>
-                </div>
-             </div>
+            <div className="grid gap-6">
+              <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
+                <p className="font-['Inter'] font-medium text-[#5d5d5d] mb-2">Reduced QA cycles by</p>
+                <p className="font-['Inter'] font-bold text-5xl text-black">30%</p>
+              </div>
+              <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
+                <p className="font-['Inter'] font-medium text-[#5d5d5d] mb-2">Improved accessibility by</p>
+                <p className="font-['Inter'] font-bold text-5xl text-black">15%</p>
+              </div>
+              <div className="bg-white border border-gray-200 p-6 rounded-2xl shadow-sm text-center">
+                <p className="font-['Inter'] font-medium text-[#5d5d5d] mb-2">Powering</p>
+                <p className="font-['Inter'] font-bold text-5xl text-black">15+ sites</p>
+              </div>
+            </div>
           </div>
 
           {/* 5. Role & Contribution */}
           <div className="space-y-6">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Role & Contribution</h2>
-             <h3 className="font-bold text-lg">Crafting Clarity Through Design Systems Thinking</h3>
-             <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-               As a UX Designer focused on design systems, I contributed to the growth and refinement of the Rocket Design System by designing and improving reusable components, conducting UX audits, and ensuring alignment through design QA.
-             </p>
-             <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-lg mt-4">
-                <img src={imgImage118} alt="Design Process" className="absolute inset-0 w-full h-full object-cover" />
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Role & Contribution</h2>
+            <h3 className="font-bold text-lg">Crafting Clarity Through Design Systems Thinking</h3>
+            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+              As a UX Designer focused on design systems, I contributed to the growth and refinement of the Rocket Design System by designing and improving reusable components, conducting UX audits, and ensuring alignment through design QA.
+            </p>
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-lg mt-4">
+              <img src={imgImage118} alt="Design Process" className="absolute inset-0 w-full h-full object-cover" />
+            </div>
           </div>
 
           {/* 6. Research & System Audit */}
           <div className="space-y-6">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Research & Audit</h2>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Before building new components, we analyzed existing products to benchmark best practices.
-             </p>
-             
-             <div className="grid gap-4">
-               <div className="bg-[#fff8e1] p-4 rounded-xl border border-[#ffecb3]">
-                 <p className="font-bold text-black mb-1">Audit Findings</p>
-                 <p className="text-sm text-[#484848]">Found 20+ underlying issues across naming, structure, and accessibility.</p>
-               </div>
-               <div className="bg-[#e8f5e9] p-4 rounded-xl border border-[#c8e6c9]">
-                 <p className="font-bold text-black mb-1">Restructuring</p>
-                 <p className="text-sm text-[#484848]">Initiated brainstorming to restructure the library for scalability and ease of use.</p>
-               </div>
-               <div className="bg-[#e1f5fe] p-4 rounded-xl border border-[#b3e5fc]">
-                 <p className="font-bold text-black mb-1">Prioritization</p>
-                 <p className="text-sm text-[#484848]">Segregated issues into High, Medium, and Low priorities.</p>
-               </div>
-               <div className="bg-[#f3e5f5] p-4 rounded-xl border border-[#e1bee7]">
-                 <p className="font-bold text-black mb-1">Benchmarking</p>
-                 <p className="text-sm text-[#484848]">Analyzed 10+ industry leading systems (IBM Carbon, Atlassian) for best practices.</p>
-               </div>
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Research & Audit</h2>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Before building new components, we analyzed existing products to benchmark best practices.
+            </p>
+
+            <div className="grid gap-4">
+              <div className="bg-[#fff8e1] p-4 rounded-xl border border-[#ffecb3]">
+                <p className="font-bold text-black mb-1">Audit Findings</p>
+                <p className="text-sm text-[#484848]">Found 20+ underlying issues across naming, structure, and accessibility.</p>
+              </div>
+              <div className="bg-[#e8f5e9] p-4 rounded-xl border border-[#c8e6c9]">
+                <p className="font-bold text-black mb-1">Restructuring</p>
+                <p className="text-sm text-[#484848]">Initiated brainstorming to restructure the library for scalability and ease of use.</p>
+              </div>
+              <div className="bg-[#e1f5fe] p-4 rounded-xl border border-[#b3e5fc]">
+                <p className="font-bold text-black mb-1">Prioritization</p>
+                <p className="text-sm text-[#484848]">Segregated issues into High, Medium, and Low priorities.</p>
+              </div>
+              <div className="bg-[#f3e5f5] p-4 rounded-xl border border-[#e1bee7]">
+                <p className="font-bold text-black mb-1">Benchmarking</p>
+                <p className="text-sm text-[#484848]">Analyzed 10+ industry leading systems (IBM Carbon, Atlassian) for best practices.</p>
+              </div>
+            </div>
           </div>
 
           {/* 7. Component Creation */}
           <div className="space-y-6">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Component Creation</h2>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               This was the heart of my contribution—designing, testing, and documenting reusable components.
-             </p>
-             
-             <ul className="grid grid-cols-1 gap-3">
-               <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                 <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">🧩</div>
-                 <span className="text-[#484848] font-medium">Designed 15+ components</span>
-               </li>
-               <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                 <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">♿</div>
-                 <span className="text-[#484848] font-medium">Ensured WCAG 2.2 compliance</span>
-               </li>
-               <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                 <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">✅</div>
-                 <span className="text-[#484848] font-medium">Conducted Design QA</span>
-               </li>
-               <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                 <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">🤖</div>
-                 <span className="text-[#484848] font-medium">Created Accessibility Checker GPT</span>
-               </li>
-             </ul>
-             <div className="w-full mt-6">
-                <img src={exampleImage} alt="Component Details" className="w-full h-auto rounded-xl shadow-lg" />
-                <img src={exampleImage2} alt="Additional Component Details" className="w-full h-auto rounded-xl shadow-lg mt-6" />
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Component Creation</h2>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              This was the heart of my contribution—designing, testing, and documenting reusable components.
+            </p>
+
+            <ul className="grid grid-cols-1 gap-3">
+              <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">🧩</div>
+                <span className="text-[#484848] font-medium">Designed 15+ components</span>
+              </li>
+              <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">♿</div>
+                <span className="text-[#484848] font-medium">Ensured WCAG 2.2 compliance</span>
+              </li>
+              <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">✅</div>
+                <span className="text-[#484848] font-medium">Conducted Design QA</span>
+              </li>
+              <li className="flex items-center gap-3 bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">🤖</div>
+                <span className="text-[#484848] font-medium">Created Accessibility Checker GPT</span>
+              </li>
+            </ul>
+            <div className="w-full mt-6">
+              <img src={exampleImage} alt="Component Details" className="w-full h-auto rounded-xl shadow-lg" />
+              <img src={exampleImage2} alt="Additional Component Details" className="w-full h-auto rounded-xl shadow-lg mt-6" />
+            </div>
           </div>
 
           {/* 8. Library Optimization (Before/After) */}
           <div className="space-y-6">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Library Optimization</h2>
-             
-             <div className="space-y-4">
-               <div className="bg-[#f7dddd] p-3 rounded-t-xl text-[#b72a2a] font-bold text-center">Before Optimization</div>
-               <img src={imgFrame1000006081} alt="Before Library" className="w-full rounded-b-xl shadow-md border border-t-0 border-[#f7dddd]" />
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Library Optimization</h2>
 
-             <div className="space-y-4">
-               <div className="bg-[#e9f5db] p-3 rounded-t-xl text-[#446d12] font-bold text-center">After Optimization</div>
-               <div className="grid grid-cols-2 gap-2">
-                 <img src={imgImage17} alt="After Library 1" className="w-full rounded-bl-xl shadow-md" />
-                 <img src={imgImage15} alt="After Library 2" className="w-full rounded-br-xl shadow-md" />
-               </div>
-             </div>
-             
-             <p className="font-['Inter'] italic text-sm text-[#5d5d5d]">
-               Our goal was to transform RDS into a cohesive, accessible, and well-documented design system that accelerates collaboration.
-             </p>
+            <div className="space-y-4">
+              <div className="bg-[#f7dddd] p-3 rounded-t-xl text-[#b72a2a] font-bold text-center">Before Optimization</div>
+              <img src={imgFrame1000006081} alt="Before Library" className="w-full rounded-b-xl shadow-md border border-t-0 border-[#f7dddd]" />
+            </div>
+
+            <div className="space-y-4">
+              <div className="bg-[#e9f5db] p-3 rounded-t-xl text-[#446d12] font-bold text-center">After Optimization</div>
+              <div className="grid grid-cols-2 gap-2">
+                <img src={imgImage17} alt="After Library 1" className="w-full rounded-bl-xl shadow-md" />
+                <img src={imgImage15} alt="After Library 2" className="w-full rounded-br-xl shadow-md" />
+              </div>
+            </div>
+
+            <p className="font-['Inter'] italic text-sm text-[#5d5d5d]">
+              Our goal was to transform RDS into a cohesive, accessible, and well-documented design system that accelerates collaboration.
+            </p>
           </div>
 
           {/* 9. Documentation */}
           <div className="space-y-6">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Documentation</h2>
-             <h3 className="font-bold text-lg">The Component Playbook</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               A design system only works if teams understand how to use it. I helped create structured documentation covering:
-             </p>
-             <ul className="list-disc pl-5 space-y-2 text-[#484848]">
-               <li>Usage guidelines (When & Why)</li>
-               <li>Variants and states</li>
-               <li>Accessibility guidance</li>
-               <li>Do’s and don’ts</li>
-               <li>Developer handoff notes</li>
-             </ul>
-             <div className="space-y-4 mt-6">
-                <img src={img01PortraitSoftcoverBookMockup1} alt="Playbook Mockup" className="w-full rounded-xl shadow-md" />
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Documentation</h2>
+            <h3 className="font-bold text-lg">The Component Playbook</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              A design system only works if teams understand how to use it. I helped create structured documentation covering:
+            </p>
+            <ul className="list-disc pl-5 space-y-2 text-[#484848]">
+              <li>Usage guidelines (When & Why)</li>
+              <li>Variants and states</li>
+              <li>Accessibility guidance</li>
+              <li>Do’s and don’ts</li>
+              <li>Developer handoff notes</li>
+            </ul>
+            <div className="space-y-4 mt-6">
+              <img src={img01PortraitSoftcoverBookMockup1} alt="Playbook Mockup" className="w-full rounded-xl shadow-md" />
+            </div>
           </div>
 
           {/* 10. Key Learnings */}
           <div className="bg-[#f9f9f9] p-8 rounded-2xl mb-8">
-             <h3 className="font-['Inter'] font-bold text-xl text-black mb-4">Key Learnings</h3>
-             <p className="font-['Inter'] text-[#484848] text-lg leading-relaxed italic">
-               "It reminded me that great systems are living organisms, they evolve, adapt, and grow with every contribution."
-             </p>
-             <p className="font-['Inter'] text-[#484848] text-base mt-4">
-               By focusing on accessibility, documentation, and quality assurance, we created a system that is not just functional but empowering.
-             </p>
+            <h3 className="font-['Inter'] font-bold text-xl text-black mb-4">Key Learnings</h3>
+            <p className="font-['Inter'] text-[#484848] text-lg leading-relaxed italic">
+              "It reminded me that great systems are living organisms, they evolve, adapt, and grow with every contribution."
+            </p>
+            <p className="font-['Inter'] text-[#484848] text-base mt-4">
+              By focusing on accessibility, documentation, and quality assurance, we created a system that is not just functional but empowering.
+            </p>
           </div>
 
         </div>

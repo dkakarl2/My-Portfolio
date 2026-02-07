@@ -12,10 +12,10 @@ export function EdPlusHoverCard() {
         <div className="flex-none rotate-[0.42deg]">
           <div className="h-[213.856px] pointer-events-none relative rounded-[16px] w-[383.604px]">
             <div className="absolute inset-0 overflow-hidden rounded-[16px]">
-              <img 
-                alt="" 
-                className="absolute h-[102.34%] left-[0.18%] max-w-none top-[0.31%] w-full" 
-                src={imgFrame29} 
+              <img
+                alt=""
+                className="absolute h-[102.34%] left-[0.18%] max-w-none top-[0.31%] w-full"
+                src={imgFrame29}
               />
             </div>
             <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.14)] border-solid inset-0 rounded-[16px]" />
@@ -29,10 +29,10 @@ export function EdPlusHoverCard() {
           <div className="bg-white border-[0.808px] border-[rgba(0,0,0,0.14)] border-solid h-[213.2px] overflow-clip relative rounded-[12.921px] w-[200.278px]">
             <div className="absolute h-[153.447px] left-[-12.92px] top-[29.07px] w-[341.586px]">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <img 
-                  alt="" 
-                  className="absolute h-[86.88%] left-[7.94%] max-w-none top-[7.07%] w-[49.52%]" 
-                  src={imgImage11} 
+                <img
+                  alt=""
+                  className="absolute h-[86.88%] left-[7.94%] max-w-none top-[7.07%] w-[49.52%]"
+                  src={imgImage11}
                 />
               </div>
             </div>
@@ -45,10 +45,10 @@ export function EdPlusHoverCard() {
         <div className="flex-none rotate-[16.12deg]">
           <div className="h-[318.703px] pointer-events-none relative rounded-[21.467px] w-[204.807px]">
             <div className="absolute inset-0 overflow-hidden rounded-[21.467px]">
-              <img 
-                alt="" 
-                className="absolute h-[100.77%] left-[-7.46%] max-w-none top-[-0.27%] w-[204.03%]" 
-                src={imgFrame22} 
+              <img
+                alt=""
+                className="absolute h-[100.77%] left-[-7.46%] max-w-none top-[-0.27%] w-[204.03%]"
+                src={imgFrame22}
               />
             </div>
             <div aria-hidden="true" className="absolute border-[1.342px] border-[rgba(0,0,0,0.14)] border-solid inset-0 rounded-[21.467px]" />
@@ -59,10 +59,10 @@ export function EdPlusHoverCard() {
       {/* Main background image */}
       <div className="absolute h-[287.492px] left-[46.25px] rounded-[8px] top-[70.11px] w-[420.043px]">
         <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[8px]">
-          <img 
-            alt="" 
-            className="absolute h-[100.54%] left-[-0.14%] max-w-none top-[-0.21%] w-[99.95%]" 
-            src={imgFrame1000006081} 
+          <img
+            alt=""
+            className="absolute h-[100.54%] left-[-0.14%] max-w-none top-[-0.21%] w-[99.95%]"
+            src={imgFrame1000006081}
           />
         </div>
       </div>
@@ -75,13 +75,13 @@ export function EdPlusHoverCard() {
               <path d={svgPaths.p21176300} fill="white" />
             </g>
             <defs>
-              <filter 
-                colorInterpolationFilters="sRGB" 
-                filterUnits="userSpaceOnUse" 
-                height="235.947" 
-                id="filter0_d_edplus_hover" 
-                width="443.634" 
-                x="-2.38419e-07" 
+              <filter
+                colorInterpolationFilters="sRGB"
+                filterUnits="userSpaceOnUse"
+                height="235.947"
+                id="filter0_d_edplus_hover"
+                width="443.634"
+                x="-2.38419e-07"
                 y="0"
               >
                 <feFlood floodOpacity="0" result="BackgroundImageFix" />
@@ -99,12 +99,12 @@ export function EdPlusHoverCard() {
       </div>
 
       {/* Text content inside white panel */}
-      <div className="absolute content-stretch flex flex-col font-['Inter'] font-medium gap-[73px] h-[160px] items-start leading-[normal] left-[65.65px] not-italic top-[263.18px] w-[211px]">
+      <div className="absolute content-stretch flex flex-col font-['Inter'] font-medium gap-[73px] h-[160px] items-start leading-[normal] left-[65.65px] not-italic top-[263.18px] w-auto">
         <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-[20px] w-[152.056px]">
           <p className="relative shrink-0 text-black w-full">Hackathon</p>
           <p className="relative shrink-0 text-[#797979] w-full">24 hours</p>
         </div>
-        <p className="min-w-full relative shrink-0 text-[24px] text-black w-[min-content]">EdPlus Hackathon</p>
+        <p className="min-w-full relative shrink-0 text-[24px] text-black w-auto whitespace-nowrap">EdPlus Hackathon</p>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import { EduFundHoverCard } from "@/app/components/EduFundHoverCard";
 import { ComingSoonDivider } from "@/app/components/ComingSoonDivider";
 import { Playground } from "@/app/components/Playground";
 import { Footer } from "@/app/components/Footer";
+import { motion } from "motion/react";
 
 // Import project images
 import imgImage3 from "figma:asset/9b1d984b5a3331721ca8520d91e1dae8087d3753.png";
@@ -26,6 +27,33 @@ import imgEduFund2 from "figma:asset/64184af0c9ebee18abab8494831f8cc713d0485b.pn
 import imgRDS1 from "figma:asset/fa0fa915ca52b7cc2b903914318e7d7aeda70798.png";
 import imgRDS2 from "figma:asset/9eeca02bc786feb3f52bfb28300731165d09f8ea.png";
 import imgRDS3 from "figma:asset/944ac635c2d45a20c649055ea33346334c892754.png";
+
+// Animation variants for scroll animations
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" as const }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
+  }
+};
+
+const fadeInScale = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: "easeOut" as const }
+  }
+};
 
 export function HomePage() {
   // Project data
@@ -64,6 +92,18 @@ export function HomePage() {
       caseStudyLink: "/mayo-clinic-case-study",
     },
     {
+      title: "EduFund",
+      description: "I designed digital financial experiences at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.",
+      role: "Research and UX Designer",
+      company: "EduFund",
+      timeline: "Internship",
+      duration: "2024",
+      images: [imgEduFund9, imgEduFund9, imgEduFund2],
+      folderColor: "#FFC627",
+      hoverComponent: <EduFundHoverCard />,
+      caseStudyLink: "/edufund-case-study",
+    },
+    {
       title: "Rocket Design System",
       description: "I designed and scaled the Rocket Design System at ASU to turn digital experiences into consistent, accessible, and reusable interfaces.",
       role: "UX and Design system designer",
@@ -87,18 +127,6 @@ export function HomePage() {
       hoverComponent: <EdPlusHoverCard />,
       caseStudyLink: "/ed-plus-hackathon-case-study",
     },
-    {
-      title: "EduFund",
-      description: "I designed digital financial experiences at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.",
-      role: "Research and UX Designer",
-      company: "EduFund",
-      timeline: "Internship",
-      duration: "2024",
-      images: [imgEduFund9, imgEduFund9, imgEduFund2],
-      folderColor: "#FFC627",
-      hoverComponent: <EduFundHoverCard />,
-      caseStudyLink: "/edufund-case-study",
-    },
   ];
 
   // Placeholder playground items
@@ -114,39 +142,75 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Navigation />
-      
+
       <main>
         <Hero />
 
         {/* Selected Works Section */}
         <section id="work" className="py-20 px-8 lg:px-0 max-w-[1224px] mx-auto">
-          {/* Section header */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+          {/* Section header with scroll animation */}
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-32 mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
             <div className="hidden lg:block lg:col-span-1"></div>
-            <h2 className="font-['Inter'] font-bold text-4xl text-black lg:col-span-3">
+            <motion.h2
+              className="font-['Inter'] font-bold text-4xl text-black lg:col-span-3"
+              variants={fadeInUp}
+            >
               Selected works
-            </h2>
-            <p className="font-['Inter'] font-normal text-[20px] text-[#747474] leading-[normal] lg:col-span-8">
+            </motion.h2>
+            <motion.p
+              className="font-['Inter'] font-normal text-[20px] text-[#747474] leading-[normal] lg:col-span-8"
+              variants={fadeInUp}
+            >
               Design work powered by curiosity, systems thinking, <br />
               and the occasional "why is this like this?"
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          {/* Project cards */}
+          {/* Project cards with staggered scroll animations */}
           <div className="space-y-0">
             {projects.map((project, index) => (
-              <ProjectCard
+              <motion.div
                 key={index}
-                {...project}
-                reverse={index === 1 || index === 3}
-              />
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-50px" }}
+                variants={fadeInScale}
+                transition={{ delay: index * 0.1 }}
+              >
+                <ProjectCard
+                  {...project}
+                  reverse={index === 1 || index === 3}
+                />
+              </motion.div>
             ))}
           </div>
         </section>
 
-        <ComingSoonDivider />
+        {/* Coming Soon Divider with animation */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+        >
+          <ComingSoonDivider />
+        </motion.div>
 
-        <Playground items={playgroundItems} />
+        {/* Playground with animation */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeInUp}
+        >
+          <Playground items={playgroundItems} />
+        </motion.div>
       </main>
 
       <Footer />

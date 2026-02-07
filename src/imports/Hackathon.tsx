@@ -548,7 +548,7 @@ function Frame53() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Data Sources</p>
-      <ol className="block font-['Inter:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[#2b2b2b] w-[816px] whitespace-pre-wrap" start="1">
+      <ol className="block font-['Inter:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[#2b2b2b] w-[816px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[1.6]">{`ASU Course Catalog & Historical Data`}</span>
         </li>
@@ -567,7 +567,7 @@ function Frame54() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Integrations</p>
-      <ol className="block font-['Inter:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[#2b2b2b] w-[816px] whitespace-pre-wrap" start="1">
+      <ol className="block font-['Inter:Medium',sans-serif] font-medium leading-[0] relative shrink-0 text-[#2b2b2b] w-[816px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[1.6]">SIS (PeopleSoft) read for student progress tracking</span>
         </li>
@@ -714,7 +714,7 @@ function Frame88() {
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full not-italic relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">Our focus converged on building an AI-powered course planning assistant embedded directly within ASU’s Class Search interface, a solution that would feel natural and accessible to students.</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-full not-italic relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="leading-[normal] mb-0">We then defined three primary goals to guide every design decision</p>
-        <ol start="1">
+        <ol start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">Reduce repetitive advising queries by automating responses to common scheduling questions.</span>
           </li>
@@ -1222,8 +1222,34 @@ export default function Hackathon() {
     <div className="bg-white relative w-full">
       {/* ===== DESKTOP LAYOUT — Preserved absolute positioning ===== */}
       <div className="hidden lg:block relative size-full" data-name="Hackathon">
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[50px] left-[222px] not-italic text-[36px] text-black top-[185px] w-[993px] whitespace-pre-wrap mb-[64px]">Built an AI-powered advising assistant that simplifies course selection and planning for ASU students.</p>
-        <div className="absolute left-0 top-[360px] w-full">
+        {/* Hero heading with title, subtext, and badge */}
+        <div
+          className="absolute flex flex-col items-start gap-[24px]"
+          style={{ left: '320px', top: '150px', width: '993px' }}
+        >
+          {/* Title and subtext container */}
+          <div className="flex flex-col items-start gap-[16px] w-full">
+            <h1 className="font-['Inter'] font-bold text-[40px] leading-[50px] text-black w-full">
+              AI Advising Assistant
+            </h1>
+            <p className="font-['Inter'] font-normal text-[20px] leading-[24px] text-[#484848] w-full">
+              Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
+            </p>
+          </div>
+          {/* Badge */}
+          <div
+            className="flex flex-row justify-center items-center px-[12px] py-[12px] gap-[10px] rounded-[24px]"
+            style={{
+              background: 'rgba(186, 140, 154, 0.25)',
+              border: '2px solid rgba(186, 140, 154, 0.79)'
+            }}
+          >
+            <span className="font-['Inter'] font-bold text-[16px] leading-[19px] text-[#7A1936]">
+              Built using Vibe Coding tools
+            </span>
+          </div>
+        </div>
+        <div className="absolute left-0 top-[380px] w-full">
           <HackathonHero />
         </div>
         <Frame62 />
@@ -1234,10 +1260,27 @@ export default function Hackathon() {
       <div className="lg:hidden w-full flex flex-col items-center pb-16 bg-white">
 
         {/* 1. Hero / Title */}
-        <div className="w-full px-6 pt-24 pb-8">
-          <h1 className="font-['Inter'] font-bold text-[28px] leading-tight text-black">
-            Built an AI-powered advising assistant that simplifies course selection and planning for ASU students.
-          </h1>
+        <div className="w-full px-6 pt-24 pb-8 flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
+            <h1 className="font-['Inter'] font-bold text-[28px] leading-tight text-black">
+              AI Advising Assistant
+            </h1>
+            <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#484848]">
+              Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
+            </p>
+          </div>
+          {/* Badge */}
+          <div
+            className="inline-flex justify-center items-center px-3 py-2 rounded-full self-start"
+            style={{
+              background: 'rgba(186, 140, 154, 0.25)',
+              border: '2px solid rgba(186, 140, 154, 0.79)'
+            }}
+          >
+            <span className="font-['Inter'] font-bold text-[14px] leading-[17px] text-[#7A1936]">
+              Built using Vibe Coding tools
+            </span>
+          </div>
         </div>
 
         {/* Hero Image */}

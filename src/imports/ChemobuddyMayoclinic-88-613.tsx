@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { Map, HeartPulse, ShieldCheck } from 'lucide-react';
 import imgHeroReplace from 'figma:asset/f620a291096457bf1aa42dee938f437a6005b47b.png';
 import image_1bf5f60255a20498a2f475250c718f058eaf3940 from 'figma:asset/1bf5f60255a20498a2f475250c718f058eaf3940.png'
 import image_1fe621dd30fe83aba6261433a0f4db9c285c46f0 from 'figma:asset/1fe621dd30fe83aba6261433a0f4db9c285c46f0.png'
@@ -72,6 +73,7 @@ import imgChatbotGif from "figma:asset/38d64cbf8c94f7973fa167cc74f57eeb39b88ef9.
 import imgSymptomTrackerGif from "figma:asset/ffc44faf8f58f88ff8e40e4a47c6adb5fbada62a.png";
 import imgChatHistoryGif from "figma:asset/259e2c63d8b9c2342eb8a8daa6f434a035054d9d.png";
 import imgResearchGif from "figma:asset/7db52d7e82ca83f78490bd0efa1d31ce216b7265.png";
+import { ConfusedGirlDoodle } from "@/app/components/ConfusedGirlDoodle";
 
 function Frame28() {
   return (
@@ -119,10 +121,10 @@ function Frame89() {
 
 function Component() {
   return (
-    <img 
-      className="absolute left-0 top-[392px] w-full object-cover" 
-      src={imgHeroReplace} 
-      alt="Hero Section" 
+    <img
+      className="absolute left-0 top-[400px] w-full object-cover"
+      src={imgHeroReplace}
+      alt="Hero Section"
     />
   );
 }
@@ -196,21 +198,33 @@ function Frame61() {
 function Frame52() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
+      <div className="flex items-center gap-3">
+        <div className="w-3 h-3 rounded-full bg-black shadow-[0_0_8px_black] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
+      </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="leading-[normal] mb-0">Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.</p>
         <p className="leading-[normal] mb-0">&nbsp;</p>
-        <ol className="css-8097nc" start="1">
-          <li className="mb-0 ms-[30px]">
-            <span className="leading-[normal]">1. 3 simplified learning paths</span>
-          </li>
-          <li className="mb-0 ms-[30px]">
-            <span className="leading-[normal]">2. Personalized symptom & question support</span>
-          </li>
-          <li className="ms-[30px]">
-            <span className="leading-[normal]">3. Built with Mayo Clinic clinical guidance</span>
-          </li>
-        </ol>
+        <div className="grid grid-cols-3 gap-6 my-8 w-full">
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 flex flex-col items-center text-center gap-4 shadow-sm hover:shadow-md transition-all group">
+            <div className="text-black group-hover:scale-110 transition-transform">
+              <Map size={32} strokeWidth={1.5} />
+            </div>
+            <span className="font-medium text-gray-800 leading-snug">3 simplified learning paths</span>
+          </div>
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 flex flex-col items-center text-center gap-4 shadow-sm hover:shadow-md transition-all group">
+            <div className="text-black group-hover:scale-110 transition-transform">
+              <HeartPulse size={32} strokeWidth={1.5} />
+            </div>
+            <span className="font-medium text-gray-800 leading-snug">Personalized symptom & question support</span>
+          </div>
+          <div className="bg-white p-6 rounded-2xl border border-gray-100 flex flex-col items-center text-center gap-4 shadow-sm hover:shadow-md transition-all group">
+            <div className="text-black group-hover:scale-110 transition-transform">
+              <ShieldCheck size={32} strokeWidth={1.5} />
+            </div>
+            <span className="font-medium text-gray-800 leading-snug">Built with Mayo Clinic clinical guidance</span>
+          </div>
+        </div>
       </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="mb-0">{`Result - Patients move from anxious & uncertain to informed & confident`}</p>
@@ -224,9 +238,7 @@ function Frame73() {
   return (
     <div className="col-1 content-stretch flex flex-col gap-[41px] h-[360px] items-center ml-0 mt-0 relative row-1 w-[298px]">
       <div className="h-[266px] relative shrink-0 w-[147px]" data-name="image 106">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[110.94%] left-[-43.25%] max-w-none top-[-5.74%] w-[188.26%]" src={image_1bf5f60255a20498a2f475250c718f058eaf3940} />
-        </div>
+        <ConfusedGirlDoodle />
       </div>
       <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[16px] w-[min-content] whitespace-pre-wrap">Complex medical information leaves patients feeling confused and unsure about what to expect.</p>
     </div>
@@ -313,7 +325,10 @@ function Frame130() {
 function Frame133() {
   return (
     <div className="content-stretch flex items-center justify-center relative shrink-0">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
+      <div className="flex items-center gap-3">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
+      </div>
     </div>
   );
 }
@@ -550,7 +565,10 @@ function Frame100() {
       {/* Header */}
       <div className="flex flex-col gap-[24px] items-start justify-center w-full">
         <div className="flex items-center justify-center">
-          <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic text-[#484848] text-[20px]">Results and impact</p>
+          <div className="flex items-center gap-3">
+            <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+            <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic text-[#484848] text-[20px]">Results and impact</p>
+          </div>
         </div>
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic text-[24px] text-black whitespace-pre-wrap">Measuring how design decisions improved clarity, confidence, and care</p>
       </div>
@@ -565,7 +583,7 @@ function Frame100() {
             style={{ border: '1px solid #ece2e2' }}
           >
             <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={95} color="#e74973" />
+              <AnimatedCounter target={95} color="#000000" />
               <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[320px]">of participants completed all tasks successfully</p>
             </div>
           </div>
@@ -576,7 +594,7 @@ function Frame100() {
             style={{ border: '1px solid #ece2e2' }}
           >
             <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={40} color="#78be20" />
+              <AnimatedCounter target={40} color="#000000" />
               <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[372px]">increase in engagement time (4.2 to 7.8 minutes average session).</p>
             </div>
           </div>
@@ -590,7 +608,7 @@ function Frame100() {
             style={{ border: '1px solid #ece2e2' }}
           >
             <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={30} color="#ff7f32" />
+              <AnimatedCounter target={30} color="#000000" />
               <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[337px]">improvement in symptom reporting accuracy.</p>
             </div>
           </div>
@@ -601,7 +619,7 @@ function Frame100() {
             style={{ border: '1px solid #ece2e2' }}
           >
             <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={85} color="#00a3e0" />
+              <AnimatedCounter target={85} color="#000000" />
               <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[357px]">increase in engagement time (4.2 to 7.8 minutes average session).</p>
             </div>
           </div>
@@ -623,7 +641,10 @@ function Frame131() {
 function Frame74() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">But….. why does chemotherapy often feel so emotionally and informationally overwhelming for patients?</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Chemotherapy patients manage an enormous amount of medical and emotional stress. Many receive thick binders of generic information and must juggle symptoms, schedules, and medications while coping with uncertainty.</p>
     </div>
@@ -802,7 +823,10 @@ function Frame84() {
 function Frame75() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Designing Clarity in a Complex Care Journey</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` UX and instructional designer for ChemoBuddy, translating complex chemotherapy information into structured, patient-friendly learning experiences. Conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.`}</p>
     </div>
@@ -922,21 +946,21 @@ function Frame() {
           </svg>
         </div>
       </div>
-      <p className="absolute font-['Caveat_Brush:Regular',sans-serif] leading-[normal] left-[51px] not-italic text-[#484848] text-[24px] top-[242px] w-[293px] whitespace-pre-wrap">
+      <p className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[51px] not-italic text-[#484848] text-[24px] top-[242px] w-[293px] whitespace-pre-wrap">
         Secondary Research
         <br aria-hidden="true" />
         Week (1-3)
       </p>
-      <p className="absolute font-['Caveat_Brush:Regular',sans-serif] leading-[normal] left-[544px] not-italic text-[#484848] text-[24px] top-[242px] w-[147px] whitespace-pre-wrap">
+      <p className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[544px] not-italic text-[#484848] text-[24px] top-[242px] w-[147px] whitespace-pre-wrap">
         Data Synthesis
         <br aria-hidden="true" />
         Week ( 6-7)
       </p>
-      <div className="absolute font-['Caveat_Brush:Regular',sans-serif] leading-[normal] left-[310px] not-italic text-[#484848] text-[24px] top-[362px] w-[134px] whitespace-pre-wrap">
+      <div className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[310px] not-italic text-[#484848] text-[24px] top-[362px] w-[134px] whitespace-pre-wrap">
         <p className="mb-0">User Research</p>
         <p>Week (4-5)</p>
       </div>
-      <div className="absolute font-['Caveat_Brush:Regular',sans-serif] leading-[normal] left-[786px] not-italic text-[#484848] text-[24px] top-[362px] w-[134px] whitespace-pre-wrap">
+      <div className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[786px] not-italic text-[#484848] text-[24px] top-[362px] w-[134px] whitespace-pre-wrap">
         <p className="mb-0">User Testing</p>
         <p>Week (8-10)</p>
       </div>
@@ -963,7 +987,7 @@ function Frame23() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">{`Research goals `}</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">
         <p className="leading-[normal] mb-0">I wanted to answer four core questions</p>
-        <ol className="css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">How do chemotherapy patients currently receive education and support?</span>
           </li>
@@ -988,10 +1012,20 @@ function Frame24() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">What I did</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[792px] whitespace-pre-wrap">
         <p className="mb-0">I reviewed 11 peer-reviewed journals and oncology studies focusing on:</p>
-        <p className="mb-0">Mobile health (mHealth) apps for cancer patients</p>
-        <p className="mb-0">Symptom management and patient-reported outcomes</p>
-        <p className="mb-0">Digital education tools and their impact on adherence</p>
-        <p>Early experiments with chatbots and AI in oncology</p>
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
+          <li className="mb-0 ms-[30px]">
+            <span className="leading-[normal]">Mobile health (mHealth) apps for cancer patients</span>
+          </li>
+          <li className="mb-0 ms-[30px]">
+            <span className="leading-[normal]">Symptom management and patient-reported outcomes</span>
+          </li>
+          <li className="mb-0 ms-[30px]">
+            <span className="leading-[normal]">Digital education tools and their impact on adherence</span>
+          </li>
+          <li className="ms-[30px]">
+            <span className="leading-[normal]">Early experiments with chatbots and AI in oncology</span>
+          </li>
+        </ol>
       </div>
     </div>
   );
@@ -1000,7 +1034,10 @@ function Frame24() {
 function Frame81() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Literature review (Week 1 - 2)</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">I started with a literature review to ground my work in existing oncology and digital health research, instead of relying on assumptions.</p>
       <Frame23 />
@@ -1193,7 +1230,7 @@ function Frame25() {
   return (
     <div className="content-stretch flex items-start justify-between not-italic relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">{`Research goals `}</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">What are existing apps already doing well that I can learn from?</span>
         </li>
@@ -1216,7 +1253,7 @@ function Frame26() {
         <p className="leading-[1.6] mb-0">I selected 8 apps to analyze, including - MyChart, Cancer.Net, Belong, and several symptom-tracking or hospital portal apps.</p>
         <p className="leading-[1.6] mb-0">&nbsp;</p>
         <p className="leading-[1.6] mb-0">For each app, I evaluated:</p>
-        <ol className="css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
           <li className="mb-0 ms-[30px]">
             <span className="leading-[1.6]">{` Onboarding experience (how easy it is to get started)`}</span>
           </li>
@@ -1247,7 +1284,10 @@ function Frame26() {
 function Frame90() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">{`Competitive analysis - Existing Oncology & Health Apps (Week 3)`}</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Next, I wanted to understand what real patients currently experience when using digital tools.</p>
       <Frame25 />
@@ -1346,7 +1386,10 @@ function Frame32() {
 function Frame94() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{` User research`}</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{` User research`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Role-Play Testing with Oncology Mentor (Week 4-5)</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Because I did not have direct access to chemotherapy patients or caregivers, I conducted the user research phase under the ethical guidance of my oncology mentor, Dr. Umar. To ensure realism and clinical accuracy, I designed structured role-play sessions that mimicked authentic patient, caregiver interactions and decision-making moments during chemotherapy.</p>
       <Frame27 />
@@ -1648,7 +1691,10 @@ function Frame93() {
 function Frame99() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` Data Synthesis & Findings`}</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` Data Synthesis & Findings`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Affinity Mapping</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="mb-0">I transcribed key quotes, pain points, and observations onto digital sticky notes in FigJam. Then I grouped them into clusters such as</p>
@@ -1686,7 +1732,10 @@ function Frame98() {
 function Frame102() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` Data Synthesis & Findings`}</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` Data Synthesis & Findings`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Personas</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">From the patterns identified during affinity mapping and mentor-led role-play sessions, I developed two key personas representing the primary users of ChemoBuddy, patients at different stages of chemotherapy with varying emotional, physical, and digital needs.</p>
     </div>
@@ -1730,12 +1779,15 @@ function Frame101() {
 function Frame108() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Ideation & Concept Development`}</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Ideation & Concept Development`}</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Translating research insights into actionable design directions</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="leading-[normal] mb-0">{`Based on the research findings, I began ideation by using “How Might We” statements to frame challenges creatively. `}</p>
         <p className="leading-[normal] mb-0">&nbsp;</p>
-        <ol className="css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
           <li className="mb-0 ms-[30px]">
             <span className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal]">How might we simplify the way chemotherapy information is presented?</span>
           </li>
@@ -1776,11 +1828,14 @@ function Frame106() {
 function Frame123() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Design process</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Design process</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Building an empathetic, accessible experience through iterative design</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="leading-[normal] mb-0">I structured the experience around five key stages</p>
-        <ol className="css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">Onboarding - Patients connect to Mayo Clinic’s system using a unique patient code, syncing treatment details automatically.</span>
           </li>
@@ -1813,7 +1868,10 @@ function Frame122() {
 function Frame125() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Low fidelity wireframes</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Low fidelity wireframes</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">From post-its to pixels - shaping the early experience</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">I started with sketches that emphasized minimal interaction steps and clear readability. Older patients often have limited digital comfort, so I focused on simple navigation and large visual elements.</p>
     </div>
@@ -1860,7 +1918,7 @@ function Frame35() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Secure Login via Clinic Code: Patients enter a unique code provided by their oncology clinic to connect their treatment data securely through the hospital’s API.</span>
         </li>
@@ -1878,7 +1936,10 @@ function Frame35() {
 function Frame128() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Onboarding - A Gentle Start to a Complex Journey</p>
       <Frame34 />
       <Frame35 />
@@ -2034,7 +2095,7 @@ function Frame38() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Treatment Timeline - Displays completed and upcoming chemo cycles using a circular progress tracker.</span>
         </li>
@@ -2055,7 +2116,10 @@ function Frame38() {
 function Frame139() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">{`Dashboard - Personalized Overview of Treatment & Daily Tasks`}</p>
       <Frame37 />
       <Frame38 />
@@ -2118,7 +2182,7 @@ function Frame41() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Multimodal Responses - The chatbot answers with text, audio summaries, or short videos depending on the user’s preference and energy level.</span>
         </li>
@@ -2142,7 +2206,10 @@ function Frame41() {
 function Frame142() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Chatbot - Empathetic, Context-Aware Support</p>
       <Frame40 />
       <Frame41 />
@@ -2281,7 +2348,7 @@ function Frame44() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Interactive Body Map - Patients tap on body zones (e.g., head, stomach, limbs) to log symptoms visually.</span>
         </li>
@@ -2305,7 +2372,10 @@ function Frame44() {
 function Frame149() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Symptom Tracking - Simplifying Self-Monitoring Through Visual Design</p>
       <Frame43 />
       <Frame44 />
@@ -2447,7 +2517,7 @@ function Frame47() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Caregiver Dashboard - Allows patients to invite caregivers (e.g., family, spouse) via secure link or code.</span>
         </li>
@@ -2474,7 +2544,10 @@ function Frame47() {
 function Frame156() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">{`Caregiver Access - Controlled Sharing for Safety & Support`}</p>
       <Frame46 />
       <Frame47 />
@@ -2535,7 +2608,7 @@ function Frame51() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Tasks Tested</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Complete onboarding and verify data sync.</span>
         </li>
@@ -2556,7 +2629,10 @@ function Frame51() {
 function Frame159() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">User testing</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">User testing</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Listening, learning, and improving - shaping care through feedback</p>
       <Frame49 />
       <Frame51 />
@@ -2892,7 +2968,10 @@ function Frame57() {
 function Frame177() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Learnings</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Learnings</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">What the process taught me about designing for trust and vulnerability</p>
       <Frame57 />
     </div>
@@ -3121,7 +3200,7 @@ function Frame58() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black w-[172px]">Seamless Integration</p>
-      <ol className="block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" start="1">
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Build a plugin that connects directly with the Mayo Clinic patient portal, allowing patients to access Chemo Companion using existing credentials.</span>
         </li>
@@ -3154,7 +3233,10 @@ function Frame60() {
 function Frame184() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Future enhancements</p>
+      <div className="flex items-center gap-3 mb-4">
+        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Future enhancements</p>
+      </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Next steps toward integration and accessibility</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">With the current prototype validated, I identified several future directions based on feedback from Dr. Umar and test participants.</p>
       <Frame58 />
@@ -3204,7 +3286,19 @@ export default function ChemobuddyMayoclinic() {
     <div className="bg-white relative w-full">
       {/* Desktop Layout - Preserved */}
       <div className="hidden lg:block relative min-h-[8500px]" data-name="Chemobuddy - Mayoclinic">
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[50px] left-[222px] not-italic text-[36px] text-black top-[185px] w-[993px] whitespace-pre-wrap">ChemoBuddy, developed in collaboration with Mayo Clinic, to transform complex chemotherapy information into guided, easy-to-understand patient experiences.</p>
+        <div className="absolute flex flex-col items-start left-[calc(50%-496.5px)] top-[158px] w-[993px]">
+          <h1 className="font-['Inter'] font-bold text-[40px] leading-tight text-black m-0 mb-[16px]">
+            ChemoBuddy
+          </h1>
+          <p className="font-['Inter'] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 mb-[24px]">
+            Developed in collaboration with Mayo Clinic to transform complex chemotherapy information into guided, easy-to-understand patient experiences.
+          </p>
+          <div className="flex items-center justify-center px-6 py-3 bg-[#FBF4D8] border-[1.5px] border-[#DCC368] rounded-full">
+            <span className="font-['Inter'] font-bold text-[#B59220] text-[16px]">
+              Awardee of Mayo Clinic Observership
+            </span>
+          </div>
+        </div>
         <Component />
         <Frame132 />
       </div>
@@ -3213,297 +3307,312 @@ export default function ChemobuddyMayoclinic() {
       <div className="lg:hidden w-full flex flex-col items-center pb-32 bg-white">
         {/* Mobile Header */}
         <div className="w-full px-6 py-4 flex justify-between items-center bg-white/90 backdrop-blur sticky top-0 z-50 border-b border-gray-100">
-           <span className="font-['Caveat_Brush'] text-[28px] text-[#747474]">d.</span>
+          <span className="font-['Caveat_Brush'] text-[28px] text-[#747474]">d.</span>
         </div>
 
         {/* 1. Overview */}
         <div className="w-full px-6 pt-8 pb-8 bg-gradient-to-b from-[rgba(186,214,212,0.39)] to-[rgba(151,167,165,0.2)]">
-           <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black mb-6">
-             ChemoBuddy
-           </h1>
-           <p className="font-['Inter'] text-[#484848] text-lg leading-relaxed mb-6">
-             Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.
-           </p>
-           
-           <div className="bg-white/60 p-6 rounded-xl space-y-4 mb-8">
-             <h3 className="font-bold text-black">Key Features:</h3>
-             <ul className="list-disc pl-5 space-y-2 text-[#484848]">
-               <li>3 simplified learning paths</li>
-               <li>Personalized symptom & question support</li>
-               <li>Built with Mayo Clinic clinical guidance</li>
-             </ul>
-           </div>
+          <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black mb-6">
+            ChemoBuddy
+          </h1>
+          <p className="font-['Inter'] text-[#484848] text-lg leading-relaxed mb-6">
+            Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.
+          </p>
 
-           <div className="relative w-full aspect-[4/5] mx-auto max-w-sm">
-              <img src={imgIMockupIPhone15} alt="App Screen" className="absolute w-[70%] shadow-2xl rounded-[2.5rem] top-4 left-4 z-10 rotate-[-5deg]" />
-              <img src={imgIMockupIPhone17} alt="App Screen" className="absolute w-[70%] shadow-2xl rounded-[2.5rem] top-12 right-4 z-20 rotate-[5deg]" />
-           </div>
+          <div className="bg-white/60 p-6 rounded-xl space-y-4 mb-8">
+            <h3 className="font-bold text-black">Key Features:</h3>
+            <div className="space-y-4 mt-6">
+              <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-4 shadow-sm">
+                <div className="text-black shrink-0">
+                  <Map size={20} strokeWidth={1.5} />
+                </div>
+                <span className="font-medium text-gray-800 text-sm">3 simplified learning paths</span>
+              </div>
+              <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-4 shadow-sm">
+                <div className="text-black shrink-0">
+                  <HeartPulse size={20} strokeWidth={1.5} />
+                </div>
+                <span className="font-medium text-gray-800 text-sm">Personalized symptom & question support</span>
+              </div>
+              <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-4 shadow-sm">
+                <div className="text-black shrink-0">
+                  <ShieldCheck size={20} strokeWidth={1.5} />
+                </div>
+                <span className="font-medium text-gray-800 text-sm">Built with Mayo Clinic clinical guidance</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative w-full aspect-[4/5] mx-auto max-w-sm">
+            <img src={imgIMockupIPhone15} alt="App Screen" className="absolute w-[70%] shadow-2xl rounded-[2.5rem] top-4 left-4 z-10 rotate-[-5deg]" />
+            <img src={imgIMockupIPhone17} alt="App Screen" className="absolute w-[70%] shadow-2xl rounded-[2.5rem] top-12 right-4 z-20 rotate-[5deg]" />
+          </div>
         </div>
 
         <div className="w-full px-6 space-y-16 mt-12 max-w-md mx-auto">
-          
+
           {/* 2. Results and Impact */}
           <div className="mx-[0px] my-[64px]">
-             <div className="text-center">
-                <h3 className="font-['Inter'] font-bold text-2xl text-black mb-2">Results and Impact</h3>
-                <p className="font-['Inter'] text-[#484848]">Measuring how design decisions improved clarity and confidence.</p>
-             </div>
+            <div className="text-center">
+              <h3 className="font-['Inter'] font-bold text-2xl text-black mb-2">Results and Impact</h3>
+              <p className="font-['Inter'] text-[#484848]">Measuring how design decisions improved clarity and confidence.</p>
+            </div>
 
-             <div className="grid gap-6">
-                <div className="bg-[#fcffc5] p-6 rounded-lg shadow-sm rotate-1 text-center">
-                   <p className="font-['Inter'] font-bold text-4xl mb-2">95%</p>
-                   <p className="font-['Inter'] text-base">of participants completed all tasks successfully.</p>
-                </div>
-                <div className="bg-[#ffdeeb] p-6 rounded-lg shadow-sm -rotate-1 text-center">
-                   <p className="font-['Inter'] font-bold text-4xl mb-2">40%</p>
-                   <p className="font-['Inter'] text-base">self-reported reduction in anxiety while navigating.</p>
-                </div>
-                <div className="bg-[#dfffcc] p-6 rounded-lg shadow-sm rotate-1 text-center">
-                   <p className="font-['Inter'] font-bold text-4xl mb-2">85%</p>
-                   <p className="font-['Inter'] text-base">increase in engagement time (4.2 to 7.8 min).</p>
-                </div>
-             </div>
+            <div className="grid gap-6">
+              <div className="bg-[#fcffc5] p-6 rounded-lg shadow-sm rotate-1 text-center">
+                <p className="font-['Inter'] font-bold text-4xl mb-2">95%</p>
+                <p className="font-['Inter'] text-base">of participants completed all tasks successfully.</p>
+              </div>
+              <div className="bg-[#ffdeeb] p-6 rounded-lg shadow-sm -rotate-1 text-center">
+                <p className="font-['Inter'] font-bold text-4xl mb-2">40%</p>
+                <p className="font-['Inter'] text-base">self-reported reduction in anxiety while navigating.</p>
+              </div>
+              <div className="bg-[#dfffcc] p-6 rounded-lg shadow-sm rotate-1 text-center">
+                <p className="font-['Inter'] font-bold text-4xl mb-2">85%</p>
+                <p className="font-['Inter'] text-base">increase in engagement time (4.2 to 7.8 min).</p>
+              </div>
+            </div>
           </div>
 
           {/* 3. Context and Problem */}
           <div className="space-y-8">
-             <div className="space-y-3">
-                <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Context & Problem</h2>
-                <p className="font-['Inter'] text-[#484848] text-base">
-                  Chemotherapy patients manage an enormous amount of medical and emotional stress. Many receive thick binders of generic information and must juggle symptoms, schedules, and medications while coping with uncertainty.
-                </p>
-             </div>
+            <div className="space-y-3">
+              <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Context & Problem</h2>
+              <p className="font-['Inter'] text-[#484848] text-base">
+                Chemotherapy patients manage an enormous amount of medical and emotional stress. Many receive thick binders of generic information and must juggle symptoms, schedules, and medications while coping with uncertainty.
+              </p>
+            </div>
 
-             <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
-                <span className="font-['Caveat_Brush'] text-[#bd4800] text-2xl block">The Problem</span>
-                <img src={image_1bf5f60255a20498a2f475250c718f058eaf3940} alt="Confused Patient" className="w-full h-40 object-contain" />
-                <p className="font-['Inter'] italic text-[#484848] text-sm">Complex medical information leaves patients feeling confused.</p>
-             </div>
+            <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
+              <span className="font-['Caveat_Brush'] text-[#bd4800] text-2xl block">The Problem</span>
+              <img src={image_1bf5f60255a20498a2f475250c718f058eaf3940} alt="Confused Patient" className="w-full h-40 object-contain" />
+              <p className="font-['Inter'] italic text-[#484848] text-sm">Complex medical information leaves patients feeling confused.</p>
+            </div>
 
-             <div className="flex justify-center text-[#747474]">↓</div>
+            <div className="flex justify-center text-[#747474]">↓</div>
 
-             <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
-                <span className="font-['Caveat_Brush'] text-[#78be20] text-2xl block">The Solution</span>
-                <img src={imgImage107} alt="Solution Interface" className="w-full h-40 object-contain" />
-                <p className="font-['Inter'] italic text-[#484848] text-sm">ChemoBuddy provides clear, compassionate guidance.</p>
-             </div>
+            <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
+              <span className="font-['Caveat_Brush'] text-[#78be20] text-2xl block">The Solution</span>
+              <img src={imgImage107} alt="Solution Interface" className="w-full h-40 object-contain" />
+              <p className="font-['Inter'] italic text-[#484848] text-sm">ChemoBuddy provides clear, compassionate guidance.</p>
+            </div>
 
-             <div className="flex justify-center text-[#747474]">↓</div>
+            <div className="flex justify-center text-[#747474]">↓</div>
 
-             <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
-                <span className="font-['Caveat_Brush'] text-[#00A3E0] text-2xl block">The Impact</span>
-                <img src={imgImage108} alt="Reassured Patient" className="w-full h-40 object-contain" />
-                <p className="font-['Inter'] italic text-[#484848] text-sm">Patients feel informed, reassured, and ready.</p>
-             </div>
+            <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
+              <span className="font-['Caveat_Brush'] text-[#00A3E0] text-2xl block">The Impact</span>
+              <img src={imgImage108} alt="Reassured Patient" className="w-full h-40 object-contain" />
+              <p className="font-['Inter'] italic text-[#484848] text-sm">Patients feel informed, reassured, and ready.</p>
+            </div>
           </div>
 
           {/* 4. Role & Contribution */}
           <div className="space-y-4">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Role & Contribution</h2>
-             <h3 className="font-bold text-lg">Designing Clarity in a Complex Care Journey</h3>
-             <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-               I served as the UX and instructional designer, translating complex chemotherapy information into structured, patient-friendly learning experiences. I conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.
-             </p>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Role & Contribution</h2>
+            <h3 className="font-bold text-lg">Designing Clarity in a Complex Care Journey</h3>
+            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+              I served as the UX and instructional designer, translating complex chemotherapy information into structured, patient-friendly learning experiences. I conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.
+            </p>
           </div>
 
           {/* 5. Research */}
           <div className="space-y-4">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Research</h2>
-             <h3 className="font-bold text-lg">Understanding Needs</h3>
-             <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-               A 10-week exploration to understand how chemotherapy patients learn, cope, and communicate. I followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives.
-             </p>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Research</h2>
+            <h3 className="font-bold text-lg">Understanding Needs</h3>
+            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+              A 10-week exploration to understand how chemotherapy patients learn, cope, and communicate. I followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives.
+            </p>
           </div>
 
           {/* 6. Secondary Research – Literature Review */}
           <div className="space-y-4 bg-[#f9f9f9] p-6 rounded-2xl">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">Literature Review</h3>
-             <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 1–2</p>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               I explored 11 peer-reviewed oncology journals to identify usability gaps in current patient education methods.
-             </p>
-             <div className="bg-white p-4 rounded-xl border border-gray-100">
-               <p className="font-bold text-sm mb-2">Key Output:</p>
-               <p className="text-sm text-[#484848]">Defined 4 key problem clusters and created a feature benchmarking matrix.</p>
-             </div>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">Literature Review</h3>
+            <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 1–2</p>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              I explored 11 peer-reviewed oncology journals to identify usability gaps in current patient education methods.
+            </p>
+            <div className="bg-white p-4 rounded-xl border border-gray-100">
+              <p className="font-bold text-sm mb-2">Key Output:</p>
+              <p className="text-sm text-[#484848]">Defined 4 key problem clusters and created a feature benchmarking matrix.</p>
+            </div>
           </div>
 
           {/* 7. Secondary Research – Competitive Analysis */}
           <div className="space-y-4 bg-[#f9f9f9] p-6 rounded-2xl">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">Competitive Analysis</h3>
-             <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 3</p>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Evaluated 8 healthcare apps (including MyChart, Cancer.Net) to see what existing tools were doing well and where they fell short in emotional support.
-             </p>
-             <img src={imgImage30} alt="Competitive Analysis Matrix" className="w-full rounded-lg shadow-sm" />
-             <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-                <div className="w-8 h-8 flex items-center justify-center bg-[#e0f7fa] rounded-full text-[#00A3E0]">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z"/></svg>
-                </div>
-                <p className="text-sm font-bold text-[#00a3e0]">Key Gap Identified: Lack of emotional context in current tools.</p>
-             </div>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">Competitive Analysis</h3>
+            <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 3</p>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Evaluated 8 healthcare apps (including MyChart, Cancer.Net) to see what existing tools were doing well and where they fell short in emotional support.
+            </p>
+            <img src={imgImage30} alt="Competitive Analysis Matrix" className="w-full rounded-lg shadow-sm" />
+            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
+              <div className="w-8 h-8 flex items-center justify-center bg-[#e0f7fa] rounded-full text-[#00A3E0]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z" /></svg>
+              </div>
+              <p className="text-sm font-bold text-[#00a3e0]">Key Gap Identified: Lack of emotional context in current tools.</p>
+            </div>
           </div>
 
           {/* 8. User Research – Role-Play Testing */}
           <div className="space-y-4 bg-[#f9f9f9] p-6 rounded-2xl">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">Role-Play Testing</h3>
-             <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 4–5</p>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               To ensure ethical research without burdening patients, I conducted role-play sessions with my oncology mentor, Dr. Umar. We simulated authentic patient-caregiver interactions to uncover emotional pain points.
-             </p>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">Role-Play Testing</h3>
+            <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 4–5</p>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              To ensure ethical research without burdening patients, I conducted role-play sessions with my oncology mentor, Dr. Umar. We simulated authentic patient-caregiver interactions to uncover emotional pain points.
+            </p>
           </div>
 
           {/* 9. Data Synthesis – Affinity Mapping */}
           <div className="space-y-4">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Findings</h2>
-             <h3 className="font-bold text-lg">Affinity Mapping</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Transcribed interviews and clustered findings into themes: trust, information overload, accessibility, and caregiver support.
-             </p>
-             <img src={imgImage32} alt="Affinity Map" className="w-full rounded-xl shadow-lg" />
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Findings</h2>
+            <h3 className="font-bold text-lg">Affinity Mapping</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Transcribed interviews and clustered findings into themes: trust, information overload, accessibility, and caregiver support.
+            </p>
+            <img src={imgImage32} alt="Affinity Map" className="w-full rounded-xl shadow-lg" />
           </div>
 
           {/* 10. Data Synthesis – Personas */}
           <div className="space-y-4">
-             <h3 className="font-bold text-lg">Personas</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Developed two key personas representing patients at different stages of treatment with varying digital needs.
-             </p>
-             <div className="space-y-4">
-               <img src={imgImage33} alt="Persona 1" className="w-full rounded-xl shadow-md" />
-               <img src={imgImage34} alt="Persona 2" className="w-full rounded-xl shadow-md" />
-             </div>
+            <h3 className="font-bold text-lg">Personas</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Developed two key personas representing patients at different stages of treatment with varying digital needs.
+            </p>
+            <div className="space-y-4">
+              <img src={imgImage33} alt="Persona 1" className="w-full rounded-xl shadow-md" />
+              <img src={imgImage34} alt="Persona 2" className="w-full rounded-xl shadow-md" />
+            </div>
           </div>
 
           {/* 11. Ideation & Concept Development */}
           <div className="space-y-4">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Ideation</h2>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Used "How Might We" statements to translate insights into design directions. Merged ideas into a unified platform: ChemoBuddy.
-             </p>
-             <img src={imgImage35} alt="Ideation Sketches" className="w-full rounded-xl shadow-lg" />
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Ideation</h2>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Used "How Might We" statements to translate insights into design directions. Merged ideas into a unified platform: ChemoBuddy.
+            </p>
+            <img src={imgImage35} alt="Ideation Sketches" className="w-full rounded-xl shadow-lg" />
           </div>
 
           {/* 12. Design Process */}
           <div className="space-y-4">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Design Process</h2>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               I structured the experience around five key stages to build an empathetic journey:
-             </p>
-             <ul className="list-decimal pl-5 space-y-3 text-[#484848]">
-               <li><strong>Onboarding:</strong> Secure, trust-building entry.</li>
-               <li><strong>Dashboard:</strong> Visual overview of progress.</li>
-               <li><strong>Chatbot:</strong> Empathetic support interface.</li>
-               <li><strong>Symptom Tracking:</strong> Easy body-map logging.</li>
-               <li><strong>Caregiver Access:</strong> Controlled data sharing.</li>
-             </ul>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Design Process</h2>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              I structured the experience around five key stages to build an empathetic journey:
+            </p>
+            <ul className="list-decimal pl-5 space-y-3 text-[#484848]">
+              <li><strong>Onboarding:</strong> Secure, trust-building entry.</li>
+              <li><strong>Dashboard:</strong> Visual overview of progress.</li>
+              <li><strong>Chatbot:</strong> Empathetic support interface.</li>
+              <li><strong>Symptom Tracking:</strong> Easy body-map logging.</li>
+              <li><strong>Caregiver Access:</strong> Controlled data sharing.</li>
+            </ul>
           </div>
 
           {/* 13. Low-Fidelity Wireframes */}
           <div className="space-y-4">
-             <h3 className="font-bold text-lg">Low-Fidelity Wireframes</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Started with sketches emphasizing minimal interactions and large visual elements for older patients with limited digital comfort.
-             </p>
-             <img src={imgWireframeGif} alt="Wireframes" className="w-full rounded-xl shadow-lg" />
+            <h3 className="font-bold text-lg">Low-Fidelity Wireframes</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Started with sketches emphasizing minimal interactions and large visual elements for older patients with limited digital comfort.
+            </p>
+            <img src={imgWireframeGif} alt="Wireframes" className="w-full rounded-xl shadow-lg" />
           </div>
 
           {/* 14. High-Fidelity – Onboarding */}
           <div className="space-y-6 pt-8 border-t border-gray-200">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">1. Onboarding</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               <strong>Goal:</strong> Simplify first-time setup and create immediate trust. Patients enter a secure clinic code to auto-sync their data.
-             </p>
-             <div className="flex justify-center">
-                <img src={imgOnboardingGif} alt="Onboarding Flow" className="w-[80%] rounded-3xl shadow-xl" />
-             </div>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">1. Onboarding</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              <strong>Goal:</strong> Simplify first-time setup and create immediate trust. Patients enter a secure clinic code to auto-sync their data.
+            </p>
+            <div className="flex justify-center">
+              <img src={imgOnboardingGif} alt="Onboarding Flow" className="w-[80%] rounded-3xl shadow-xl" />
+            </div>
           </div>
 
           {/* 15. High-Fidelity – Dashboard */}
           <div className="space-y-6 pt-8 border-t border-gray-200">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">2. Dashboard</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               <strong>Goal:</strong> Provide a clear view of treatment progress. Features a circular tracker for chemo cycles and daily check-ins.
-             </p>
-             <div className="flex justify-center">
-                <img src={imgIMockupIPhone13} alt="Dashboard" className="w-[80%] rounded-3xl shadow-xl" />
-             </div>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">2. Dashboard</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              <strong>Goal:</strong> Provide a clear view of treatment progress. Features a circular tracker for chemo cycles and daily check-ins.
+            </p>
+            <div className="flex justify-center">
+              <img src={imgIMockupIPhone13} alt="Dashboard" className="w-[80%] rounded-3xl shadow-xl" />
+            </div>
           </div>
 
           {/* 16. High-Fidelity – Chatbot */}
           <div className="space-y-6 pt-8 border-t border-gray-200">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">3. Chatbot</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               <strong>Goal:</strong> Deliver empathetic support. It detects "red flag" keywords like fever and escalates them while answering routine questions calmly.
-             </p>
-             <div className="flex justify-center">
-                <img src={imgChatbotGif} alt="Chatbot" className="w-[80%] rounded-3xl shadow-xl" />
-             </div>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">3. Chatbot</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              <strong>Goal:</strong> Deliver empathetic support. It detects "red flag" keywords like fever and escalates them while answering routine questions calmly.
+            </p>
+            <div className="flex justify-center">
+              <img src={imgChatbotGif} alt="Chatbot" className="w-[80%] rounded-3xl shadow-xl" />
+            </div>
           </div>
 
           {/* 17. High-Fidelity – Symptom Tracking */}
           <div className="space-y-6 pt-8 border-t border-gray-200">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">4. Symptom Tracking</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               <strong>Goal:</strong> Help patients record symptoms quickly. Uses an interactive body map and color-coded severity sliders.
-             </p>
-             <div className="flex justify-center">
-                <img src={imgIMockupIPhone47} alt="Symptom Tracking" className="w-[80%] rounded-3xl shadow-xl" />
-             </div>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">4. Symptom Tracking</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              <strong>Goal:</strong> Help patients record symptoms quickly. Uses an interactive body map and color-coded severity sliders.
+            </p>
+            <div className="flex justify-center">
+              <img src={imgIMockupIPhone47} alt="Symptom Tracking" className="w-[80%] rounded-3xl shadow-xl" />
+            </div>
           </div>
 
           {/* 18. High-Fidelity – Caregiver Access */}
           <div className="space-y-6 pt-8 border-t border-gray-200">
-             <h3 className="font-['Inter'] font-bold text-xl text-black">5. Caregiver Access</h3>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               <strong>Goal:</strong> Empower patients to decide who sees their data. Allows inviting family members with specific permission levels.
-             </p>
-             <div className="flex justify-center">
-                <img src={imgIMockupIPhone21} alt="Caregiver Access" className="w-[80%] rounded-3xl shadow-xl" />
-             </div>
+            <h3 className="font-['Inter'] font-bold text-xl text-black">5. Caregiver Access</h3>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              <strong>Goal:</strong> Empower patients to decide who sees their data. Allows inviting family members with specific permission levels.
+            </p>
+            <div className="flex justify-center">
+              <img src={imgIMockupIPhone21} alt="Caregiver Access" className="w-[80%] rounded-3xl shadow-xl" />
+            </div>
           </div>
 
           {/* 19. User Testing */}
           <div className="space-y-6 pt-8 border-t border-gray-200">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">User Testing</h2>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Conducted usability sessions using the think-aloud method.
-             </p>
-             
-             <div className="grid gap-4">
-               <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
-                 <p className="font-bold text-sm mb-1">Insight:</p>
-                 <p className="text-sm text-[#484848]">"Text-heavy layout increases fatigue."</p>
-                 <p className="text-xs text-[#00A3E0] mt-2 font-bold">→ Added audio summaries.</p>
-               </div>
-               <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
-                 <p className="font-bold text-sm mb-1">Insight:</p>
-                 <p className="text-sm text-[#484848]">"Unclear if data is synced."</p>
-                 <p className="text-xs text-[#00A3E0] mt-2 font-bold">→ Added "Synced 2h ago" indicator.</p>
-               </div>
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">User Testing</h2>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Conducted usability sessions using the think-aloud method.
+            </p>
+
+            <div className="grid gap-4">
+              <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
+                <p className="font-bold text-sm mb-1">Insight:</p>
+                <p className="text-sm text-[#484848]">"Text-heavy layout increases fatigue."</p>
+                <p className="text-xs text-[#00A3E0] mt-2 font-bold">→ Added audio summaries.</p>
+              </div>
+              <div className="bg-white border border-gray-200 p-4 rounded-xl shadow-sm">
+                <p className="font-bold text-sm mb-1">Insight:</p>
+                <p className="text-sm text-[#484848]">"Unclear if data is synced."</p>
+                <p className="text-xs text-[#00A3E0] mt-2 font-bold">→ Added "Synced 2h ago" indicator.</p>
+              </div>
+            </div>
           </div>
 
           {/* 20. Learnings */}
           <div className="space-y-4">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Learnings</h2>
-             <p className="font-['Inter'] text-[#484848] text-base">
-               Designing ChemoBuddy taught me that UX for healthcare must go beyond usability—it must reassure, educate, and connect.
-             </p>
-             <div className="bg-[#e0f7fa] p-6 rounded-xl">
-                <p className="font-bold text-[#006064] mb-2">Key Takeaway</p>
-                <p>Empathy is measurable. Small choices like whitespace and supportive tone directly influence emotional outcomes.</p>
-             </div>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Learnings</h2>
+            <p className="font-['Inter'] text-[#484848] text-base">
+              Designing ChemoBuddy taught me that UX for healthcare must go beyond usability—it must reassure, educate, and connect.
+            </p>
+            <div className="bg-[#e0f7fa] p-6 rounded-xl">
+              <p className="font-bold text-[#006064] mb-2">Key Takeaway</p>
+              <p>Empathy is measurable. Small choices like whitespace and supportive tone directly influence emotional outcomes.</p>
+            </div>
           </div>
 
           {/* 21. Future Enhancements */}
           <div className="space-y-4 pb-8">
-             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Future Enhancements</h2>
-             <ul className="list-disc pl-5 space-y-3 text-[#484848]">
-               <li><strong>Seamless Integration:</strong> Plugin for direct connection with Mayo Clinic patient portal.</li>
-               <li><strong>Cross-Device:</strong> QR code handoff to desktop/TV for easier viewing by older patients.</li>
-               <li><strong>AR/VR Education:</strong> Immersive modules to visualize treatment processes.</li>
-             </ul>
+            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Future Enhancements</h2>
+            <ul className="list-disc pl-5 space-y-3 text-[#484848]">
+              <li><strong>Seamless Integration:</strong> Plugin for direct connection with Mayo Clinic patient portal.</li>
+              <li><strong>Cross-Device:</strong> QR code handoff to desktop/TV for easier viewing by older patients.</li>
+              <li><strong>AR/VR Education:</strong> Immersive modules to visualize treatment processes.</li>
+            </ul>
           </div>
 
         </div>
