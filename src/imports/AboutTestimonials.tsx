@@ -102,7 +102,7 @@ function Frame6() {
     <div className="content-stretch flex flex-col gap-[12px] items-start leading-[normal] not-italic relative shrink-0 w-[714px]">
       <p className="css-4hzbpn font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] text-black w-full">Anirudh Palaskar</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">UX Research Assistant</p>
-      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Deepika is someone who genuinely cares about both the user and the quality of the work she delivers. I’ve had the chance to work closely with her and have seen her dedication, creativity, and problem-solving skills firsthand. She takes the time to really understand problems before jumping into solutions, which reflects in the thoughtfulness of her work. She’s easy to collaborate with, open to feedback, and always willing to put in the extra effort to make things better. She takes strong ownership of her work and is constantly looking for ways to learn and grow.</p>
     </div>
   );
 }
@@ -124,7 +124,7 @@ function Frame10() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[48px] items-start left-[204.2px] top-[164px] w-[953.591px]">
       <TestimonialCard1 />
-      <TestimonialCard2 />
+      {/* <TestimonialCard2 /> */}
       <TestimonialCard3 />
     </div>
   );
@@ -368,7 +368,8 @@ export default function AboutTestimonials() {
           </div>
 
           {/* Testimonial 2 */}
-          <div className="flex flex-col items-center gap-6">
+          {/* Testimonial 2 - Hidden */}
+          {/* <div className="flex flex-col items-center gap-6">
             <div className="w-[180px] h-[215px] bg-[#d7d7d7] rounded-[24px] relative overflow-hidden rotate-[9.1deg] shadow-lg">
               <img src={imgImage71} alt="Rajeshwari Jaykumar" className="absolute w-full h-full object-cover" />
             </div>
@@ -379,7 +380,7 @@ export default function AboutTestimonials() {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-          </div>
+          </div> */}
 
           {/* Testimonial 3 */}
           <div className="flex flex-col items-center gap-6">
@@ -390,7 +391,7 @@ export default function AboutTestimonials() {
               <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black">Anirudh Palaskar</h3>
               <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474]">UX Research Assistant</p>
               <p className="font-['Inter:Regular',sans-serif] font-normal text-[18px] text-[#747474] leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Deepika is someone who genuinely cares about both the user and the quality of the work she delivers. I’ve had the chance to work closely with her and have seen her dedication, creativity, and problem-solving skills firsthand. She takes the time to really understand problems before jumping into solutions, which reflects in the thoughtfulness of her work. She’s easy to collaborate with, open to feedback, and always willing to put in the extra effort to make things better. She takes strong ownership of her work and is constantly looking for ways to learn and grow.
               </p>
             </div>
           </div>
