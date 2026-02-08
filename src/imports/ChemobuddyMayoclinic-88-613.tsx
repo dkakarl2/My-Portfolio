@@ -978,7 +978,7 @@ function Frame23() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">{`Research goals `}</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">
         <p className="leading-[normal] mb-0">I wanted to answer four core questions</p>
-        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">How do chemotherapy patients currently receive education and support?</span>
           </li>
@@ -1003,7 +1003,7 @@ function Frame24() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">What I did</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[792px] whitespace-pre-wrap">
         <p className="mb-0">I reviewed 11 peer-reviewed journals and oncology studies focusing on:</p>
-        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">Mobile health (mHealth) apps for cancer patients</span>
           </li>
@@ -1221,7 +1221,7 @@ function Frame25() {
   return (
     <div className="content-stretch flex items-start justify-between not-italic relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">{`Research goals `}</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">What are existing apps already doing well that I can learn from?</span>
         </li>
@@ -1244,7 +1244,7 @@ function Frame26() {
         <p className="leading-[1.6] mb-0">I selected 8 apps to analyze, including - MyChart, Cancer.Net, Belong, and several symptom-tracking or hospital portal apps.</p>
         <p className="leading-[1.6] mb-0">&nbsp;</p>
         <p className="leading-[1.6] mb-0">For each app, I evaluated:</p>
-        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[1.6]">{` Onboarding experience (how easy it is to get started)`}</span>
           </li>
@@ -1778,7 +1778,7 @@ function Frame108() {
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="leading-[normal] mb-0">{`Based on the research findings, I began ideation by using “How Might We” statements to frame challenges creatively. `}</p>
         <p className="leading-[normal] mb-0">&nbsp;</p>
-        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal]">How might we simplify the way chemotherapy information is presented?</span>
           </li>
@@ -1826,7 +1826,7 @@ function Frame123() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Building an empathetic, accessible experience through iterative design</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
         <p className="leading-[normal] mb-0">I structured the experience around five key stages</p>
-        <ol className="list-decimal list-outside ml-5 css-8097nc" start="1">
+        <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">Onboarding - Patients connect to Mayo Clinic’s system using a unique patient code, syncing treatment details automatically.</span>
           </li>
@@ -1909,7 +1909,7 @@ function Frame35() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Secure Login via Clinic Code: Patients enter a unique code provided by their oncology clinic to connect their treatment data securely through the hospital’s API.</span>
         </li>
@@ -2086,7 +2086,7 @@ function Frame38() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Treatment Timeline - Displays completed and upcoming chemo cycles using a circular progress tracker.</span>
         </li>
@@ -2173,7 +2173,7 @@ function Frame41() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Multimodal Responses - The chatbot answers with text, audio summaries, or short videos depending on the user’s preference and energy level.</span>
         </li>
@@ -2339,7 +2339,7 @@ function Frame44() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Interactive Body Map - Patients tap on body zones (e.g., head, stomach, limbs) to log symptoms visually.</span>
         </li>
@@ -2508,7 +2508,7 @@ function Frame47() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Key Features</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Caregiver Dashboard - Allows patients to invite caregivers (e.g., family, spouse) via secure link or code.</span>
         </li>
@@ -2599,7 +2599,7 @@ function Frame51() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Tasks Tested</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Complete onboarding and verify data sync.</span>
         </li>
@@ -3191,7 +3191,7 @@ function Frame58() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black w-[172px]">Seamless Integration</p>
-      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" start="1">
+      <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px]" start={1}>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Build a plugin that connects directly with the Mayo Clinic patient portal, allowing patients to access Chemo Companion using existing credentials.</span>
         </li>
@@ -3247,7 +3247,7 @@ function Frame183() {
 
 function Frame132() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%+13px)] top-[1140px] w-[1022px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%+13px)] top-[1300px] w-[1022px]">
       <Frame131 />
       <Frame84 />
       <Frame85 />
