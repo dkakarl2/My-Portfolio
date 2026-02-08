@@ -27,14 +27,14 @@ export function CaseStudyNavArrows() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex items-center gap-2 md:gap-3"
+            className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-4 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow-lg border border-gray-100 hidden lg:flex"
         >
             {/* Previous Arrow */}
             <Link
                 to={prevStudy?.path || '#'}
                 className={`group flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border transition-all duration-200 ${prevStudy
-                        ? 'border-gray-200 hover:border-black hover:bg-black text-gray-600 hover:text-white cursor-pointer shadow-sm hover:shadow-md'
-                        : 'border-gray-100 text-gray-300 cursor-not-allowed pointer-events-none opacity-50'
+                    ? 'border-gray-200 hover:border-black hover:bg-black text-gray-600 hover:text-white cursor-pointer shadow-sm hover:shadow-md'
+                    : 'border-gray-100 text-gray-300 cursor-not-allowed pointer-events-none opacity-50'
                     }`}
                 aria-disabled={!prevStudy}
                 title={prevStudy ? `Previous: ${prevStudy.title}` : 'No previous case study'}
@@ -51,8 +51,8 @@ export function CaseStudyNavArrows() {
             <Link
                 to={nextStudy?.path || '#'}
                 className={`group flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full border transition-all duration-200 ${nextStudy
-                        ? 'border-gray-200 hover:border-black hover:bg-black text-gray-600 hover:text-white cursor-pointer shadow-sm hover:shadow-md'
-                        : 'border-gray-100 text-gray-300 cursor-not-allowed pointer-events-none opacity-50'
+                    ? 'border-gray-200 hover:border-black hover:bg-black text-gray-600 hover:text-white cursor-pointer shadow-sm hover:shadow-md'
+                    : 'border-gray-100 text-gray-300 cursor-not-allowed pointer-events-none opacity-50'
                     }`}
                 aria-disabled={!nextStudy}
                 title={nextStudy ? `Next: ${nextStudy.title}` : 'No next case study'}
