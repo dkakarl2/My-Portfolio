@@ -178,13 +178,47 @@ export function ProjectCard({
           {description}
         </h3>
 
-        <div className="flex items-start gap-4">
+        <div className="flex items-center gap-4">
           <div className="w-5 h-6 lg:w-6 lg:h-7 relative flex-shrink-0">
-            <img
-              src={imgImage49}
-              alt=""
-              className="absolute inset-0 w-full h-full object-contain"
-            />
+            {/* Animated blue star with shine */}
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              className="w-full h-full animate-star-shine"
+            >
+              <path
+                d="M12 2L14.09 8.26L21 9.27L16 13.97L17.18 21L12 17.77L6.82 21L8 13.97L3 9.27L9.91 8.26L12 2Z"
+                fill="url(#blueStarGradient)"
+                stroke="url(#blueStarStroke)"
+                strokeWidth="0.5"
+              />
+              <defs>
+                <linearGradient id="blueStarGradient" x1="12" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#60A5FA" />
+                  <stop offset="0.5" stopColor="#3B82F6" />
+                  <stop offset="1" stopColor="#2563EB" />
+                </linearGradient>
+                <linearGradient id="blueStarStroke" x1="12" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#93C5FD" />
+                  <stop offset="1" stopColor="#60A5FA" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <style>{`
+              @keyframes starShine {
+                0%, 100% {
+                  transform: scale(1);
+                  opacity: 1;
+                }
+                50% {
+                  transform: scale(1.15);
+                  opacity: 0.85;
+                }
+              }
+              .animate-star-shine {
+                animation: starShine 2s ease-in-out infinite;
+              }
+            `}</style>
           </div>
           <p className="font-['Inter'] text-sm lg:text-base text-[#8a8a8a] font-[Caveat_Brush]">
             <span className="font-['Caveat_Brush']">Role - </span>

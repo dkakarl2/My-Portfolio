@@ -3,7 +3,7 @@ import { Navigation } from "@/app/components/Navigation";
 import { motion } from "motion/react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
 import { Footer } from "@/app/components/Footer";
-import { RdsNextProjects } from "@/app/components/RdsNextProjects";
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 
 export function RocketDesignSystemCaseStudy() {
   // Apply scroll animations to all text elements
@@ -14,7 +14,7 @@ export function RocketDesignSystemCaseStudy() {
       <Navigation />
 
       {/* Top Project Navigation */}
-      
+
       {/* Main content */}
       <motion.main
         initial={{ opacity: 0 }}
@@ -33,7 +33,9 @@ export function RocketDesignSystemCaseStudy() {
 
       {/* Footer - Wrapped to preserve layout spacing */}
       <div className="lg:mt-[6800px]">
-        <RdsNextProjects />
+        <div className="flex justify-end pr-6 lg:pr-12 py-12">
+          <CaseStudyNavArrows />
+        </div>
         <Footer />
       </div>
     </div>

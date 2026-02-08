@@ -3,7 +3,7 @@ import { Navigation } from "@/app/components/Navigation";
 import { motion } from "motion/react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
 import { Footer } from "@/app/components/Footer";
-import { HackathonNextProjects } from "@/app/components/HackathonNextProjects";
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 
 export function EdPlusHackathonCaseStudy() {
   // Apply scroll animations to all text elements
@@ -14,7 +14,7 @@ export function EdPlusHackathonCaseStudy() {
       <Navigation />
 
       {/* Top Project Navigation */}
-      
+
       {/* Main content */}
       <motion.main
         initial={{ opacity: 0 }}
@@ -33,7 +33,9 @@ export function EdPlusHackathonCaseStudy() {
 
       {/* Footer - Wrapped to preserve layout spacing */}
       <div className="lg:mt-[16700px] mt-0">
-        <HackathonNextProjects />
+        <div className="flex justify-end pr-6 lg:pr-12 py-12">
+          <CaseStudyNavArrows />
+        </div>
         <Footer />
       </div>
     </div>

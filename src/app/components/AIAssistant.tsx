@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Send, Smile, Search, Briefcase, FolderOpen, Sparkles, ArrowUp, Maximize2, Minimize2, Lightbulb } from 'lucide-react';
+import { X, Send, Smile, Search, Briefcase, FolderOpen, Sparkles, ArrowUp, Maximize2, Minimize2, Lightbulb, Zap } from 'lucide-react';
 import DoodleFramForChat from './DoodleFramForChat';
-import { portfolioData } from '@/app/data/portfolioData';
+import { sendMessageToGemini, resetConversation } from '@/app/services/geminiService';
+import { useNavigate } from 'react-router-dom';
 
 interface Message {
   id: string;
@@ -18,68 +19,9 @@ const suggestions = [
   { category: "Contact Me", items: ["Get in Touch"] }
 ];
 
-function getResponse(question: string): string {
-  const lowerQuestion = question.toLowerCase().trim();
-
-  // 1. Dynamic Project Search
-  // Search through all projects for matching keywords in title, company, or description
-  const matchedProject = portfolioData.projects.find(p =>
-    lowerQuestion.includes(p.title.toLowerCase()) ||
-    lowerQuestion.includes(p.company.toLowerCase()) ||
-    (p.id && lowerQuestion.includes(p.id)) ||
-    (lowerQuestion.includes('project') && lowerQuestion.includes(p.title.split(' ')[0].toLowerCase()))
-  );
-
-  if (matchedProject) {
-    let response = `**${matchedProject.title}**\n\n${matchedProject.description}\n\n**Role:** ${matchedProject.role}\n**Impact:** ${matchedProject.impact}\n\n${matchedProject.details}`;
-    if (matchedProject.link) {
-      response += `\n\n[View Case Study](${matchedProject.link})`;
-    }
-    return response;
-  }
-
-  // 2. Skills & Tools
-  if (lowerQuestion.includes('skill') || lowerQuestion.includes('tool') || lowerQuestion.includes('stack') || lowerQuestion.includes('use') || lowerQuestion.includes('tech')) {
-    const design = portfolioData.skills.design.join(', ');
-    const tools = portfolioData.skills.tools.join(', ');
-    return `**My Toolkit & Expertise:**\n\n**Design:** ${design}\n\n**Tools:** ${tools}\n\n**Core Strengths:** ${portfolioData.skills.strengths.join(', ')}`;
-  }
-
-  // 3. Experience / Work History
-  if (lowerQuestion.includes('experience') || lowerQuestion.includes('work') || lowerQuestion.includes('history') || lowerQuestion.includes('resume') || lowerQuestion.includes('job')) {
-    let response = `${portfolioData.personal.description}\n\n**Work History:**\n`;
-    portfolioData.experience.forEach(exp => {
-      response += `• **${exp.company}** - ${exp.role} (${exp.period})\n`;
-    });
-    return response;
-  }
-
-  // 4. About / Bio
-  if (lowerQuestion.includes('about') || lowerQuestion.includes('who') || lowerQuestion.includes('intro')) {
-    return `I'm **${portfolioData.personal.name}**, a ${portfolioData.personal.title}.\n\n"${portfolioData.personal.tagline}"\n\n${portfolioData.personal.focus}\n\n${portfolioData.personal.approach}`;
-  }
-
-  // 5. Contact
-  if (lowerQuestion.includes('contact') || lowerQuestion.includes('email') || lowerQuestion.includes('reach') || lowerQuestion.includes('hire')) {
-    return `${portfolioData.opportunities.availability}\n\nEmail: ${portfolioData.personal.contact.email}\nLinkedIn: [LinkedIn Profile](${portfolioData.personal.contact.linkedin})`;
-  }
-
-  // 6. Generic "Projects" query
-  if (lowerQuestion.includes('project') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('case study')) {
-    let response = "Here are my key projects:\n\n";
-    portfolioData.projects.forEach(project => {
-      response += `• **${project.title}**: ${project.description}\n`;
-    });
-    return response;
-  }
-
-  // Default Fallback
-  return `I'd love to chat! Ask me about:\n• My **Projects** (ChemoBuddy, Rocket, EduFund...)\n• My **Skills** & Tools\n• My **Experience** & Background\n• My **Design Process**\n• Or just say hi!`;
-}
-
-// Helper to render bold text and links
-function renderFormattedText(text: string) {
-  // Split by bold (**...**) and links ([...](...))
+// Helper to render bold text and links, and handle navigation
+function renderFormattedText(text: string, onNavigate: (path: string) => void) {
+  // Split by bold (**...**) and links ([...](...)
   const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
   return (
     <>
@@ -89,13 +31,34 @@ function renderFormattedText(text: string) {
         }
         if (part.startsWith('[') && part.includes('](') && part.endsWith(')')) {
           const [label, url] = part.slice(1, -1).split('](');
+          const isExternal = url.startsWith('http');
+          const isHashLink = url.startsWith('/#');
+
           return (
             <a
               key={index}
               href={url}
-              className="text-blue-600 hover:text-blue-800 underline font-medium"
-              target={url.startsWith('http') ? "_blank" : "_self"}
-              rel={url.startsWith('http') ? "noopener noreferrer" : undefined}
+              className="text-blue-600 hover:text-blue-800 underline font-medium cursor-pointer"
+              onClick={(e) => {
+                if (!isExternal) {
+                  e.preventDefault();
+                  if (isHashLink) {
+                    // Navigate to home and then scroll to section
+                    onNavigate('/');
+                    setTimeout(() => {
+                      const sectionId = url.replace('/#', '');
+                      const element = document.getElementById(sectionId);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }, 100);
+                  } else {
+                    onNavigate(url);
+                  }
+                }
+              }}
+              target={isExternal ? "_blank" : undefined}
+              rel={isExternal ? "noopener noreferrer" : undefined}
             >
               {label}
             </a>
@@ -117,6 +80,7 @@ export function AIAssistant() {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -137,7 +101,7 @@ export function AIAssistant() {
     scrollToBottom();
   }, [messages, isTyping]);
 
-  const handleSendMessage = (content: string) => {
+  const handleSendMessage = async (content: string) => {
     if (!content.trim()) return;
 
     // Switch to chat view if on initial view
@@ -154,21 +118,49 @@ export function AIAssistant() {
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
 
-    // Simulate typing delay
+    // Show typing indicator
     setIsTyping(true);
-    setTimeout(() => {
+
+    try {
+      // Call Gemini API
+      const response = await sendMessageToGemini(content);
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         type: 'assistant',
-        content: getResponse(content)
+        content: response
       };
       setMessages(prev => [...prev, assistantMessage]);
+    } catch (error) {
+      console.error('Error getting response:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        type: 'assistant',
+        content: "I'm having trouble connecting right now. Please try again in a moment!"
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
       setIsTyping(false);
-    }, 1000);
+    }
   };
 
   const handleActionCard = (action: string) => {
     handleSendMessage(action);
+  };
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
+    // Optionally close the chat or minimize it
+    // setIsOpen(false);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setTimeout(() => {
+      setShowInitialView(true);
+      setMessages([]);
+      resetConversation(); // Reset Gemini conversation history
+    }, 300);
   };
 
   return (
@@ -185,10 +177,10 @@ export function AIAssistant() {
             className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9998] bg-white text-gray-600 rounded-full px-6 py-3.5 shadow-lg hover:shadow-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 flex items-center gap-3 min-w-[320px]"
             aria-label="Open AI Assistant"
           >
-            <Smile className="w-5 h-5 text-gray-400" />
-            <span className="text-sm text-gray-400 flex-1 text-left">What tools do you use?</span>
+            <Zap className="w-5 h-5 text-amber-500" />
+            <span className="text-sm text-gray-500 flex-1 text-left">Ask me anything about the portfolio...</span>
             <div className="bg-black rounded-lg p-2">
-              <Search className="w-4 h-4 text-white" />
+              <Sparkles className="w-4 h-4 text-white" />
             </div>
           </motion.button>
         )}
@@ -215,7 +207,13 @@ export function AIAssistant() {
                     <DoodleFramForChat />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-base text-black">Chat with Deepika</h3>
+                    <h3 className="font-semibold text-base text-black flex items-center gap-2">
+                      Chat with Deepika
+                      <span className="text-xs font-normal text-gray-400 flex items-center gap-1">
+                        <Zap className="w-3 h-3 text-amber-500" />
+                        AI Powered
+                      </span>
+                    </h3>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -227,13 +225,7 @@ export function AIAssistant() {
                     {isMaximized ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
                   </button>
                   <button
-                    onClick={() => {
-                      setIsOpen(false);
-                      setTimeout(() => {
-                        setShowInitialView(true);
-                        setMessages([]);
-                      }, 300);
-                    }}
+                    onClick={handleClose}
                     className="text-gray-400 hover:text-gray-600 transition-colors focus:outline-none p-1"
                     aria-label="Close chat"
                   >
@@ -258,7 +250,7 @@ export function AIAssistant() {
                     <p className="text-xs text-gray-500 uppercase tracking-wide mb-3 font-medium">Here's what you can do:</p>
                     <div className="grid grid-cols-3 gap-3">
                       <button
-                        onClick={() => handleActionCard("Ask me anything")}
+                        onClick={() => handleActionCard("Tell me about Deepika's background and experience")}
                         className="bg-white rounded-xl p-4 hover:shadow-md transition-shadow border border-gray-100 flex flex-col items-center gap-3 group"
                       >
                         <div className="w-12 h-12 bg-white border border-black rounded-lg flex items-center justify-center group-hover:bg-gray-50 transition-colors">
@@ -271,7 +263,7 @@ export function AIAssistant() {
                       </button>
 
                       <button
-                        onClick={() => handleActionCard("Browse portfolio")}
+                        onClick={() => handleActionCard("Show me the projects and case studies")}
                         className="bg-white rounded-xl p-4 hover:shadow-md transition-shadow border border-gray-100 flex flex-col items-center gap-3 group"
                       >
                         <div className="w-12 h-12 bg-white border border-black rounded-lg flex items-center justify-center group-hover:bg-gray-50 transition-colors">
@@ -279,12 +271,12 @@ export function AIAssistant() {
                         </div>
                         <div className="text-center">
                           <p className="text-sm font-medium text-gray-900">Browse portfolio</p>
-                          <p className="text-xs text-gray-500 mt-1">Scroll to explore case studies</p>
+                          <p className="text-xs text-gray-500 mt-1">Explore case studies & projects</p>
                         </div>
                       </button>
 
                       <button
-                        onClick={() => handleActionCard("View my skills")}
+                        onClick={() => handleActionCard("What tools and skills does Deepika have?")}
                         className="bg-white rounded-xl p-4 hover:shadow-md transition-shadow border border-gray-100 flex flex-col items-center gap-3 group"
                       >
                         <div className="w-12 h-12 bg-white border border-black rounded-lg flex items-center justify-center group-hover:bg-gray-50 transition-colors">
@@ -302,17 +294,22 @@ export function AIAssistant() {
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <Lightbulb className="w-4 h-4 text-gray-400" />
-                      <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">Suggestions</p>
+                      <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">Try asking</p>
                     </div>
-                    <div className="flex gap-2 overflow-x-auto pb-2">
-                      {suggestions.map((suggestion) => (
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        "Tell me about ChemoBuddy",
+                        "What's your design process?",
+                        "Navigate to the About page",
+                        "Show me the Playground",
+                        "What makes you unique?"
+                      ].map((suggestion) => (
                         <button
-                          key={suggestion.category}
-                          onClick={() => handleActionCard(suggestion.category)}
-                          className="flex-shrink-0 px-4 py-2 bg-white border border-gray-200 rounded-full text-xs hover:bg-gray-50 transition-colors"
+                          key={suggestion}
+                          onClick={() => handleActionCard(suggestion)}
+                          className="px-4 py-2 bg-white border border-gray-200 rounded-full text-xs hover:bg-gray-50 hover:border-gray-300 transition-colors"
                         >
-                          <span className="font-medium text-gray-700">{suggestion.category}</span>
-                          <span className="text-gray-400 ml-1">· {suggestion.items[0]}</span>
+                          <span className="text-gray-700">{suggestion}</span>
                         </button>
                       ))}
                     </div>
@@ -336,7 +333,7 @@ export function AIAssistant() {
                           {message.type === 'user' ? (
                             message.content
                           ) : (
-                            renderFormattedText(message.content)
+                            renderFormattedText(message.content, handleNavigate)
                           )}
                         </div>
                       </div>
@@ -347,10 +344,13 @@ export function AIAssistant() {
                   {isTyping && (
                     <div className="flex justify-start">
                       <div className="bg-white rounded-2xl px-4 py-3 shadow-sm border border-gray-100">
-                        <div className="flex space-x-1.5">
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                          <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                        <div className="flex items-center gap-2">
+                          <div className="flex space-x-1.5">
+                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                            <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                          </div>
+                          <span className="text-xs text-gray-400 ml-2">Thinking...</span>
                         </div>
                       </div>
                     </div>
@@ -389,18 +389,22 @@ export function AIAssistant() {
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Show me your best work…"
+                  placeholder="Ask about projects, skills, experience..."
                   className="flex-1 px-4 py-2.5 bg-white border-none text-sm focus:outline-none placeholder:text-gray-400"
+                  disabled={isTyping}
                 />
                 <button
                   type="submit"
-                  disabled={!inputValue.trim()}
+                  disabled={!inputValue.trim() || isTyping}
                   className="flex-shrink-0 p-2.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg transition-colors disabled:bg-gray-50 disabled:text-gray-300 disabled:cursor-not-allowed focus:outline-none"
                   aria-label="Send message"
                 >
                   <ArrowUp className="w-5 h-5" />
                 </button>
               </form>
+              <p className="text-xs text-gray-400 text-center mt-2">
+                Powered by Google Gemini AI
+              </p>
             </div>
           </motion.div>
         )}

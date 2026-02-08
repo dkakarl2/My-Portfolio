@@ -154,9 +154,15 @@ export function CustomCursor() {
     const onMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
-      setIsVisible(true);
-
       const target = document.elementFromPoint(e.clientX, e.clientY);
+      const shouldHide = target?.closest('[data-hide-cursor="true"]');
+
+      if (shouldHide) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
       setIsHovering(isClickable(target));
 
       // Throttle colour sampling to ~60 ms

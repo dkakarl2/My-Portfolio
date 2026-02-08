@@ -1,5 +1,6 @@
 import image_e3d50b5cce2131ac1f6f3d1314461f9619e0b0a2 from 'figma:asset/e3d50b5cce2131ac1f6f3d1314461f9619e0b0a2.png'
 import svgPaths from "./svg-nfe4j2hmq5";
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import Frame70VideoDemo from "./Frame70";
 import ScreenRecording from "./ScreenRecording";
 import Gif from "./Gif";
@@ -1229,25 +1230,20 @@ export default function Hackathon() {
         >
           {/* Title and subtext container */}
           <div className="flex flex-col items-start gap-[16px] w-full">
-            <h1 className="font-['Inter'] font-bold text-[40px] leading-[50px] text-black w-full">
-              AI Advising Assistant
-            </h1>
+            <div className="flex flex-row justify-between items-start w-full">
+              <h1 className="font-['Inter'] font-bold text-[40px] leading-[50px] text-black">
+                AI Advising Assistant
+              </h1>
+              <div className="mt-2 shrink-0">
+                <CaseStudyNavArrows />
+              </div>
+            </div>
             <p className="font-['Inter'] font-normal text-[20px] leading-[24px] text-[#484848] w-full">
               Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
             </p>
           </div>
           {/* Badge */}
-          <div
-            className="flex flex-row justify-center items-center px-[12px] py-[12px] gap-[10px] rounded-[24px]"
-            style={{
-              background: 'rgba(186, 140, 154, 0.25)',
-              border: '2px solid rgba(186, 140, 154, 0.79)'
-            }}
-          >
-            <span className="font-['Inter'] font-bold text-[16px] leading-[19px] text-[#7A1936]">
-              Built using Vibe Coding tools
-            </span>
-          </div>
+
         </div>
         <div className="absolute left-0 top-[380px] w-full">
           <HackathonHero />
@@ -1262,25 +1258,20 @@ export default function Hackathon() {
         {/* 1. Hero / Title */}
         <div className="w-full px-6 pt-24 pb-8 flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <h1 className="font-['Inter'] font-bold text-[28px] leading-tight text-black">
-              AI Advising Assistant
-            </h1>
+            <div className="flex flex-row justify-between items-start w-full">
+              <h1 className="font-['Inter'] font-bold text-[28px] leading-tight text-black">
+                AI Advising Assistant
+              </h1>
+              <div className="mt-1 shrink-0">
+                <CaseStudyNavArrows />
+              </div>
+            </div>
             <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#484848]">
               Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
             </p>
           </div>
           {/* Badge */}
-          <div
-            className="inline-flex justify-center items-center px-3 py-2 rounded-full self-start"
-            style={{
-              background: 'rgba(186, 140, 154, 0.25)',
-              border: '2px solid rgba(186, 140, 154, 0.79)'
-            }}
-          >
-            <span className="font-['Inter'] font-bold text-[14px] leading-[17px] text-[#7A1936]">
-              Built using Vibe Coding tools
-            </span>
-          </div>
+
         </div>
 
         {/* Hero Image */}

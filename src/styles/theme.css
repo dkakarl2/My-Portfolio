@@ -203,8 +203,25 @@
   [data-scroll-to-top] {
     animation: none !important;
   }
+
   [data-scroll-to-top] .fade-in-initial {
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  /* Case Study Image Interactions */
+  [data-case-study-content] img {
+    /* Ensure images receive hover events even if parent has pointer-events-none */
+    pointer-events: auto !important;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+      filter 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+    /* cursor: default; Removed to allow inheritance */
+  }
+
+  [data-case-study-content] img:hover {
+    transform: scale(1.025);
+    filter: brightness(1.04);
+    z-index: 10;
   }
 }

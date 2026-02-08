@@ -10,8 +10,8 @@ export function Footer() {
           {/* LinkedIn and Email Buttons */}
           <div className="absolute bottom-[112px] content-stretch flex gap-[37px] items-center left-[124px]">
             {/* LinkedIn Button */}
-            <a 
-              href="https://linkedin.com" 
+            <a
+              href="https://www.linkedin.com/in/deepika111/"
               target="_blank"
               rel="noopener noreferrer"
               className="relative group"
@@ -21,10 +21,10 @@ export function Footer() {
                   <div className="absolute h-[40px] left-[16px] top-[3px] w-[109px]">
                     <div className="absolute inset-[-25%_-9.18%]">
                       <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 129.008 59.9997">
-                        <path 
-                          d={svgPaths.p7365b70} 
-                          stroke="black" 
-                          strokeLinecap="round" 
+                        <path
+                          d={svgPaths.p7365b70}
+                          stroke="black"
+                          strokeLinecap="round"
                           strokeWidth="20"
                           fill="black"
                           className="group-hover:fill-[#00A3E0] group-hover:stroke-[#00A3E0] transition-colors"
@@ -40,18 +40,20 @@ export function Footer() {
             </a>
 
             {/* Email Button */}
-            <a 
-              href="mailto:deepika@example.com" 
+            <a
+              href="https://mail.google.com/mail/?view=cm&to=dkakarl2@asu.edu"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative group"
             >
               <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid items-start justify-items-start leading-[0] relative shrink-0">
                 <div className="col-start-1 row-start-1 h-[40px] relative w-[86px]">
                   <div className="absolute inset-[-25%_-11.63%]">
                     <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 106.002 59.9999">
-                      <path 
-                        d={svgPaths.p1e3e2500} 
-                        stroke="black" 
-                        strokeLinecap="round" 
+                      <path
+                        d={svgPaths.p1e3e2500}
+                        stroke="black"
+                        strokeLinecap="round"
                         strokeWidth="20"
                         fill="black"
                         className="group-hover:fill-[#00A3E0] group-hover:stroke-[#00A3E0] transition-colors"
@@ -69,10 +71,10 @@ export function Footer() {
           {/* Doodle Character Image */}
           <div className="absolute bottom-0 h-[200px] left-[556px] w-[163px]" data-name="doodle image">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <img 
-                alt="Doodle character" 
-                className="absolute h-[128.63%] left-[-56.81%] max-w-none top-[-28.63%] w-[236.49%]" 
-                src={imgImage54} 
+              <img
+                alt="Doodle character"
+                className="absolute h-[128.63%] left-[-56.81%] max-w-none top-[-28.63%] w-[236.49%]"
+                src={imgImage54}
               />
             </div>
           </div>

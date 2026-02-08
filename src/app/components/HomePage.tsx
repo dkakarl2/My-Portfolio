@@ -148,30 +148,6 @@ export function HomePage() {
 
         {/* Selected Works Section */}
         <section id="work" className="py-20 px-8 lg:px-0 max-w-[1224px] mx-auto">
-          {/* Section header with scroll animation */}
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 lg:gap-x-32 mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-          >
-            <div className="hidden lg:block lg:col-span-1"></div>
-            <motion.h2
-              className="font-['Inter'] font-bold text-4xl text-black lg:col-span-3"
-              variants={fadeInUp}
-            >
-              Selected works
-            </motion.h2>
-            <motion.p
-              className="font-['Inter'] font-normal text-[20px] text-[#747474] leading-[normal] lg:col-span-8"
-              variants={fadeInUp}
-            >
-              Design work powered by curiosity, systems thinking, <br />
-              and the occasional "why is this like this?"
-            </motion.p>
-          </motion.div>
-
           {/* Project cards with staggered scroll animations */}
           <div className="space-y-0">
             {projects.map((project, index) => (

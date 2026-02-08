@@ -15,10 +15,10 @@ import { ScribbleHighlight } from "@/app/components/ScribbleHighlight";
 export function Hero() {
   const [activeTab, setActiveTab] = useState<string>("anyone");
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [isImageHovered, setIsImageHovered] = useState<boolean>(false);
+
 
   return (
-    <section className="pt-32 lg:pt-56 pb-20 lg:pb-60 px-8 lg:px-0 lg:pl-[204px] max-w-[1224px] mx-auto overflow-hidden lg:overflow-visible">
+    <section className="min-h-screen flex flex-col justify-center pt-20 pb-10 px-8 lg:px-0 lg:pl-[204px] max-w-[1224px] mx-auto overflow-hidden lg:overflow-visible">
       <div className="relative flex flex-col lg:block">
         {/* Category tabs */}
         <motion.div
@@ -184,31 +184,21 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Doodle illustration - positioned absolutely on desktop, relative on mobile */}
+        {/* Doodle illustration - original image with hover */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="relative mt-8 lg:mt-0 lg:absolute lg:left-[-102px] lg:top-[240px] w-48 h-40 lg:w-[261.29px] lg:h-[234.04px] cursor-pointer mx-auto lg:mx-0 hidden lg:block"
           style={{ transform: 'rotate(12.33deg)' }}
-          onMouseEnter={() => setIsImageHovered(true)}
-          onMouseLeave={() => setIsImageHovered(false)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
         >
           <img
-            src={isImageHovered ? imgImage48Hover : imgImage47}
+            src={isHovered ? imgImage48Hover : imgImage47}
             alt="Doodle character"
-            className="w-full h-full object-contain transition-opacity duration-300"
+            className="w-full h-full object-contain transition-opacity duration-200"
           />
-        </motion.div>
-
-        {/* Hover to say hi text - positioned near doodle */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="hidden lg:block absolute left-[-180px] top-[490px] w-[87px] h-[66px]"
-        >
-          <Group72 />
         </motion.div>
 
         {/* Current role - positioned parallel to doodle */}

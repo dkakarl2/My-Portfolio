@@ -1,5 +1,6 @@
 import image_1c9b12e69f3c248f05ffdb1e0805ed4e92836839 from 'figma:asset/1c9b12e69f3c248f05ffdb1e0805ed4e92836839.png';
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import image_85df41b8503e0c1d73789aa9eca8e183b0810253 from 'figma:asset/85df41b8503e0c1d73789aa9eca8e183b0810253.png'
 import svgPaths from "./svg-guyf3ua2we";
 import imgComponent5 from "figma:asset/da71ab60a626af85354ff4eeeb327e6711792b31.png";
@@ -248,104 +249,34 @@ function Frame62() {
   );
 }
 
-function RdsAnimatedCounter({ target, suffix = '%', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  const easeOutCubic = useCallback((t: number) => 1 - Math.pow(1 - t, 3), []);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeOutCubic(progress);
-            const currentValue = Math.round(easedProgress * target);
-            setCount(currentValue);
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [target, duration, hasAnimated, easeOutCubic]);
-
-  return (
-    <span ref={ref}>{count}{suffix}</span>
-  );
-}
-
-function Frame1() {
-  return (
-    <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[298px]">
-      <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[21px] text-[#5d5d5d] text-[20px] top-[32px] w-[194px] whitespace-pre-wrap">Reduced design-to-dev QA cycles by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[21px] text-[56px] text-black top-[119px]">
-          <RdsAnimatedCounter target={30} suffix="%" />
-        </p>
-      </div>
-      <div aria-hidden="true" className="absolute border border-[#ece2e2] border-solid inset-0 pointer-events-none rounded-[24px]" />
-    </div>
-  );
-}
-
-function Frame14() {
-  return (
-    <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[303px]">
-      <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[22px] text-[#5d5d5d] text-[20px] top-[32px] w-[218px] whitespace-pre-wrap">Improved accessibility compliance by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[22px] text-[56px] text-black top-[119px]">
-          <RdsAnimatedCounter target={15} suffix="%" />
-        </p>
-      </div>
-      <div aria-hidden="true" className="absolute border border-[#ece2e2] border-solid inset-0 pointer-events-none rounded-[24px]" />
-    </div>
-  );
-}
-
-function Frame3() {
-  return (
-    <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[345px]">
-      <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[18px] text-[#5d5d5d] text-[20px] top-[32px] w-[288px] whitespace-pre-wrap">Delivered consistent, scalable components powering</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[18px] text-[56px] text-black top-[119px]">
-          <RdsAnimatedCounter target={15} suffix="+ sites" />
-        </p>
-      </div>
-      <div aria-hidden="true" className="absolute border border-[#ece2e2] border-solid inset-0 pointer-events-none rounded-[24px]" />
-    </div>
-  );
-}
+import { ImpactCard } from '@/app/components/ImpactCard';
 
 function Frame50() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full">
-      <div className="transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(255,127,50,0.15)] hover:scale-[1.03] rounded-[24px]">
-        <Frame1 />
-      </div>
-      <div className="transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(231,73,115,0.15)] hover:scale-[1.03] rounded-[24px]">
-        <Frame14 />
-      </div>
-      <div className="transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(120,190,32,0.15)] hover:scale-[1.03] rounded-[24px]">
-        <Frame3 />
-      </div>
+      <ImpactCard
+        value={30}
+        suffix="%"
+        description="Reduced design-to-dev QA cycles by"
+        themeColor="#FF7F32"
+        reverseLayout={true}
+      />
+
+      <ImpactCard
+        value={15}
+        suffix="%"
+        description="Improved accessibility compliance by"
+        themeColor="#E74973"
+        reverseLayout={true}
+      />
+
+      <ImpactCard
+        value={15}
+        suffix="+ sites"
+        description="Delivered consistent, scalable components powering"
+        themeColor="#78BE20"
+        reverseLayout={true}
+      />
     </div>
   );
 }
@@ -1289,9 +1220,14 @@ export default function RdsEdPlus() {
           left: '260px',
           top: '180px'
         }}>
-          <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
-            Rocket Design System
-          </h1>
+          <div className="flex flex-row justify-between items-start w-full">
+            <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
+              Rocket Design System
+            </h1>
+            <div className="mt-2 shrink-0">
+              <CaseStudyNavArrows />
+            </div>
+          </div>
           <p className="font-['Inter'] text-[20px] leading-normal text-[#484848] m-0 p-0">
             Built at ASU EdPlus to transform digital products into consistent, accessible, and scalable design experiences.
           </p>
@@ -1311,9 +1247,14 @@ export default function RdsEdPlus() {
         {/* 1. Hero & Title */}
         <div className="w-full px-6 pt-8 pb-12">
           <div className="flex flex-col gap-4 mb-6">
-            <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black">
-              Rocket Design System
-            </h1>
+            <div className="flex flex-row justify-between items-start w-full">
+              <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black">
+                Rocket Design System
+              </h1>
+              <div className="mt-1 shrink-0">
+                <CaseStudyNavArrows />
+              </div>
+            </div>
             <p className="font-['Inter'] text-lg leading-snug text-[#484848]">
               Built at ASU EdPlus to transform digital products into consistent, accessible, and scalable design experiences.
             </p>

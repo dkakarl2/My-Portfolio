@@ -2,7 +2,7 @@ import ChemobuddyMayoclinic from "@/imports/ChemobuddyMayoclinic-88-613";
 import { Navigation } from "@/app/components/Navigation";
 import { motion } from "motion/react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
-import { MayoClinicNextProjects } from "@/app/components/MayoClinicNextProjects";
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import { Footer } from "@/app/components/Footer";
 
 export function MayoClinicCaseStudy() {
@@ -33,7 +33,9 @@ export function MayoClinicCaseStudy() {
 
       {/* New Footer - Wrapped to preserve layout spacing */}
       <div className="lg:mt-[27000px]">
-        <MayoClinicNextProjects />
+        <div className="flex justify-end pr-6 lg:pr-12 py-12">
+          <CaseStudyNavArrows />
+        </div>
 
         <Footer />
       </div>

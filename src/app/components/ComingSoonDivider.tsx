@@ -59,15 +59,47 @@ export function ComingSoonDivider() {
             workflows with clarity, context, and intelligence.
           </h3>
 
-          <div className="flex items-start gap-4">
-            <div className="w-[23px] h-[26px] relative flex-shrink-0">
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <img
-                  alt=""
-                  className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]"
-                  src={imgImage49}
+          <div className="flex items-center gap-4">
+            <div className="w-5 h-6 lg:w-6 lg:h-7 relative flex-shrink-0">
+              {/* Animated blue star with shine */}
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                className="w-full h-full animate-star-shine"
+              >
+                <path
+                  d="M12 2L14.09 8.26L21 9.27L16 13.97L17.18 21L12 17.77L6.82 21L8 13.97L3 9.27L9.91 8.26L12 2Z"
+                  fill="url(#blueStarGradientAisle)"
+                  stroke="url(#blueStarStrokeAisle)"
+                  strokeWidth="0.5"
                 />
-              </div>
+                <defs>
+                  <linearGradient id="blueStarGradientAisle" x1="12" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#60A5FA" />
+                    <stop offset="0.5" stopColor="#3B82F6" />
+                    <stop offset="1" stopColor="#2563EB" />
+                  </linearGradient>
+                  <linearGradient id="blueStarStrokeAisle" x1="12" y1="2" x2="12" y2="21" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#93C5FD" />
+                    <stop offset="1" stopColor="#60A5FA" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <style>{`
+                @keyframes starShine {
+                  0%, 100% {
+                    transform: scale(1);
+                    opacity: 1;
+                  }
+                  50% {
+                    transform: scale(1.15);
+                    opacity: 0.85;
+                  }
+                }
+                .animate-star-shine {
+                  animation: starShine 2s ease-in-out infinite;
+                }
+              `}</style>
             </div>
             <p className="font-['Caveat_Brush'] text-[#8a8a8a] text-[24px] leading-normal m-0">
               <span className="leading-normal text-[14px]">{`Role -  `}</span>

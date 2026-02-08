@@ -1,18 +1,56 @@
 import svgPaths from "@/imports/svg-g3o4r0xxkh";
 import svgPathsContact from "@/imports/svg-f0bmstxzgi";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const location = useLocation();
   const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
 
+  // Detect if we're on a case study page
+  const isCaseStudyPage = location.pathname.includes('/case-study') ||
+    location.pathname.includes('/mayo-clinic') ||
+    location.pathname.includes('/edufund') ||
+    location.pathname.includes('/rocket-design') ||
+    location.pathname.includes('/ed-plus-hackathon');
+
+  // Scroll direction detection for all pages
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollThreshold = 50; // Minimum scroll before hiding
+
+      // Always show nav at the very top
+      if (currentScrollY < scrollThreshold) {
+        setIsNavVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      // Scrolling down - hide nav
+      if (currentScrollY > lastScrollY.current + 10) {
+        setIsNavVisible(false);
+      }
+      // Scrolling up - show nav
+      else if (currentScrollY < lastScrollY.current - 10) {
+        setIsNavVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
-    
+
     if (isHomePage) {
       // Already on homepage, just scroll to section
       const element = document.querySelector(sectionId);
@@ -23,12 +61,15 @@ export function Navigation() {
       // Navigate to homepage with hash
       navigate(`/${sectionId}`);
     }
-    
+
     setIsMenuOpen(false);
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-[#D0D0D0]/30">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm border-b border-[#D0D0D0]/30 transition-transform duration-300 ease-in-out ${isNavVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+    >
       <div className="max-w-[1440px] mx-auto px-8 lg:px-24">
         <div className="flex items-center h-20 relative">
           {/* Logo */}
@@ -38,15 +79,15 @@ export function Navigation() {
 
           {/* Center Navigation - Desktop */}
           <div className="hidden md:flex items-center gap-14 absolute left-1/2 -translate-x-1/2">
-            <a 
-              href="/#work" 
+            <a
+              href="/#work"
               onClick={(e) => handleSectionClick(e, '#work')}
               className="font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors font-[Inter] text-[14px] font-bold"
             >
               Works
             </a>
-            <a 
-              href="/#playground" 
+            <a
+              href="/#playground"
               onClick={(e) => handleSectionClick(e, '#playground')}
               className="font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors font-[Inter] text-[14px] font-bold"
             >
@@ -87,36 +128,36 @@ export function Navigation() {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden pb-6 space-y-4">
-            <a 
-              href="/#work" 
+            <a
+              href="/#work"
               className="block font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors"
               onClick={(e) => handleSectionClick(e, '#work')}
             >
               Works
             </a>
-            <a 
-              href="/#playground" 
+            <a
+              href="/#playground"
               className="block font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors"
               onClick={(e) => handleSectionClick(e, '#playground')}
             >
               Playground
             </a>
-            <Link 
-              to="/about" 
+            <Link
+              to="/about"
               className="block font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
-            <a 
-              href="#resume" 
+            <a
+              href="#resume"
               className="block font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Resume
             </a>
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="block font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >

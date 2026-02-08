@@ -10,7 +10,7 @@ import { EduFundCaseStudy } from "@/app/components/EduFundCaseStudy";
 import { ScrollToTop } from "@/app/components/ScrollToTop";
 import { ScrollToTopHandler } from "@/app/components/ScrollToTopHandler";
 import { ContactPage } from "@/app/components/ContactPage";
-import { AIAssistant } from "@/app/components/AIAssistant";
+// import { AIAssistant } from "@/app/components/AIAssistant"; // Disabled for now
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
@@ -61,7 +61,7 @@ function AppContent() {
       <CaseStudyNavigator />
       <ScrollToTopHandler />
       {showIntro && <IntroAnimation onComplete={() => setShowIntro(false)} />}
-      
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -69,12 +69,12 @@ function AppContent() {
         <Route path="/rocket-design-system-case-study" element={<RocketDesignSystemCaseStudy />} />
         <Route path="/ed-plus-hackathon-case-study" element={<EdPlusHackathonCaseStudy />} />
         <Route path="/edufund-case-study" element={<EduFundCaseStudy />} />
-        <Route path="/ai-assistant" element={<AIAssistant />} />
+        {/* <Route path="/ai-assistant" element={<AIAssistant />} /> */}
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
-      
-      {!showIntro && <AIAssistant />}
-      
+
+      {/* {!showIntro && <AIAssistant />} */}
+
       {/* ScrollToTop should be the absolutely last element to ensure highest stacking context */}
       <ScrollToTop />
     </>

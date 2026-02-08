@@ -16,7 +16,7 @@ import image_7392c6e4c353b3331c85a8396d2df897aafc9473 from 'figma:asset/7392c6e4
 import image_721ea2f8ed8d3579f523583c34c605c4106914c0 from 'figma:asset/721ea2f8ed8d3579f523583c34c605c4106914c0.png';
 import image_41b83b07154bc25d703684701f8068bfed7f9b77 from 'figma:asset/41b83b07154bc25d703684701f8068bfed7f9b77.png';
 import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, MouseEvent } from "react";
 
 interface PlaygroundItem {
   image: string;
@@ -45,6 +45,138 @@ const placeholderItems = [
   { left: 1079, top: 339, height: 435, opacity: 0.57, image: image_5c1f25d444ae857f9b01432b41ba7b99f368b72d },
   { left: 1079, top: 0, height: 328, opacity: 0.31, image: image_37c07083b625b022ea7cf3be764f2645812ae6cb },
 ];
+
+// Parallax card component that tracks mouse position
+function ParallaxCard({
+  item,
+  index,
+  isVisible,
+  itemRef
+}: {
+  item: typeof placeholderItems[0];
+  index: number;
+  isVisible: boolean;
+  itemRef: (el: HTMLDivElement | null) => void;
+}) {
+  const [imageOffset, setImageOffset] = useState({ x: 0, y: 0 });
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    // Calculate offset from center (-1 to 1)
+    const offsetX = (e.clientX - centerX) / (rect.width / 2);
+    const offsetY = (e.clientY - centerY) / (rect.height / 2);
+
+    // Move image towards cursor (max 15px offset)
+    const maxOffset = 15;
+    setImageOffset({
+      x: offsetX * maxOffset,
+      y: offsetY * maxOffset
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setImageOffset({ x: 0, y: 0 });
+  };
+
+  return (
+    <motion.div
+      ref={(el) => {
+        cardRef.current = el;
+        itemRef(el);
+      }}
+      data-index={index}
+      className="absolute rounded-[60px] overflow-hidden"
+      style={{
+        left: `${item.left}px`,
+        top: `${item.top}px`,
+        height: `${item.height}px`,
+        width: '349px',
+        backgroundColor: `rgba(196, 196, 196, ${item.opacity})`,
+      }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img
+        src={item.image}
+        alt=""
+        className="w-full h-full object-cover"
+        style={{
+          transform: `translate(${imageOffset.x}px, ${imageOffset.y}px) scale(1.1)`,
+          transition: 'transform 0.2s ease-out',
+        }}
+      />
+    </motion.div>
+  );
+}
+
+// Mobile parallax card
+function MobileParallaxCard({
+  item,
+  index
+}: {
+  item: typeof placeholderItems[0];
+  index: number;
+}) {
+  const [imageOffset, setImageOffset] = useState({ x: 0, y: 0 });
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+
+    const offsetX = (e.clientX - centerX) / (rect.width / 2);
+    const offsetY = (e.clientY - centerY) / (rect.height / 2);
+
+    const maxOffset = 10;
+    setImageOffset({
+      x: offsetX * maxOffset,
+      y: offsetY * maxOffset
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setImageOffset({ x: 0, y: 0 });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      className="rounded-[30px] overflow-hidden"
+      style={{
+        height: `${Math.min(item.height * 0.6, 300)}px`,
+        backgroundColor: `rgba(196, 196, 196, ${item.opacity})`,
+      }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4, delay: index * 0.03 }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <img
+        src={item.image}
+        alt=""
+        className="w-full h-full object-cover"
+        style={{
+          transform: `translate(${imageOffset.x}px, ${imageOffset.y}px) scale(1.1)`,
+          transition: 'transform 0.2s ease-out',
+        }}
+      />
+    </motion.div>
+  );
+}
 
 export function Playground({ items }: PlaygroundProps) {
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
@@ -89,28 +221,13 @@ export function Playground({ items }: PlaygroundProps) {
       <div className="hidden lg:block w-full">
         <div className="relative h-[1452px] max-w-[1440px] mx-auto">
           {placeholderItems.map((item, index) => (
-            <motion.div
+            <ParallaxCard
               key={index}
-              ref={(el) => (itemRefs.current[index] = el)}
-              data-index={index}
-              className="absolute rounded-[60px] overflow-hidden"
-              style={{
-                left: `${item.left}px`,
-                top: `${item.top}px`,
-                height: `${item.height}px`,
-                width: '349px',
-                backgroundColor: `rgba(196, 196, 196, ${item.opacity})`,
-              }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={visibleItems.has(index) ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-            >
-              <img 
-                src={item.image} 
-                alt="" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+              item={item}
+              index={index}
+              isVisible={visibleItems.has(index)}
+              itemRef={(el) => (itemRefs.current[index] = el)}
+            />
           ))}
         </div>
       </div>
@@ -119,24 +236,11 @@ export function Playground({ items }: PlaygroundProps) {
       <div className="lg:hidden px-8">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {placeholderItems.map((item, index) => (
-            <motion.div
+            <MobileParallaxCard
               key={`mobile-${index}`}
-              className="rounded-[30px] overflow-hidden"
-              style={{
-                height: `${Math.min(item.height * 0.6, 300)}px`,
-                backgroundColor: `rgba(196, 196, 196, ${item.opacity})`,
-              }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.03 }}
-            >
-              <img 
-                src={item.image} 
-                alt="" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+              item={item}
+              index={index}
+            />
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import svgPaths from "./svg-9mk4eqkq47";
 import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
 import imgImage115 from "figma:asset/adf2f7f090fc9d8b0bc367bedff3d83b1ce9b693.png";
@@ -338,102 +339,33 @@ function Frame153() {
   );
 }
 
-function EduFundAnimatedCounter({ target, suffix = '%', duration = 1800 }: { target: number; suffix?: string; duration?: number }) {
-  const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
-
-  const easeOutCubic = useCallback((t: number) => 1 - Math.pow(1 - t, 3), []);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeOutCubic(progress);
-            const currentValue = Math.round(easedProgress * target);
-            setCount(currentValue);
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [target, duration, hasAnimated, easeOutCubic]);
-
-  return (
-    <span ref={ref}>{count}{suffix}</span>
-  );
-}
-
-function Frame() {
-  return (
-    <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[298px]">
-      <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[21px] text-[#5d5d5d] text-[20px] top-[32px] w-[238px] whitespace-pre-wrap">Increase in engagement on the Invest tab by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[21px] text-[56px] text-black top-[119px]">
-          <EduFundAnimatedCounter target={30} suffix="%" />
-        </p>
-      </div>
-      <div aria-hidden="true" className="absolute border border-[#ece2e2] border-solid inset-0 pointer-events-none rounded-[24px]" />
-    </div>
-  );
-}
-
-function Frame2() {
-  return (
-    <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[303px]">
-      <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[22px] text-[#5d5d5d] text-[20px] top-[32px] w-[240px] whitespace-pre-wrap">Reduction in onboarding drop-off by</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[22px] text-[56px] text-black top-[119px]">
-          <EduFundAnimatedCounter target={15} suffix="%" />
-        </p>
-      </div>
-      <div aria-hidden="true" className="absolute border border-[#ece2e2] border-solid inset-0 pointer-events-none rounded-[24px]" />
-    </div>
-  );
-}
-
-function Frame1() {
-  return (
-    <div className="bg-white h-[218px] relative rounded-[24px] shrink-0 w-[345px]">
-      <div className="leading-[normal] not-italic overflow-clip relative rounded-[inherit] size-full">
-        <p className="absolute font-['Inter:Medium',sans-serif] font-medium left-[18px] text-[#5d5d5d] text-[20px] top-[32px] w-[288px] whitespace-pre-wrap">{`Positive user feedback highlighting clarity and `}</p>
-        <p className="absolute font-['Inter:Bold',sans-serif] font-bold left-[18px] text-[56px] text-black top-[119px]">ease</p>
-      </div>
-      <div aria-hidden="true" className="absolute border border-[#ece2e2] border-solid inset-0 pointer-events-none rounded-[24px]" />
-    </div>
-  );
-}
+import { ImpactCard } from '@/app/components/ImpactCard';
 
 function Frame145() {
   return (
     <div className="content-stretch flex gap-[24px] items-center relative shrink-0 w-full">
-      <div className="transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(120,190,32,0.15)] hover:scale-[1.03] rounded-[24px]">
-        <Frame />
-      </div>
-      <div className="transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,163,224,0.15)] hover:scale-[1.03] rounded-[24px]">
-        <Frame2 />
-      </div>
-      <div className="transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(255,127,50,0.15)] hover:scale-[1.03] rounded-[24px]">
-        <Frame1 />
-      </div>
+      <ImpactCard
+        value={30}
+        suffix="%"
+        description="Increase in engagement on the Invest tab by"
+        themeColor="#78BE20"
+        reverseLayout={true}
+      />
+
+      <ImpactCard
+        value={15}
+        suffix="%"
+        description="Reduction in onboarding drop-off by"
+        themeColor="#00A3E0"
+        reverseLayout={true}
+      />
+
+      <ImpactCard
+        value="ease"
+        description="Positive user feedback highlighting clarity and"
+        themeColor="#FF7F32"
+        reverseLayout={true}
+      />
     </div>
   );
 }
@@ -5198,19 +5130,24 @@ export default function EduFundFixedDeposit() {
           alignSelf: 'stretch',
           flexGrow: 0
         }}>
-          <h1 style={{
-            width: '993px',
-            height: '50px',
-            fontFamily: 'Inter',
-            fontStyle: 'normal',
-            fontWeight: 700,
-            fontSize: '40px',
-            lineHeight: '50px',
-            color: '#000000',
-            margin: 0
-          }}>
-            EduFund’s Fixed deposit model
-          </h1>
+          <div className="flex flex-row justify-between items-start w-full">
+            <h1 style={{
+              width: 'auto',
+              flex: 1,
+              fontFamily: 'Inter',
+              fontStyle: 'normal',
+              fontWeight: 700,
+              fontSize: '40px',
+              lineHeight: '50px',
+              color: '#000000',
+              margin: 0
+            }}>
+              EduFund’s Fixed deposit model
+            </h1>
+            <div className="mt-2 shrink-0">
+              <CaseStudyNavArrows />
+            </div>
+          </div>
           <p style={{
             width: '993px',
             height: '48px',

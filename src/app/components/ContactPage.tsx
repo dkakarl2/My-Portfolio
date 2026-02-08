@@ -12,26 +12,51 @@ export function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeelqnrz";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate network request
-    setTimeout(() => {
+    setError("");
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          _replyto: formState.email
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormState({ name: "", email: "", message: "" });
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
+    } catch {
+      setError("Failed to send message. Please try again.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormState({ name: "", email: "", message: "" });
-    }, 1500);
+    }
   };
 
   return (
     <div className="min-h-screen bg-white relative">
       <div className="overflow-x-hidden">
         <Navigation />
-        
+
         <main className="pt-32 pb-20 px-8 lg:px-24 max-w-[1440px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
-            
+
             {/* Left Column: Text & Info */}
             <div className="lg:col-span-5 flex flex-col justify-center">
               <motion.div
@@ -42,9 +67,9 @@ export function ContactPage() {
                 <h1 className="font-['Caveat_Brush'] text-6xl lg:text-7xl mb-6 text-black">
                   Let's Connect!
                 </h1>
-                
+
                 <p className="font-['Inter'] text-xl text-[#484848] leading-relaxed mb-12">
-                  I'm currently looking for new opportunities. Whether you have a question, 
+                  I'm currently looking for new opportunities. Whether you have a question,
                   a project proposal, or just want to say hi, I'll try my best to get back to you!
                 </p>
 
@@ -73,7 +98,7 @@ export function ContactPage() {
                     <p className="font-['Inter'] text-[#484848] max-w-sm">
                       Thanks for reaching out! I've received your message and will get back to you as soon as possible.
                     </p>
-                    <button 
+                    <button
                       onClick={() => setIsSubmitted(false)}
                       className="mt-8 font-['Caveat_Brush'] text-xl text-[#00A3E0] hover:text-black transition-colors"
                     >
@@ -89,7 +114,7 @@ export function ContactPage() {
                         id="name"
                         required
                         value={formState.name}
-                        onChange={(e) => setFormState({...formState, name: e.target.value})}
+                        onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         className="w-full bg-transparent border-b-2 border-[#D0D0D0] focus:border-black py-3 outline-none font-['Inter'] text-lg transition-colors placeholder:text-[#999]"
                         placeholder="What's your name?"
                       />
@@ -102,7 +127,7 @@ export function ContactPage() {
                         id="email"
                         required
                         value={formState.email}
-                        onChange={(e) => setFormState({...formState, email: e.target.value})}
+                        onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         className="w-full bg-transparent border-b-2 border-[#D0D0D0] focus:border-black py-3 outline-none font-['Inter'] text-lg transition-colors placeholder:text-[#999]"
                         placeholder="your@email.com"
                       />
@@ -115,34 +140,20 @@ export function ContactPage() {
                         required
                         rows={4}
                         value={formState.message}
-                        onChange={(e) => setFormState({...formState, message: e.target.value})}
+                        onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                         className="w-full bg-transparent border-b-2 border-[#D0D0D0] focus:border-black py-3 outline-none font-['Inter'] text-lg transition-colors resize-none placeholder:text-[#999]"
                         placeholder="Tell me about your project..."
                       />
                     </div>
 
+                    {error && (
+                      <p className="text-red-500 font-['Inter'] text-sm mb-4">{error}</p>
+                    )}
+
                     <div className="pt-4">
                       <button
-                        type="button"
+                        type="submit"
                         disabled={isSubmitting}
-                        onClick={(e) => {
-                          const form = e.currentTarget.closest('form');
-                          if (form && !form.checkValidity()) {
-                            form.reportValidity();
-                            return;
-                          }
-                          
-                          const subject = `Portfolio Contact from ${formState.name}`;
-                          const body = `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`;
-                          window.location.href = `mailto:dkakarl2@asu.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                          
-                          setIsSubmitting(true);
-                          setTimeout(() => {
-                            setIsSubmitting(false);
-                            setIsSubmitted(true);
-                            setFormState({ name: "", email: "", message: "" });
-                          }, 1500);
-                        }}
                         className="group relative inline-flex items-center justify-center px-8 py-3 bg-black text-white rounded-full font-['Caveat_Brush'] text-xl overflow-hidden transition-all hover:bg-[#333] hover:scale-105 disabled:opacity-70 disabled:hover:scale-100"
                       >
                         {isSubmitting ? (
@@ -164,7 +175,7 @@ export function ContactPage() {
             </div>
           </div>
         </main>
-        
+
         <Footer />
       </div>
     </div>

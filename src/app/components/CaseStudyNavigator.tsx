@@ -242,13 +242,45 @@ export function CaseStudyNavigator() {
     if (normalizedPath === '/rocket-design-system-case-study') {
       return !['nav-ideation', 'nav-design', 'nav-testing'].includes(sec.id);
     }
+    if (normalizedPath === '/ed-plus-hackathon-case-study') {
+      return !['nav-results', 'nav-research', 'nav-design', 'nav-testing'].includes(sec.id);
+    }
     return true;
   });
 
   const [activeSection, setActiveSection] = useState('Overview');
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
+  const [isMainNavVisible, setIsMainNavVisible] = useState(true);
+  const lastScrollY = useRef(0);
   const elemCacheRef = useRef<Map<string, HTMLElement>>(new Map());
   const navRef = useRef<HTMLElement>(null);
+
+  // Track main navigation visibility (sync with Navigation.tsx logic)
+  useEffect(() => {
+    if (!isCaseStudy) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrollThreshold = 50;
+
+      if (currentScrollY < scrollThreshold) {
+        setIsMainNavVisible(true);
+        lastScrollY.current = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY.current + 10) {
+        setIsMainNavVisible(false);
+      } else if (currentScrollY < lastScrollY.current - 10) {
+        setIsMainNavVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isCaseStudy]);
 
   // ---- Find and cache section heading elements ----
   const injectAnchors = useCallback(() => {
@@ -378,14 +410,14 @@ export function CaseStudyNavigator() {
       ref={navRef}
       style={{
         position: 'fixed',
-        top: 80,
+        top: isMainNavVisible ? 80 : 0,
         left: 0,
         right: 0,
         zIndex: 9998,
         opacity: shouldShow ? 1 : 0,
         transform: shouldShow ? 'translateY(0)' : 'translateY(-8px)',
         pointerEvents: shouldShow ? 'auto' : 'none',
-        transition: 'opacity 0.35s ease, transform 0.35s ease',
+        transition: 'opacity 0.35s ease, transform 0.35s ease, top 0.3s ease-in-out',
       }}
       aria-label="Case study sections"
       data-case-study-nav

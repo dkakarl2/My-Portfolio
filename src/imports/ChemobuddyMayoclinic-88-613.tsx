@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Map, HeartPulse, ShieldCheck } from 'lucide-react';
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import imgHeroReplace from 'figma:asset/f620a291096457bf1aa42dee938f437a6005b47b.png';
 import image_1bf5f60255a20498a2f475250c718f058eaf3940 from 'figma:asset/1bf5f60255a20498a2f475250c718f058eaf3940.png'
 import image_1fe621dd30fe83aba6261433a0f4db9c285c46f0 from 'figma:asset/1fe621dd30fe83aba6261433a0f4db9c285c46f0.png'
@@ -559,6 +560,8 @@ function AnimatedCounter({ target, suffix = '%', color, duration = 1800 }: { tar
   );
 }
 
+import { ImpactCard } from '@/app/components/ImpactCard';
+
 function Frame100() {
   return (
     <div className="flex flex-col gap-[51px] items-start relative shrink-0 w-[997px]">
@@ -578,51 +581,39 @@ function Frame100() {
         {/* Row 1 */}
         <div className="flex gap-[24px] items-stretch w-full">
           {/* Card: 95% */}
-          <div
-            className="bg-white rounded-[24px] flex-1 min-h-[218px] relative overflow-hidden transition-all duration-300 ease-out cursor-default hover:shadow-[0_8px_30px_rgba(231,73,115,0.15)] hover:-translate-y-1 hover:scale-[1.02]"
-            style={{ border: '1px solid #ece2e2' }}
-          >
-            <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={95} color="#000000" />
-              <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[320px]">of participants completed all tasks successfully</p>
-            </div>
-          </div>
+          <ImpactCard
+            target={95}
+            description="of participants completed all tasks successfully"
+            themeColor="#E74973"
+            maxWidth="320px"
+          />
 
           {/* Card: 40% */}
-          <div
-            className="bg-white rounded-[24px] flex-1 min-h-[218px] relative overflow-hidden transition-all duration-300 ease-out cursor-default hover:shadow-[0_8px_30px_rgba(120,190,32,0.15)] hover:-translate-y-1 hover:scale-[1.02]"
-            style={{ border: '1px solid #ece2e2' }}
-          >
-            <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={40} color="#000000" />
-              <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[372px]">increase in engagement time (4.2 to 7.8 minutes average session).</p>
-            </div>
-          </div>
+          <ImpactCard
+            target={40}
+            description="increase in engagement time (4.2 to 7.8 minutes average session)."
+            themeColor="#78BE20"
+            maxWidth="372px"
+          />
         </div>
 
         {/* Row 2 */}
         <div className="flex gap-[24px] items-stretch w-full">
           {/* Card: 30% */}
-          <div
-            className="bg-white rounded-[24px] flex-1 min-h-[218px] relative overflow-hidden transition-all duration-300 ease-out cursor-default hover:shadow-[0_8px_30px_rgba(255,127,50,0.15)] hover:-translate-y-1 hover:scale-[1.02]"
-            style={{ border: '1px solid #ece2e2' }}
-          >
-            <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={30} color="#000000" />
-              <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[337px]">improvement in symptom reporting accuracy.</p>
-            </div>
-          </div>
+          <ImpactCard
+            target={30}
+            description="improvement in symptom reporting accuracy."
+            themeColor="#FF7F32"
+            maxWidth="337px"
+          />
 
           {/* Card: 85% */}
-          <div
-            className="bg-white rounded-[24px] flex-1 min-h-[218px] relative overflow-hidden transition-all duration-300 ease-out cursor-default hover:shadow-[0_8px_30px_rgba(0,163,224,0.15)] hover:-translate-y-1 hover:scale-[1.02]"
-            style={{ border: '1px solid #ece2e2' }}
-          >
-            <div className="flex flex-col gap-[39px] items-start p-[36px]">
-              <AnimatedCounter target={85} color="#000000" />
-              <p className="font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic text-[#5d5d5d] text-[20px] whitespace-pre-wrap max-w-[357px]">increase in engagement time (4.2 to 7.8 minutes average session).</p>
-            </div>
-          </div>
+          <ImpactCard
+            target={85}
+            description="increase in engagement time (4.2 to 7.8 minutes average session)."
+            themeColor="#00A3E0"
+            maxWidth="357px"
+          />
         </div>
       </div>
     </div>
@@ -3287,9 +3278,14 @@ export default function ChemobuddyMayoclinic() {
       {/* Desktop Layout - Preserved */}
       <div className="hidden lg:block relative min-h-[8500px]" data-name="Chemobuddy - Mayoclinic">
         <div className="absolute flex flex-col items-start left-[calc(50%-496.5px)] top-[158px] w-[993px]">
-          <h1 className="font-['Inter'] font-bold text-[40px] leading-tight text-black m-0 mb-[16px]">
-            ChemoBuddy
-          </h1>
+          <div className="flex flex-row justify-between items-start w-full mb-[16px]">
+            <h1 className="font-['Inter'] font-bold text-[40px] leading-tight text-black m-0">
+              ChemoBuddy
+            </h1>
+            <div className="mt-2">
+              <CaseStudyNavArrows />
+            </div>
+          </div>
           <p className="font-['Inter'] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 mb-[24px]">
             Developed in collaboration with Mayo Clinic to transform complex chemotherapy information into guided, easy-to-understand patient experiences.
           </p>
@@ -3312,9 +3308,14 @@ export default function ChemobuddyMayoclinic() {
 
         {/* 1. Overview */}
         <div className="w-full px-6 pt-8 pb-8 bg-gradient-to-b from-[rgba(186,214,212,0.39)] to-[rgba(151,167,165,0.2)]">
-          <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black mb-6">
-            ChemoBuddy
-          </h1>
+          <div className="flex flex-row justify-between items-start w-full mb-6">
+            <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black">
+              ChemoBuddy
+            </h1>
+            <div className="mt-1">
+              <CaseStudyNavArrows />
+            </div>
+          </div>
           <p className="font-['Inter'] text-[#484848] text-lg leading-relaxed mb-6">
             Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.
           </p>

@@ -5,3 +5,9 @@ declare module 'figma:asset/*' {
     const value: string;
     export default value;
 }
+
+// Declare video file modules
+declare module '*.mp4' {
+    const src: string;
+    export default src;
+}

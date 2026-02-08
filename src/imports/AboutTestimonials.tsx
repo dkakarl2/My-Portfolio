@@ -36,7 +36,7 @@ function Frame3() {
     <div className="content-stretch flex flex-col gap-[12px] items-start leading-[normal] not-italic relative shrink-0 w-[714px]">
       <p className="css-4hzbpn font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] text-black w-full">Jeroel Padilla</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Lead UX Designer, Design Systems</p>
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[24px] w-full font-[Inter]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Deepika is a systematic, thoughtful, and highly reliable UX designer. During her time at EdPlus, she consistently delivered quality work on our design systems, particularly in component optimization and design Q/A, while demonstrating strong attention to detail and process. She adapts quickly to feedback and changing requirements, approaches challenges with genuine curiosity, and takes real ownership of her craft. Deepika is detail oriented, collaborative, and receptive to mentorship, making her a valuable team contributor.</p>
     </div>
   );
 }
@@ -69,7 +69,7 @@ function Frame4() {
     <div className="content-stretch flex flex-col gap-[12px] items-start leading-[normal] not-italic relative shrink-0 w-[714px]">
       <p className="css-4hzbpn font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] text-black w-full">Rajeshwari Jaykumar</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">UX Design Assistant</p>
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[24px] w-full font-[Inter]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   );
 }
@@ -102,7 +102,7 @@ function Frame6() {
     <div className="content-stretch flex flex-col gap-[12px] items-start leading-[normal] not-italic relative shrink-0 w-[714px]">
       <p className="css-4hzbpn font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] text-black w-full">Anirudh Palaskar</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">UX Research Assistant</p>
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[24px] w-full font-[Inter]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
     </div>
   );
 }
@@ -183,7 +183,7 @@ function Group() {
     <div className="absolute contents left-[70px] top-[203.71px]">
       <div className="absolute flex h-[82.072px] items-center justify-center left-[73.84px] top-[208.82px] w-[77.936px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[-24.54deg]">
-          <div className="h-[64.563px] opacity-50 relative w-[56.196px]" data-name="image 51">
+          <div className="h-[64.563px] opacity-10 relative w-[56.196px]" data-name="image 51">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -192,7 +192,7 @@ function Group() {
       </div>
       <div className="absolute flex h-[27.208px] items-center justify-center left-[112.19px] top-[203.71px] w-[25.837px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[-24.54deg]">
-          <div className="h-[21.404px] opacity-50 relative w-[18.63px]" data-name="image 52">
+          <div className="h-[21.404px] opacity-10 relative w-[18.63px]" data-name="image 52">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -201,7 +201,7 @@ function Group() {
       </div>
       <div className="absolute flex h-[27.208px] items-center justify-center left-[70px] top-[258.68px] w-[25.837px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[-24.54deg]">
-          <div className="h-[21.404px] opacity-50 relative w-[18.63px]" data-name="image 53">
+          <div className="h-[21.404px] opacity-10 relative w-[18.63px]" data-name="image 53">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -217,7 +217,7 @@ function Group4() {
     <div className="absolute contents h-[69.428px] left-[1257.42px] top-[195.28px] w-[68.347px]">
       <div className="absolute flex h-[41.958px] items-center justify-center left-[1272.98px] top-[210.91px] w-[37.605px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[6.71deg]">
-          <div className="h-[38.325px] opacity-50 relative w-[33.358px]" data-name="image 51">
+          <div className="h-[38.325px] opacity-10 relative w-[33.358px]" data-name="image 51">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -226,7 +226,7 @@ function Group4() {
       </div>
       <div className="absolute flex h-[13.91px] items-center justify-center left-[1301.81px] top-[212.2px] w-[12.467px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[6.71deg]">
-          <div className="h-[12.705px] opacity-50 relative w-[11.059px]" data-name="image 52">
+          <div className="h-[12.705px] opacity-10 relative w-[11.059px]" data-name="image 52">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -235,7 +235,7 @@ function Group4() {
       </div>
       <div className="absolute flex h-[13.91px] items-center justify-center left-[1263.48px] top-[227.11px] w-[12.467px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[6.71deg]">
-          <div className="h-[12.705px] opacity-50 relative w-[11.059px]" data-name="image 53">
+          <div className="h-[12.705px] opacity-10 relative w-[11.059px]" data-name="image 53">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -251,7 +251,7 @@ function Group5() {
     <div className="absolute contents h-[158.106px] left-[1199.71px] top-[699.62px] w-[157.162px]">
       <div className="absolute flex h-[102.016px] items-center justify-center left-[1230.98px] top-[731.9px] w-[94.204px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[15.12deg]">
-          <div className="h-[85.555px] opacity-50 relative w-[74.467px]" data-name="image 51">
+          <div className="h-[85.555px] opacity-10 relative w-[74.467px]" data-name="image 51">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -260,7 +260,7 @@ function Group5() {
       </div>
       <div className="absolute flex h-[33.82px] items-center justify-center left-[1302.55px] top-[743.19px] w-[31.23px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[15.12deg]">
-          <div className="h-[28.363px] opacity-50 relative w-[24.687px]" data-name="image 52">
+          <div className="h-[28.363px] opacity-10 relative w-[24.687px]" data-name="image 52">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -269,7 +269,7 @@ function Group5() {
       </div>
       <div className="absolute flex h-[33.82px] items-center justify-center left-[1213.01px] top-[763.59px] w-[31.23px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[15.12deg]">
-          <div className="h-[28.363px] opacity-50 relative w-[24.687px]" data-name="image 53">
+          <div className="h-[28.363px] opacity-10 relative w-[24.687px]" data-name="image 53">
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
               <img alt="" className="absolute h-[150.81%] left-[-38.58%] max-w-none top-[-24.59%] w-[173.27%]" src={imgImage51} />
             </div>
@@ -288,28 +288,62 @@ export default function AboutTestimonials() {
         <Frame />
         <Frame10 />
 
-        {/* Decorative elements - Desktop only */}
-        <div className="absolute flex h-[187.006px] items-center justify-center left-[1151px] top-[340.71px] w-[187.138px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
+        {/* Decorative elements - Desktop only with jumping animation */}
+        {/* Speech bubble - right side, first testimonial */}
+        <motion.div
+          className="absolute flex h-[187.006px] items-center justify-center left-[1151px] top-[340.71px] w-[187.138px]"
+          style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        >
           <div className="flex-none rotate-[18.95deg]">
-            <div className="h-[147.136px] opacity-30 relative w-[147.349px]" data-name="image 67">
+            <div className="h-[147.136px] opacity-10 relative w-[147.349px]" data-name="image 67">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <img alt="" className="absolute h-[130.82%] left-[-16.76%] max-w-none top-[-11.29%] w-[147.98%]" src={imgImage67} />
               </div>
             </div>
           </div>
-        </div>
-        <div className="absolute flex h-[90.944px] items-center justify-center left-[49px] top-[640.71px] w-[91.008px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
+        </motion.div>
+
+        {/* Heart bubble - left side, bottom */}
+        <motion.div
+          className="absolute flex h-[90.944px] items-center justify-center left-[49px] top-[640.71px] w-[91.008px]"
+          style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+        >
           <div className="flex-none rotate-[161.05deg] scale-y-[-100%]">
-            <div className="h-[71.554px] opacity-30 relative w-[71.658px]" data-name="image 68">
+            <div className="h-[71.554px] opacity-10 relative w-[71.658px]" data-name="image 68">
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <img alt="" className="absolute h-[130.82%] left-[-16.76%] max-w-none top-[-11.29%] w-[147.98%]" src={imgImage67} />
               </div>
             </div>
           </div>
-        </div>
-        <Group />
-        <Group4 />
-        <Group5 />
+        </motion.div>
+
+        {/* Stars group - left side */}
+        <motion.div
+          animate={{ y: [0, -5, 0] }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+        >
+          <Group />
+        </motion.div>
+
+        {/* Stars group - right side, top */}
+        <motion.div
+          animate={{ y: [0, -7, 0] }}
+          transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+        >
+          <Group4 />
+        </motion.div>
+
+        {/* Stars group - right side, bottom */}
+        <motion.div
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+        >
+          <Group5 />
+        </motion.div>
       </div>
 
       {/* Mobile Layout - Vertical Stack */}
@@ -327,8 +361,8 @@ export default function AboutTestimonials() {
             <div className="text-center space-y-2">
               <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black">Jeroel Padilla</h3>
               <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474]">Lead UX Designer, Design Systems</p>
-              <p className="font-['Inter:Medium',sans-serif] font-medium text-lg text-[#747474] leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[18px] text-[#747474] leading-relaxed">
+                Deepika is a systematic, thoughtful, and highly reliable UX designer. During her time at EdPlus, she consistently delivered quality work on our design systems, particularly in component optimization and design Q/A, while demonstrating strong attention to detail and process. She adapts quickly to feedback and changing requirements, approaches challenges with genuine curiosity, and takes real ownership of her craft. Deepika is detail oriented, collaborative, and receptive to mentorship, making her a valuable team contributor.
               </p>
             </div>
           </div>
@@ -341,7 +375,7 @@ export default function AboutTestimonials() {
             <div className="text-center space-y-2">
               <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black">Rajeshwari Jaykumar</h3>
               <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474]">UX Design Assistant</p>
-              <p className="font-['Inter:Medium',sans-serif] font-medium text-lg text-[#747474] leading-relaxed">
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[18px] text-[#747474] leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
@@ -355,7 +389,7 @@ export default function AboutTestimonials() {
             <div className="text-center space-y-2">
               <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black">Anirudh Palaskar</h3>
               <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474]">UX Research Assistant</p>
-              <p className="font-['Inter:Medium',sans-serif] font-medium text-lg text-[#747474] leading-relaxed">
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[18px] text-[#747474] leading-relaxed">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>

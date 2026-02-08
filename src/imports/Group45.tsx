@@ -14,14 +14,30 @@ export default function Group() {
   return (
     <div className="relative size-full">
       <div className="absolute css-g0mm18 font-['Caveat_Brush',cursive] leading-[normal] left-0 not-italic text-[#747474] text-[24px] top-[5.77px]">
-        <p className="css-ew64yg mb-0">{`I’m currently at `}</p>
+        <p className="css-ew64yg mb-0">{`I'm currently at `}</p>
         <p className="css-ew64yg">as UX Design Assistant</p>
       </div>
-      <div className="absolute flex h-[39.537px] items-center justify-center left-[148.89px] top-0 w-[99.218px]" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
+      <div className="absolute flex h-[39.537px] items-center justify-center left-[148.89px] top-0 w-[99.218px] animate-shake" style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}>
         <div className="flex-none rotate-[4.52deg]">
           <NewAsuEdplusColor />
         </div>
       </div>
+      <style>{`
+        @keyframes shake {
+          0%, 100% {
+            transform: rotate(0deg);
+          }
+          25% {
+            transform: rotate(-2deg);
+          }
+          75% {
+            transform: rotate(2deg);
+          }
+        }
+        .animate-shake {
+          animation: shake 2s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 }
