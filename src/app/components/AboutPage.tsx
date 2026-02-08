@@ -239,12 +239,12 @@ export function AboutPage() {
             </div>
           </div>
 
-          {/* Testimonials Section */}
-          <div className="max-w-[1320px] mx-auto mt-20 lg:mt-32">
+          {/* Testimonials Section - Hidden for now */}
+          {/* <div className="max-w-[1320px] mx-auto mt-20 lg:mt-32">
             <div className="relative min-h-[500px] lg:h-[900px] overflow-visible">
               <AboutTestimonials />
             </div>
-          </div>
+          </div> */}
 
           {/* Time Off Clock Section */}
           <div className="mt-20 lg:mt-32 -mx-8 lg:mx-0 overflow-hidden">

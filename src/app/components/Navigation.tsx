@@ -100,7 +100,12 @@ export function Navigation() {
 
           {/* Right Navigation - Desktop */}
           <div className="hidden md:flex items-center gap-14 ml-auto">
-            <a href="#resume" className="font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors font-[Inter] text-[14px] font-bold">
+            <a
+              href="https://drive.google.com/file/d/1-AMMFEqh1kL1o4waWsPSVXKjS_sT7zqS/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors font-[Inter] text-[14px] font-bold"
+            >
               Resume
             </a>
             <Link to="/contact" className="relative inline-block w-[134px] h-[45px] group">
@@ -150,7 +155,9 @@ export function Navigation() {
               About
             </Link>
             <a
-              href="#resume"
+              href="https://drive.google.com/file/d/1-AMMFEqh1kL1o4waWsPSVXKjS_sT7zqS/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block font-['Caveat_Brush'] text-xl text-[#747474] hover:text-black transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
