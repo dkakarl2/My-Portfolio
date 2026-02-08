@@ -38,15 +38,15 @@ export function ComingSoonDivider() {
               <div className={`absolute inset-0 transition-opacity duration-500 hidden lg:block ${isHovered ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
                 <img
                   alt="Aisle project expanded"
-                  className="w-full h-full object-contain blur-[2px]"
+                  className="w-full h-full object-contain"
                   src={imgImage16911}
                 />
-                {/* Coming Soon overlay for hover state */}
-                <div className="absolute inset-0 flex items-center justify-center">
+                {/* Coming Soon overlay for hover state - Removed */}
+                {/* <div className="absolute inset-0 flex items-center justify-center">
                   <span className="bg-black text-white font-['Inter'] font-semibold text-[14px] px-5 py-2.5 rounded-full tracking-wide">
                     Coming Soon
                   </span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

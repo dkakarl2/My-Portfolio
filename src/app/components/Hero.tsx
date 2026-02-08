@@ -189,7 +189,7 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="relative mt-8 lg:mt-0 lg:absolute lg:left-[-102px] lg:top-[240px] w-48 h-40 lg:w-[261.29px] lg:h-[234.04px] cursor-pointer mx-auto lg:mx-0 hidden lg:block"
+          className="relative mt-8 lg:mt-0 lg:absolute lg:left-[-102px] lg:top-[300px] w-48 h-40 lg:w-[261.29px] lg:h-[234.04px] cursor-pointer mx-auto lg:mx-0 hidden lg:block"
           style={{ transform: 'rotate(12.33deg)' }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -206,7 +206,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 lg:mt-0 lg:absolute lg:left-[612px] lg:top-[300px] w-[248px] h-[66px] mx-auto lg:mx-0"
+          className="mt-8 lg:mt-0 lg:absolute lg:left-[612px] lg:top-[320px] w-[248px] h-[66px] mx-auto lg:mx-0"
         >
           <Group45 />
         </motion.div>

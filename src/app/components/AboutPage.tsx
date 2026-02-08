@@ -248,7 +248,7 @@ export function AboutPage() {
 
           {/* Time Off Clock Section */}
           <div className="mt-20 lg:mt-32 -mx-8 lg:mx-0 overflow-hidden">
-            <div className="relative min-h-[550px] lg:h-[800px]">
+            <div className="relative min-h-[550px] lg:h-[850px]">
               <TimeOffClock />
             </div>
           </div>
