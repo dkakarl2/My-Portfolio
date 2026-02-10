@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Map, HeartPulse, ShieldCheck } from 'lucide-react';
+import { Map, HeartPulse, ShieldCheck, Trophy } from 'lucide-react';
 import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import imgHeroReplace from 'figma:asset/f620a291096457bf1aa42dee938f437a6005b47b.png';
 import image_1bf5f60255a20498a2f475250c718f058eaf3940 from 'figma:asset/1bf5f60255a20498a2f475250c718f058eaf3940.png'
@@ -3289,7 +3289,8 @@ export default function ChemobuddyMayoclinic() {
           <p className="font-['Inter'] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 mb-[24px]">
             Developed in collaboration with Mayo Clinic to transform complex chemotherapy information into guided, easy-to-understand patient experiences.
           </p>
-          <div className="flex items-center justify-center px-6 py-3 bg-[#FBF4D8] border-[1.5px] border-[#DCC368] rounded-full">
+          <div className="flex items-center justify-center px-6 py-3 bg-[#FBF4D8] border-[1.5px] border-[#DCC368] rounded-full gap-2">
+            <Trophy size={20} className="text-[#B59220]" fill="#FFC627" />
             <span className="font-['Inter'] font-bold text-[#B59220] text-[16px]">
               Awardee of Mayo Clinic Observership
             </span>

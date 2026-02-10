@@ -69,17 +69,17 @@ export function ProjectCard({
   const isArrayFormat = Array.isArray(images);
 
   const cardContent = (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 items-center py-6 gap-6 lg:gap-0 ${caseStudyLink ? 'cursor-pointer' : ''}`}>
+    <div
+      className={`grid grid-cols-1 lg:grid-cols-2 items-center py-6 gap-6 lg:gap-0 ${caseStudyLink ? 'cursor-pointer' : ''}`}
+      onMouseEnter={() => (hoverImage || hoverComponent) && setIsHovered(true)}
+      onMouseLeave={() => (hoverImage || hoverComponent) && setIsHovered(false)}
+    >
       {/* Folder with images */}
       <div className={`relative p-0 ${reverse ? 'lg:col-start-2' : 'lg:col-start-1'} flex justify-center items-center`}>
         {/* Layered collage card - Scaled for mobile */}
         <div className="relative w-[320px] h-[300px] sm:w-[488px] sm:h-[462px] lg:w-[488px] lg:h-[462px] transition-transform origin-center lg:origin-top-left">
           {/* Inner container with original fixed dimensions, scaled via transform on parent or using style scale */}
-          <div
-            className="absolute top-0 left-0 w-[488px] h-[462px] scale-[0.65] sm:scale-100 origin-top-left"
-            onMouseEnter={() => (hoverImage || hoverComponent) && setIsHovered(true)}
-            onMouseLeave={() => (hoverImage || hoverComponent) && setIsHovered(false)}
-          >
+          <div className="absolute top-0 left-0 w-[488px] h-[462px] scale-[0.65] sm:scale-100 origin-top-left">
             {/* Doodle decorations - Stars (top left) */}
             <div className={`absolute -left-8 -top-4 w-[45px] h-[58px] transition-opacity duration-500 pointer-events-none hidden lg:block ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
               <Group33 />
@@ -169,11 +169,7 @@ export function ProjectCard({
       </div>
 
       {/* Project description */}
-      <div
-        className={`space-y-4 w-full lg:w-fit px-4 lg:px-0 mx-auto ${reverse ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-2'}`}
-        onMouseEnter={() => (hoverImage || hoverComponent) && setIsHovered(true)}
-        onMouseLeave={() => (hoverImage || hoverComponent) && setIsHovered(false)}
-      >
+      <div className={`space-y-4 w-full lg:w-fit px-4 lg:px-0 mx-auto ${reverse ? 'lg:col-start-1 lg:row-start-1' : 'lg:col-start-2'}`}>
         <h3 className="font-['Inter'] font-semibold text-lg lg:text-xl leading-normal text-black max-w-full lg:max-w-[430px]">
           {description}
         </h3>

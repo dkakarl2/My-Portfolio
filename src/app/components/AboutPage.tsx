@@ -13,6 +13,9 @@ import AboutMyJourneySoFar from "@/imports/AboutMyJourneySoFar-47-70";
 import AboutWhatIBring from "@/imports/AboutWhatIBring-52-361";
 import AboutTestimonials from "@/imports/AboutTestimonials";
 import { TimeOffClock } from "@/app/components/TimeOffClock";
+import { BookShelf } from "@/app/components/BookShelf";
+import { Education } from "@/app/components/Education";
+import { RevealOnScroll } from "@/app/components/RevealOnScroll";
 
 export function AboutPage() {
   return (
@@ -226,32 +229,44 @@ export function AboutPage() {
           </div>
 
           {/* My Journey So Far Section */}
-          <div className="max-w-[1320px] mx-auto mt-20 lg:mt-32">
+          <RevealOnScroll className="max-w-[1320px] mx-auto mt-20 lg:mt-32" width="100%">
             <div className="relative min-h-[500px] lg:h-[1050px] lg:ml-[-70px] lg:overflow-hidden">
               <AboutMyJourneySoFar />
             </div>
-          </div>
+          </RevealOnScroll>
+
+
+
+          {/* Education Section */}
+          <RevealOnScroll className="max-w-[1320px] mx-auto mt-10 lg:mt-20" width="100%">
+            <Education />
+          </RevealOnScroll>
 
           {/* What I Bring Section */}
-          <div className="mt-20 lg:mt-32 -mx-8 lg:mx-0 overflow-hidden">
+          <RevealOnScroll className="mt-20 lg:mt-32 -mx-8 lg:mx-0 overflow-hidden" width="100%">
             <div className="relative min-h-[500px] lg:h-[700px]">
               <AboutWhatIBring />
             </div>
-          </div>
+          </RevealOnScroll>
 
           {/* Testimonials Section */}
-          <div className="max-w-[1320px] mx-auto mt-20 lg:mt-32">
-            <div className="relative min-h-[500px] lg:h-[900px] overflow-visible">
+          <RevealOnScroll className="max-w-[1320px] mx-auto mt-20 lg:mt-32" width="100%">
+            <div className="relative min-h-[500px] lg:h-[1350px] overflow-visible">
               <AboutTestimonials />
             </div>
-          </div>
+          </RevealOnScroll>
+
+          {/* Bookshelf Section */}
+          <RevealOnScroll className="mt-10 lg:-mt-20 -mx-8 lg:mx-0" width="100%">
+            <BookShelf />
+          </RevealOnScroll>
 
           {/* Time Off Clock Section */}
-          <div className="mt-20 lg:mt-32 -mx-8 lg:mx-0 overflow-hidden">
+          <RevealOnScroll className="mt-20 lg:mt-32 -mx-8 lg:mx-0 overflow-hidden" width="100%">
             <div className="relative min-h-[550px] lg:h-[850px]">
               <TimeOffClock />
             </div>
-          </div>
+          </RevealOnScroll>
         </main>
 
         <Footer />

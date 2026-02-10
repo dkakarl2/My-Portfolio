@@ -34,7 +34,7 @@ export function useScrollAnimation() {
 
       if (hasText || isImage) {
         element.classList.add('fade-in-initial');
-        const delay = Math.min(index * 0.02, 0.3);
+        const delay = Math.min(index * 0.05, 0.5);
         (element as HTMLElement).style.transitionDelay = `${delay}s`;
         observer.observe(element);
       }

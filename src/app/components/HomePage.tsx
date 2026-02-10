@@ -8,6 +8,7 @@ import { ComingSoonDivider } from "@/app/components/ComingSoonDivider";
 import { Playground } from "@/app/components/Playground";
 import { Footer } from "@/app/components/Footer";
 import { motion } from "motion/react";
+import { Trophy } from "lucide-react";
 
 // Import project images
 import imgImage3 from "figma:asset/9b1d984b5a3331721ca8520d91e1dae8087d3753.png";
@@ -34,7 +35,7 @@ const fadeInUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" as const }
+    transition: { duration: 0.8, ease: "easeOut" as const }
   }
 };
 
@@ -51,7 +52,7 @@ const fadeInScale = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" as const }
+    transition: { duration: 0.8, ease: "easeOut" as const }
   }
 };
 
@@ -87,8 +88,23 @@ export function HomePage() {
           imageStyle: { width: "149.584px", height: "304.782px", borderRadius: "9.89px" },
         },
       },
+
       folderColor: "#4AB7C4",
-      hoverImage: imgMayoHover,
+      hoverComponent: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <img
+            src={imgMayoHover}
+            alt="Mayo Clinic project details"
+            className="w-full h-auto object-contain"
+          />
+          <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center justify-center px-4 py-1.5 bg-[#FBF4D8] border-[1px] border-[#DCC368] rounded-full gap-2 shadow-sm whitespace-nowrap z-10">
+            <Trophy size={14} className="text-[#B59220]" fill="#FFC627" />
+            <span className="font-['Inter'] font-bold text-[#B59220] text-[12px]">
+              Awardee of Mayo Clinic Observership
+            </span>
+          </div>
+        </div>
+      ),
       caseStudyLink: "/mayo-clinic-case-study",
     },
     {
@@ -100,7 +116,16 @@ export function HomePage() {
       duration: "2024",
       images: [imgEduFund9, imgEduFund9, imgEduFund2],
       folderColor: "#FFC627",
-      hoverComponent: <EduFundHoverCard />,
+      hoverComponent: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <EduFundHoverCard />
+          <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center justify-center px-4 py-1.5 bg-[#D1F7EA] border-[1px] border-[#34D399] rounded-full gap-2 shadow-sm whitespace-nowrap z-10 w-fit">
+            <span className="font-['Inter'] font-bold text-[#059669] text-[12px]">
+              Shipped in 2024
+            </span>
+          </div>
+        </div>
+      ),
       caseStudyLink: "/edufund-case-study",
     },
     {
@@ -112,7 +137,16 @@ export function HomePage() {
       duration: "2025 - Present",
       images: [imgRDS1, imgRDS2, imgRDS3],
       folderColor: "#E74973",
-      hoverComponent: <RocketHoverCard />,
+      hoverComponent: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <RocketHoverCard />
+          <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center justify-center px-4 py-1.5 bg-[#FBF4D8] border-[1px] border-[#DCC368] rounded-full gap-2 shadow-sm whitespace-nowrap z-10 w-fit">
+            <span className="font-['Inter'] font-bold text-[#B59220] text-[12px]">
+              Published 10+ components
+            </span>
+          </div>
+        </div>
+      ),
       caseStudyLink: "/rocket-design-system-case-study",
     },
     {
@@ -157,7 +191,7 @@ export function HomePage() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeInScale}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.2 }}
               >
                 <ProjectCard
                   {...project}

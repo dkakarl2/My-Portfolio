@@ -34,9 +34,15 @@ function Frame1() {
 function Frame3() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start leading-[normal] not-italic relative shrink-0 w-[714px]">
-      <p className="css-4hzbpn font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] text-black w-full">Jeroel Padilla</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Lead UX Designer, Design Systems</p>
-      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Deepika is a systematic, thoughtful, and highly reliable UX designer. During her time at EdPlus, she consistently delivered quality work on our design systems, particularly in component optimization and design Q/A, while demonstrating strong attention to detail and process. She adapts quickly to feedback and changing requirements, approaches challenges with genuine curiosity, and takes real ownership of her craft. Deepika is detail oriented, collaborative, and receptive to mentorship, making her a valuable team contributor.</p>
+      <div className="w-full flex flex-col mb-1">
+        <p className="font-['Inter:Bold',sans-serif] font-bold text-[24px] text-black w-full mb-2">Jeroel Padilla</p>
+        <div className="flex flex-col gap-1">
+          <p className="font-['Caveat_Brush:Regular',sans-serif] text-[#747474] text-[20px] leading-tight">Lead UX Designer, Design Systems</p>
+          <p className="font-['Inter:Regular',sans-serif] text-[15px] text-[#747474]">EdPlus at Arizona State University</p>
+        </div>
+        <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#9CA3AF] italic mt-3">Directly managed Deepika</p>
+      </div>
+      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[16px] w-full font-[Inter]">Deepika is a systematic, thoughtful, and highly reliable UX designer. During her time at EdPlus, she consistently delivered quality work on our design systems, particularly in component optimization and design Q/A, while demonstrating strong attention to detail and process. She adapts quickly to feedback and changing requirements, approaches challenges with genuine curiosity, and takes real ownership of her craft. Deepika is detail oriented, collaborative, and receptive to mentorship, making her a valuable team contributor.</p>
     </div>
   );
 }
@@ -67,9 +73,15 @@ function Frame2() {
 function Frame4() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start leading-[normal] not-italic relative shrink-0 w-[714px]">
-      <p className="css-4hzbpn font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] text-black w-full">Rajeshwari Jaykumar</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">UX Design Assistant</p>
-      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <div className="w-full flex flex-col mb-1">
+        <p className="font-['Inter:Bold',sans-serif] font-bold text-[24px] text-black w-full mb-2">Rajeshwari Jaykumar</p>
+        <div className="flex flex-col gap-1">
+          <p className="font-['Caveat_Brush:Regular',sans-serif] text-[#747474] text-[20px] leading-tight">UX Design Assistant</p>
+          <p className="font-['Inter:Regular',sans-serif] text-[15px] text-[#747474]">EdPlus at Arizona State University</p>
+        </div>
+        <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#9CA3AF] italic mt-3">Directly worked with Deepika</p>
+      </div>
+      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[16px] w-full font-[Inter]">Deepika is someone you can always count on! Thoughtful, dependable, and incredibly kind to work with love. She brings intention to her work and calm to the team, making collaboration feel effortless. Working alongside her has been both reassuring and inspiring.</p>
     </div>
   );
 }
@@ -100,9 +112,15 @@ function Frame5() {
 function Frame6() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start leading-[normal] not-italic relative shrink-0 w-[714px]">
-      <p className="css-4hzbpn font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[24px] text-black w-full">Anirudh Palaskar</p>
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">UX Research Assistant</p>
-      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[18px] w-full font-[Inter]">Deepika is someone who genuinely cares about both the user and the quality of the work she delivers. I’ve had the chance to work closely with her and have seen her dedication, creativity, and problem-solving skills firsthand. She takes the time to really understand problems before jumping into solutions, which reflects in the thoughtfulness of her work. She’s easy to collaborate with, open to feedback, and always willing to put in the extra effort to make things better. She takes strong ownership of her work and is constantly looking for ways to learn and grow.</p>
+      <div className="w-full flex flex-col mb-1">
+        <p className="font-['Inter:Bold',sans-serif] font-bold text-[24px] text-black w-full mb-2">Anirudh Palaskar</p>
+        <div className="flex flex-col gap-1">
+          <p className="font-['Caveat_Brush:Regular',sans-serif] text-[#747474] text-[20px] leading-tight">UX Research Assistant</p>
+          <p className="font-['Inter:Regular',sans-serif] text-[15px] text-[#747474]">EdPlus at Arizona State University</p>
+        </div>
+        <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#9CA3AF] italic mt-3">Directly worked with Deepika</p>
+      </div>
+      <p className="css-4hzbpn font-['Inter:Regular',sans-serif] font-normal relative shrink-0 text-[#747474] text-[16px] w-full font-[Inter]">Deepika is someone who genuinely cares about both the user and the quality of the work she delivers. I’ve had the chance to work closely with her and have seen her dedication, creativity, and problem-solving skills firsthand. She takes the time to really understand problems before jumping into solutions, which reflects in the thoughtfulness of her work. She’s easy to collaborate with, open to feedback, and always willing to put in the extra effort to make things better. She takes strong ownership of her work and is constantly looking for ways to learn and grow.</p>
     </div>
   );
 }
@@ -123,9 +141,30 @@ function TestimonialCard3() {
 function Frame10() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[48px] items-start left-[204.2px] top-[164px] w-[953.591px]">
-      <TestimonialCard1 />
-      {/* <TestimonialCard2 /> */}
-      <TestimonialCard3 />
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <TestimonialCard1 />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      >
+        <TestimonialCard2 />
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+      >
+        <TestimonialCard3 />
+      </motion.div>
     </div>
   );
 }
@@ -282,7 +321,7 @@ function Group5() {
 
 export default function AboutTestimonials() {
   return (
-    <div className="bg-white relative w-full lg:h-[900px]" data-name="About - Testimonials">
+    <div className="bg-white relative w-full lg:h-[1350px]" data-name="About - Testimonials">
       {/* Desktop Layout - Absolute Positioning */}
       <div className="hidden lg:block relative w-full h-full">
         <Frame />
@@ -307,7 +346,7 @@ export default function AboutTestimonials() {
 
         {/* Heart bubble - left side, bottom */}
         <motion.div
-          className="absolute flex h-[90.944px] items-center justify-center left-[49px] top-[640.71px] w-[91.008px]"
+          className="absolute flex h-[90.944px] items-center justify-center left-[49px] top-[940.71px] w-[91.008px]"
           style={{ "--transform-inner-width": "0", "--transform-inner-height": "19" } as React.CSSProperties}
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
@@ -354,47 +393,76 @@ export default function AboutTestimonials() {
 
         <div className="flex flex-col gap-16">
           {/* Testimonial 1 */}
-          <div className="flex flex-col items-center gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center gap-6"
+          >
             <div className="w-[180px] h-[215px] bg-[#d7d7d7] rounded-[24px] relative overflow-hidden rotate-[-5.19deg] shadow-lg">
               <img src={imgImage66} alt="Jeroel Padilla" className="absolute w-full h-full object-cover scale-110" />
             </div>
-            <div className="text-center space-y-2">
-              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black">Jeroel Padilla</h3>
-              <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474]">Lead UX Designer, Design Systems</p>
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[18px] text-[#747474] leading-relaxed">
+            <div className="text-center flex flex-col items-center">
+              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black mb-2">Jeroel Padilla</h3>
+              <div className="flex flex-col gap-1 mb-4">
+                <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474] leading-none">Lead UX Designer, Design Systems</p>
+                <p className="font-['Inter:Regular',sans-serif] text-[15px] text-[#747474]">EdPlus at Arizona State University</p>
+                <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#9CA3AF] italic mt-2">Directly managed Deepika</p>
+              </div>
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] text-[#747474] leading-relaxed">
                 Deepika is a systematic, thoughtful, and highly reliable UX designer. During her time at EdPlus, she consistently delivered quality work on our design systems, particularly in component optimization and design Q/A, while demonstrating strong attention to detail and process. She adapts quickly to feedback and changing requirements, approaches challenges with genuine curiosity, and takes real ownership of her craft. Deepika is detail oriented, collaborative, and receptive to mentorship, making her a valuable team contributor.
               </p>
             </div>
-          </div>
+          </motion.div>
 
           {/* Testimonial 2 */}
-          {/* Testimonial 2 - Hidden */}
-          {/* <div className="flex flex-col items-center gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center gap-6"
+          >
             <div className="w-[180px] h-[215px] bg-[#d7d7d7] rounded-[24px] relative overflow-hidden rotate-[9.1deg] shadow-lg">
               <img src={imgImage71} alt="Rajeshwari Jaykumar" className="absolute w-full h-full object-cover" />
             </div>
-            <div className="text-center space-y-2">
-              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black">Rajeshwari Jaykumar</h3>
-              <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474]">UX Design Assistant</p>
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[18px] text-[#747474] leading-relaxed">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <div className="text-center flex flex-col items-center">
+              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black mb-2">Rajeshwari Jaykumar</h3>
+              <div className="flex flex-col gap-1 mb-4">
+                <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474] leading-none">UX Design Assistant</p>
+                <p className="font-['Inter:Regular',sans-serif] text-[15px] text-[#747474]">EdPlus at Arizona State University</p>
+                <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#9CA3AF] italic mt-2">Directly worked with Deepika</p>
+              </div>
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] text-[#747474] leading-relaxed">
+                Deepika is someone you can always count on! Thoughtful, dependable, and incredibly kind to work with love. She brings intention to her work and calm to the team, making collaboration feel effortless. Working alongside her has been both reassuring and inspiring.
               </p>
             </div>
-          </div> */}
+          </motion.div>
 
           {/* Testimonial 3 */}
-          <div className="flex flex-col items-center gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center gap-6"
+          >
             <div className="w-[180px] h-[215px] bg-[#d7d7d7] rounded-[24px] relative overflow-hidden rotate-[-10.32deg] shadow-lg">
               <img src={imgImage72} alt="Anirudh Palaskar" className="absolute w-full h-full object-cover" />
             </div>
-            <div className="text-center space-y-2">
-              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black">Anirudh Palaskar</h3>
-              <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474]">UX Research Assistant</p>
-              <p className="font-['Inter:Regular',sans-serif] font-normal text-[18px] text-[#747474] leading-relaxed">
+            <div className="text-center flex flex-col items-center">
+              <h3 className="font-['Inter:Bold',sans-serif] font-bold text-2xl text-black mb-2">Anirudh Palaskar</h3>
+              <div className="flex flex-col gap-1 mb-4">
+                <p className="font-['Caveat_Brush:Regular',sans-serif] text-xl text-[#747474] leading-none">UX Research Assistant</p>
+                <p className="font-['Inter:Regular',sans-serif] text-[15px] text-[#747474]">EdPlus at Arizona State University</p>
+                <p className="font-['Inter:Regular',sans-serif] text-[14px] text-[#9CA3AF] italic mt-2">Directly worked with Deepika</p>
+              </div>
+              <p className="font-['Inter:Regular',sans-serif] font-normal text-[16px] text-[#747474] leading-relaxed">
                 Deepika is someone who genuinely cares about both the user and the quality of the work she delivers. I’ve had the chance to work closely with her and have seen her dedication, creativity, and problem-solving skills firsthand. She takes the time to really understand problems before jumping into solutions, which reflects in the thoughtfulness of her work. She’s easy to collaborate with, open to feedback, and always willing to put in the extra effort to make things better. She takes strong ownership of her work and is constantly looking for ways to learn and grow.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

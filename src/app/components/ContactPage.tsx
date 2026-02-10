@@ -62,7 +62,7 @@ export function ContactPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.8 }}
               >
                 <h1 className="font-['Caveat_Brush'] text-6xl lg:text-7xl mb-6 text-black">
                   Let's Connect!
@@ -84,7 +84,7 @@ export function ContactPage() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
                 className="bg-[#f9f9f9] p-8 lg:p-12 rounded-[24px] border border-[#eee]"
               >
                 {isSubmitted ? (
