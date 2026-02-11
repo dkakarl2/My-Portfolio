@@ -206,7 +206,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-8 lg:mt-0 lg:absolute lg:left-[612px] lg:top-[320px] w-[248px] h-[66px] mx-auto lg:mx-0"
+          className="mt-8 lg:mt-0 lg:absolute lg:left-[612px] lg:top-[320px] w-[360px] h-[66px] mx-auto lg:mx-0"
         >
           <Group45 />
         </motion.div>
