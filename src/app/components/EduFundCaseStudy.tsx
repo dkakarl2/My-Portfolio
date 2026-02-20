@@ -51,9 +51,9 @@ export function EduFundCaseStudy() {
         className="relative"
       >
         {/* Desktop Layout - Using the Figma Import */}
-        <div className="hidden lg:block relative min-h-[17500px] w-full mx-auto overflow-hidden">
+        <div className="hidden lg:block relative min-h-[16500px] w-full mx-auto overflow-hidden">
           <EduFundFixedDepositDesktop />
-          <div className="absolute top-0 left-0 w-full mt-[16500px] z-10">
+          <div className="absolute top-0 left-0 w-full mt-[16000px] z-10">
             <div className="flex justify-end pr-12 py-12">
               <CaseStudyNavArrows />
             </div>

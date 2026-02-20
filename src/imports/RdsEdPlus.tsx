@@ -10,7 +10,7 @@ import rdsHeroImage from "@/assets/Rocket design system hero image.png";
 import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
 import imgImage115 from "figma:asset/adf2f7f090fc9d8b0bc367bedff3d83b1ce9b693.png";
 import imgImage116 from "figma:asset/c550bafe6716d9f9ac000d2bfa546a5610cdb757.png";
-import imgImage117 from "figma:asset/5ef2c467187554d499a80421c18c7d4f1cbe66f3.png";
+import imgImage117 from "@/assets/RDS 3rd doddle image.png";
 import imgImage118 from "figma:asset/eaea68abe48c23fd706c5cdb1cabcb6ff745c34c.png";
 import imgImage19 from "figma:asset/b9cbfac06415e7b762a5363acc6e0e853dc5fbae.png";
 import imgImage21 from "figma:asset/1ca7430109f110249b17a8cdaa59f25ea07431df.png";
@@ -180,10 +180,8 @@ function Frame57() {
 function Frame58() {
   return (
     <div className="content-stretch flex flex-col gap-[48px] items-center justify-center relative shrink-0 w-[280px]">
-      <div className="aspect-[279/161] relative shrink-0 w-full" data-name="image 117">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[636.02%] left-[-103.58%] max-w-none top-[-265.71%] w-[344.8%]" src={imgImage117} />
-        </div>
+      <div className="relative shrink-0 w-full h-[200px]" data-name="image 117">
+        <img alt="" className="w-full h-full object-contain" src={imgImage117} />
       </div>
       <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] relative shrink-0 text-[#484848] text-[16px] w-full whitespace-pre-wrap">Accessibility was often addressed late, leading to uneven experiences and extra rework.</p>
     </div>
@@ -270,13 +268,15 @@ function Frame50() {
         reverseLayout={true}
       />
 
-      <ImpactCard
-        value={15}
-        suffix="+ sites"
-        description="Delivered consistent, scalable components powering"
-        themeColor="#78BE20"
-        reverseLayout={true}
-      />
+      <div style={{ flex: '1.3' }}>
+        <ImpactCard
+          value={15}
+          suffix="+ sites"
+          description="Delivered consistent, scalable components powering"
+          themeColor="#78BE20"
+          reverseLayout={true}
+        />
+      </div>
     </div>
   );
 }
