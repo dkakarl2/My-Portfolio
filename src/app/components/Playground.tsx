@@ -23,20 +23,20 @@ import painting4 from '@/assets/painting 4.png';
 import painting5 from '@/assets/painting 5.png';
 import painting6 from '@/assets/painting 6.png';
 
-import pgCard from '@/assets/playground/Card.png';
-import pgDesktop64 from '@/assets/playground/Desktop - 64.png';
-import pgDribbble6 from '@/assets/playground/Dribbble shot HD - 6.png';
-import pgDribbble8 from '@/assets/playground/Dribbble shot HD - 8.png';
-import pgFlux1 from '@/assets/playground/Flux 1.png';
-import pgFlux2 from '@/assets/playground/Flux 2.png';
-import pgFlux3 from '@/assets/playground/Flux 3.png';
-import pgSamsung from '@/assets/playground/Free_Samsung_S10_Mockup_3-Recovered 2.png';
-import pgInsta from '@/assets/playground/Instagram post - 1.png';
-import pgMockup from '@/assets/playground/Mockup2222 1.png';
-import pgMom from '@/assets/playground/Mom.png';
-import pgBeta from '@/assets/playground/beta=false, CTA type=single.png';
-import pgIosDock from '@/assets/playground/iOS app dock.png';
-import pgIphone from '@/assets/playground/iPhone on Pillow Mockup1111111111 1.png';
+import pgCard from '@/assets/Playground/Card.png';
+import pgDesktop64 from '@/assets/Playground/Desktop - 64.png';
+import pgDribbble6 from '@/assets/Playground/Dribbble shot HD - 6.png';
+import pgDribbble8 from '@/assets/Playground/Dribbble shot HD - 8.png';
+import pgFlux1 from '@/assets/Playground/Flux 1.png';
+import pgFlux2 from '@/assets/Playground/Flux 2.png';
+import pgFlux3 from '@/assets/Playground/Flux 3.png';
+import pgSamsung from '@/assets/Playground/Free_Samsung_S10_Mockup_3-Recovered 2.png';
+import pgInsta from '@/assets/Playground/Instagram post - 1.png';
+import pgMockup from '@/assets/Playground/Mockup2222 1.png';
+import pgMom from '@/assets/Playground/Mom.png';
+import pgBeta from '@/assets/Playground/beta=false, CTA type=single.png';
+import pgIosDock from '@/assets/Playground/iOS app dock.png';
+import pgIphone from '@/assets/Playground/iPhone on Pillow Mockup1111111111 1.png';
 
 import { useMemo, useState, useEffect, useRef } from "react";
 
