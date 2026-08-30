@@ -21,6 +21,7 @@ const suggestions = [
 
 // Helper to render bold text and links, and handle navigation
 function renderFormattedText(text: string, onNavigate: (path: string) => void) {
+  if (!text) return null;
   // Split by bold (**...**) and links ([...](...)
   const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
   return (

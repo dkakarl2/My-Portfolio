@@ -1,8 +1,7 @@
 import image_ff6826aa1338d71a143843b316f4867681f088dd from 'figma:asset/ff6826aa1338d71a143843b316f4867681f088dd.png';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import imgMayoProject from "figma:asset/dadece8ee564d49c772d707497d3448ebdc08329.png";
-import imgHackathonFolder from "figma:asset/69dd0260d6ba7e5dd48d8fd44c89d3ff9c3f8e3f.png";
+import imgEduFundProject from "figma:asset/a0d957f752dc64d40e547447c5da5382077a78c1.png";
 
 export function RdsNextProjects() {
   return (
@@ -14,16 +13,16 @@ export function RdsNextProjects() {
         <Link to="/mayo-clinic-case-study" className="group relative block w-full max-w-[420px] transition-all duration-300 hover:scale-[1.02] hover:drop-shadow-lg">
            <img 
              src={image_ff6826aa1338d71a143843b316f4867681f088dd} 
-             alt="Mayo Clinic - Fall 2025, 10 Weeks" 
+             alt="Mayo Clinic - Healthcare UX, 10 Weeks" 
              className="w-full h-auto object-contain"
            />
         </Link>
 
-        {/* Project 2: EdPlus Hackathon */}
-        <Link to="/ed-plus-hackathon-case-study" className="group relative block w-full max-w-[420px] transition-all duration-300 hover:scale-[1.02] hover:drop-shadow-lg">
+        {/* Project 2: EduFund */}
+        <Link to="/edufund-case-study" className="group relative block w-full max-w-[420px] transition-all duration-300 hover:scale-[1.02] hover:drop-shadow-lg">
            <img 
-             src={imgHackathonFolder} 
-             alt="EdPlus Hackathon - Hackathon, 24 hours" 
+             src={imgEduFundProject} 
+             alt="EduFund - Fintech Product Design, 2024" 
              className="w-full h-auto object-contain"
            />
         </Link>

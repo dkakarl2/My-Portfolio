@@ -1,16 +1,19 @@
 import { IntroAnimation } from "@/app/components/IntroAnimation";
-import { CustomCursor } from "@/app/components/CustomCursor";
 import { CaseStudyNavigator } from "@/app/components/CaseStudyNavigator";
 import { AboutPage } from "@/app/components/AboutPage";
 import { HomePage } from "@/app/components/HomePage";
 import { MayoClinicCaseStudy } from "@/app/components/MayoClinicCaseStudy";
+import { AuraCaseStudy } from "@/app/components/AuraCaseStudy";
 import { RocketDesignSystemCaseStudy } from "@/app/components/RocketDesignSystemCaseStudy";
 import { EdPlusHackathonCaseStudy } from "@/app/components/EdPlusHackathonCaseStudy";
 import { EduFundCaseStudy } from "@/app/components/EduFundCaseStudy";
+import { AisleCaseStudy } from "@/app/components/AisleCaseStudy";
+import { PlaygroundPage } from "@/app/components/PlaygroundPage";
 import { ScrollToTop } from "@/app/components/ScrollToTop";
 import { ScrollToTopHandler } from "@/app/components/ScrollToTopHandler";
-import { ContactPage } from "@/app/components/ContactPage";
-// import { AIAssistant } from "@/app/components/AIAssistant"; // Disabled for now
+import { ModeProvider } from "@/app/contexts/ModeContext";
+import { ModeIndicator } from "@/app/components/ModeIndicator";
+import { ModeTransitionOverlay } from "@/app/components/ModeTransitionOverlay";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
@@ -57,23 +60,27 @@ function AppContent() {
 
   return (
     <>
-      <CustomCursor />
       <CaseStudyNavigator />
       <ScrollToTopHandler />
+      <ModeTransitionOverlay />
+      <ModeIndicator />
       {showIntro && <IntroAnimation onComplete={() => setShowIntro(false)} />}
 
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/mayo-clinic-case-study" element={<MayoClinicCaseStudy />} />
+        <Route path="/chemobuddy-case-study" element={<MayoClinicCaseStudy />} />
+        <Route path="/chemobuddy" element={<MayoClinicCaseStudy />} />
+        <Route path="/aura-case-study" element={<AuraCaseStudy />} />
         <Route path="/rocket-design-system-case-study" element={<RocketDesignSystemCaseStudy />} />
         <Route path="/ed-plus-hackathon-case-study" element={<EdPlusHackathonCaseStudy />} />
         <Route path="/edufund-case-study" element={<EduFundCaseStudy />} />
+        <Route path="/aisle-case-study" element={<AisleCaseStudy />} />
+        <Route path="/playground" element={<PlaygroundPage />} />
         {/* <Route path="/ai-assistant" element={<AIAssistant />} /> */}
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
 
-      {/* {!showIntro && <AIAssistant />} */}
+      </Routes>
 
       {/* ScrollToTop should be the absolutely last element to ensure highest stacking context */}
       <ScrollToTop />
@@ -84,7 +91,9 @@ function AppContent() {
 export default function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <ModeProvider>
+        <AppContent />
+      </ModeProvider>
     </BrowserRouter>
   );
 }

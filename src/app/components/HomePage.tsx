@@ -1,14 +1,20 @@
 import { Navigation } from "@/app/components/Navigation";
 import { Hero } from "@/app/components/Hero";
+import { RecruiterHero } from "@/app/components/RecruiterHero";
 import { ProjectCard } from "@/app/components/ProjectCard";
-import { RocketHoverCard } from "@/app/components/RocketHoverCard";
+import { StackedProjectCards } from "@/app/components/StackedProjectCards";
+import { RocketHoverCard, RocketDefaultCard } from "@/app/components/RocketHoverCard";
 import { EdPlusHoverCard } from "@/app/components/EdPlusHoverCard";
-import { EduFundHoverCard } from "@/app/components/EduFundHoverCard";
+import { EduFundHoverCard, EduFundDefaultCard } from "@/app/components/EduFundHoverCard";
+import { MayoHoverCard, MayoDefaultCard } from "@/app/components/MayoHoverCard";
 import { ComingSoonDivider } from "@/app/components/ComingSoonDivider";
 import { Playground } from "@/app/components/Playground";
 import { Footer } from "@/app/components/Footer";
-import { motion } from "motion/react";
+import { SectionHeader } from "@/app/components/SectionHeader";
+import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { Trophy } from "lucide-react";
+import { useRef } from "react";
+import { useMode } from "@/app/contexts/ModeContext";
 
 // Import project images
 import imgImage3 from "figma:asset/9b1d984b5a3331721ca8520d91e1dae8087d3753.png";
@@ -29,92 +35,102 @@ import imgRDS1 from "figma:asset/fa0fa915ca52b7cc2b903914318e7d7aeda70798.png";
 import imgRDS2 from "figma:asset/9eeca02bc786feb3f52bfb28300731165d09f8ea.png";
 import imgRDS3 from "figma:asset/944ac635c2d45a20c649055ea33346334c892754.png";
 
-// Animation variants for scroll animations
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" as const }
-  }
-};
+// Aura Images
+import imgAuraFolder from "@/assets/Aura folder.png";
+import { AuraHoverCard, AuraDefaultCard } from "@/app/components/AuraHoverCard";
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.1 }
-  }
-};
-
-const fadeInScale = {
-  hidden: { opacity: 0, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.8, ease: "easeOut" as const }
-  }
-};
+// Aisle Images & Components
+import { AisleHoverCard, AisleDefaultCard } from "@/app/components/AisleHoverCard";
 
 export function HomePage() {
+  const worksRef = useRef<HTMLDivElement>(null);
+  const { mode } = useMode();
+  const isRecruiter = mode === "recruiter";
+
   // Project data
   const projects = [
     {
       title: "ChemoBuddy - Mayo Clinic",
-      description: "I designed ChemoBuddy with Mayo Clinic to turn overwhelming chemotherapy journeys into guided, understandable experiences.",
-      role: "UX and Interaction Designer",
+      description: "ChemoBuddy: Patient companion app simplifying chemotherapy symptom tracking, awarded the Mayo Clinic Observership.",
+      pills: [
+        { label: "Healthcare UX" },
+        { label: "Task Completion", value: "+34%" },
+        { label: "Patient Onboarding" }
+      ],
       company: "Mayo Clinic",
-      timeline: "Fall 2025",
+      timeline: "Healthcare UX",
       duration: "10 Weeks",
-      images: {
-        main: imgMayoClinicLogo,
-        mainStyle: { left: "28px", top: "43px", width: "286px", height: "150px" },
-        mainClassName: "absolute rounded-bl-[19px] rounded-tl-[19px] rounded-tr-[19px] object-cover",
-        background: {
-          src: imgImage2,
-          style: { left: "9.89px", top: "37.09px", width: "402.834px", height: "211.488px" },
-          className: "absolute rounded-[21.016px] object-cover",
-        },
-        rotated1: {
-          src: imgImage3,
-          rotation: -9.77,
-          style: { left: "45.74px", top: "0", width: "196.181px", height: "334px" },
-          imageStyle: { width: "144.986px", height: "313.943px", borderRadius: "12.376px" },
-        },
-        rotated2: {
-          src: imgImage5,
-          rotation: 6.37,
-          style: { left: "174.88px", top: "7.71px", width: "182.455px", height: "319.488px" },
-          imageStyle: { width: "149.584px", height: "304.782px", borderRadius: "9.89px" },
-        },
-      },
-
+      images: [],
+      defaultComponent: <MayoDefaultCard />,
       folderColor: "#4AB7C4",
+      hoverComponent: <MayoHoverCard />,
+      caseStudyLink: "/mayo-clinic-case-study",
+    },
+    {
+      title: "AURA",
+      description: "AURA: An AI-powered workplace presence layer mapping biometrics to status indicators, built in 72 hours at the Figbuild Hackathon.",
+      pills: [
+        { label: "Hackathon" },
+        { label: "AI + Emotion" },
+        { label: "72-Hr Sprint" }
+      ],
+      company: "Figbuild Hackathon",
+      timeline: "AI Workplace Experience",
+      duration: "72 Hours",
+      images: [],
+      defaultComponent: <AuraDefaultCard />,
+      folderColor: "#AFA9EC",
       hoverComponent: (
         <div className="relative w-full h-full flex items-center justify-center">
-          <img
-            src={imgMayoHover}
-            alt="Mayo Clinic project details"
-            className="w-full h-auto object-contain"
-          />
-          <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center justify-center px-4 py-1.5 bg-[#FBF4D8] border-[1px] border-[#DCC368] rounded-full gap-2 shadow-sm whitespace-nowrap z-10">
-            <Trophy size={14} className="text-[#B59220]" fill="#FFC627" />
-            <span className="font-['Inter'] font-bold text-[#B59220] text-[12px]">
-              Awardee of Mayo Clinic Observership
+          <AuraHoverCard />
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 flex items-center justify-center px-4 py-1.5 bg-[#FCE7F3] border-[1px] border-[#F472B6] rounded-full gap-2 shadow-sm whitespace-nowrap z-20 w-fit">
+            <span className="font-['Inter'] font-bold text-[#BE185D] text-[12px]">
+              Built in 72-hrs
             </span>
           </div>
         </div>
       ),
-      caseStudyLink: "/mayo-clinic-case-study",
+      caseStudyLink: "/aura-case-study",
+    },
+    {
+      title: "Aisle",
+      description: "Aisle: An AI agent manager that orchestrates automated workflows with clarity, context, and intelligent feedback.",
+      pills: [
+        { label: "AI & Agents" },
+        { label: "Workflow UX" },
+        { label: "SaaS Product" }
+      ],
+      company: "AI Product Design",
+      timeline: "AI Agent Manager",
+      duration: "2026",
+      images: [],
+      defaultComponent: <AisleDefaultCard />,
+      folderColor: "#6366F1",
+      hoverComponent: (
+        <div className="relative w-full h-full flex items-center justify-center">
+          <AisleHoverCard />
+          <div className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center justify-center px-4 py-1.5 bg-[#EEF2FF] border-[1px] border-[#6366F1] rounded-full gap-2 shadow-sm whitespace-nowrap z-10 w-fit">
+            <span className="font-['Inter'] font-bold text-[#4338CA] text-[12px]">
+              AI Agent Platform
+            </span>
+          </div>
+        </div>
+      ),
+      caseStudyLink: "/aisle-case-study",
     },
     {
       title: "EduFund",
-      description: "I designed digital financial experiences at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.",
-      role: "Research and UX Designer",
+      description: "EduFund Fixed Deposits: A mobile-first investment flow that simplified financial onboarding, resulting in a 30% increase in user engagement.",
+      pills: [
+        { label: "Fintech" },
+        { label: "User Retention", value: "+40%" },
+        { label: "Mobile-First UX" }
+      ],
       company: "EduFund",
-      timeline: "Internship",
+      timeline: "Fintech Product Design",
       duration: "2024",
-      images: [imgEduFund9, imgEduFund9, imgEduFund2],
+      images: [],
+      defaultComponent: <EduFundDefaultCard />,
       folderColor: "#FFC627",
       hoverComponent: (
         <div className="relative w-full h-full flex items-center justify-center">
@@ -130,12 +146,17 @@ export function HomePage() {
     },
     {
       title: "Rocket Design System",
-      description: "I designed and scaled the Rocket Design System at ASU to turn digital experiences into consistent, accessible, and reusable interfaces.",
-      role: "UX and Design system designer",
+      description: "Rocket Design System: A WCAG 2.1 AA compliant UI library at ASU that standardized digital products and reduced QA cycles by 30%.",
+      pills: [
+        { label: "Design Systems" },
+        { label: "10+ Components" },
+        { label: "WCAG 2.1 AA" }
+      ],
       company: "EdPlus at ASU",
       timeline: "Design systems",
       duration: "2025 - Present",
-      images: [imgRDS1, imgRDS2, imgRDS3],
+      images: [],
+      defaultComponent: <RocketDefaultCard />,
       folderColor: "#E74973",
       hoverComponent: (
         <div className="relative w-full h-full flex items-center justify-center">
@@ -149,78 +170,36 @@ export function HomePage() {
       ),
       caseStudyLink: "/rocket-design-system-case-study",
     },
-    {
-      title: "EdPlus Hackathon",
-      description: "I designed a rapid prototype at the EdPlus Hackathon to turn complex learning challenges into clear, testable solution concepts within a fast-paced, collaborative environment.",
-      role: "UX and Interaction Designer",
-      company: "EdPlus Hackathon",
-      timeline: "Hackathon",
-      duration: "24 hours",
-      images: [imgImage11, imgFrame22, imgFrame1000006081],
-      folderColor: "#E74973",
-      hoverComponent: <EdPlusHoverCard />,
-      caseStudyLink: "/ed-plus-hackathon-case-study",
-    },
   ];
 
-  // Placeholder playground items
-  const playgroundItems = Array(16).fill(null).map((_, i) => {
-    const heights = ['h-64', 'h-80', 'h-72', 'h-96'];
-    return {
-      image: "",
-      title: `Playground ${i + 1}`,
-      height: heights[i % heights.length]
-    };
-  });
-
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white overflow-x-clip">
       <Navigation />
 
       <main>
-        <Hero />
+        <motion.div
+          key="designer-hero"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Hero />
+        </motion.div>
 
-        {/* Selected Works Section */}
-        <section id="work" className="py-20 px-8 lg:px-0 max-w-[1224px] mx-auto">
-          {/* Project cards with staggered scroll animations */}
-          <div className="space-y-0">
-            {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                variants={fadeInScale}
-                transition={{ delay: index * 0.2 }}
-              >
-                <ProjectCard
-                  {...project}
-                  reverse={index === 1 || index === 3}
-                />
-              </motion.div>
-            ))}
+        {/* ——————————————————————————————————— */}
+        {/* Selected Works Section              */}
+        {/* ——————————————————————————————————— */}
+        <section id="work" className="py-20 lg:py-32 px-8 lg:px-0 max-w-[1224px] mx-auto" ref={worksRef}>
+          <div className="lg:pl-[204px]">
+            <SectionHeader
+              title="Selected Works"
+              subtitle="Case studies and projects I've poured my heart into - from healthcare to fintech to design systems."
+            />
           </div>
+
+          {/* Project cards Stacked Parallax */}
+          <StackedProjectCards projects={projects} />
         </section>
-
-        {/* Coming Soon Divider with animation */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={fadeInUp}
-        >
-          <ComingSoonDivider />
-        </motion.div>
-
-        {/* Playground with animation */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={fadeInUp}
-        >
-          <Playground items={playgroundItems} />
-        </motion.div>
       </main>
 
       <Footer />

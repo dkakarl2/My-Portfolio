@@ -16,221 +16,181 @@ import { TimeOffClock } from "@/app/components/TimeOffClock";
 import { BookShelf } from "@/app/components/BookShelf";
 import { Education } from "@/app/components/Education";
 import { RevealOnScroll } from "@/app/components/RevealOnScroll";
+import aboutHeroDoodle from "@/assets/About section hero doodle.png";
 
 export function AboutPage() {
   return (
     <div className="min-h-screen bg-white relative">
       <div className="overflow-x-hidden">
-        <Navigation />
-
+        <Navigation hideTopHeader={false} />
+        
         {/* Video Hero Section - Hidden for now */}
-        {/* <div className="mt-20">
+        {/* <div className="pb-4">
           <VideoHero />
         </div> */}
 
-        <main className="py-20 px-8 lg:px-0">
-          {/* Hero Section - Centered within max-width */}
-          <div className="max-w-[1320px] mx-auto overflow-hidden">
-            <div className="relative min-h-[auto] lg:min-h-[860px] flex flex-col lg:block gap-12 lg:gap-0">
+        {/* Light Interactive Hero Section */}
+        <div 
+          className="w-full bg-[#FAFAFA] text-gray-900 relative z-10 pt-32 lg:pt-48 pb-20 lg:pb-32 rounded-b-[40px] lg:rounded-b-[60px] shadow-sm overflow-hidden border-b border-gray-100"
+        >
+          {/* Subtle Background Pattern */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
 
-              {/* Main Headline - Mobile: Top, Desktop: Absolute */}
-              <div className="relative lg:absolute lg:left-[204px] lg:left-[20px] lg:top-[330px] order-1 lg:order-none">
-                <p className="font-['Inter'] font-bold text-3xl lg:text-[48px] leading-tight lg:leading-[50px] text-black max-w-full lg:max-w-[743px]">
-                  Because form follows function, I design systems that hold the experience together.
-                </p>
-              </div>
-
-              {/* Architecture Mindset Text - Mobile: Bottom, Desktop: Absolute */}
-              <div className="relative lg:absolute lg:left-[834px] lg:top-[583px] max-w-full lg:max-w-[437px] order-3 lg:order-none">
-                {/* Yellow highlight bars behind text - animated */}
-                <motion.svg
-                  className="absolute left-0 top-[30px] w-full lg:w-[443px] h-[70px] pointer-events-none hidden lg:block"
-                  viewBox="0 0 443 70"
-                  fill="none"
-                  preserveAspectRatio="none"
-                  initial={{ opacity: 0, scaleX: 0 }}
-                  animate={{ opacity: 1, scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-                  style={{ transformOrigin: "left center" }}
-                >
-                  <motion.path
-                    d="M0 17L419 17"
-                    stroke="#FFC627"
-                    strokeWidth="28"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.6, delay: 1.5, ease: "easeOut" }}
-                  />
-                  <motion.path
-                    d="M0 51L339 51"
-                    stroke="#FFC627"
-                    strokeWidth="28"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
-                  />
-                </motion.svg>
-                <p className="font-['Inter'] font-normal text-[18px] lg:text-[24px] leading-[1.4] relative z-10">
-                  <span className="text-[#747474]">An architecture mindset means I think </span>
-                  <span className="text-[#191919]">about foundations, edge cases, and how things hold up over time.</span>
-                </p>
-              </div>
-
-              {/* Variables Label and Image - Mobile: Stacked, Desktop: Absolute */}
+          <div className="max-w-[1320px] mx-auto px-8 lg:px-0 relative">
+            
+            {/* Top Right Hero Doodle */}
+            <motion.div
+              className="absolute top-[-40px] right-[-20px] lg:top-[-80px] lg:right-[-60px] z-0 pointer-events-none hidden md:block origin-bottom"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+            >
               <motion.div
-                className="relative lg:absolute lg:left-[120px] lg:top-[60px] order-2 lg:order-none mx-auto lg:mx-0"
-                initial={{ x: -600, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1.8, delay: 0.8, ease: "easeOut" }}
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <FramedImage
-                  src={imgScreenshot20260125At113228Am1}
-                  alt="Design system variables screenshot"
-                  width="301px"
-                  height="233px"
-                  borderColor="#FF7F32"
-                  className="hidden lg:block"
-                />
-                <FramedImage
-                  src={imgScreenshot20260125At113228Am1}
-                  alt="Design system variables screenshot"
-                  width="280px"
-                  height="216px"
-                  borderColor="#FF7F32"
-                  className="lg:hidden"
-                />
-
-                {/* Variables label - Hidden on mobile or adjusted */}
-                <motion.div
-                  className="hidden lg:flex absolute top-[111px] left-[351px] items-center gap-2"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <motion.div
-                    className="relative flex items-center justify-center"
-                    style={{ transform: 'rotate(-93.2deg)' }}
-                  >
-                    <svg className="w-[14.548px] h-[12.735px]" fill="none" viewBox="0 0 13.9782 15.9022">
-                      <path d={svgPaths.p1c22d000} stroke="#FF7F32" strokeLinecap="round" strokeWidth="2" />
-                      <path d={svgPaths.p5e6580} stroke="#FF7F32" strokeLinecap="round" strokeWidth="2" />
-                    </svg>
-                  </motion.div>
-                  <motion.div className="relative">
-                    <svg className="w-[103px] h-[32px]" fill="none" preserveAspectRatio="none" viewBox="0 0 103 32">
-                      <path d="M16 16H87" stroke="#FF7F32" strokeLinecap="round" strokeWidth="32" />
-                    </svg>
-                    <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-['Caveat_Brush'] text-[20px] text-white leading-normal">
-                      Variables
-                    </p>
-                  </motion.div>
-                </motion.div>
+                <img src={aboutHeroDoodle} alt="Hero doodle" className="w-[300px] lg:w-[500px] object-contain drop-shadow-xl opacity-95" />
               </motion.div>
+            </motion.div>
 
-              {/* Component Label and Image */}
-              <motion.div
-                className="hidden lg:block absolute left-[111px] top-[696px]"
-                initial={{ x: -600, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1.8, delay: 1.8, ease: "easeOut" }}
-              >
-                <FramedImage
-                  src={imgImage57}
-                  alt="Design system component screenshot"
-                  width="449px"
-                  height="92px"
-                  borderColor="#78BE20"
-                />
+            <div className="flex flex-col relative z-10">
+              {/* Left Text Content */}
+              <div className="max-w-3xl">
+                 {/* Title */}
+                 <motion.h1 
+                   className="font-['Manrope'] font-bold text-[40px] lg:text-[72px] leading-[1.1] tracking-tight mb-8 text-gray-900"
+                   initial={{ opacity: 0, y: 20 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                 >
+                     Bringing order to <br className="hidden lg:block"/>
+                     <motion.span 
+                       className="relative inline-block cursor-pointer group"
+                       whileHover={{ scale: 1.05, rotate: -2 }}
+                       transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                     >
+                       <span className="font-['Manrope'] italic font-normal text-[#F59E0B] relative z-10">complex</span>
+                       <svg className="absolute w-[110%] h-[20px] bottom-[-2px] left-[-5%] z-0 pointer-events-none" viewBox="0 0 100 20" preserveAspectRatio="none" fill="none">
+                         <motion.path d="M5 15 C 30 5, 70 20, 95 5" stroke="#F59E0B" strokeWidth="4" strokeLinecap="round" 
+                           initial={{ pathLength: 0 }}
+                           animate={{ pathLength: 1 }}
+                           transition={{ delay: 0.8, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                         />
+                         <motion.path d="M5 15 C 30 5, 70 20, 95 5" stroke="#FCD34D" strokeWidth="4" strokeLinecap="round" 
+                           className="opacity-0 group-hover:opacity-100"
+                           initial={{ pathLength: 1, pathOffset: 1 }}
+                           whileHover={{ pathOffset: 0 }}
+                           transition={{ duration: 0.4 }}
+                         />
+                       </svg>
+                     </motion.span> systems.
+                   </motion.h1>
 
-                {/* Component label */}
-                <motion.div
-                  className="absolute top-[105px] left-[246px]"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-                >
-                  <div className="relative">
-                    {/* Arrow */}
-                    <div className="absolute left-[-20px] top-[-10px]">
-                      <svg className="w-[14px] h-[16px]" fill="none" viewBox="0 0 13.9782 15.9022">
-                        <g>
-                          <path d={svgPaths.p1c22d000} stroke="#78BE20" strokeLinecap="round" strokeWidth="2" />
-                          <path d={svgPaths.p5e6580} stroke="#78BE20" strokeLinecap="round" strokeWidth="2" />
-                        </g>
-                      </svg>
+                   {/* Subtitle */}
+                   <motion.p 
+                     className="font-['Manrope'] text-lg lg:text-[20px] text-gray-600 max-w-lg leading-relaxed mb-10"
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                   >
+                     I'm a UX designer who specializes in systems thinking, AI-first interactions, and transforming ambiguity into seamless user journeys.
+                   </motion.p>
+                </div>
+              </div>
+
+              {/* Bottom Expertise Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 lg:mt-16 relative z-10">
+                 {/* Card 1 */}
+                 <motion.div 
+                   className="bg-white border border-gray-200/60 shadow-sm rounded-[32px] p-8 origin-center cursor-pointer"
+                   initial={{ opacity: 0, y: 40, rotate: -3 }}
+                   animate={{ opacity: 1, y: 0, rotate: -3 }}
+                   whileHover={{ 
+                     rotate: 0, 
+                     scale: 1.03, 
+                     y: -8, 
+                     backgroundColor: "#F9FAFB",
+                     boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)",
+                     transition: { type: "spring", stiffness: 400, damping: 25 }
+                   }}
+                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
+                 >
+                    <div className="w-12 h-12 mb-6">
+                       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                         <rect x="10" y="3" width="4" height="4" rx="1"/>
+                         <rect x="3" y="17" width="4" height="4" rx="1"/>
+                         <rect x="10" y="17" width="4" height="4" rx="1"/>
+                         <rect x="17" y="17" width="4" height="4" rx="1"/>
+                         <path d="M12 7v4"/>
+                         <path d="M5 17v-3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/>
+                       </svg>
                     </div>
-
-                    {/* Button */}
-                    <div className="relative">
-                      <svg className="w-[114px] h-[32px]" fill="none" preserveAspectRatio="none" viewBox="0 0 114 32">
-                        <path d="M16 16H98" stroke="#78BE20" strokeLinecap="round" strokeWidth="32" />
-                      </svg>
-                      <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-['Caveat_Brush'] text-[20px] text-white leading-normal">
-                        Component
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              </motion.div>
-
-              {/* Spacing Label and Image - Hidden on mobile to reduce clutter */}
-              <motion.div
-                className="hidden lg:block absolute left-[1095px] top-[169px]"
-                initial={{ x: 600, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1.8, delay: 2.8, ease: "easeOut" }}
-              >
-                <FramedImage
-                  src={imgScreenshot20260125At113416Am1}
-                  alt="Design system spacing screenshot"
-                  width="200px"
-                  height="269px"
-                  borderColor="#00A3E0"
-                />
-
-                {/* Spacing label */}
-                <motion.div
-                  className="absolute top-[80px] left-[-110px] flex items-center gap-2"
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                >
-                  {/* Button */}
-                  <div className="relative">
-                    <svg className="w-[92px] h-[32px]" fill="none" preserveAspectRatio="none" viewBox="0 0 92 32">
-                      <path d="M16 16H76" stroke="#00A3E0" strokeLinecap="round" strokeWidth="32" />
-                    </svg>
-                    <p className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-['Caveat_Brush'] text-[20px] text-white leading-normal">
-                      Spacing
+                    <h3 className="font-['Manrope'] font-bold text-2xl text-gray-900 mb-4">Design Systems</h3>
+                    <p className="text-gray-600 leading-relaxed text-[15px]">
+                      Building scalable, accessible component libraries that empower teams to build consistent products faster and more efficiently.
                     </p>
-                  </div>
+                 </motion.div>
 
-                  {/* Arrow */}
-                  <div className="relative" style={{ transform: 'rotate(149.14deg)' }}>
-                    <svg className="w-[14px] h-[16px]" fill="none" viewBox="0 0 13.9782 15.9022">
-                      <g>
-                        <path d={svgPaths.p1c22d000} stroke="#00A3E0" strokeLinecap="round" strokeWidth="2" />
-                        <path d={svgPaths.p5e6580} stroke="#00A3E0" strokeLinecap="round" strokeWidth="2" />
-                      </g>
-                    </svg>
-                  </div>
-                </motion.div>
-              </motion.div>
+                 {/* Card 2 */}
+                 <motion.div 
+                   className="bg-white border border-gray-200/60 shadow-sm rounded-[32px] p-8 origin-center cursor-pointer"
+                   initial={{ opacity: 0, y: 40, rotate: 2 }}
+                   animate={{ opacity: 1, y: 0, rotate: 2 }}
+                   whileHover={{ 
+                     rotate: 0, 
+                     scale: 1.03, 
+                     y: -8, 
+                     backgroundColor: "#F9FAFB",
+                     boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)",
+                     transition: { type: "spring", stiffness: 400, damping: 25 }
+                   }}
+                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 }}
+                 >
+                    <div className="w-12 h-12 mb-6">
+                       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#E74973" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                         <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+                       </svg>
+                    </div>
+                    <h3 className="font-['Manrope'] font-bold text-2xl text-gray-900 mb-4">AI-First UX</h3>
+                    <p className="text-gray-600 leading-relaxed text-[15px]">
+                      Designing intuitive interfaces for complex machine learning models, bringing clarity and control to generative AI experiences.
+                    </p>
+                 </motion.div>
 
-              {/* Doodle Character - Hidden on mobile */}
-              <div className="hidden lg:block absolute left-[170px] top-[480px]" style={{ transform: 'rotate(-10.22deg)' }}>
-                <img
-                  alt="Doodle character"
-                  className="w-[116px] h-[103px] object-contain"
-                  src={image_b666cafd2dcbbabf097ae8f0dc06bfaface97220}
-                />
+                 {/* Card 3 */}
+                 <motion.div 
+                   className="bg-white border border-gray-200/60 shadow-sm rounded-[32px] p-8 origin-center cursor-pointer"
+                   initial={{ opacity: 0, y: 40, rotate: -2 }}
+                   animate={{ opacity: 1, y: 0, rotate: -2 }}
+                   whileHover={{ 
+                     rotate: 0, 
+                     scale: 1.03, 
+                     y: -8, 
+                     backgroundColor: "#F9FAFB",
+                     boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)",
+                     transition: { type: "spring", stiffness: 400, damping: 25 }
+                   }}
+                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.5 }}
+                 >
+                    <div className="w-12 h-12 mb-6">
+                       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4AB7C4" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                         <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/>
+                         <path d="M13 13l6 6"/>
+                       </svg>
+                    </div>
+                    <h3 className="font-['Manrope'] font-bold text-2xl text-gray-900 mb-4">Interaction Design</h3>
+                    <p className="text-gray-600 leading-relaxed text-[15px]">
+                      Crafting meaningful micro-interactions and smooth prototypes that breathe life and delight into digital experiences.
+                    </p>
+                 </motion.div>
               </div>
-
             </div>
           </div>
 
+        <main className="py-10 lg:py-20 px-8 lg:px-0">
           {/* My Journey So Far Section */}
           <RevealOnScroll className="max-w-[1320px] mx-auto mt-20 lg:mt-32" width="100%">
-            <div className="relative min-h-[500px] lg:h-[1050px] lg:ml-[-70px] lg:overflow-hidden">
+            <div className="relative min-h-[500px] lg:h-[1050px] lg:ml-[-70px]">
               <AboutMyJourneySoFar />
             </div>
           </RevealOnScroll>
@@ -250,8 +210,8 @@ export function AboutPage() {
           </RevealOnScroll>
 
           {/* Testimonials Section */}
-          <RevealOnScroll className="max-w-[1320px] mx-auto mt-20 lg:mt-32" width="100%">
-            <div className="relative min-h-[500px] lg:h-[1350px] overflow-visible">
+          <RevealOnScroll className="mt-20 lg:mt-32 w-full" width="100%">
+            <div className="relative min-h-[500px] lg:h-[1350px] overflow-visible w-full">
               <AboutTestimonials />
             </div>
           </RevealOnScroll>

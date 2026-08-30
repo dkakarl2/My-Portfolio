@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+/* SF Pro Display fallback — maps to system-ui on Apple, and a clean sans on others */
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'), local('.SFNSDisplay'), local('HelveticaNeue'), local('Arial');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'), local('.SFNSDisplay'), local('HelveticaNeue'), local('Arial');
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: local('SF Pro Display'), local('.SFNSDisplay'), local('HelveticaNeue'), local('Arial');
+  font-weight: 700;
+}
+
+/* SF Pro fallback */
+@font-face {
+  font-family: 'SF Pro';
+  src: local('SF Pro'), local('.SFNSText'), local('HelveticaNeue'), local('Arial');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'SF Pro';
+  src: local('SF Pro'), local('.SFNSText'), local('HelveticaNeue'), local('Arial');
+  font-weight: 500;
+}
+
+/* PP Editorial New fallback — use Playfair Display as a similar serif */
+@font-face {
+  font-family: 'PP Editorial New';
+  src: local('Playfair Display'), local('Georgia'), local('Times New Roman');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PP Editorial New';
+  src: local('Playfair Display'), local('Georgia'), local('Times New Roman');
+  font-weight: 400;
+  font-style: italic;
+}

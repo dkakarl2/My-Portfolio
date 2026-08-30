@@ -15,235 +15,162 @@ import image_5097bfc94a935008523f6fc761a0edb464f31a7b from 'figma:asset/5097bfc9
 import image_7392c6e4c353b3331c85a8396d2df897aafc9473 from 'figma:asset/7392c6e4c353b3331c85a8396d2df897aafc9473.png';
 import image_721ea2f8ed8d3579f523583c34c605c4106914c0 from 'figma:asset/721ea2f8ed8d3579f523583c34c605c4106914c0.png';
 import image_41b83b07154bc25d703684701f8068bfed7f9b77 from 'figma:asset/41b83b07154bc25d703684701f8068bfed7f9b77.png';
-import { motion } from "motion/react";
-import { useEffect, useRef, useState, MouseEvent } from "react";
 
-interface PlaygroundItem {
-  image: string;
-  title?: string;
-  height?: string;
+import painting1 from '@/assets/painting 1.png';
+import painting2 from '@/assets/painting 2.png';
+import painting3 from '@/assets/painting 3.png';
+import painting4 from '@/assets/painting 4.png';
+import painting5 from '@/assets/painting 5.png';
+import painting6 from '@/assets/painting 6.png';
+
+import pgCard from '@/assets/playground/Card.png';
+import pgDesktop64 from '@/assets/playground/Desktop - 64.png';
+import pgDribbble6 from '@/assets/playground/Dribbble shot HD - 6.png';
+import pgDribbble8 from '@/assets/playground/Dribbble shot HD - 8.png';
+import pgFlux1 from '@/assets/playground/Flux 1.png';
+import pgFlux2 from '@/assets/playground/Flux 2.png';
+import pgFlux3 from '@/assets/playground/Flux 3.png';
+import pgSamsung from '@/assets/playground/Free_Samsung_S10_Mockup_3-Recovered 2.png';
+import pgInsta from '@/assets/playground/Instagram post - 1.png';
+import pgMockup from '@/assets/playground/Mockup2222 1.png';
+import pgMom from '@/assets/playground/Mom.png';
+import pgBeta from '@/assets/playground/beta=false, CTA type=single.png';
+import pgIosDock from '@/assets/playground/iOS app dock.png';
+import pgIphone from '@/assets/playground/iPhone on Pillow Mockup1111111111 1.png';
+
+import { useMemo, useState, useEffect, useRef } from "react";
+
+interface PlaygroundItemData {
+  src: string;
+  title: string;
+  date: string;
+  description: string;
+  role: string;
 }
 
-interface PlaygroundProps {
-  items: PlaygroundItem[];
-}
+const defaultDescription = "Redesigned experience focused on smarter onboarding and clearer interactions. By streamlining goal-setting, reducing interface redundancy, and elevating analytics visibility, this concept improves personalization and helps users build stronger, more accurate digital identities.";
 
-// Placeholder items matching Figma layout
-const placeholderItems = [
-  { left: 0, top: 0, height: 608, opacity: 0.31, image: image_721ea2f8ed8d3579f523583c34c605c4106914c0 },
-  { left: 719, top: 784, height: 668, opacity: 0.31, image: image_f81a6c0ccc84bcc8481a2d2d7f46254f5949cd55 },
-  { left: 360, top: 0, height: 328, opacity: 0.57, image: image_41b83b07154bc25d703684701f8068bfed7f9b77 },
-  { left: 360, top: 339, height: 328, opacity: 0.31, image: image_5097bfc94a935008523f6fc761a0edb464f31a7b },
-  { left: 360, top: 1124, height: 328, opacity: 0.31, image: image_45937b15b6dd83612829a2526de4c37042f3cd52 },
-  { left: 1079, top: 1124, height: 328, opacity: 0.57, image: image_cc322fdb955266b4239a08cdaaf55a4d70bddc2f },
-  { left: 1, top: 619, height: 328, opacity: 0.31, image: image_41a99f2133d6f03b74a53297a259040a59caaa75 },
-  { left: 720, top: 446, height: 328, opacity: 0.57, image: image_6d8b514b723f2e42abc5e00c48999517f0b6cfc2 },
-  { left: 1078, top: 785, height: 328, opacity: 0.31, image: image_aa9661998ba4886211e228f65830caec85e82518 },
-  { left: 719, top: 0, height: 435, opacity: 0.31, image: image_7392c6e4c353b3331c85a8396d2df897aafc9473 },
-  { left: 360, top: 678, height: 435, opacity: 0.57, image: image_92bbaae6eb25f3f050d2f64bf869553e28ada3ae },
-  { left: 0, top: 958, height: 494, opacity: 0.57, image: image_b7c01e74a64fd96e4c13cd41c48bfb17f2c0bad3 },
-  { left: 1079, top: 339, height: 435, opacity: 0.57, image: image_5c1f25d444ae857f9b01432b41ba7b99f368b72d },
-  { left: 1079, top: 0, height: 328, opacity: 0.31, image: image_37c07083b625b022ea7cf3be764f2645812ae6cb },
+const baseItems: PlaygroundItemData[] = [
+  { src: pgCard, title: "Card", date: "", description: defaultDescription, role: "" },
+  { src: pgDesktop64, title: "Desktop", date: "", description: defaultDescription, role: "" },
+  { src: pgDribbble6, title: "Dribbble 6", date: "", description: defaultDescription, role: "" },
+  { src: pgDribbble8, title: "Dribbble 8", date: "", description: defaultDescription, role: "" },
+  { src: pgFlux1, title: "Flux 1", date: "", description: defaultDescription, role: "" },
+  { src: pgFlux2, title: "Flux 2", date: "", description: defaultDescription, role: "" },
+  { src: pgFlux3, title: "Flux 3", date: "", description: defaultDescription, role: "" },
+  { src: pgSamsung, title: "Samsung Mockup", date: "", description: defaultDescription, role: "" },
+  { src: pgInsta, title: "Instagram", date: "", description: defaultDescription, role: "" },
+  { src: pgMockup, title: "Mockup", date: "", description: defaultDescription, role: "" },
+  { src: pgMom, title: "Mom", date: "", description: defaultDescription, role: "" },
+  { src: pgBeta, title: "Beta CTA", date: "", description: defaultDescription, role: "" },
+  { src: pgIosDock, title: "iOS Dock", date: "", description: defaultDescription, role: "" },
+  { src: pgIphone, title: "iPhone Mockup", date: "", description: defaultDescription, role: "" },
+  { src: painting1, title: "Painting 1", date: "2024", description: defaultDescription, role: "Artist" },
+  { src: painting2, title: "Painting 2", date: "2024", description: defaultDescription, role: "Artist" },
+  { src: painting3, title: "Painting 3", date: "2024", description: defaultDescription, role: "Artist" },
+  { src: painting4, title: "Painting 4", date: "2024", description: defaultDescription, role: "Artist" },
+  { src: painting5, title: "Painting 5", date: "2024", description: defaultDescription, role: "Artist" },
+  { src: painting6, title: "Painting 6", date: "2024", description: defaultDescription, role: "Artist" },
+  { src: image_721ea2f8ed8d3579f523583c34c605c4106914c0, title: "LinkedIn Redesign", date: "Winter 2025", description: defaultDescription, role: "UI Designer" },
+  { src: image_41a99f2133d6f03b74a53297a259040a59caaa75, title: "EcoBloom - Spatial Design", date: "Summer 2023", description: defaultDescription, role: "Spatial Designer" },
+  { src: image_b7c01e74a64fd96e4c13cd41c48bfb17f2c0bad3, title: "Smart Home Controller", date: "Spring 2022", description: defaultDescription, role: "Product Designer" },
+  { src: image_41b83b07154bc25d703684701f8068bfed7f9b77, title: "Mobile Onboarding", date: "Summer 2024", description: defaultDescription, role: "UX Designer" },
+  { src: image_5097bfc94a935008523f6fc761a0edb464f31a7b, title: "E-Commerce App", date: "Spring 2024", description: defaultDescription, role: "UI Designer" },
+  { src: image_92bbaae6eb25f3f050d2f64bf869553e28ada3ae, title: "Food Delivery", date: "Summer 2022", description: defaultDescription, role: "UX Designer" },
+  { src: image_45937b15b6dd83612829a2526de4c37042f3cd52, title: "Social Platform", date: "Winter 2024", description: defaultDescription, role: "Product Designer" },
+  { src: image_7392c6e4c353b3331c85a8396d2df897aafc9473, title: "Travel App", date: "Fall 2022", description: defaultDescription, role: "UI Designer" },
+  { src: image_6d8b514b723f2e42abc5e00c48999517f0b6cfc2, title: "Analytics Tool", date: "Spring 2023", description: defaultDescription, role: "Product Designer" },
+  { src: image_f81a6c0ccc84bcc8481a2d2d7f46254f5949cd55, title: "Dashboard Concept", date: "Fall 2024", description: defaultDescription, role: "Product Designer" },
+  { src: image_37c07083b625b022ea7cf3be764f2645812ae6cb, title: "Music Player", date: "Fall 2021", description: defaultDescription, role: "UX Designer" },
+  { src: image_5c1f25d444ae857f9b01432b41ba7b99f368b72d, title: "Task Manager", date: "Winter 2022", description: defaultDescription, role: "UI Designer" },
+  { src: image_aa9661998ba4886211e228f65830caec85e82518, title: "Healthcare Portal", date: "Winter 2023", description: defaultDescription, role: "UX Researcher" },
+  { src: image_cc322fdb955266b4239a08cdaaf55a4d70bddc2f, title: "Web App UI", date: "Fall 2023", description: defaultDescription, role: "UX/UI Designer" },
 ];
 
-// Parallax card component that tracks mouse position
-function ParallaxCard({
-  item,
-  index,
-  isVisible,
-  itemRef
-}: {
-  item: typeof placeholderItems[0];
-  index: number;
-  isVisible: boolean;
-  itemRef: (el: HTMLDivElement | null) => void;
-}) {
-  const [imageOffset, setImageOffset] = useState({ x: 0, y: 0 });
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-
-    const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    // Calculate offset from center (-1 to 1)
-    const offsetX = (e.clientX - centerX) / (rect.width / 2);
-    const offsetY = (e.clientY - centerY) / (rect.height / 2);
-
-    // Move image towards cursor (max 15px offset)
-    const maxOffset = 15;
-    setImageOffset({
-      x: offsetX * maxOffset,
-      y: offsetY * maxOffset
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setImageOffset({ x: 0, y: 0 });
-  };
-
-  return (
-    <motion.div
-      ref={(el) => {
-        cardRef.current = el;
-        itemRef(el);
-      }}
-      data-index={index}
-      className="absolute rounded-[60px] overflow-hidden"
-      style={{
-        left: `${item.left}px`,
-        top: `${item.top}px`,
-        height: `${item.height}px`,
-        width: '349px',
-        backgroundColor: `rgba(196, 196, 196, ${item.opacity})`,
-      }}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <img
-        src={item.image}
-        alt=""
-        className="w-full h-full object-cover"
-        style={{
-          transform: `translate(${imageOffset.x}px, ${imageOffset.y}px) scale(1.1)`,
-          transition: 'transform 0.2s ease-out',
-        }}
-      />
-    </motion.div>
-  );
-}
-
-// Mobile parallax card
-function MobileParallaxCard({
-  item,
-  index
-}: {
-  item: typeof placeholderItems[0];
-  index: number;
-}) {
-  const [imageOffset, setImageOffset] = useState({ x: 0, y: 0 });
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-
-    const rect = cardRef.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-
-    const offsetX = (e.clientX - centerX) / (rect.width / 2);
-    const offsetY = (e.clientY - centerY) / (rect.height / 2);
-
-    const maxOffset = 10;
-    setImageOffset({
-      x: offsetX * maxOffset,
-      y: offsetY * maxOffset
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setImageOffset({ x: 0, y: 0 });
-  };
-
-  return (
-    <motion.div
-      ref={cardRef}
-      className="rounded-[30px] overflow-hidden"
-      style={{
-        height: `${Math.min(item.height * 0.6, 300)}px`,
-        backgroundColor: `rgba(196, 196, 196, ${item.opacity})`,
-      }}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.03 }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <img
-        src={item.image}
-        alt=""
-        className="w-full h-full object-cover"
-        style={{
-          transform: `translate(${imageOffset.x}px, ${imageOffset.y}px) scale(1.1)`,
-          transition: 'transform 0.2s ease-out',
-        }}
-      />
-    </motion.div>
-  );
-}
-
-export function Playground({ items }: PlaygroundProps) {
-  const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+export function Playground() {
+  const [cols, setCols] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  // 3000 cells to cover even very large screens with 40x40 squares
+  const numCells = 3000; 
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = parseInt(entry.target.getAttribute('data-index') || '0');
-          if (entry.isIntersecting) {
-            setVisibleItems(prev => new Set([...prev, index]));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    itemRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
+    const updateCols = () => {
+      if (containerRef.current) {
+        setCols(Math.floor(containerRef.current.offsetWidth / 40));
+      }
+    };
+    
+    // Initial measurement
+    updateCols();
+    
+    // Measure on resize
+    window.addEventListener('resize', updateCols);
+    return () => window.removeEventListener('resize', updateCols);
   }, []);
+  
+  const gridCells = useMemo(() => {
+    // If we haven't measured the container yet, return an empty array to avoid hydration/layout mismatch
+    if (cols === 0) return Array(numCells).fill(baseItems[0]);
+
+    const cells: PlaygroundItemData[] = [];
+    
+    for (let i = 0; i < numCells; i++) {
+      const row = Math.floor(i / cols);
+      const col = i % cols;
+      
+      const forbidden = new Set<PlaygroundItemData>();
+      
+      // Radius 1: Horizontal and Vertical neighbors
+      if (col > 0) forbidden.add(cells[i - 1]); // Left
+      if (row > 0) {
+        if (col > 0) forbidden.add(cells[i - cols - 1]); // Top-Left
+        forbidden.add(cells[i - cols]); // Top
+        if (col < cols - 1 && i - cols + 1 < cells.length) {
+           forbidden.add(cells[i - cols + 1]); // Top-Right
+        }
+      }
+      
+      // Radius 2: Avoid repeats within 2 blocks distance (creates an even better organic distribution)
+      if (col > 1) forbidden.add(cells[i - 2]);
+      if (row > 1) forbidden.add(cells[i - (cols * 2)]);
+      
+      // Filter out forbidden items
+      const available = baseItems.filter(item => !forbidden.has(item));
+      
+      // If strict separation forbids all items (very rare with 34 items), fallback to all items
+      const candidates = available.length > 0 ? available : baseItems;
+      
+      cells.push(candidates[Math.floor(Math.random() * candidates.length)]);
+    }
+    
+    return cells;
+  }, [cols, numCells]);
 
   return (
-    <section id="playground" className="py-20 w-full">
-      {/* Section header - Centered */}
-      <div className="max-w-[1224px] mx-auto px-8 lg:px-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
-          <div className="hidden lg:block lg:col-span-1"></div>
-          <h2 className="font-['Inter'] font-bold text-4xl text-black lg:col-span-3">
-            Playground
-          </h2>
-          <p className="font-['Inter'] font-normal text-[20px] text-[#747474] leading-[normal] lg:col-span-8">
-            Small experiments and creative explorations that reflect how I think, learn, and design.
-          </p>
+    // Flex-wrap container ensuring exactly 40px x 40px squares, no gaps
+    <div ref={containerRef} className="w-full h-full flex flex-wrap content-start">
+      {gridCells.map((item, idx) => (
+        <div 
+          key={idx} 
+          className="relative w-[40px] h-[40px] group border-r border-b border-[#80808012]"
+        >
+          {/* Inner expanding box (Pure GPU-accelerated transition using scale and opacity) */}
+          <div 
+            className="absolute -left-[140px] -top-[130px] w-[320px] h-[300px] bg-transparent
+                       transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+                       opacity-0 scale-[0.5] group-hover:opacity-100 group-hover:scale-100
+                       z-0 group-hover:z-50 
+                       flex flex-col justify-end pointer-events-none
+                       origin-center will-change-[transform,opacity]"
+          >
+            {/* Content only visible on hover */}
+            <div className="absolute inset-0 w-full h-full flex items-center justify-center">
+               <img src={item.src} className="max-w-full max-h-full object-contain drop-shadow-2xl" alt={item.title} />
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Desktop Masonry Grid - Full Width Edge to Edge */}
-      <div className="hidden lg:block w-full">
-        <div className="relative h-[1452px] max-w-[1440px] mx-auto">
-          {placeholderItems.map((item, index) => (
-            <ParallaxCard
-              key={index}
-              item={item}
-              index={index}
-              isVisible={visibleItems.has(index)}
-              itemRef={(el) => (itemRefs.current[index] = el)}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile/Tablet Grid - Responsive Columns */}
-      <div className="lg:hidden px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          {placeholderItems.map((item, index) => (
-            <MobileParallaxCard
-              key={`mobile-${index}`}
-              item={item}
-              index={index}
-            />
-          ))}
-        </div>
-      </div>
-    </section>
+      ))}
+    </div>
   );
 }

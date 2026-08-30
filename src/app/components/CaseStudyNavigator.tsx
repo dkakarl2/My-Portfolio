@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useMode } from '@/app/contexts/ModeContext';
 
 // ---------------------------------------------------------------------------
 // Section definitions – universal across all case study pages
@@ -14,29 +15,19 @@ const UNIVERSAL_SECTIONS: SectionDef[] = [
   {
     id: 'nav-overview',
     label: 'Overview',
-    texts: ['Overview'],
+    texts: ['Overview', 'Introduction', 'Summary'],
   },
   {
-    id: 'nav-results',
-    label: 'Result and Impact',
+    id: 'nav-problem',
+    label: 'Problem',
     texts: [
-      'Results and impact',
-      'Results & Impact',
-      'Result and Impact',
-      'Results and Impact',
-    ],
-  },
-  {
-    id: 'nav-context',
-    label: 'Context and Problem',
-    texts: [
+      'Problem',
+      'The Problem',
       'Context & Problem',
       'Context and Problem',
-      'The Problem',
       'Problem & Opportunity',
-      'Hackathon Context',
       'The Opportunity',
-      'The opportunity',
+      'Challenge',
     ],
   },
   {
@@ -48,41 +39,33 @@ const UNIVERSAL_SECTIONS: SectionDef[] = [
       'Research & System Audit',
       'Research & Audit',
       'Research & Insights',
-    ],
-  },
-  {
-    id: 'nav-ideation',
-    label: 'Ideation',
-    texts: [
-      'Ideation',
-      'Ideation & Concept Development',
-      'The Idea',
-      'Concept',
+      'Key Insights',
+      'Outcomes',
     ],
   },
   {
     id: 'nav-design',
-    label: 'Design Process',
+    label: 'Design',
     texts: [
-      'Design process',
+      'Design',
       'Design Process',
-      'High fidelity prototypes',
+      'Design process',
+      'The Design',
+      'Ideation',
       'High Fidelity Prototypes',
-      'Low fidelity wireframes',
-      'Low-Fidelity Wireframes',
-      'Designing the Flow',
+      'Wireframes',
     ],
   },
   {
     id: 'nav-testing',
-    label: 'User Testing',
+    label: 'Testing',
     texts: [
-      'Listening, learning, and improving',
-      'Listening, learning, and improving - shaping care through feedback',
-      'User testing',
+      'Testing',
       'User Testing',
+      'User testing',
       'Testing & Iteration',
-      'Testing & Iterating',
+      'Listening, learning, and improving',
+      'Validation',
     ],
   },
   {
@@ -93,15 +76,52 @@ const UNIVERSAL_SECTIONS: SectionDef[] = [
       'Learnings',
       'Key Learnings',
       'Reflection',
-      'Role & Contribution',
       'Reflection & Learnings',
+      'Results and Impact',
+      'Results & Impact',
     ],
   },
 ];
 
+const RECRUITER_SECTIONS: SectionDef[] = [
+  {
+    id: 'nav-role',
+    label: 'Role',
+    texts: ['Role', 'My Role'],
+  },
+  {
+    id: 'nav-process',
+    label: 'Process',
+    texts: ['Process', 'Design Process', 'The Process'],
+  },
+  {
+    id: 'nav-research-outcomes',
+    label: 'Research Outcomes',
+    texts: ['Research Outcomes', 'Research & Outcomes', 'Research'],
+  },
+  {
+    id: 'nav-design',
+    label: 'Design',
+    texts: ['Design', 'Designing the Solution', 'The Design', 'High Fidelity Prototypes', 'High-Fidelity Prototypes'],
+  },
+  {
+    id: 'nav-testing',
+    label: 'Testing',
+    texts: ['Testing', 'User Testing', 'Testing & Iteration'],
+  },
+  {
+    id: 'nav-key-learnings',
+    label: 'Key Learnings',
+    texts: ['Key Learnings', 'Learnings', 'Final Reflection', 'Reflection'],
+  },
+];
+
+
 /** Routes where the navigator should appear */
 const CASE_STUDY_ROUTES = [
   '/mayo-clinic-case-study',
+  '/aura-case-study',
+  '/aisle-case-study',
   '/rocket-design-system-case-study',
   '/ed-plus-hackathon-case-study',
   '/edufund-case-study',
@@ -124,7 +144,10 @@ function normalizeText(text: string): string {
  * Search for section heading elements ONLY inside [data-case-study-content].
  * This prevents matching the navigator's own labels.
  */
-function findSectionElement(texts: string[]): HTMLElement | null {
+function findSectionElement(texts: string[], secId: string): HTMLElement | null {
+  const explicitEl = document.getElementById(secId);
+  if (explicitEl) return explicitEl;
+
   // Scope search to case study content container only
   const container = document.querySelector('[data-case-study-content]');
   if (!container) return null;
@@ -142,7 +165,7 @@ function findSectionElement(texts: string[]): HTMLElement | null {
       const elText = getShallowText(htmlEl);
       if (
         elText.length > 0 &&
-        elText.length < 200 &&
+        elText.length < 100 &&
         elText === target &&
         isReallyVisible(htmlEl)
       ) {
@@ -159,7 +182,7 @@ function findSectionElement(texts: string[]): HTMLElement | null {
       const elText = getShallowText(htmlEl);
       if (
         elText.length > 0 &&
-        elText.length < 200 &&
+        elText.length < 100 &&
         elText.includes(target) &&
         isReallyVisible(htmlEl)
       ) {
@@ -237,18 +260,16 @@ export function CaseStudyNavigator() {
   const normalizedPath = location.pathname.replace(/\/$/, '') || '/';
   const isCaseStudy = CASE_STUDY_ROUTES.includes(normalizedPath);
 
-  // Filter sections based on the current route
-  const displayedSections = UNIVERSAL_SECTIONS.filter((sec) => {
-    if (normalizedPath === '/rocket-design-system-case-study') {
-      return !['nav-ideation', 'nav-design', 'nav-testing'].includes(sec.id);
-    }
-    if (normalizedPath === '/ed-plus-hackathon-case-study') {
-      return !['nav-results', 'nav-research', 'nav-design', 'nav-testing'].includes(sec.id);
-    }
-    return true;
-  });
+  // Filter out specific tabs depending on the case study
+  let displayedSections = UNIVERSAL_SECTIONS;
+  if (normalizedPath === '/aura-case-study' || normalizedPath === '/aisle-case-study') {
+    displayedSections = displayedSections.filter(sec => sec.id !== 'nav-testing');
+  } else if (normalizedPath === '/rocket-design-system-case-study') {
+    displayedSections = displayedSections.filter(sec => sec.id !== 'nav-design' && sec.id !== 'nav-testing');
+  }
 
   const [activeSection, setActiveSection] = useState('Overview');
+
   const [scrolledPastHero, setScrolledPastHero] = useState(false);
   const [isMainNavVisible, setIsMainNavVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -287,13 +308,23 @@ export function CaseStudyNavigator() {
     if (!isCaseStudy) return;
     const cache = new Map<string, HTMLElement>();
     for (const sec of displayedSections) {
-      // Check if previously found element is still valid
+      // 1. Always prefer explicit ID if it exists in the DOM
+      const explicitEl = document.getElementById(sec.id);
+      if (explicitEl && isReallyVisible(explicitEl)) {
+        explicitEl.setAttribute('data-nav-section', sec.id);
+        cache.set(sec.id, explicitEl);
+        continue;
+      }
+      
+      // 2. Check if previously found text-matched element is still valid
       const existing = elemCacheRef.current.get(sec.id);
       if (existing && document.body.contains(existing) && isReallyVisible(existing)) {
         cache.set(sec.id, existing);
         continue;
       }
-      const el = findSectionElement(sec.texts);
+      
+      // 3. Fallback to text search
+      const el = findSectionElement(sec.texts, sec.id);
       if (el) {
         el.setAttribute('data-nav-section', sec.id);
         cache.set(sec.id, el);
@@ -332,7 +363,15 @@ export function CaseStudyNavigator() {
 
     const onScroll = () => {
       const scrollY = window.scrollY ?? document.documentElement.scrollTop ?? 0;
-      setScrolledPastHero(scrollY > 300);
+      
+      const firstSectionEl = document.querySelector('[data-nav-section]');
+      if (firstSectionEl) {
+        const rect = firstSectionEl.getBoundingClientRect();
+        // Show navigator when scrolled down AND the first section is near the top of the viewport
+        setScrolledPastHero(scrollY > 100 && rect.top < 250);
+      } else {
+        setScrolledPastHero(scrollY > 400);
+      }
 
       // Determine which section is currently in view
       if (elemCacheRef.current.size === 0) {
@@ -408,92 +447,29 @@ export function CaseStudyNavigator() {
   return (
     <nav
       ref={navRef}
-      style={{
-        position: 'fixed',
-        top: isMainNavVisible ? 80 : 0,
-        left: 0,
-        right: 0,
-        zIndex: 9998,
-        opacity: shouldShow ? 1 : 0,
-        transform: shouldShow ? 'translateY(0)' : 'translateY(-8px)',
-        pointerEvents: shouldShow ? 'auto' : 'none',
-        transition: 'opacity 0.35s ease, transform 0.35s ease, top 0.3s ease-in-out',
-      }}
+      className={`fixed top-6 lg:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+        shouldShow ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
+      }`}
       aria-label="Case study sections"
       data-case-study-nav
     >
-      <div
-        style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.8)',
-          backdropFilter: 'blur(4px)',
-          WebkitBackdropFilter: 'blur(4px)',
-          borderBottom: '1px solid rgba(208, 208, 208, 0.3)',
-          boxShadow: 'none',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: '0 auto',
-            padding: '0 24px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: 4,
-            overflowX: 'auto',
-          }}
-        >
-          {displayedSections.map((sec) => {
-            const isActive = activeSection === sec.label;
-            return (
-              <button
-                key={sec.id}
-                onClick={() => handleSectionClick(sec)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 8,
-                  padding: '14px 12px',
-                  border: 'none',
-                  background: 'transparent',
-                  cursor: 'pointer',
-                  outline: 'none',
-                  whiteSpace: 'nowrap',
-                  transition: 'all 0.2s ease',
-                }}
-              >
-                {/* Dot indicator */}
-                <span
-                  style={{
-                    display: 'inline-block',
-                    width: isActive ? 7 : 5,
-                    height: isActive ? 7 : 5,
-                    minWidth: isActive ? 7 : 5,
-                    minHeight: isActive ? 7 : 5,
-                    borderRadius: '50%',
-                    backgroundColor: isActive ? '#000' : '#b0b0b0',
-                    flexShrink: 0,
-                    transition:
-                      'all 0.25s ease',
-                  }}
-                />
-                {/* Label */}
-                <span
-                  style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: 13,
-                    lineHeight: 1,
-                    color: isActive ? '#000' : '#888',
-                    fontWeight: isActive ? 700 : 400,
-                    transition: 'color 0.25s ease, font-weight 0.25s ease',
-                  }}
-                >
-                  {sec.label}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+      <div className="h-11 flex items-center gap-1 sm:gap-1.5 p-1 bg-[#f0f0f2]/90 backdrop-blur-xl border border-[#e2e2e4] rounded-[14px] shadow-md max-w-[85vw] overflow-x-auto no-scrollbar">
+        {displayedSections.map((sec) => {
+          const isActive = activeSection === sec.label;
+          return (
+            <button
+              key={sec.id}
+              onClick={() => handleSectionClick(sec)}
+              className={`px-3.5 py-1.5 rounded-[10px] text-[13px] font-medium transition-all duration-200 cursor-pointer whitespace-nowrap ${
+                isActive
+                  ? "bg-black text-white font-semibold shadow-xs"
+                  : "text-[#555555] hover:text-black hover:bg-black/5"
+              }`}
+            >
+              {sec.label}
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

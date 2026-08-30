@@ -61,8 +61,8 @@ const Book = ({ title, author, cover }: BookProps) => {
 
                 {/* Inside Page (Right Side - Static base) */}
                 <div className="absolute inset-0 z-10 bg-[#fdfdfd] rounded-r-md shadow-inner flex flex-col justify-center items-center p-6 text-center border-l border-gray-100">
-                    <h3 className="font-['Inter'] font-bold text-lg text-gray-900 mb-2 leading-tight">{title}</h3>
-                    <p className="font-['Inter'] text-sm text-gray-500">{author}</p>
+                    <h3 className="font-['Manrope'] font-bold text-lg text-gray-900 mb-2 leading-tight">{title}</h3>
+                    <p className="font-['Manrope'] text-sm text-gray-500">{author}</p>
                 </div>
 
                 {/* Pages effect (side/right) */}
@@ -84,7 +84,7 @@ export function BookShelf() {
             <div className="max-w-[1320px] mx-auto">
                 <div className="mb-16">
                     <div className="lg:pl-[222px]">
-                        <h2 className="font-['Inter'] font-bold text-3xl lg:text-[48px] leading-tight lg:leading-[50px] text-black">
+                        <h2 className="font-['Manrope'] font-bold text-3xl lg:text-[48px] leading-tight lg:leading-[50px] text-black">
                             What's on my bookshelf
                         </h2>
                     </div>

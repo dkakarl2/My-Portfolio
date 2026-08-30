@@ -112,7 +112,7 @@ function Frame1() {
 function Frame6() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[1090px] top-[152px] w-[255px]">
-      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium leading-[normal] not-italic relative shrink-0 text-[#747474] text-[16px] w-full">Support UX research, design QA, and component enhancements for ASU Online used by online learners worldwide.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium leading-[normal] not-italic relative shrink-0 text-[#747474] text-[16px] w-full">Support UX research, design QA, and component enhancements for ASU Online used by online learners worldwide.</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] leading-[normal] not-italic relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Intern</p>
       <Frame1 />
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] leading-[normal] not-italic relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
@@ -123,7 +123,7 @@ function Frame6() {
 function Frame3() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[504px] not-italic top-[169px] w-[271px]">
-      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Worked on the Rocket Design System (RDS) at ASU EdPlus, improving component consistency, accessibility, and scalable UX patterns across digital products.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Worked on the Rocket Design System (RDS) at ASU EdPlus, improving component consistency, accessibility, and scalable UX patterns across digital products.</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Student Worker</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">Jun 25’ - Jan 26’</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
@@ -134,7 +134,7 @@ function Frame3() {
 function Frame5() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[111px] not-italic top-[222px] w-[293px]">
-      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Architecture Intern at Offcentered Architects, contributing to concept development, spatial planning, and design documentation across residential and commercial projects.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Architecture Intern at Offcentered Architects, contributing to concept development, spatial planning, and design documentation across residential and commercial projects.</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">Architect Intern</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">Jan 22’ - Jun 22’</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#ddb81f] text-[40px] w-full">Offcentered architects</p>
@@ -148,7 +148,7 @@ function Frame2() {
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#24cfa4] text-[40px] w-full">Edufund</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">{`Apr 24’ - Oct 24’ `}</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Intern</p>
-      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">At Edufund, I designed end-to-end experiences for fintech products, focusing on clarity, accessibility, and reducing friction in complex financial processes.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">At Edufund, I designed end-to-end experiences for fintech products, focusing on clarity, accessibility, and reducing friction in complex financial processes.</p>
     </div>
   );
 }
@@ -159,7 +159,7 @@ function Frame4() {
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#0044b3] text-[40px] w-full">Mayo Clinic</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#747474] text-[20px] w-full">Aug 25’ - Dec 25’</p>
       <p className="css-4hzbpn font-['Caveat_Brush',cursive] relative shrink-0 text-[#191919] text-[20px] w-full">{`UX Research & Design Apprenticeship`}</p>
-      <p className="css-4hzbpn font-['Inter',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Collaborated with Mayo Clinic as a UX Design Apprentice to design ChemoBuddy, focusing on clarity, accessibility, and emotional support in healthcare technology.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Collaborated with Mayo Clinic as a UX Design Apprentice to design ChemoBuddy, focusing on clarity, accessibility, and emotional support in healthcare technology.</p>
     </div>
   );
 }
@@ -167,7 +167,7 @@ function Frame4() {
 function Frame() {
   return (
     <div className="absolute content-stretch flex items-center left-[300px] top-[43px]">
-      <p className="css-ew64yg font-['Inter',sans-serif] font-bold leading-[50px] not-italic relative shrink-0 text-[48px] text-black">My Journey So Far</p>
+      <p className="css-ew64yg font-['Manrope',sans-serif] font-bold leading-[50px] not-italic relative shrink-0 text-[48px] text-black">My Journey So Far</p>
     </div>
   );
 }
@@ -185,7 +185,7 @@ export default function AboutMyJourneySoFar() {
       >
         {/* Timeline Path */}
         <motion.div
-          className="absolute h-[433.813px] left-0 right-0 top-[332.19px]"
+          className="absolute h-[433.813px] left-1/2 -translate-x-1/2 w-[100vw] top-[332.19px]"
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1 }
@@ -193,7 +193,7 @@ export default function AboutMyJourneySoFar() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <div className="absolute inset-0">
-            <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1518.81 453.815">
+            <svg className="block size-full overflow-visible" fill="none" preserveAspectRatio="none" viewBox="0 0 1518.81 453.815">
               <path d={svgPaths.p34e40a00} id="Vector 112" stroke="var(--stroke-0, black)" strokeLinecap="round" strokeWidth="20" />
             </svg>
           </div>
@@ -405,7 +405,7 @@ export default function AboutMyJourneySoFar() {
 
       {/* Mobile View */}
       <div className="lg:hidden w-full px-4">
-        <h2 className="font-['Inter',sans-serif] font-bold text-3xl mb-8">My Journey So Far</h2>
+        <h2 className="font-['Manrope',sans-serif] font-bold text-3xl mb-8">My Journey So Far</h2>
         <div className="space-y-12">
           {/* EdPlus (Current) */}
           <div className="flex flex-col gap-2">
@@ -422,7 +422,7 @@ export default function AboutMyJourneySoFar() {
                 </div>
               </div>
             </div>
-            <p className="font-['Inter'] font-medium text-[#747474] text-base">
+            <p className="font-['Manrope'] font-medium text-[#747474] text-base">
               Support UX research, design QA, and component enhancements for ASU Online used by online learners worldwide.
             </p>
           </div>
@@ -439,7 +439,7 @@ export default function AboutMyJourneySoFar() {
                 <p className="font-['Caveat_Brush'] text-[#747474] text-lg">Aug 25’ - Dec 25’</p>
               </div>
             </div>
-            <p className="font-['Inter'] font-medium text-[#747474] text-base">
+            <p className="font-['Manrope'] font-medium text-[#747474] text-base">
               Collaborated with Mayo Clinic as a UX Design Apprentice to design ChemoBuddy, focusing on clarity, accessibility, and emotional support in healthcare technology.
             </p>
           </div>
@@ -456,7 +456,7 @@ export default function AboutMyJourneySoFar() {
                 <p className="font-['Caveat_Brush'] text-[#747474] text-lg">Jun 25’ - Jan 26’</p>
               </div>
             </div>
-            <p className="font-['Inter'] font-medium text-[#747474] text-base">
+            <p className="font-['Manrope'] font-medium text-[#747474] text-base">
               Worked on the Rocket Design System (RDS) at ASU EdPlus, improving component consistency, accessibility, and scalable UX patterns across digital products.
             </p>
           </div>
@@ -473,7 +473,7 @@ export default function AboutMyJourneySoFar() {
                 <p className="font-['Caveat_Brush'] text-[#747474] text-lg">Apr 24’ - Oct 24’</p>
               </div>
             </div>
-            <p className="font-['Inter'] font-medium text-[#747474] text-base">
+            <p className="font-['Manrope'] font-medium text-[#747474] text-base">
               At Edufund, I designed end-to-end experiences for fintech products, focusing on clarity, accessibility, and reducing friction in complex financial processes.
             </p>
           </div>
@@ -490,7 +490,7 @@ export default function AboutMyJourneySoFar() {
                 <p className="font-['Caveat_Brush'] text-[#747474] text-lg">Jan 22’ - Jun 22’</p>
               </div>
             </div>
-            <p className="font-['Inter'] font-medium text-[#747474] text-base">
+            <p className="font-['Manrope'] font-medium text-[#747474] text-base">
               Architecture Intern at Offcentered Architects, contributing to concept development, spatial planning, and design documentation across residential and commercial projects.
             </p>
           </div>

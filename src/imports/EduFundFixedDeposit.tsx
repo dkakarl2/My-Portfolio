@@ -5027,7 +5027,7 @@ function Frame166() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Final Reflection</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">This project wasn’t just about adding a new feature — it was about helping parents make confident financial decisions for their children’s futures. By combining thoughtful UX, clear communication, and strong collaboration with financial partners, we created an experience that felt safe, simple, and empowering.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">This project wasn’t just about adding a new feature - it was about helping parents make confident financial decisions for their children’s futures. By combining thoughtful UX, clear communication, and strong collaboration with financial partners, we created an experience that felt safe, simple, and empowering.</p>
     </div>
   );
 }

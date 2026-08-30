@@ -176,7 +176,7 @@ function Frame143() {
         <p className="mb-0">At EduFund, the mission is to make educational financial planning simple and trustworthy. While mutual fund investments were already available, many parents were looking for safer, fixed-return options.</p>
         <p>To meet this need, we introduced Fixed Deposits (FDs) in partnership with Shriram Finance, bringing a secure investment option directly into the EduFund app.</p>
       </div>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">I designed the end-to-end Fixed Deposit experience at EduFund, combining competitive research, simplified onboarding, and trust-focused design to create a guided, mobile-first FD journey. The result improved clarity, reduced drop-offs, and increased engagement in the Invest section.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">A mobile-first Fixed Deposit investment experience that simplified onboarding, boosted engagement by 30%, and decreased drop-offs by 15%.</p>
     </div>
   );
 }
@@ -5077,7 +5077,7 @@ function Frame166() {
 
 function Frame195() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[994px]">
+    <div id="edufund-final-reflection" className="content-stretch flex flex-col items-start relative shrink-0 w-[994px]">
       <Frame166 />
     </div>
   );
@@ -5134,7 +5134,7 @@ export default function EduFundFixedDeposit() {
             <h1 style={{
               width: 'auto',
               flex: 1,
-              fontFamily: 'Inter',
+              fontFamily: '"Manrope", sans-serif',
               fontStyle: 'normal',
               fontWeight: 700,
               fontSize: '40px',
@@ -5151,7 +5151,7 @@ export default function EduFundFixedDeposit() {
           <p style={{
             width: '993px',
             height: '48px',
-            fontFamily: 'Inter',
+            fontFamily: '"Manrope", sans-serif',
             fontStyle: 'normal',
             fontWeight: 400,
             fontSize: '20px',
@@ -5183,10 +5183,10 @@ export default function EduFundFixedDeposit() {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: '12px',
+            padding: '8px 24px',
             gap: '10px',
-            width: '153px',
-            height: '43px',
+            width: 'max-content',
+            height: 'auto',
             background: 'rgba(81, 206, 162, 0.25)',
             border: '2px solid #51CEA2',
             borderRadius: '24px',
@@ -5195,9 +5195,9 @@ export default function EduFundFixedDeposit() {
             flexGrow: 0
           }}>
             <span style={{
-              width: '129px',
-              height: '19px',
-              fontFamily: 'Inter',
+              width: 'auto',
+              height: 'auto',
+              fontFamily: '"Manrope", sans-serif',
               fontStyle: 'normal',
               fontWeight: 700,
               fontSize: '16px',
@@ -5214,10 +5214,10 @@ export default function EduFundFixedDeposit() {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            padding: '12px',
+            padding: '8px 24px',
             gap: '10px',
-            width: '415px',
-            height: '43px',
+            width: 'max-content',
+            height: 'auto',
             background: 'rgba(81, 206, 162, 0.25)',
             border: '2px solid #51CEA2',
             borderRadius: '24px',
@@ -5226,9 +5226,9 @@ export default function EduFundFixedDeposit() {
             flexGrow: 0
           }}>
             <span style={{
-              width: '391px',
-              height: '19px',
-              fontFamily: 'Inter',
+              width: 'auto',
+              height: 'auto',
+              fontFamily: '"Manrope", sans-serif',
               fontStyle: 'normal',
               fontWeight: 700,
               fontSize: '16px',

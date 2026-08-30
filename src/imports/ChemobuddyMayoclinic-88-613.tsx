@@ -1,7 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { Map, HeartPulse, ShieldCheck, Trophy } from 'lucide-react';
+import { Map, HeartPulse, ShieldCheck, Trophy, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
+import videoChemoBuddyCover from '@/assets/Chemobuddy cover.mov';
+import videoChemobuddy from '@/assets/Chemobuddy video.mp4';
+import videoChemoWireframes from '@/assets/chemo wireframes.mp4';
+import mayoRoleDoodle from '@/assets/Role and contribution.png';
 import imgHeroReplace from 'figma:asset/f620a291096457bf1aa42dee938f437a6005b47b.png';
+import imgSecondaryResearchSynthesis from '@/assets/secondary_research_synthesis.jpg';
 import image_1bf5f60255a20498a2f475250c718f058eaf3940 from 'figma:asset/1bf5f60255a20498a2f475250c718f058eaf3940.png'
 import image_1fe621dd30fe83aba6261433a0f4db9c285c46f0 from 'figma:asset/1fe621dd30fe83aba6261433a0f4db9c285c46f0.png'
 import svgPaths from "./svg-3aenywbug4";
@@ -121,11 +127,26 @@ function Frame89() {
 }
 
 function Component() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
   return (
-    <img
-      className="absolute left-0 top-[400px] w-full object-cover"
-      src={imgHeroReplace}
-      alt="Hero Section"
+    <video
+      ref={videoRef}
+      className="absolute left-0 top-[400px] w-full object-cover rounded-2xl pointer-events-none select-none"
+      src={videoChemoBuddyCover}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="auto"
     />
   );
 }
@@ -196,6 +217,160 @@ function Frame61() {
   );
 }
 
+interface OverviewCardItem {
+  id: string;
+  icon: any;
+  title: string;
+  badge: string;
+  subtitle: string;
+  detail: string;
+  accentColor: string;
+  iconBg: string;
+  badgeStyle: string;
+  hoverGlow: string;
+}
+
+const overviewCardItems: OverviewCardItem[] = [
+  {
+    id: "learning-paths",
+    icon: Map,
+    title: "3 Simplified Learning Paths",
+    badge: "Structured Care",
+    subtitle: "Tailored preparation for pre-treatment, active chemo, and post-cycle recovery.",
+    detail: "Replaces overwhelming clinic binders with bite-sized, interactive visual guides tailored to the patient's specific regimen and daily cognitive capacity.",
+    accentColor: "text-emerald-600 group-hover:text-emerald-500",
+    iconBg: "bg-emerald-50 border-emerald-100 group-hover:bg-emerald-600 group-hover:text-white",
+    badgeStyle: "bg-emerald-50 text-emerald-700 border-emerald-200/80",
+    hoverGlow: "group-hover:border-emerald-300 group-hover:shadow-emerald-500/10",
+  },
+  {
+    id: "symptom-support",
+    icon: HeartPulse,
+    title: "Personalized Symptom & Question Support",
+    badge: "24/7 Companion",
+    subtitle: "Empathetic real-time side-effect logging and NLP question assistance.",
+    detail: "Combines interactive body-map symptom logging with sentiment-aware AI that escalates red-flag symptoms instantly to oncology triage nurses.",
+    accentColor: "text-rose-600 group-hover:text-rose-500",
+    iconBg: "bg-rose-50 border-rose-100 group-hover:bg-rose-600 group-hover:text-white",
+    badgeStyle: "bg-rose-50 text-rose-700 border-rose-200/80",
+    hoverGlow: "group-hover:border-rose-300 group-hover:shadow-rose-500/10",
+  },
+  {
+    id: "mayo-guidance",
+    icon: ShieldCheck,
+    title: "Built with Mayo Clinic Clinical Guidance",
+    badge: "Clinically Validated",
+    subtitle: "Co-designed with oncology mentors and Mayo Clinic observership insights.",
+    detail: "Iteratively refined through mentor role-play research and usability testing with Dr. Umar (Oncology mentor) to guarantee patient safety and medical accuracy.",
+    accentColor: "text-sky-600 group-hover:text-sky-500",
+    iconBg: "bg-sky-50 border-sky-100 group-hover:bg-sky-600 group-hover:text-white",
+    badgeStyle: "bg-sky-50 text-sky-700 border-sky-200/80",
+    hoverGlow: "group-hover:border-sky-300 group-hover:shadow-sky-500/10",
+  },
+];
+
+function OverviewCards() {
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.96 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-40px" }}
+      className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8 w-full"
+    >
+      {overviewCardItems.map((card) => {
+        const IconComponent = card.icon;
+        const isSelected = activeCard === card.id;
+
+        return (
+          <motion.div
+            key={card.id}
+            variants={cardVariants}
+            whileHover={{ y: -6, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setActiveCard(isSelected ? null : card.id)}
+            className={`group relative cursor-pointer rounded-2xl bg-white p-6 border border-gray-100 transition-all duration-300 shadow-sm hover:shadow-xl ${card.hoverGlow} ${
+              isSelected ? "ring-2 ring-black/10 shadow-lg bg-gray-50/50" : ""
+            }`}
+          >
+            {/* Badge & Arrow Header */}
+            <div className="flex items-center justify-between mb-4">
+              <span className={`text-[11px] font-semibold tracking-wider uppercase px-2.5 py-0.5 rounded-full border ${card.badgeStyle}`}>
+                {card.badge}
+              </span>
+              <motion.div
+                animate={{ rotate: isSelected ? 90 : 0 }}
+                transition={{ duration: 0.2 }}
+                className="text-gray-300 group-hover:text-black transition-colors"
+              >
+                <ArrowRight size={16} />
+              </motion.div>
+            </div>
+
+            {/* Icon Box */}
+            <div className={`mb-4 inline-flex items-center justify-center w-12 h-12 rounded-xl border transition-all duration-300 ${card.iconBg}`}>
+              <IconComponent size={24} strokeWidth={1.8} className="transition-colors duration-300" />
+            </div>
+
+            {/* Title */}
+            <h3 className="font-['Inter'] font-bold text-gray-900 text-base leading-snug group-hover:text-black transition-colors mb-2">
+              {card.title}
+            </h3>
+
+            {/* Subtitle */}
+            <p className="font-['Inter'] text-xs text-gray-600 leading-relaxed mb-3">
+              {card.subtitle}
+            </p>
+
+            {/* Interactive Expanded Detail */}
+            <motion.div
+              initial={false}
+              animate={{ height: isSelected ? "auto" : 0, opacity: isSelected ? 1 : 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="pt-3 border-t border-gray-100 text-xs text-gray-700 leading-relaxed bg-gray-50/80 p-3 rounded-lg mt-1 font-medium">
+                💡 <span className="text-gray-800">{card.detail}</span>
+              </div>
+            </motion.div>
+
+            {/* Action Prompt */}
+            <div className="mt-2 text-[11px] font-semibold text-gray-400 group-hover:text-gray-600 transition-colors flex items-center gap-1">
+              <span>{isSelected ? "Click to collapse" : "Click to expand details"}</span>
+            </div>
+          </motion.div>
+        );
+      })}
+    </motion.div>
+  );
+}
+
 function Frame52() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
@@ -206,26 +381,7 @@ function Frame52() {
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="leading-[normal] mb-0">Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.</p>
         <p className="leading-[normal] mb-0">&nbsp;</p>
-        <div className="grid grid-cols-3 gap-6 my-8 w-full">
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 flex flex-col items-center text-center gap-4 shadow-sm hover:shadow-md transition-all group">
-            <div className="text-black group-hover:scale-110 transition-transform">
-              <Map size={32} strokeWidth={1.5} />
-            </div>
-            <span className="font-medium text-gray-800 leading-snug">3 simplified learning paths</span>
-          </div>
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 flex flex-col items-center text-center gap-4 shadow-sm hover:shadow-md transition-all group">
-            <div className="text-black group-hover:scale-110 transition-transform">
-              <HeartPulse size={32} strokeWidth={1.5} />
-            </div>
-            <span className="font-medium text-gray-800 leading-snug">Personalized symptom & question support</span>
-          </div>
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 flex flex-col items-center text-center gap-4 shadow-sm hover:shadow-md transition-all group">
-            <div className="text-black group-hover:scale-110 transition-transform">
-              <ShieldCheck size={32} strokeWidth={1.5} />
-            </div>
-            <span className="font-medium text-gray-800 leading-snug">Built with Mayo Clinic clinical guidance</span>
-          </div>
-        </div>
+        <OverviewCards />
       </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="mb-0">{`Result - Patients move from anxious & uncertain to informed & confident`}</p>
@@ -314,11 +470,156 @@ function Group7() {
   );
 }
 
+function TransformationFlowSection() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.18,
+        delayChildren: 0.08,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 32, scale: 0.96 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const steps = [
+    {
+      id: "problem",
+      tag: "Problem",
+      status: "Confused",
+      subtitle: "Overwhelmed & Uncertain",
+      statusColor: "text-[#BD4800]",
+      badgeBg: "bg-amber-100/90 text-amber-900 border-amber-200",
+      cardBg: "bg-gradient-to-b from-amber-50/60 via-white to-amber-50/20 border-amber-200/60",
+      glowColor: "hover:border-amber-300 hover:shadow-amber-500/10",
+      renderIllustration: () => (
+        <div className="h-48 flex items-center justify-center p-2">
+          <div className="w-36 h-full flex items-center justify-center">
+            <ConfusedGirlDoodle />
+          </div>
+        </div>
+      ),
+      description: "Complex, dense medical information leaves patients feeling confused, fearful, and unsure about what to expect.",
+    },
+    {
+      id: "solution",
+      tag: "The Solution",
+      status: "Guided",
+      subtitle: "ChemoBuddy Companion",
+      statusColor: "text-[#00A3E0]",
+      badgeBg: "bg-sky-100/90 text-sky-900 border-sky-200",
+      cardBg: "bg-gradient-to-b from-sky-50/60 via-white to-sky-50/20 border-sky-200/60",
+      glowColor: "hover:border-sky-300 hover:shadow-sky-500/10",
+      renderIllustration: () => (
+        <div className="h-48 flex items-center justify-center p-2 overflow-hidden">
+          <img src={imgImage107} alt="ChemoBuddy Solution" className="h-44 object-contain transition-transform duration-300 group-hover:scale-105" />
+        </div>
+      ),
+      description: "ChemoBuddy provides clear, compassionate guidance tailored to each stage of treatment and daily emotional readiness.",
+    },
+    {
+      id: "impact",
+      tag: "Impact",
+      status: "Reassured",
+      subtitle: "Informed & Confident",
+      statusColor: "text-[#78BE20]",
+      badgeBg: "bg-emerald-100/90 text-emerald-900 border-emerald-200",
+      cardBg: "bg-gradient-to-b from-emerald-50/60 via-white to-emerald-50/20 border-emerald-200/60",
+      glowColor: "hover:border-emerald-300 hover:shadow-emerald-500/10",
+      renderIllustration: () => (
+        <div className="h-48 flex items-center justify-center p-2 overflow-hidden">
+          <img src={imgImage108} alt="Reassured Impact" className="h-44 object-contain transition-transform duration-300 group-hover:scale-105" />
+        </div>
+      ),
+      description: "Patients feel informed, reassured, and empowered to move forward with confidence and clarity throughout care.",
+    },
+  ];
+
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-40px" }}
+      className="w-full my-8"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+        {steps.map((step, idx) => (
+          <div key={step.id} className="relative flex flex-col">
+            <motion.div
+              variants={cardVariants}
+              whileHover={{ y: -6, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className={`group relative flex-1 flex flex-col justify-between rounded-2xl p-6 border transition-all duration-300 shadow-sm hover:shadow-xl ${step.cardBg} ${step.glowColor}`}
+            >
+              <div>
+                {/* Header Tag */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full border ${step.badgeBg}`}>
+                    {step.tag}
+                  </span>
+                  <span className="text-xs font-bold text-gray-400">0{idx + 1}</span>
+                </div>
+
+                {/* Illustration Box */}
+                <div className="mb-4 rounded-xl bg-white/90 border border-gray-100/80 shadow-inner overflow-hidden group-hover:shadow-md transition-shadow">
+                  {step.renderIllustration()}
+                </div>
+
+                {/* Status Title */}
+                <div className="mb-2">
+                  <h3 className={`font-['Inter'] font-extrabold text-2xl ${step.statusColor} leading-tight`}>
+                    {step.status}
+                  </h3>
+                  <p className="font-['Inter'] text-xs font-semibold text-gray-500 mt-0.5">
+                    {step.subtitle}
+                  </p>
+                </div>
+
+                {/* Description */}
+                <p className="font-['Inter'] text-xs sm:text-sm text-gray-600 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+
+            </motion.div>
+
+            {/* Connecting Arrow between cards (hidden on mobile) */}
+            {idx < steps.length - 1 && (
+              <div className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-white border border-gray-200 shadow-md items-center justify-center text-gray-400">
+                <motion.div
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                >
+                  <ArrowRight size={16} className="text-gray-600" />
+                </motion.div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 function Frame130() {
   return (
-    <div className="content-stretch flex flex-col gap-[139px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[48px] items-start relative shrink-0 w-full">
       <Frame52 />
-      <Group7 />
+      <TransformationFlowSection />
     </div>
   );
 }
@@ -591,7 +892,7 @@ function Frame100() {
           {/* Card: 40% */}
           <ImpactCard
             target={40}
-            description="increase in engagement time (4.2 to 7.8 minutes average session)."
+            description="self-reported reduction in anxiety while navigating the prototype."
             themeColor="#78BE20"
             maxWidth="372px"
           />
@@ -783,21 +1084,169 @@ function Group11() {
   );
 }
 
-function Group8() {
+function CoreOpportunitiesStickyNotes() {
+  const [activeNote, setActiveNote] = useState<number | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const noteVariants = {
+    hidden: { opacity: 0, y: 35, scale: 0.94 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const opportunities = [
+    {
+      id: "tracking",
+      title: "Simplified self-tracking",
+      description: "Allow patients to log symptoms easily, identify red-flag conditions, and receive guidance instantly.",
+      badge: "01",
+      initialRotate: "-rotate-2",
+      badgeColor: "bg-amber-200/80 text-amber-900 border-amber-300",
+      bgColor: "bg-gradient-to-br from-[#FFFDE7] via-[#FFF9C4] to-[#FFF59D]",
+      borderColor: "border-[#FBC02D]/40",
+      accentDot: "bg-[#F57F17]",
+      detailText: "💡 Focuses on frictionless symptom recording and instant triaging to lower daily anxiety.",
+    },
+    {
+      id: "education",
+      title: "Personalised education",
+      description: "Deliver information tailored to each patient's treatment regimen, literacy level, and emotional readiness.",
+      badge: "02",
+      initialRotate: "rotate-1",
+      badgeColor: "bg-rose-200/80 text-rose-900 border-rose-300",
+      bgColor: "bg-gradient-to-br from-[#FCE4EC] via-[#F8BBD0] to-[#F48FB1]/70",
+      borderColor: "border-[#E91E63]/30",
+      accentDot: "bg-[#C2185B]",
+      detailText: "💡 Replaces 100-page generic binders with digestible, stage-specific bite-sized lessons.",
+    },
+    {
+      id: "communication",
+      title: "Unified communication",
+      description: "Connect patients, caregivers, and clinicians through a shared, secure platform.",
+      badge: "03",
+      initialRotate: "rotate-3",
+      badgeColor: "bg-sky-200/80 text-sky-900 border-sky-300",
+      bgColor: "bg-gradient-to-br from-[#E0F7FA] via-[#B2EBF2] to-[#80DEEA]/70",
+      borderColor: "border-[#00BCD4]/40",
+      accentDot: "bg-[#0097A7]",
+      detailText: "💡 Keeps family caregivers and care teams aligned without disjointed phone calls.",
+    },
+  ];
+
   return (
-    <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid items-[start] justify-items-[start] leading-[0] relative shrink-0">
-      <Group9 />
-      <Group10 />
-      <Group11 />
-    </div>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-40px" }}
+      className="w-full my-6"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 pt-4 pb-2">
+        {opportunities.map((item, index) => {
+          const isActive = activeNote === index;
+          return (
+            <motion.div
+              key={item.id}
+              variants={noteVariants}
+              whileHover={{ rotate: 0, y: -10, scale: 1.03 }}
+              onClick={() => setActiveNote(isActive ? null : index)}
+              className={`relative cursor-pointer transition-all duration-300 group ${item.initialRotate}`}
+            >
+              {/* Top Washi Tape Header (Clean without OPPORTUNITY text) */}
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-20 w-16 h-3.5 bg-white/70 backdrop-blur-md border border-white/80 shadow-2xs rounded-xs transform -rotate-1 group-hover:rotate-0 transition-transform flex items-center justify-between px-1.5">
+                <div className={`w-1 h-1 rounded-full ${item.accentDot}`} />
+                <div className={`w-1 h-1 rounded-full ${item.accentDot}`} />
+              </div>
+
+              {/* Main Sticky Note Card */}
+              <div
+                className={`relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl border shadow-md hover:shadow-2xl transition-all duration-300 ${item.bgColor} ${item.borderColor}`}
+                style={{
+                  minHeight: "260px",
+                  boxShadow: isActive
+                    ? "0 20px 30px -10px rgba(0,0,0,0.15), 0 10px 15px -5px rgba(0,0,0,0.1)"
+                    : "0 10px 20px -8px rgba(0,0,0,0.1)",
+                }}
+              >
+                {/* Paper fold accent at bottom right corner */}
+                <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none overflow-hidden rounded-br-2xl">
+                  <div className="absolute bottom-0 right-0 w-12 h-12 bg-black/5 transform rotate-45 translate-x-6 translate-y-6 shadow-inner" />
+                </div>
+
+                <div>
+                  {/* Top Badge & Number */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${item.badgeColor}`}>
+                      {item.badge}
+                    </span>
+                    <Sparkles size={15} className="text-gray-400 group-hover:text-amber-600 transition-colors" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-['Inter'] font-bold text-xl text-gray-900 mb-3 group-hover:text-black transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+
+                  {/* Body text */}
+                  <p className="font-['Inter'] text-sm text-gray-800 leading-relaxed font-normal">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Interactive Detail Drawer */}
+                <div className="mt-5 pt-3 border-t border-black/10 flex flex-col gap-2">
+                  <div className="flex items-center justify-between text-xs font-semibold text-gray-700">
+                    <span className="font-['Caveat_Brush'] text-base">Design Rationale</span>
+                    <span className="text-[11px] underline text-gray-600 group-hover:text-black">
+                      {isActive ? "Tap to hide" : "Tap to expand"}
+                    </span>
+                  </div>
+                  {isActive && (
+                    <motion.p
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="text-xs text-gray-800 italic bg-white/70 p-2.5 rounded-lg border border-black/5"
+                    >
+                      {item.detailText}
+                    </motion.p>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
   );
+}
+
+function Group8() {
+  return <CoreOpportunitiesStickyNotes />;
 }
 
 function Frame82() {
   return (
-    <div className="content-stretch flex flex-col gap-[30px] items-start relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full not-italic relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">Core Opportunities</p>
-      <Group8 />
+    <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full">
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-full not-italic relative shrink-0 text-[#484848] text-[22px] w-full">Core Opportunities</p>
+      <CoreOpportunitiesStickyNotes />
     </div>
   );
 }
@@ -814,20 +1263,113 @@ function Frame84() {
 function Frame75() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 mb-2">
         <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
       </div>
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Designing Clarity in a Complex Care Journey</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` UX and instructional designer for ChemoBuddy, translating complex chemotherapy information into structured, patient-friendly learning experiences. Conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.`}</p>
+      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[28px] text-black w-full">Designing Clarity in a Complex Care Journey</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.5] relative shrink-0 text-[#484848] text-[18px] w-full pr-12">{`UX and instructional designer for ChemoBuddy, translating complex chemotherapy information into structured, patient-friendly learning experiences. Conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.`}</p>
     </div>
   );
 }
 
 function Frame85() {
   return (
-    <div className="content-stretch flex flex-col items-start relative shrink-0 w-[994px]">
-      <Frame75 />
+    <div className="flex flex-col md:flex-row items-center w-[994px] py-16 gap-8 relative shrink-0">
+      <div className="flex-1">
+        <Frame75 />
+      </div>
+      <div className="flex-1 flex justify-center md:justify-end">
+        <img src={mayoRoleDoodle} alt="Role and Contribution doodle" className="max-w-full w-[450px] h-auto object-contain" />
+      </div>
+    </div>
+  );
+}
+
+function ChemobuddyVideoPlayer() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
+  return (
+    <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex justify-center items-center my-8 shrink-0 overflow-hidden">
+      <div className="w-[1440px] max-w-[100vw] shrink-0 bg-transparent overflow-hidden border-none outline-none shadow-none rounded-none">
+        <video
+          ref={videoRef}
+          src={videoChemobuddy}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          onTimeUpdate={() => {
+            if (videoRef.current && videoRef.current.duration) {
+              if (videoRef.current.currentTime >= videoRef.current.duration - 0.08) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.play().catch(() => {});
+              }
+            }
+          }}
+          onEnded={() => {
+            if (videoRef.current) {
+              videoRef.current.currentTime = 0;
+              videoRef.current.play().catch(() => {});
+            }
+          }}
+          style={{ outline: "none", border: "none", boxShadow: "none" }}
+          className="w-full h-auto object-cover pointer-events-none select-none border-none outline-none shadow-none block rounded-none"
+        />
+      </div>
+    </div>
+  );
+}
+
+function ChemoWireframesVideoPlayer() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {});
+    }
+  }, []);
+
+  return (
+    <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] flex justify-center items-center my-8 shrink-0 overflow-hidden">
+      <div className="w-[1440px] max-w-[100vw] shrink-0 bg-transparent overflow-hidden border-none outline-none shadow-none rounded-none">
+        <video
+          ref={videoRef}
+          src={videoChemoWireframes}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          onTimeUpdate={() => {
+            if (videoRef.current && videoRef.current.duration) {
+              if (videoRef.current.currentTime >= videoRef.current.duration - 0.08) {
+                videoRef.current.currentTime = 0;
+                videoRef.current.play().catch(() => {});
+              }
+            }
+          }}
+          onEnded={() => {
+            if (videoRef.current) {
+              videoRef.current.currentTime = 0;
+              videoRef.current.play().catch(() => {});
+            }
+          }}
+          style={{ outline: "none", border: "none", boxShadow: "none" }}
+          className="w-full h-auto object-cover pointer-events-none select-none border-none outline-none shadow-none block rounded-none"
+        />
+      </div>
     </div>
   );
 }
@@ -937,24 +1479,26 @@ function Frame() {
           </svg>
         </div>
       </div>
-      <p className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[51px] not-italic text-[#484848] text-[24px] top-[242px] w-[293px] whitespace-pre-wrap">
+      <p className="absolute font-sans font-medium leading-[1.2] left-[51px] not-italic text-[#484848] text-[14px] top-[268px] w-[293px] whitespace-pre-wrap">
         Secondary Research
         <br aria-hidden="true" />
         Week (1-3)
       </p>
-      <p className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[544px] not-italic text-[#484848] text-[24px] top-[242px] w-[147px] whitespace-pre-wrap">
+      <p className="absolute font-sans font-medium leading-[1.2] left-[544px] not-italic text-[#484848] text-[14px] top-[268px] w-[147px] whitespace-pre-wrap">
         Data Synthesis
         <br aria-hidden="true" />
-        Week ( 6-7)
+        Week (6-7)
       </p>
-      <div className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[310px] not-italic text-[#484848] text-[24px] top-[362px] w-[134px] whitespace-pre-wrap">
+      <div className="absolute font-sans font-medium leading-[1.2] left-[310px] not-italic text-[#484848] text-[14px] top-[345px] w-[134px] whitespace-pre-wrap">
         <p className="mb-0">User Research</p>
         <p>Week (4-5)</p>
       </div>
-      <div className="absolute font-['Caveat_Brush',cursive] leading-[normal] left-[786px] not-italic text-[#484848] text-[24px] top-[362px] w-[134px] whitespace-pre-wrap">
+      <div className="absolute font-sans font-medium leading-[1.2] left-[786px] not-italic text-[#484848] text-[16px] top-[345px] w-[134px] whitespace-pre-wrap">
         <p className="mb-0">User Testing</p>
         <p>Week (8-10)</p>
       </div>
+
+
       <Frame111 />
       <Frame107 />
       <Frame110 />
@@ -963,7 +1507,515 @@ function Frame() {
   );
 }
 
+function SynthesisCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      id: 'affinity',
+      title: 'Affinity Mapping Artifact',
+      subtitle: '5 Synthesised Pattern Clusters derived from role-play observation notes',
+      image: imgImage32,
+      alt: 'Affinity Mapping Artifact'
+    },
+    {
+      id: 'persona-1',
+      title: 'User Persona 01 — Patient Journey',
+      subtitle: 'Primary archetype mapping information needs, cognitive fatigue, and side-effect logging',
+      image: imgImage33,
+      alt: 'User Persona 01'
+    },
+    {
+      id: 'persona-2',
+      title: 'User Persona 02 — Caregiver Support',
+      subtitle: 'Secondary archetype focusing on caregiver coordination and communication features',
+      image: imgImage34,
+      alt: 'User Persona 02'
+    }
+  ];
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  const slide = slides[currentSlide];
+
+  return (
+    <div className="space-y-4 pt-4 border-t border-gray-200/80">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#00A3E0]">Synthesis Artifacts Carousel</span>
+          <h4 className="font-bold text-lg text-black">{slide.title}</h4>
+          <p className="text-xs text-gray-500 font-medium mt-0.5">{slide.subtitle}</p>
+        </div>
+
+        {/* Carousel Nav Controls */}
+        <div className="flex items-center gap-3 shrink-0">
+          <span className="text-xs font-semibold text-gray-500 bg-white px-2.5 py-1 rounded-full border border-gray-200">
+            {currentSlide + 1} / {slides.length}
+          </span>
+          <button
+            onClick={prevSlide}
+            aria-label="Previous Artifact Slide"
+            className="w-9 h-9 rounded-full bg-white border border-gray-200 text-gray-700 flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-pointer shadow-xs"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={nextSlide}
+            aria-label="Next Artifact Slide"
+            className="w-9 h-9 rounded-full bg-white border border-gray-200 text-gray-700 flex items-center justify-center hover:bg-black hover:text-white transition-all cursor-pointer shadow-xs"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+      </div>
+
+      {/* Main Slide Image */}
+      <div className="relative rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-sm transition-all duration-300">
+        <img
+          key={slide.id}
+          src={slide.image}
+          alt={slide.alt}
+          className="w-full h-auto object-contain max-h-[600px] animate-fade-in"
+        />
+      </div>
+
+      {/* Dots Indicator */}
+      <div className="flex items-center justify-center gap-2 pt-1">
+        {slides.map((s, idx) => (
+          <button
+            key={s.id}
+            onClick={() => setCurrentSlide(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+            className={`h-2 rounded-full transition-all cursor-pointer ${
+              currentSlide === idx ? 'w-8 bg-[#00A3E0]' : 'w-2 bg-gray-300 hover:bg-gray-400'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SecondaryResearchLiteratureMatrix() {
+  return (
+    <div className="w-full my-6 flex flex-col gap-3">
+      <div className="w-full overflow-hidden rounded-2xl border border-gray-200 shadow-md bg-white">
+        <img
+          src="/secondary_research_matrix.png"
+          alt="Chemo Education Research Papers — Secondary Literature Review Matrix"
+          className="w-full h-auto object-cover block"
+        />
+      </div>
+      <p className="text-xs text-gray-500 font-medium text-center italic">
+        Secondary Research Matrix — Auditing 11 peer-reviewed oncology, mHealth, and AI chatbot studies
+      </p>
+    </div>
+  );
+}
+
+function InteractiveResearchSection() {
+  const [activeTab, setActiveTab] = useState<'secondary' | 'competitive' | 'user-research' | 'synthesis'>('secondary');
+
+  const tabs = [
+    { id: 'secondary', label: 'SECONDARY RESEARCH', subtitle: 'Week 1–3' },
+    { id: 'competitive', label: 'COMPETITIVE ANALYSIS', subtitle: 'Week 3' },
+    { id: 'user-research', label: 'USER RESEARCH', subtitle: 'Week 4–5' },
+    { id: 'synthesis', label: 'DATA SYNTHESIS', subtitle: 'Week 6–7' }
+  ] as const;
+
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    let nextIndex = index;
+    if (e.key === 'ArrowRight') {
+      nextIndex = (index + 1) % tabs.length;
+    } else if (e.key === 'ArrowLeft') {
+      nextIndex = (index - 1 + tabs.length) % tabs.length;
+    } else if (e.key === 'Home') {
+      nextIndex = 0;
+    } else if (e.key === 'End') {
+      nextIndex = tabs.length - 1;
+    } else {
+      return;
+    }
+    e.preventDefault();
+    setActiveTab(tabs[nextIndex].id as any);
+    const nextTabButton = document.getElementById(`tab-${tabs[nextIndex].id}`);
+    nextTabButton?.focus();
+  };
+
+  return (
+    <div className="space-y-8 my-10">
+      {/* Research Intro & Header */}
+      <div className="space-y-6">
+        <div>
+          <span className="text-xs font-bold uppercase tracking-widest text-[#00A3E0] block mb-1">Research Archive</span>
+          <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black border-b pb-3 border-gray-100">
+            RESEARCH — Understanding the Needs of Patients and Caregivers
+          </h2>
+          <p className="text-base text-gray-500 font-medium mt-2">
+            A 10-week exploration to understand how chemotherapy patients learn, cope, and communicate.
+          </p>
+        </div>
+
+        <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl">
+          I followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives to uncover what truly matters during chemotherapy. What began as a goal to simplify education evolved into an exploration of how patients process medical information, manage fear, and depend on family support.
+        </p>
+
+        <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl">
+          Through this 10-week process, I moved from literature and competitive analysis to role-play research under oncology mentor guidance and usability testing, validating each design direction through evidence and clinical guidance.
+        </p>
+
+        {/* 4-Phase Timeline Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100">
+          <div className="space-y-1 border-l-2 border-[#00A3E0] pl-3">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-gray-400">01</span>
+            <span className="block text-xs font-bold text-black">SECONDARY RESEARCH</span>
+            <span className="block text-[11px] text-gray-500 font-medium">Week 1–3</span>
+          </div>
+          <div className="space-y-1 border-l-2 border-[#00A3E0] pl-3">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-gray-400">02</span>
+            <span className="block text-xs font-bold text-black">USER RESEARCH</span>
+            <span className="block text-[11px] text-gray-500 font-medium">Week 4–5</span>
+          </div>
+          <div className="space-y-1 border-l-2 border-[#00A3E0] pl-3">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-gray-400">03</span>
+            <span className="block text-xs font-bold text-black">DATA SYNTHESIS</span>
+            <span className="block text-[11px] text-gray-500 font-medium">Week 6–7</span>
+          </div>
+          <div className="space-y-1 border-l-2 border-gray-300 pl-3">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-gray-400">04</span>
+            <span className="block text-xs font-bold text-black">USER TESTING</span>
+            <span className="block text-[11px] text-gray-500 font-medium">Week 8–10</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Interactive Tabs Bar */}
+      <div className="space-y-6">
+        <div 
+          role="tablist" 
+          aria-label="Research Phases"
+          className="flex items-center gap-2 overflow-x-auto pb-2 border-b border-gray-200 scrollbar-none"
+        >
+          {tabs.map((tab, idx) => {
+            const isActive = activeTab === tab.id;
+            return (
+              <button
+                key={tab.id}
+                role="tab"
+                id={`tab-${tab.id}`}
+                aria-selected={isActive}
+                aria-controls={`panel-${tab.id}`}
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => setActiveTab(tab.id as any)}
+                onKeyDown={(e) => handleKeyDown(e, idx)}
+                className={`flex flex-col items-start px-5 py-3 rounded-xl transition-all duration-200 whitespace-nowrap cursor-pointer text-left focus:outline-none focus:ring-2 focus:ring-[#00A3E0] ${
+                  isActive 
+                    ? 'bg-black text-white shadow-sm' 
+                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100 hover:text-black'
+                }`}
+              >
+                <span className={`text-xs font-bold uppercase tracking-wider ${isActive ? 'text-white' : 'text-gray-900'}`}>{tab.label}</span>
+                <span className={`text-[10px] font-medium ${isActive ? 'text-gray-300' : 'text-gray-500'}`}>{tab.subtitle}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Tab Panels */}
+        <div className="relative">
+          {/* TAB 1: SECONDARY RESEARCH */}
+          {activeTab === 'secondary' && (
+            <div 
+              role="tabpanel"
+              id="panel-secondary"
+              aria-labelledby="tab-secondary"
+              tabIndex={0}
+              className="space-y-8 animate-fade-in"
+            >
+              {/* Subsection 1: Literature Review */}
+              <div className="space-y-4 bg-gray-50/60 p-6 lg:p-8 rounded-2xl border border-gray-100">
+                <div className="flex items-center justify-between border-b border-gray-200/80 pb-3">
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">01 — Subsection</span>
+                    <h3 className="font-['Inter'] font-bold text-xl text-black">Literature Review</h3>
+                  </div>
+                  <span className="text-xs text-[#747474] font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Week 1–2</span>
+                </div>
+                <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+                  I started with a literature review to ground my work in existing oncology and digital health research, instead of relying on assumptions.
+                </p>
+
+                <div className="space-y-3 pt-2">
+                  <h4 className="font-bold text-sm text-black uppercase tracking-wider">Four Core Research Questions:</h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-700">
+                    <li className="bg-white p-3.5 rounded-xl border border-gray-100 flex items-start gap-2.5">
+                      <span className="w-5 h-5 rounded-full bg-[#00A3E0]/10 text-[#00A3E0] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                      <span>How do chemotherapy patients currently receive education and support?</span>
+                    </li>
+                    <li className="bg-white p-3.5 rounded-xl border border-gray-100 flex items-start gap-2.5">
+                      <span className="w-5 h-5 rounded-full bg-[#00A3E0]/10 text-[#00A3E0] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                      <span>What are the documented gaps or failures in existing chemo education tools?</span>
+                    </li>
+                    <li className="bg-white p-3.5 rounded-xl border border-gray-100 flex items-start gap-2.5">
+                      <span className="w-5 h-5 rounded-full bg-[#00A3E0]/10 text-[#00A3E0] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                      <span>What has already been tried with digital health, symptom trackers, and AI chatbots?</span>
+                    </li>
+                    <li className="bg-white p-3.5 rounded-xl border border-gray-100 flex items-start gap-2.5">
+                      <span className="w-5 h-5 rounded-full bg-[#00A3E0]/10 text-[#00A3E0] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+                      <span>What clinical risks and safety boundaries must I respect as a designer?</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2 pt-2">
+                  <h4 className="font-bold text-sm text-black uppercase tracking-wider">What I Did:</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    I reviewed 11 peer-reviewed oncology studies and digital health journals focusing on: (1) mHealth cancer apps, (2) symptom management & patient-reported outcomes (PROs), (3) digital education tools and treatment adherence, and (4) early experiments with chatbots in oncology.
+                  </p>
+                </div>
+
+                <SecondaryResearchLiteratureMatrix />
+
+                <div className="space-y-3 pt-4 border-t border-gray-200/80">
+                  <h4 className="font-bold text-sm text-black uppercase tracking-wider">Findings from Literature:</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#00A3E0]">Insight 01</span>
+                      <h5 className="font-bold text-black text-sm">Personalized Content Delivery</h5>
+                      <p className="text-xs text-gray-600 leading-relaxed">
+                        Patients absorb information better when it is tailored to their specific regimen and stage, not when it is generic.
+                      </p>
+                    </div>
+                    <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#00A3E0]">Insight 02</span>
+                      <h5 className="font-bold text-black text-sm">Real-Time Feedback Guidance</h5>
+                      <p className="text-xs text-gray-600 leading-relaxed">
+                        Symptom trackers that provide clear "this is okay" vs "call your doctor now" guidance can prevent avoidable ER trips.
+                      </p>
+                    </div>
+                    <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-2">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#00A3E0]">Insight 03</span>
+                      <h5 className="font-bold text-black text-sm">Clear Chatbot Boundaries</h5>
+                      <p className="text-xs text-gray-600 leading-relaxed">
+                        Chatbots work best as educational and supportive tools, not as diagnostic engines. Clinical supervision is essential.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 2: COMPETITIVE ANALYSIS */}
+          {activeTab === 'competitive' && (
+            <div 
+              role="tabpanel"
+              id="panel-competitive"
+              aria-labelledby="tab-competitive"
+              tabIndex={0}
+              className="space-y-6 bg-gray-50/60 p-6 lg:p-8 rounded-2xl border border-gray-100 animate-fade-in"
+            >
+              <div className="flex items-center justify-between border-b border-gray-200/80 pb-3">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Competitive Benchmark</span>
+                  <h3 className="font-['Inter'] font-bold text-xl text-black">Competitive Analysis — Existing Oncology & Health Apps</h3>
+                </div>
+                <span className="text-xs text-[#747474] font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Week 3</span>
+              </div>
+
+              <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+                I conducted a competitive evaluation of 8 healthcare and oncology platforms (including MyChart, Cancer.Net, Belong, and hospital portals) to identify what existing tools do well and where they fall short.
+              </p>
+
+              <div className="space-y-3">
+                <h4 className="font-bold text-sm text-black uppercase tracking-wider">Research Goals:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="bg-white p-4 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-xs font-bold text-[#00A3E0]">Goal 1</span>
+                    <p className="text-xs text-gray-700">What existing apps do well that we can build upon.</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-xs font-bold text-[#00A3E0]">Goal 2</span>
+                    <p className="text-xs text-gray-700">Where tools fall short in emotional support and caregiver features.</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-xs font-bold text-[#00A3E0]">Goal 3</span>
+                    <p className="text-xs text-gray-700">How ChemoBuddy can be meaningfully different rather than redundant.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-bold text-sm text-black uppercase tracking-wider">7 Evaluation Dimensions:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {['1. Onboarding', '2. Information Architecture', '3. Education Content', '4. Symptom Reporting', '5. Caregiver Features', '6. Visual Tone', '7. Accessibility'].map((dim, i) => (
+                    <span key={i} className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-xs font-semibold text-gray-800">
+                      {dim}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <h4 className="font-bold text-sm text-black uppercase tracking-wider">Feature Benchmarking Artifact:</h4>
+                <img src={imgImage30} alt="Competitive Analysis Matrix" className="w-full rounded-xl shadow-sm border border-gray-100" />
+              </div>
+
+              <div className="bg-white p-5 rounded-xl border border-gray-100 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-[#00A3E0]/10 text-[#00A3E0] flex items-center justify-center shrink-0 mt-0.5">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z" /></svg>
+                </div>
+                <div className="space-y-1">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#00A3E0]">Key Market Gap Identified</span>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Most existing tools act as rigid medical record depositories with zero conversational guidance, high medical terminology barriers, and complete absence of caregiver-controlled privacy controls.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: USER RESEARCH */}
+          {activeTab === 'user-research' && (
+            <div 
+              role="tabpanel"
+              id="panel-user-research"
+              aria-labelledby="tab-user-research"
+              tabIndex={0}
+              className="space-y-6 bg-gray-50/60 p-6 lg:p-8 rounded-2xl border border-gray-100 animate-fade-in"
+            >
+              <div className="flex items-center justify-between border-b border-gray-200/80 pb-3">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Qualitative Exploration</span>
+                  <h3 className="font-['Inter'] font-bold text-xl text-black">Role-Play Research with Oncology Mentor</h3>
+                </div>
+                <span className="text-xs text-[#747474] font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Week 4–5</span>
+              </div>
+
+              <div className="bg-amber-500/10 border border-amber-500/30 p-5 rounded-xl text-amber-900 space-y-1.5">
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-800">Research Integrity & Methodology Notice</span>
+                <p className="text-sm leading-relaxed">
+                  Because direct access to active chemotherapy patients or caregivers was not available due to clinical privacy restrictions, I conducted the user research phase under the ethical guidance of my oncology mentor, Dr. Umar.
+                </p>
+                <p className="text-sm leading-relaxed">
+                  To ensure realism and clinical accuracy, I designed structured role-play sessions that mimicked authentic patient and caregiver interactions and decision-making moments during chemotherapy.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <h4 className="font-bold text-sm text-black uppercase tracking-wider">Methodology — Survey Simulation:</h4>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  I adapted my survey questions into a structured interview checklist and used them during the role-play sessions with Dr. Umar. This allowed me to collect qualitative insights without violating confidentiality or requiring real patient participation.
+                </p>
+              </div>
+
+              <div className="space-y-3 pt-2">
+                <h4 className="font-bold text-sm text-black uppercase tracking-wider">Four Key Findings:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-1.5">
+                    <span className="text-xs font-bold text-[#00A3E0]">01 — CLEAR GUIDANCE</span>
+                    <h5 className="font-bold text-black text-sm">Direct Action Guidance</h5>
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      Patients prefer direct instructions ("Do this next") rather than being presented with multiple ambiguous choices.
+                    </p>
+                  </div>
+                  <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-1.5">
+                    <span className="text-xs font-bold text-[#00A3E0]">02 — VISUAL LEARNING</span>
+                    <h5 className="font-bold text-black text-sm">Visual & Audio Media</h5>
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      Video, infographics, and audio playback help low-energy users retain critical information during fatigue periods.
+                    </p>
+                  </div>
+                  <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-1.5">
+                    <span className="text-xs font-bold text-[#00A3E0]">03 — CAREGIVER CLARITY</span>
+                    <h5 className="font-bold text-black text-sm">Dedicated Caregiver Space</h5>
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      Caregivers need their own space with simplified summaries ("today's focus"), not full uncurated access.
+                    </p>
+                  </div>
+                  <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-1.5">
+                    <span className="text-xs font-bold text-[#00A3E0]">04 — COGNITIVE FATIGUE</span>
+                    <h5 className="font-bold text-black text-sm">Information Fatigue is Real</h5>
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      Dr. Umar conveyed that patients often stop listening after 5 minutes of heavy medical prose.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-black">Outcome</span>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  Although this research phase did not include real patient interviews, the collaboration with a clinical mentor allowed me to simulate authentic emotional and behavioral responses while maintaining research ethics and safety. The resulting insights became the foundation for persona creation and journey mapping in the next stage.
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4: DATA SYNTHESIS */}
+          {activeTab === 'synthesis' && (
+            <div 
+              role="tabpanel"
+              id="panel-synthesis"
+              aria-labelledby="tab-synthesis"
+              tabIndex={0}
+              className="space-y-6 bg-gray-50/60 p-6 lg:p-8 rounded-2xl border border-gray-100 animate-fade-in"
+            >
+              <div className="flex items-center justify-between border-b border-gray-200/80 pb-3">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Pattern Mapping</span>
+                  <h3 className="font-['Inter'] font-bold text-xl text-black">Data Synthesis & Findings</h3>
+                </div>
+                <span className="text-xs text-[#747474] font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Week 6–7</span>
+              </div>
+
+              <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+                After the role-play research, I transcribed observations, quotes, and pain points onto digital sticky notes in FigJam, then clustered them into five core themes.
+              </p>
+
+              <div className="space-y-3">
+                <h4 className="font-bold text-sm text-black uppercase tracking-wider">5 Synthesised Pattern Clusters:</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3">
+                  <div className="bg-white p-3.5 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-[10px] font-bold text-[#00A3E0]">Cluster 1</span>
+                    <p className="text-xs font-semibold text-gray-900">Overwhelm & Fatigue</p>
+                  </div>
+                  <div className="bg-white p-3.5 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-[10px] font-bold text-[#00A3E0]">Cluster 2</span>
+                    <p className="text-xs font-semibold text-gray-900">"Is this normal?" Confusion</p>
+                  </div>
+                  <div className="bg-white p-3.5 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-[10px] font-bold text-[#00A3E0]">Cluster 3</span>
+                    <p className="text-xs font-semibold text-gray-900">Trust & Credibility</p>
+                  </div>
+                  <div className="bg-white p-3.5 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-[10px] font-bold text-[#00A3E0]">Cluster 4</span>
+                    <p className="text-xs font-semibold text-gray-900">Caregiver Workload</p>
+                  </div>
+                  <div className="bg-white p-3.5 rounded-xl border border-gray-100 space-y-1">
+                    <span className="text-[10px] font-bold text-[#00A3E0]">Cluster 5</span>
+                    <p className="text-xs font-semibold text-gray-900">Tech Accessibility</p>
+                  </div>
+                </div>
+              </div>
+
+              <SynthesisCarousel />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Frame80() {
+
   return (
     <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[997px]">
       <Frame79 />
@@ -1891,7 +2943,7 @@ function Frame124() {
   return (
     <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[997px]">
       <Frame125 />
-      <Frame7 />
+      <ChemoWireframesVideoPlayer />
     </div>
   );
 }
@@ -1948,7 +3000,7 @@ function Frame62() {
   );
 }
 
-function Frame8() {
+export function Frame8() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
       <div className="absolute h-[288px] left-[81px] shadow-[0px_195px_55px_0px_rgba(0,0,0,0),0px_125px_50px_0px_rgba(0,0,0,0.01),0px_70px_42px_0px_rgba(0,0,0,0.05),0px_31px_31px_0px_rgba(0,0,0,0.09),0px_8px_17px_0px_rgba(0,0,0,0.1)] top-[22px] w-[144px]" data-name="iMockup - iPhone 14">
@@ -1975,7 +3027,7 @@ function Frame135() {
   );
 }
 
-function Frame134() {
+export function Frame134() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
       <Frame135 />
@@ -1983,7 +3035,7 @@ function Frame134() {
   );
 }
 
-function Frame129() {
+export function Frame129() {
   return (
     <div className="content-stretch flex gap-[80px] items-start relative shrink-0 w-full">
       <Frame8 />
@@ -1992,7 +3044,7 @@ function Frame129() {
   );
 }
 
-function Frame9() {
+export function Frame9() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[362px] left-[44.5px] top-[162px] w-[178px]" data-name="iMockup - iPhone 14">
@@ -2014,7 +3066,7 @@ function Frame9() {
   );
 }
 
-function Frame136() {
+export function Frame136() {
   return (
     <div className="content-stretch flex items-start relative shrink-0 w-full">
       <Frame9 />
@@ -2022,7 +3074,7 @@ function Frame136() {
   );
 }
 
-function Frame10() {
+export function Frame10() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[339px] left-[44px] top-[157px] w-[167px]" data-name="iMockup - iPhone 14">
@@ -2044,7 +3096,7 @@ function Frame10() {
   );
 }
 
-function Frame137() {
+export function Frame137() {
   return (
     <div className="content-stretch flex items-start relative shrink-0 w-full">
       <Frame10 />
@@ -2118,7 +3170,7 @@ function Frame139() {
   );
 }
 
-function Frame11() {
+export function Frame11() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[551px] left-[212.5px] shadow-[0px_261px_73px_0px_rgba(0,0,0,0),0px_167px_67px_0px_rgba(0,0,0,0.01),0px_94px_56px_0px_rgba(0,0,0,0.05),0px_42px_42px_0px_rgba(0,0,0,0.09),0px_10px_23px_0px_rgba(0,0,0,0.1)] top-[69px] w-[274px]" data-name="iMockup - iPhone 14">
@@ -2208,7 +3260,7 @@ function Frame142() {
   );
 }
 
-function Frame12() {
+export function Frame12() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
       <div className="absolute h-[347px] left-[39px] shadow-[0px_225px_63px_0px_rgba(0,0,0,0),0px_144px_57px_0px_rgba(0,0,0,0.01),0px_81px_49px_0px_rgba(0,0,0,0.05),0px_36px_36px_0px_rgba(0,0,0,0.09),0px_9px_20px_0px_rgba(0,0,0,0.1)] top-[-34px] w-[172px]" data-name="iMockup - iPhone 17">
@@ -2237,7 +3289,7 @@ function Frame145() {
   );
 }
 
-function Frame144() {
+export function Frame144() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
       <Frame145 />
@@ -2245,7 +3297,7 @@ function Frame144() {
   );
 }
 
-function Frame143() {
+export function Frame143() {
   return (
     <div className="content-stretch flex gap-[80px] items-start relative shrink-0 w-full">
       <Frame12 />
@@ -2254,7 +3306,7 @@ function Frame143() {
   );
 }
 
-function Frame13() {
+export function Frame13() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[432px] left-[48.5px] shadow-[0px_194px_54px_0px_rgba(0,0,0,0),0px_124px_50px_0px_rgba(0,0,0,0.01),0px_70px_42px_0px_rgba(0,0,0,0.05),0px_31px_31px_0px_rgba(0,0,0,0.09),0px_8px_17px_0px_rgba(0,0,0,0.1)] top-[117px] w-[213px]" data-name="iMockup - iPhone 17">
@@ -2281,7 +3333,7 @@ function Frame146() {
   );
 }
 
-function Frame14() {
+export function Frame14() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[535px] left-[73px] top-[153px] w-[265px]" data-name="iMockup - iPhone 14">
@@ -2411,7 +3463,7 @@ function Frame151() {
   );
 }
 
-function Frame150() {
+export function Frame150() {
   return (
     <div className="content-stretch flex gap-[80px] items-start relative shrink-0 w-full">
       <Frame15 />
@@ -2420,7 +3472,7 @@ function Frame150() {
   );
 }
 
-function Frame16() {
+export function Frame16() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[419px] left-[51.5px] top-[111px] w-[208px]" data-name="iMockup - iPhone 14">
@@ -2447,7 +3499,7 @@ function Frame153() {
   );
 }
 
-function Frame17() {
+export function Frame17() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[524px] left-[85px] top-[64px] w-[260px]" data-name="iMockup - iPhone 14">
@@ -2546,7 +3598,7 @@ function Frame156() {
   );
 }
 
-function Frame18() {
+export function Frame18() {
   return (
     <div className="bg-[rgba(186,214,212,0.4)] h-[651px] overflow-clip relative rounded-[24px] shrink-0 w-[997px]">
       <div className="absolute h-[545px] left-[239.5px] top-[53px] w-[269px]" data-name="iMockup - iPhone 14">
@@ -2681,36 +3733,43 @@ function Frame67() {
 }
 
 function Frame68() {
+  const rows = [
+    {
+      feedback: "That chat feels crowded",
+      insight: "Text-heavy layout increases fatigue",
+    },
+    {
+      feedback: "I’m not sure if my data is synced",
+      insight: "Unclear system feedback",
+    },
+    {
+      feedback: "If I report fever, I should be warned instantly",
+      insight: "Safety expectation unmet",
+    },
+    {
+      feedback: "I prefer listening to reading",
+      insight: "Accessibility preferences",
+    },
+  ];
+
   return (
-    <div className="h-[248px] relative shrink-0 w-full">
-      <Frame67 />
-      <div className="absolute h-0 left-0 top-[88px] w-[997px]">
-        <div className="absolute inset-[-1px_0_0_0]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 997 1">
-            <line id="Line 7" stroke="var(--stroke-0, black)" strokeOpacity="0.25" x2="997" y1="0.5" y2="0.5" />
-          </svg>
-        </div>
+    <div className="w-full overflow-hidden rounded-xl border border-gray-200/80 bg-white shadow-2xs">
+      <div className="grid grid-cols-1 md:grid-cols-2 bg-gray-100/90 border-b border-gray-200 p-4 font-['Inter'] font-bold text-sm text-black">
+        <div>Feedback</div>
+        <div className="hidden md:block">Insights</div>
       </div>
-      <div className="absolute h-0 left-0 top-[39px] w-[997px]">
-        <div className="absolute inset-[-1px_0_0_0]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 997 1">
-            <line id="Line 7" stroke="var(--stroke-0, black)" strokeOpacity="0.25" x2="997" y1="0.5" y2="0.5" />
-          </svg>
-        </div>
-      </div>
-      <div className="absolute h-0 left-0 top-[146px] w-[997px]">
-        <div className="absolute inset-[-1px_0_0_0]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 997 1">
-            <line id="Line 7" stroke="var(--stroke-0, black)" strokeOpacity="0.25" x2="997" y1="0.5" y2="0.5" />
-          </svg>
-        </div>
-      </div>
-      <div className="absolute h-0 left-0 top-[204px] w-[997px]">
-        <div className="absolute inset-[-1px_0_0_0]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 997 1">
-            <line id="Line 7" stroke="var(--stroke-0, black)" strokeOpacity="0.25" x2="997" y1="0.5" y2="0.5" />
-          </svg>
-        </div>
+      <div className="divide-y divide-gray-200/80">
+        {rows.map((row, idx) => (
+          <div key={idx} className="grid grid-cols-1 md:grid-cols-2 p-4 gap-2 md:gap-4 hover:bg-gray-50/80 transition-colors font-['Inter']">
+            <div className="text-gray-800 text-sm font-medium italic">
+              “{row.feedback}”
+            </div>
+            <div className="text-gray-700 text-sm font-semibold flex items-center gap-1.5">
+              <span className="md:hidden text-xs font-bold text-gray-400 uppercase">Insight: </span>
+              {row.insight}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -2746,7 +3805,7 @@ function Frame162() {
   );
 }
 
-function Frame161() {
+export function Frame161() {
   return (
     <div className="content-stretch flex gap-[80px] items-start relative shrink-0 w-full">
       <Frame19 />
@@ -2793,7 +3852,7 @@ function Frame165() {
   );
 }
 
-function Frame164() {
+export function Frame164() {
   return (
     <div className="content-stretch flex gap-[80px] items-start relative shrink-0 w-full">
       <Frame20 />
@@ -2850,7 +3909,7 @@ function Frame169() {
   );
 }
 
-function Frame167() {
+export function Frame167() {
   return (
     <div className="content-stretch flex gap-[80px] items-start relative shrink-0 w-full">
       <Frame21 />
@@ -2907,7 +3966,7 @@ function Frame174() {
   );
 }
 
-function Frame172() {
+export function Frame172() {
   return (
     <div className="content-stretch flex gap-[80px] items-start relative shrink-0 w-full">
       <Frame22 />
@@ -2934,15 +3993,195 @@ function Frame171() {
   );
 }
 
+function UsabilityTestingTabs() {
+  const [activeTab, setActiveTab] = useState<string>("iter-1");
+  const tabsContainerRef = useRef<HTMLDivElement>(null);
+
+  const tabs = [
+
+    {
+      id: "iter-1",
+      label: "V1: Chat Interface",
+      shortName: "1. Chat Layout",
+      badge: "Readability",
+      feedback: "“That chat feels crowded”",
+      insight: "Text-heavy layout increases cognitive fatigue",
+      rationale: "Enhanced the user interface by incorporating additional whitespace, which improves readability and visual appeal. Introduced alternating message colors to create a more dynamic and engaging experience for users.",
+      renderScreens: () => <Frame161 />,
+    },
+    {
+      id: "iter-2",
+      label: "V2: Data Sync Status",
+      shortName: "2. Sync Status",
+      badge: "Feedback",
+      feedback: "“I’m not sure if my data is synced”",
+      insight: "Unclear system feedback creates patient anxiety",
+      rationale: "Introduced a new animated confirmation message that displays: 'Synced 2 hours ago.' This feature enhances the user experience by providing clear feedback on the synchronisation status.",
+      renderScreens: () => <Frame164 />,
+    },
+    {
+      id: "iter-3",
+      label: "V3: Emergency Alert",
+      shortName: "3. Red-Flag Alerts",
+      badge: "Safety",
+      feedback: "“If I report fever, I should be warned instantly”",
+      insight: "Safety expectation unmet without immediate triaging",
+      rationale: "Successfully integrated advanced NLP-based emergency detection systems, which now include user-friendly alert buttons designed for quick access in critical situations.",
+      renderScreens: () => <Frame167 />,
+    },
+    {
+      id: "iter-4",
+      label: "V4: Audio Care",
+      shortName: "4. Audio Narration",
+      badge: "Accessibility",
+      feedback: "“I prefer listening to reading”",
+      insight: "Low-energy patient days require multimodal audio access",
+      rationale: "Introduced audio summaries for every section, allowing users to listen to key points conveniently. This feature enhances experience by providing a quick and engaging way to absorb information during fatigue.",
+      renderScreens: () => <Frame172 />,
+    },
+  ];
+
+  const currentTabIdx = tabs.findIndex((t) => t.id === activeTab);
+  const currentTab = tabs[currentTabIdx >= 0 ? currentTabIdx : 0];
+
+  const handlePrevTab = () => {
+    if (currentTabIdx > 0) {
+      setActiveTab(tabs[currentTabIdx - 1].id);
+    }
+  };
+
+  const handleNextTab = () => {
+    if (currentTabIdx < tabs.length - 1) {
+      setActiveTab(tabs[currentTabIdx + 1].id);
+    }
+  };
+
+  const scrollTabs = (direction: "left" | "right") => {
+    if (tabsContainerRef.current) {
+      const scrollAmount = direction === "left" ? -180 : 180;
+      tabsContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <div id="nav-testing" className="w-full flex flex-col gap-8 my-4">
+      {/* Usability Testing Section Header */}
+      <div className="content-stretch flex flex-col gap-4 items-start justify-center not-italic relative shrink-0 w-full">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+          <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] text-[#484848] text-[20px]">
+            User testing
+          </p>
+        </div>
+        <h2 className="font-['Inter:Bold',sans-serif] font-bold text-2xl sm:text-3xl text-black leading-snug">
+          Listening, learning, and improving — shaping care through feedback
+        </h2>
+        <Frame49 />
+        <Frame51 />
+      </div>
+
+      {/* Interactive Tabs Header Bar (Clean without arrows) */}
+      <div className="flex items-center gap-2 p-1.5 bg-gray-100/90 backdrop-blur-md rounded-2xl border border-gray-200/80 overflow-x-auto scrollbar-none w-full">
+        {tabs.map((tab) => {
+          const isActive = tab.id === activeTab;
+          return (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                isActive
+                  ? "bg-black text-white shadow-md"
+                  : "text-gray-600 hover:text-black hover:bg-white/70"
+              }`}
+            >
+              <span>{tab.label}</span>
+              {isActive && (
+                <motion.span
+                  layoutId="activeUserTestingTabBadge"
+                  className="px-2 py-0.5 text-[10px] uppercase font-extrabold rounded-full bg-amber-400 text-black ml-1"
+                >
+                  {tab.badge}
+                </motion.span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Tab Content Display Container */}
+      <div className="w-full min-h-[500px]">
+        <AnimatePresence mode="wait">
+
+            <motion.div
+              key={currentTab.id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full space-y-8"
+            >
+              {/* Feedback & Insight Callout Card */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="p-5 rounded-xl bg-amber-50/70 border border-amber-200/80 flex flex-col justify-between">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-800 mb-1">
+                    User Feedback
+                  </span>
+                  <p className="font-['Inter'] font-bold text-lg text-amber-950 italic">
+                    {currentTab.feedback}
+                  </p>
+                </div>
+                <div className="p-5 rounded-xl bg-sky-50/70 border border-sky-200/80 flex flex-col justify-between">
+                  <span className="text-[11px] font-extrabold uppercase tracking-wider text-sky-800 mb-1">
+                    UX Design Insight
+                  </span>
+                  <p className="font-['Inter'] font-semibold text-base text-sky-950">
+                    {currentTab.insight}
+                  </p>
+                </div>
+              </div>
+
+              {/* Before vs After Screen Mockups Showcase */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between px-2">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500">
+                    Before vs. After Iteration Mockups
+                  </span>
+                  <div className="flex items-center gap-4 text-xs font-semibold">
+                    <span className="flex items-center gap-1.5 text-rose-700">
+                      <span className="w-2.5 h-2.5 rounded-full bg-rose-400" /> Initial Test
+                    </span>
+                    <span className="flex items-center gap-1.5 text-emerald-700">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> Refined Solution
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-50/60 rounded-2xl border border-gray-100 shadow-inner flex justify-center">
+                  {currentTab.renderScreens && currentTab.renderScreens()}
+                </div>
+              </div>
+
+              {/* Design Rationale Card */}
+              <div className="p-6 bg-white rounded-2xl border border-gray-200 shadow-sm space-y-2">
+                <h4 className="font-['Inter'] font-bold text-lg text-black flex items-center gap-2">
+                  <Sparkles size={18} className="text-amber-500" />
+                  Design Rationale & Impact
+                </h4>
+                <p className="font-['Inter'] text-gray-700 text-base leading-relaxed">
+                  {currentTab.rationale}
+                </p>
+              </div>
+            </motion.div>
+        </AnimatePresence>
+      </div>
+    </div>
+  );
+}
+
 function Frame158() {
   return (
-    <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[997px]">
-      <Frame159 />
-      <Frame68 />
-      <Frame160 />
-      <Frame163 />
-      <Frame166 />
-      <Frame171 />
+    <div className="content-stretch flex flex-col gap-[40px] items-start relative shrink-0 w-[997px]">
+      <UsabilityTestingTabs />
     </div>
   );
 }
@@ -3167,12 +4406,177 @@ function Group25() {
   );
 }
 
+function KeyFindingsStickyNotes() {
+  const [activeNote, setActiveNote] = useState<number | null>(null);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.12,
+        delayChildren: 0.05,
+      },
+    },
+  };
+
+  const noteVariants = {
+    hidden: { opacity: 0, y: 35, scale: 0.94 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.55,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const findings = [
+    {
+      id: "empathy",
+      title: "Empathy is measurable",
+      description: "Small choices like whitespace and supportive tone directly influence patient emotional outcomes.",
+      badge: "01",
+      initialRotate: "-rotate-2",
+      badgeColor: "bg-amber-200/80 text-amber-900 border-amber-300",
+      bgColor: "bg-gradient-to-br from-[#FFFDE7] via-[#FFF9C4] to-[#FFF59D]",
+      borderColor: "border-[#FBC02D]/40",
+      accentDot: "bg-[#F57F17]",
+      detailText: "💡 Validated through user testing where calm micro-copy reduced reported anxiety during symptom logging.",
+    },
+    {
+      id: "disclosure",
+      title: "Progressive disclosure works",
+      description: "Breaking information into smaller, contextual layers helps patients process complex medical data.",
+      badge: "02",
+      initialRotate: "rotate-1",
+      badgeColor: "bg-rose-200/80 text-rose-900 border-rose-300",
+      bgColor: "bg-gradient-to-br from-[#FCE4EC] via-[#F8BBD0] to-[#F48FB1]/70",
+      borderColor: "border-[#E91E63]/30",
+      accentDot: "bg-[#C2185B]",
+      detailText: "💡 Layered information architecture prevents cognitive overwhelm during initial chemotherapy onboarding.",
+    },
+    {
+      id: "accessibility",
+      title: "Accessibility expands reach",
+      description: "Inclusive design supports patients of different ages, cognitive loads, and physical energy levels.",
+      badge: "03",
+      initialRotate: "rotate-2",
+      badgeColor: "bg-sky-200/80 text-sky-900 border-sky-300",
+      bgColor: "bg-gradient-to-br from-[#E0F7FA] via-[#B2EBF2] to-[#80DEEA]/70",
+      borderColor: "border-[#00BCD4]/40",
+      accentDot: "bg-[#0097A7]",
+      detailText: "💡 High-contrast modes, large tap targets, and audio narration assist users experiencing chemo-fog or fatigue.",
+    },
+    {
+      id: "collaboration",
+      title: "Collaboration ensures credibility",
+      description: "Continuous feedback from medical mentors validated the safety and clinical practicality of each feature.",
+      badge: "04",
+      initialRotate: "-rotate-1",
+      badgeColor: "bg-emerald-200/80 text-emerald-900 border-emerald-300",
+      bgColor: "bg-gradient-to-br from-[#F1F8E9] via-[#DCEDC8] to-[#C5E1A5]/70",
+      borderColor: "border-[#8BC34A]/40",
+      accentDot: "bg-[#33691E]",
+      detailText: "💡 Regular reviews with Mayo Clinic mentors ensured clinical terminology remained accurate and reassuring.",
+    },
+  ];
+
+  return (
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-40px" }}
+      className="w-full my-6"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 pb-2">
+        {findings.map((item, index) => {
+          const isActive = activeNote === index;
+          return (
+            <motion.div
+              key={item.id}
+              variants={noteVariants}
+              whileHover={{ rotate: 0, y: -10, scale: 1.03 }}
+              onClick={() => setActiveNote(isActive ? null : index)}
+              className={`relative cursor-pointer transition-all duration-300 group ${item.initialRotate}`}
+            >
+              {/* Top Washi Tape Header */}
+              <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 z-20 w-16 h-3.5 bg-white/70 backdrop-blur-md border border-white/80 shadow-2xs rounded-xs transform -rotate-1 group-hover:rotate-0 transition-transform flex items-center justify-between px-1.5">
+                <div className={`w-1 h-1 rounded-full ${item.accentDot}`} />
+                <div className={`w-1 h-1 rounded-full ${item.accentDot}`} />
+              </div>
+
+              {/* Main Sticky Note Card */}
+              <div
+                className={`relative flex flex-col justify-between p-6 rounded-2xl border shadow-md hover:shadow-2xl transition-all duration-300 ${item.bgColor} ${item.borderColor}`}
+                style={{
+                  minHeight: "260px",
+                  boxShadow: isActive
+                    ? "0 20px 30px -10px rgba(0,0,0,0.15), 0 10px 15px -5px rgba(0,0,0,0.1)"
+                    : "0 10px 20px -8px rgba(0,0,0,0.1)",
+                }}
+              >
+                {/* Paper fold accent at bottom right corner */}
+                <div className="absolute bottom-0 right-0 w-8 h-8 pointer-events-none overflow-hidden rounded-br-2xl">
+                  <div className="absolute bottom-0 right-0 w-12 h-12 bg-black/5 transform rotate-45 translate-x-6 translate-y-6 shadow-inner" />
+                </div>
+
+                <div>
+                  {/* Top Badge & Number */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`text-[11px] font-extrabold px-2.5 py-0.5 rounded-full border ${item.badgeColor}`}>
+                      {item.badge}
+                    </span>
+                    <Sparkles size={15} className="text-gray-400 group-hover:text-amber-600 transition-colors" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="font-['Inter'] font-bold text-lg text-gray-900 mb-3 group-hover:text-black transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+
+                  {/* Body text */}
+                  <p className="font-['Inter'] text-xs sm:text-sm text-gray-800 leading-relaxed font-normal">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Interactive Detail Drawer */}
+                <div className="mt-5 pt-3 border-t border-black/10 flex flex-col gap-2">
+                  <div className="flex items-center justify-between text-xs font-semibold text-gray-700">
+                    <span className="font-['Caveat_Brush'] text-base">Key Insight</span>
+                    <span className="text-[11px] underline text-gray-600 group-hover:text-black">
+                      {isActive ? "Tap to hide" : "Tap to expand"}
+                    </span>
+                  </div>
+                  {isActive && (
+                    <motion.p
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="text-xs text-gray-800 italic bg-white/70 p-2.5 rounded-lg border border-black/5"
+                    >
+                      {item.detailText}
+                    </motion.p>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </motion.div>
+  );
+}
+
 function Frame178() {
   return (
-    <div className="content-stretch flex flex-col gap-[30px] items-start relative shrink-0 w-full">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full not-italic relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">Key Findings</p>
-      <Group21 />
-      <Group25 />
+    <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full">
+      <p className="font-['Inter:Semi_Bold',sans-serif] font-semibold leading-[normal] min-w-full not-italic relative shrink-0 text-[#484848] text-[22px] w-full">Key Findings</p>
+      <KeyFindingsStickyNotes />
     </div>
   );
 }
@@ -3245,29 +4649,38 @@ function Frame183() {
   );
 }
 
+function SectionRevealWrapper({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 35 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      className="w-full"
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 function Frame132() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%+13px)] top-[1300px] w-[1022px]">
-      <Frame131 />
-      <Frame84 />
-      <Frame85 />
-      <Frame80 />
-      <Frame86 />
-      <Frame88 />
-      <Frame93 />
-      <Frame98 />
-      <Frame101 />
-      <Frame106 />
-      <Frame122 />
-      <Frame124 />
-      <Frame127 />
-      <Frame138 />
-      <Frame141 />
-      <Frame148 />
-      <Frame155 />
-      <Frame158 />
-      <Frame176 />
-      <Frame183 />
+    <div className="relative mx-auto content-stretch flex flex-col gap-[144px] items-start pt-[1200px] pb-12 w-[1022px]">
+      <SectionRevealWrapper><Frame131 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame84 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame85 /></SectionRevealWrapper>
+      <SectionRevealWrapper><ChemobuddyVideoPlayer /></SectionRevealWrapper>
+      <SectionRevealWrapper><InteractiveResearchSection /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame106 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame124 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame127 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame138 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame141 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame148 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame155 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame158 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame176 /></SectionRevealWrapper>
+      <SectionRevealWrapper><Frame183 /></SectionRevealWrapper>
     </div>
   );
 }
@@ -3276,7 +4689,8 @@ export default function ChemobuddyMayoclinic() {
   return (
     <div className="bg-white relative w-full">
       {/* Desktop Layout - Preserved */}
-      <div className="hidden lg:block relative min-h-[8500px]" data-name="Chemobuddy - Mayoclinic">
+      <div className="hidden lg:block relative min-h-0" data-name="Chemobuddy - Mayoclinic">
+
         <div className="absolute flex flex-col items-start left-[calc(50%-496.5px)] top-[158px] w-[993px]">
           <div className="flex flex-row justify-between items-start w-full mb-[16px]">
             <h1 className="font-['Inter'] font-bold text-[40px] leading-tight text-black m-0">
@@ -3322,27 +4736,8 @@ export default function ChemobuddyMayoclinic() {
           </p>
 
           <div className="bg-white/60 p-6 rounded-xl space-y-4 mb-8">
-            <h3 className="font-bold text-black">Key Features:</h3>
-            <div className="space-y-4 mt-6">
-              <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-4 shadow-sm">
-                <div className="text-black shrink-0">
-                  <Map size={20} strokeWidth={1.5} />
-                </div>
-                <span className="font-medium text-gray-800 text-sm">3 simplified learning paths</span>
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-4 shadow-sm">
-                <div className="text-black shrink-0">
-                  <HeartPulse size={20} strokeWidth={1.5} />
-                </div>
-                <span className="font-medium text-gray-800 text-sm">Personalized symptom & question support</span>
-              </div>
-              <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-4 shadow-sm">
-                <div className="text-black shrink-0">
-                  <ShieldCheck size={20} strokeWidth={1.5} />
-                </div>
-                <span className="font-medium text-gray-800 text-sm">Built with Mayo Clinic clinical guidance</span>
-              </div>
-            </div>
+            <h3 className="font-bold text-black mb-2">Key Features:</h3>
+            <OverviewCards />
           </div>
 
           <div className="relative w-full aspect-[4/5] mx-auto max-w-sm">
@@ -3385,130 +4780,68 @@ export default function ChemobuddyMayoclinic() {
               </p>
             </div>
 
-            <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
-              <span className="font-['Caveat_Brush'] text-[#bd4800] text-2xl block">The Problem</span>
-              <img src={image_1bf5f60255a20498a2f475250c718f058eaf3940} alt="Confused Patient" className="w-full h-40 object-contain" />
-              <p className="font-['Inter'] italic text-[#484848] text-sm">Complex medical information leaves patients feeling confused.</p>
-            </div>
-
-            <div className="flex justify-center text-[#747474]">↓</div>
-
-            <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
-              <span className="font-['Caveat_Brush'] text-[#78be20] text-2xl block">The Solution</span>
-              <img src={imgImage107} alt="Solution Interface" className="w-full h-40 object-contain" />
-              <p className="font-['Inter'] italic text-[#484848] text-sm">ChemoBuddy provides clear, compassionate guidance.</p>
-            </div>
-
-            <div className="flex justify-center text-[#747474]">↓</div>
-
-            <div className="space-y-3 text-center bg-gray-50 p-6 rounded-2xl">
-              <span className="font-['Caveat_Brush'] text-[#00A3E0] text-2xl block">The Impact</span>
-              <img src={imgImage108} alt="Reassured Patient" className="w-full h-40 object-contain" />
-              <p className="font-['Inter'] italic text-[#484848] text-sm">Patients feel informed, reassured, and ready.</p>
-            </div>
+            <TransformationFlowSection />
           </div>
 
           {/* 4. Role & Contribution */}
-          <div className="space-y-4">
-            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Role & Contribution</h2>
-            <h3 className="font-bold text-lg">Designing Clarity in a Complex Care Journey</h3>
-            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-              I served as the UX and instructional designer, translating complex chemotherapy information into structured, patient-friendly learning experiences. I conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.
-            </p>
-          </div>
-
-          {/* 5. Research */}
-          <div className="space-y-4">
-            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Research</h2>
-            <h3 className="font-bold text-lg">Understanding Needs</h3>
-            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-              A 10-week exploration to understand how chemotherapy patients learn, cope, and communicate. I followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives.
-            </p>
-          </div>
-
-          {/* 6. Secondary Research – Literature Review */}
-          <div className="space-y-4 bg-[#f9f9f9] p-6 rounded-2xl">
-            <h3 className="font-['Inter'] font-bold text-xl text-black">Literature Review</h3>
-            <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 1–2</p>
-            <p className="font-['Inter'] text-[#484848] text-base">
-              I explored 11 peer-reviewed oncology journals to identify usability gaps in current patient education methods.
-            </p>
-            <div className="bg-white p-4 rounded-xl border border-gray-100">
-              <p className="font-bold text-sm mb-2">Key Output:</p>
-              <p className="text-sm text-[#484848]">Defined 4 key problem clusters and created a feature benchmarking matrix.</p>
-            </div>
-          </div>
-
-          {/* 7. Secondary Research – Competitive Analysis */}
-          <div className="space-y-4 bg-[#f9f9f9] p-6 rounded-2xl">
-            <h3 className="font-['Inter'] font-bold text-xl text-black">Competitive Analysis</h3>
-            <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 3</p>
-            <p className="font-['Inter'] text-[#484848] text-base">
-              Evaluated 8 healthcare apps (including MyChart, Cancer.Net) to see what existing tools were doing well and where they fell short in emotional support.
-            </p>
-            <img src={imgImage30} alt="Competitive Analysis Matrix" className="w-full rounded-lg shadow-sm" />
-            <div className="flex items-center gap-3 bg-white p-3 rounded-lg">
-              <div className="w-8 h-8 flex items-center justify-center bg-[#e0f7fa] rounded-full text-[#00A3E0]">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 12h3v8h6v-6h2v6h6v-8h3L12 2z" /></svg>
+          <div className="py-24 space-y-12"> {/* Added vertical padding to increase spacing above and below */}
+            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+              <div className="flex-1 space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-2.5 h-2.5 rounded-full bg-[#484848]" />
+                  <h2 className="font-['Inter'] font-bold text-lg text-[#484848]">Role & Contribution</h2>
+                </div>
+                <h3 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black leading-snug">Designing Clarity in a Complex Care Journey</h3>
+                <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+                  UX and instructional designer for ChemoBuddy, translating complex chemotherapy information into structured, patient-friendly learning experiences. Conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.
+                </p>
               </div>
-              <p className="text-sm font-bold text-[#00a3e0]">Key Gap Identified: Lack of emotional context in current tools.</p>
+              <div className="flex-1 flex justify-center md:justify-end">
+                <img src={mayoRoleDoodle} alt="Role and Contribution doodle" className="max-w-full w-[450px] object-contain" />
+              </div>
+            </div>
+            
+            {/* Keeping the video player below the text/doodle row */}
+            <div className="w-full">
+              <ChemobuddyVideoPlayer />
             </div>
           </div>
 
-          {/* 8. User Research – Role-Play Testing */}
-          <div className="space-y-4 bg-[#f9f9f9] p-6 rounded-2xl">
-            <h3 className="font-['Inter'] font-bold text-xl text-black">Role-Play Testing</h3>
-            <p className="text-sm text-[#747474] font-medium uppercase tracking-wide">Week 4–5</p>
-            <p className="font-['Inter'] text-[#484848] text-base">
-              To ensure ethical research without burdening patients, I conducted role-play sessions with my oncology mentor, Dr. Umar. We simulated authentic patient-caregiver interactions to uncover emotional pain points.
-            </p>
-          </div>
-
-          {/* 9. Data Synthesis – Affinity Mapping */}
-          <div className="space-y-4">
-            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Findings</h2>
-            <h3 className="font-bold text-lg">Affinity Mapping</h3>
-            <p className="font-['Inter'] text-[#484848] text-base">
-              Transcribed interviews and clustered findings into themes: trust, information overload, accessibility, and caregiver support.
-            </p>
-            <img src={imgImage32} alt="Affinity Map" className="w-full rounded-xl shadow-lg" />
-          </div>
-
-          {/* 10. Data Synthesis – Personas */}
-          <div className="space-y-4">
-            <h3 className="font-bold text-lg">Personas</h3>
-            <p className="font-['Inter'] text-[#484848] text-base">
-              Developed two key personas representing patients at different stages of treatment with varying digital needs.
-            </p>
-            <div className="space-y-4">
-              <img src={imgImage33} alt="Persona 1" className="w-full rounded-xl shadow-md" />
-              <img src={imgImage34} alt="Persona 2" className="w-full rounded-xl shadow-md" />
-            </div>
-          </div>
+          {/* 5. Interactive Research Section */}
+          <InteractiveResearchSection />
 
           {/* 11. Ideation & Concept Development */}
-          <div className="space-y-4">
-            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Ideation</h2>
-            <p className="font-['Inter'] text-[#484848] text-base">
-              Used "How Might We" statements to translate insights into design directions. Merged ideas into a unified platform: ChemoBuddy.
+          <div className="space-y-6 pt-12 border-t border-gray-200">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#00A3E0] block mb-1">Ideation & Concept Development</span>
+              <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-3">Translating research insights into actionable design directions</h2>
+            </div>
+            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl">
+              Based on the research findings, I began ideation by using "How Might We" statements to frame challenges creatively:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="bg-gray-50 border border-gray-100 p-6 rounded-2xl space-y-2">
+                <span className="text-xs font-bold text-[#00A3E0] uppercase tracking-wider">HMW 01</span>
+                <h4 className="font-bold text-black text-base">Simplify Education</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">How might we simplify the way chemotherapy information is presented to avoid fatigue?</p>
+              </div>
+              <div className="bg-gray-50 border border-gray-100 p-6 rounded-2xl space-y-2">
+                <span className="text-xs font-bold text-[#00A3E0] uppercase tracking-wider">HMW 02</span>
+                <h4 className="font-bold text-black text-base">Emergency Symptoms</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">How might we help patients identify emergency symptoms instantly without anxiety?</p>
+              </div>
+              <div className="bg-gray-50 border border-gray-100 p-6 rounded-2xl space-y-2">
+                <span className="text-xs font-bold text-[#00A3E0] uppercase tracking-wider">HMW 03</span>
+                <h4 className="font-bold text-black text-base">Caregiver Access</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">How might we give caregivers controlled access to patient updates while preserving autonomy?</p>
+              </div>
+            </div>
+            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl pt-2">
+              After feedback from mentors, I merged these into one unified platform, <strong>ChemoBuddy</strong>—a mobile-first digital tool offering personalized learning, symptom tracking, and communication for both patients and caregivers.
             </p>
             <img src={imgImage35} alt="Ideation Sketches" className="w-full rounded-xl shadow-lg" />
           </div>
 
-          {/* 12. Design Process */}
-          <div className="space-y-4">
-            <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Design Process</h2>
-            <p className="font-['Inter'] text-[#484848] text-base">
-              I structured the experience around five key stages to build an empathetic journey:
-            </p>
-            <ul className="list-decimal pl-5 space-y-3 text-[#484848]">
-              <li><strong>Onboarding:</strong> Secure, trust-building entry.</li>
-              <li><strong>Dashboard:</strong> Visual overview of progress.</li>
-              <li><strong>Chatbot:</strong> Empathetic support interface.</li>
-              <li><strong>Symptom Tracking:</strong> Easy body-map logging.</li>
-              <li><strong>Caregiver Access:</strong> Controlled data sharing.</li>
-            </ul>
-          </div>
 
           {/* 13. Low-Fidelity Wireframes */}
           <div className="space-y-4">
@@ -3516,7 +4849,7 @@ export default function ChemobuddyMayoclinic() {
             <p className="font-['Inter'] text-[#484848] text-base">
               Started with sketches emphasizing minimal interactions and large visual elements for older patients with limited digital comfort.
             </p>
-            <img src={imgWireframeGif} alt="Wireframes" className="w-full rounded-xl shadow-lg" />
+            <ChemoWireframesVideoPlayer />
           </div>
 
           {/* 14. High-Fidelity – Onboarding */}
@@ -3599,7 +4932,7 @@ export default function ChemobuddyMayoclinic() {
           <div className="space-y-4">
             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Learnings</h2>
             <p className="font-['Inter'] text-[#484848] text-base">
-              Designing ChemoBuddy taught me that UX for healthcare must go beyond usability—it must reassure, educate, and connect.
+              Designing ChemoBuddy taught me that UX for healthcare must go beyond usability - it must reassure, educate, and connect.
             </p>
             <div className="bg-[#e0f7fa] p-6 rounded-xl">
               <p className="font-bold text-[#006064] mb-2">Key Takeaway</p>

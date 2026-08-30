@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import imgRdsProject from "figma:asset/a0e9b7dc466e7af6191032a91d79d86dfffd719c.png";
-import imgHackathonFolder from "figma:asset/69dd0260d6ba7e5dd48d8fd44c89d3ff9c3f8e3f.png";
+import imgEduFundProject from "figma:asset/a0d957f752dc64d40e547447c5da5382077a78c1.png";
 
 export function MayoClinicNextProjects() {
   return (
@@ -18,11 +18,11 @@ export function MayoClinicNextProjects() {
            />
         </Link>
 
-        {/* Project 2: EdPlus Hackathon */}
-        <Link to="/ed-plus-hackathon-case-study" className="group relative block w-full max-w-[420px] transition-all duration-300 hover:scale-[1.02] hover:drop-shadow-lg">
+        {/* Project 2: EduFund */}
+        <Link to="/edufund-case-study" className="group relative block w-full max-w-[420px] transition-all duration-300 hover:scale-[1.02] hover:drop-shadow-lg">
            <img 
-             src={imgHackathonFolder} 
-             alt="EdPlus Hackathon - Hackathon, 24 hours" 
+             src={imgEduFundProject} 
+             alt="EduFund - Fintech Product Design, 2024" 
              className="w-full h-auto object-contain"
            />
         </Link>

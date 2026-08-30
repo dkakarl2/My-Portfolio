@@ -79,6 +79,7 @@
 }
 
 @theme inline {
+  --font-sans: 'Manrope', sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -126,13 +127,13 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+    font-family: 'Manrope', sans-serif;
+    overflow-x: clip;
   }
 
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   /**
@@ -224,4 +225,280 @@
     filter: brightness(1.04);
     z-index: 10;
   }
+
+  /* ==========================================================================
+     Subtle Text Scroll-Reveal Animation (Case Studies Only)
+     opacity 0 + translateY(12px) -> opacity 1 + translateY(0)
+     ========================================================================== */
+
+  [data-case-study-content] .cs-reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    will-change: opacity, transform;
+    transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--reveal-delay, 0) * 90ms);
+  }
+
+  [data-case-study-content] .cs-reveal.cs-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Exclude navigation, footer, fixed overlays, and images from text reveal */
+  [data-case-study-content] nav *,
+  [data-case-study-content] footer *,
+  [data-case-study-content] [data-scroll-to-top] *,
+  [data-case-study-content] img {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    [data-case-study-content] .cs-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+
+  /* ==========================================================================
+     Typography & Visual Hierarchy Overrides for Case Studies
+     Manrope Typeface with 7-Level Editorial Hierarchy
+     Explicit exclusions for Navigation, Footer, and Caveat Brush components
+     ========================================================================== */
+
+  /* Primary Typeface for Case Studies (excluding nav, footer, and Caveat elements) */
+  [data-case-study-content]:not(nav):not(footer):not([class*="Caveat"]):not([class*="caveat"]),
+  [data-case-study-content] *:not(nav):not(nav *):not(footer):not(footer *):not([data-scroll-to-top]):not([data-scroll-to-top] *):not([class*="Caveat"]):not([class*="caveat"]) {
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Map all legacy Figma font utility classes to Manrope, explicitly excluding Caveat Brush */
+  [class*="font-['Inter"]:not([class*="Caveat"]):not([class*="caveat"]),
+  [class*="font-['SF_Pro"]:not([class*="Caveat"]):not([class*="caveat"]),
+  [class*="font-['Outfit"]:not([class*="Caveat"]):not([class*="caveat"]),
+  [class*="font-['Plus_Jakarta_Sans"]:not([class*="Caveat"]):not([class*="caveat"]),
+  [class*="font-['Geist"]:not([class*="Caveat"]):not([class*="caveat"]) {
+    font-family: 'Manrope', sans-serif !important;
+  }
+
+
+
+  /* --- Level 1: Hero Title ---
+     Largest and strongest typographic element (inside RecruiterCaseStudyHeader).
+     Desktop: 36–48px | Tablet: 32–40px | Mobile: 28–34px */
+  [data-case-study-content] .bg-\[\#fafafa\] h2 {
+    font-size: clamp(1.75rem, 1.35rem + 1.8vw, 3rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    color: #111111 !important;
+  }
+
+  /* --- Level 2: Section Heading ---
+     Recruiter mode section dividers (identified by h2.border-b).
+     Desktop: 18–22px | Tablet: 18–20px | Mobile: 17–19px
+     Preserves accent-dot + border-bottom treatment and natural casing. */
+  [data-case-study-content] h2.border-b {
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.375rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.005em !important;
+    color: #111111 !important;
+  }
+
+  /* --- Level 3: Card / Subsection Heading ---
+     Subordinate to section headings (H4 inside cards).
+     Range: 16–18px */
+  [data-case-study-content] h4:not(nav *):not(footer *) {
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #111111 !important;
+  }
+
+  /* --- Level 4: Editorial Body Copy ---
+     Long-form reading copy in direct section flow.
+     Desktop: 15–17px | Tablet: 15–17px | Mobile: 15–16px */
+  [data-case-study-content] p.text-base:not(nav *):not(footer *),
+  [data-case-study-content] p.leading-relaxed.text-base:not(nav *):not(footer *) {
+    font-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    color: #444444 !important;
+  }
+
+  /* --- Level 5: Card Body Copy ---
+     Slightly smaller than editorial body. No max-width.
+     Range: 13–15px */
+  [data-case-study-content] p.text-sm:not(nav *):not(footer *) {
+    font-size: clamp(0.8125rem, 0.8rem + 0.1vw, 0.9375rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
+    color: #555555 !important;
+  }
+
+  /* --- Level 6: Eyebrow / Metadata ---
+     Quiet contextual labels (Phase 1, Step 1, Meta labels).
+     Range: 10–12px, uppercase where used in components */
+  [data-case-study-content] span.text-xs.uppercase:not(nav *):not(footer *),
+  [data-case-study-content] span.text-xs.tracking-wider:not(nav *):not(footer *) {
+    font-size: clamp(0.625rem, 0.6rem + 0.1vw, 0.75rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.08em !important;
+    color: #888888 !important;
+  }
+
+  /* --- Level 7: Metrics ---
+     Visually prominent metric numbers.
+     Range: 28–40px */
+  [data-case-study-content] div.text-2xl.font-bold:not(nav *):not(footer *),
+  [data-case-study-content] span.text-2xl:not(nav *):not(footer *),
+  [data-case-study-content] .text-3xl:not(nav *):not(footer *),
+  [data-case-study-content] .text-4xl:not(nav *):not(footer *),
+  [data-case-study-content] .text-5xl:not(nav *):not(footer *) {
+    font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.02em !important;
+    color: #111111 !important;
+  }
+
+  /* ============================================================
+     Explorer Mode (Figma Import) Overrides
+     Mapped to semantic Manrope scale
+     ============================================================ */
+
+  /* Explorer Title (40px Figma bold) */
+  [data-case-study-content] .text-\[40px\]:not(nav *):not(footer *) {
+    font-size: clamp(1.75rem, 1.35rem + 1.8vw, 2.75rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    color: #111111 !important;
+  }
+
+  /* Explorer Section Headings (24px Figma bold) */
+  [data-case-study-content] .font-\['Inter\:Bold'\,sans-serif\].text-\[24px\]:not(nav *):not(footer *),
+  [data-case-study-content] .font-\['SF_Pro_Display\:Bold'\,sans-serif\].text-\[24px\]:not(nav *):not(footer *) {
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.375rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #111111 !important;
+  }
+
+  /* Explorer Body Text (20px Figma regular) */
+  [data-case-study-content] .text-\[20px\]:not(.font-bold):not([class*="Bold"]):not(nav *):not(footer *) {
+    font-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    color: #484848 !important;
+  }
+
+  /* Explorer Metadata / Captions (12–16px Figma) */
+  [data-case-study-content] .text-\[16px\]:not(.font-bold):not(nav *):not(footer *),
+  [data-case-study-content] .text-\[14px\]:not(.font-bold):not(nav *):not(footer *),
+  [data-case-study-content] .text-\[12px\]:not(nav *):not(footer *) {
+    font-size: clamp(0.75rem, 0.7rem + 0.1vw, 0.875rem) !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    color: #666666 !important;
+  }
+
+  /* ============================================================
+     Generic Fallbacks & Protection Rules
+     ============================================================ */
+
+  /* Generic H1 fallback */
+  [data-case-study-content] h1:not(nav *):not(footer *) {
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    color: #111111 !important;
+  }
+
+  /* Generic H2 fallback (lower specificity than h2.border-b) */
+  [data-case-study-content] h2:not(.border-b):not(nav *):not(footer *) {
+    font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.375rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #111111 !important;
+  }
+
+  /* Generic H3 fallback */
+  [data-case-study-content] h3:not(nav *):not(footer *) {
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.1875rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #111111 !important;
+  }
+
+  /* Prevent inline spans from breaking font hierarchy */
+  [data-case-study-content] span:not(.text-xs):not(.text-2xl):not([class*="uppercase"]):not(nav *):not(footer *) {
+    font-size: inherit !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+    color: inherit !important;
+  }
+
+  /* Text width: editorial body paragraphs in direct section flow */
+  [data-case-study-content] section > .space-y-6 > p.text-base,
+  [data-case-study-content] section > .space-y-6 > .space-y-6 > p.text-base,
+  [data-case-study-content] section > .space-y-8 > p.text-base {
+    max-width: 680px;
+  }
+
+  /* List items */
+  [data-case-study-content] li:not(nav *):not(footer *) {
+    font-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1.0625rem) !important;
+    line-height: 1.7 !important;
+    color: #444444 !important;
+  }
+
+  /* Spacing rhythm */
+  [data-case-study-content] .gap-\[80px\] {
+    gap: 56px !important;
+  }
+  [data-case-study-content] .gap-\[40px\] {
+    gap: 32px !important;
+  }
+  [data-case-study-content] .gap-\[24px\] {
+    gap: 20px !important;
+  }
+
+  /* --- Dark Theme Overrides (Opportunity Section) --- */
+  [data-case-study-content] [data-theme="dark"] h1,
+  [data-case-study-content] [data-theme="dark"] h2,
+  [data-case-study-content] [data-theme="dark"] h3,
+  [data-case-study-content] [data-theme="dark"] h4,
+  [data-case-study-content] [data-theme="dark"] p,
+  [data-case-study-content] [data-theme="dark"] span:not(.bg-white):not([style*="color: #000"]):not([style*="color: #6b7280"]):not([style*="color: #4b5563"]),
+  [data-case-study-content] [data-theme="dark"] li {
+    color: #ffffff !important;
+  }
+  
+  [data-case-study-content] [data-theme="dark"] [style*="color: #9ca3af"],
+  [data-case-study-content] [data-theme="dark"] .text-gray-400 {
+    color: #9ca3af !important;
+  }
+  
+  [data-case-study-content] [data-theme="dark"] [style*="color: #6b7280"],
+  [data-case-study-content] [data-theme="dark"] .text-gray-500 {
+    color: #6b7280 !important;
+  }
+  
+  [data-case-study-content] [data-theme="dark"] [style*="color: #4b5563"],
+  [data-case-study-content] [data-theme="dark"] .text-gray-600 {
+    color: #4b5563 !important;
+  }
+  
+  [data-case-study-content] [data-theme="dark"] [style*="color: #000000"],
+  [data-case-study-content] [data-theme="dark"] .text-black {
+    color: #000000 !important;
+  }
+
 }

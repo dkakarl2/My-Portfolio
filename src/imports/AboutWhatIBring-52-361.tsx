@@ -4,7 +4,7 @@ function Frame() {
   return (
     <div className="absolute left-1/2 -translate-x-1/2 max-w-[1320px] w-full top-[87px]">
       <div className="relative left-[222px]">
-        <p className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-[50px] not-italic text-[48px] text-black">What I Bring</p>
+        <p className="css-ew64yg font-['Manrope',sans-serif] font-bold leading-[50px] not-italic text-[48px] text-black">What I Bring</p>
       </div>
     </div>
   );
@@ -49,7 +49,7 @@ export default function AboutWhatIBring() {
     <div className="bg-white relative w-full h-[400px] lg:h-[663px] overflow-hidden" data-name="About - What I Bring">
       <div className="absolute left-1/2 -translate-x-1/2 max-w-[1320px] w-full top-[40px] lg:top-[87px] text-center lg:text-left">
         <div className="relative lg:left-[222px]">
-          <p className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-[50px] not-italic text-3xl lg:text-[48px] text-black">What I Bring</p>
+          <p className="css-ew64yg font-['Manrope',sans-serif] font-bold leading-[50px] not-italic text-3xl lg:text-[48px] text-black">What I Bring</p>
         </div>
       </div>
       
@@ -74,7 +74,7 @@ export default function AboutWhatIBring() {
             {[...row1Skills, ...row1Skills, ...row1Skills].map((skill, index) => (
               <motion.span
                 key={index}
-                className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
+                className="css-ew64yg font-['Manrope',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
                 whileHover={{
                   color: skillColors[skills.indexOf(skill)],
                 }}
@@ -106,7 +106,7 @@ export default function AboutWhatIBring() {
             {[...row2Skills, ...row2Skills, ...row2Skills].map((skill, index) => (
               <motion.span
                 key={index}
-                className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
+                className="css-ew64yg font-['Manrope',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
                 whileHover={{
                   color: skillColors[skills.indexOf(skill)],
                 }}
@@ -138,7 +138,7 @@ export default function AboutWhatIBring() {
             {[...row3Skills, ...row3Skills, ...row3Skills].map((skill, index) => (
               <motion.span
                 key={index}
-                className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
+                className="css-ew64yg font-['Manrope',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
                 whileHover={{
                   color: skillColors[skills.indexOf(skill)],
                 }}
@@ -170,7 +170,7 @@ export default function AboutWhatIBring() {
             {[...row4Skills, ...row4Skills, ...row4Skills].map((skill, index) => (
               <motion.span
                 key={index}
-                className="css-ew64yg font-['Inter:Bold',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
+                className="css-ew64yg font-['Manrope',sans-serif] font-bold leading-tight lg:leading-[50px] not-italic text-2xl lg:text-[64px] text-black cursor-pointer"
                 whileHover={{
                   color: skillColors[skills.indexOf(skill)],
                 }}

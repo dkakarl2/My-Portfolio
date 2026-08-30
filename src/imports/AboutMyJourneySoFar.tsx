@@ -111,7 +111,7 @@ function Frame1() {
 function Frame6() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start left-[1090px] top-[152px] w-[255px]">
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium leading-[normal] not-italic relative shrink-0 text-[#747474] text-[16px] w-full">Support UX research, design QA, and component enhancements for ASU Online used by online learners worldwide.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium leading-[normal] not-italic relative shrink-0 text-[#747474] text-[16px] w-full">Support UX research, design QA, and component enhancements for ASU Online used by online learners worldwide.</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Intern</p>
       <Frame1 />
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
@@ -122,7 +122,7 @@ function Frame6() {
 function Frame3() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[504px] not-italic top-[169px] w-[271px]">
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Worked on the Rocket Design System (RDS) at ASU EdPlus, improving component consistency, accessibility, and scalable UX patterns across digital products.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Worked on the Rocket Design System (RDS) at ASU EdPlus, improving component consistency, accessibility, and scalable UX patterns across digital products.</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Assistant Student Worker</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Jun 25’ - Jan 26’</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#8c1d40] text-[40px] w-full">EdPlus at ASU</p>
@@ -133,7 +133,7 @@ function Frame3() {
 function Frame5() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[4px] items-start leading-[normal] left-[111px] not-italic top-[222px] w-[293px]">
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Architecture Intern at Offcentered Architects, contributing to concept development, spatial planning, and design documentation across residential and commercial projects.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Architecture Intern at Offcentered Architects, contributing to concept development, spatial planning, and design documentation across residential and commercial projects.</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">Architect Intern</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Jan 22’ - Jun 22’</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#ddb81f] text-[40px] w-full">Offcentered architects</p>
@@ -147,7 +147,7 @@ function Frame2() {
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#24cfa4] text-[40px] w-full">Edufund</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">{`Apr 24’ - Oct 24’ `}</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">UX Design Intern</p>
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">At Edufund, I designed end-to-end experiences for fintech products, focusing on clarity, accessibility, and reducing friction in complex financial processes.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">At Edufund, I designed end-to-end experiences for fintech products, focusing on clarity, accessibility, and reducing friction in complex financial processes.</p>
     </div>
   );
 }
@@ -158,7 +158,7 @@ function Frame4() {
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#0044b3] text-[40px] w-full">Mayo Clinic</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#747474] text-[20px] w-full">Aug 25’ - Dec 25’</p>
       <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#191919] text-[20px] w-full">{`UX Research & Design Apprenticeship`}</p>
-      <p className="css-4hzbpn font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Collaborated with Mayo Clinic as a UX Design Apprentice to design ChemoBuddy, focusing on clarity, accessibility, and emotional support in healthcare technology.</p>
+      <p className="css-4hzbpn font-['Manrope',sans-serif] font-medium relative shrink-0 text-[#747474] text-[16px] w-full">Collaborated with Mayo Clinic as a UX Design Apprentice to design ChemoBuddy, focusing on clarity, accessibility, and emotional support in healthcare technology.</p>
     </div>
   );
 }
@@ -176,7 +176,7 @@ export default function AboutMyJourneySoFar() {
     <div className="bg-white relative size-full" data-name="About -My Journey So Far">
       <div className="absolute h-[433.813px] left-0 right-0 top-[332.19px]">
         <div className="absolute inset-0">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 1518.81 453.815">
+          <svg className="block size-full overflow-visible" fill="none" preserveAspectRatio="none" viewBox="0 0 1518.81 453.815">
             <path d={svgPaths.p34e40a00} id="Vector 112" stroke="var(--stroke-0, black)" strokeLinecap="round" strokeWidth="20" />
           </svg>
         </div>

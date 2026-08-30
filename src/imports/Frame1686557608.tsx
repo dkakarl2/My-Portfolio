@@ -39,7 +39,7 @@ function Frame10() {
   return (
     <div className="absolute content-stretch flex flex-col gap-[39px] items-start leading-[normal] left-[40px] not-italic top-[32px] w-[372px] whitespace-pre-wrap">
       <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#78be20] text-[56px] w-full">40%</p>
-      <p className="font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#5d5d5d] text-[20px] w-full">increase in engagement time (4.2 to 7.8 minutes average session).</p>
+      <p className="font-['Inter:Medium',sans-serif] font-medium relative shrink-0 text-[#5d5d5d] text-[20px] w-full">self-reported reduction in anxiety while navigating the prototype.</p>
     </div>
   );
 }

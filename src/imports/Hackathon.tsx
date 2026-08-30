@@ -259,7 +259,7 @@ function Frame82() {
       <Frame75 />
       <Frame19 />
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">
-        <p className="mb-0">We focused on one of the most time-consuming processes for both students and advisors — course planning and enrollment. By automating repetitive advising queries and providing instant access to reliable course data, we aimed to help students plan efficiently and reduce bottlenecks in advising support.</p>
+        <p className="mb-0">We focused on one of the most time-consuming processes for both students and advisors - course planning and enrollment. By automating repetitive advising queries and providing instant access to reliable course data, we aimed to help students plan efficiently and reduce bottlenecks in advising support.</p>
         <p className="mb-0">&nbsp;</p>
         <p>This alignment not only ensured our solution supported EdPlus’s mission to expand educational access but also showcased how AI-driven tools can improve operational efficiency while enhancing the student experience.</p>
       </div>
@@ -1330,7 +1330,7 @@ export default function Hackathon() {
               </div>
             </div>
             <div className="font-['Inter'] text-[#484848] text-[16px] leading-relaxed space-y-4">
-              <p>We focused on one of the most time-consuming processes for both students and advisors — course planning and enrollment. By automating repetitive advising queries and providing instant access to reliable course data, we aimed to help students plan efficiently and reduce bottlenecks in advising support.</p>
+              <p>We focused on one of the most time-consuming processes for both students and advisors - course planning and enrollment. By automating repetitive advising queries and providing instant access to reliable course data, we aimed to help students plan efficiently and reduce bottlenecks in advising support.</p>
               <p>This alignment not only ensured our solution supported EdPlus's mission to expand educational access but also showcased how AI-driven tools can improve operational efficiency while enhancing the student experience.</p>
             </div>
           </div>

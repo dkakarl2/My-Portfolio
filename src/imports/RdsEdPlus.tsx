@@ -377,21 +377,13 @@ function PuzzleSolidFull() {
   );
 }
 
-function TextHighlights() {
-  return (
-    <div className="bg-[#ffc627] content-stretch flex items-center justify-center px-[4px] relative shrink-0 w-[156px]" data-name="Text highlights">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#191919] text-[18px] tracking-[-0.54px] whitespace-nowrap">
-        <p className="leading-[24px]">15+ components</p>
-      </div>
-    </div>
-  );
-}
-
 function Frame26() {
   return (
-    <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[156px]">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full not-italic relative shrink-0 text-[#5d5d5d] text-[18px] w-[min-content] whitespace-pre-wrap">Designed and documented</p>
-      <TextHighlights />
+    <div className="flex flex-col gap-[4px] relative shrink-0 w-[156px]">
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] text-[#5d5d5d] text-[18px] whitespace-pre-wrap">Designed and documented</p>
+      <div className="bg-[#ffc627] flex items-center justify-center px-[4px] w-fit">
+        <span className="font-['Inter:Bold',sans-serif] font-bold text-[#191919] text-[18px] tracking-[-0.54px]">15+ components</span>
+      </div>
     </div>
   );
 }
@@ -428,26 +420,11 @@ function UniversalAccessSolidFull() {
   );
 }
 
-function TextHighlights1() {
-  return (
-    <div className="bg-[#ffc627] content-stretch flex items-center px-[4px] relative shrink-0 w-[105px]" data-name="Text highlights">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#191919] text-[18px] tracking-[-0.54px] whitespace-nowrap">
-        <p className="leading-[24px]">WCAG 2.2</p>
-      </div>
-    </div>
-  );
-}
-
 function Frame28() {
   return (
-    <div className="content-start flex flex-wrap gap-[0px_3px] items-start relative shrink-0 w-[218px]">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#5d5d5d] text-[18px]">{`Ensure `}</p>
-      <TextHighlights1 />
-      <p className="font-['Inter:Regular',sans-serif] font-['SF_Pro:Medium',sans-serif] font-[510] font-normal leading-[0] not-italic relative shrink-0 text-[#5d5d5d] text-[0px] text-[18px] w-[218px] whitespace-pre-wrap" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <span className="leading-[normal]">{`accessibility `}</span>
-        <span className="leading-[normal]">compliance across all states</span>
-      </p>
-    </div>
+    <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.4] text-[#5d5d5d] text-[18px] w-[218px] whitespace-pre-wrap shrink-0">
+      Ensure <span className="bg-[#ffc627] font-['Inter:Bold',sans-serif] font-bold text-[#191919] px-[4px] tracking-[-0.54px] inline-block mb-[2px]">WCAG 2.2</span> accessibility compliance across all states
+    </p>
   );
 }
 
@@ -483,23 +460,11 @@ function BadgeCheckSolidFull() {
   );
 }
 
-function TextHighlights2() {
-  return (
-    <div className="bg-[#ffc627] content-stretch flex items-center px-[4px] relative shrink-0 w-[105px]" data-name="Text highlights">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#191919] text-[18px] tracking-[-0.54px] whitespace-nowrap">
-        <p className="leading-[24px]">Design QA</p>
-      </div>
-    </div>
-  );
-}
-
 function Frame29() {
   return (
-    <div className="content-start flex flex-wrap gap-[0px_4px] items-start relative shrink-0 w-[232px]">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#5d5d5d] text-[18px]">Conduct</p>
-      <TextHighlights2 />
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#5d5d5d] text-[18px] w-[232px] whitespace-pre-wrap">{`between Figma & Storybook, verifying accuracy & consistency.`}</p>
-    </div>
+    <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.4] text-[#5d5d5d] text-[18px] w-[232px] whitespace-pre-wrap shrink-0">
+      Conduct <span className="bg-[#ffc627] font-['Inter:Bold',sans-serif] font-bold text-[#191919] px-[4px] tracking-[-0.54px] inline-block mb-[2px]">Design QA</span> between Figma & Storybook, verifying accuracy & consistency.
+    </p>
   );
 }
 
@@ -535,26 +500,11 @@ function RobotSolidFull() {
   );
 }
 
-function TextHighlights3() {
-  return (
-    <div className="bg-[#ffc627] content-stretch flex items-center px-[4px] relative shrink-0 w-[123px]" data-name="Text highlights">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#191919] text-[18px] tracking-[-0.54px] whitespace-nowrap">
-        <p className="leading-[24px]">Custom GPT</p>
-      </div>
-    </div>
-  );
-}
-
 function Frame30() {
   return (
-    <div className="content-start flex flex-wrap gap-[0px_3px] items-start relative shrink-0 w-[233px]">
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#5d5d5d] text-[18px]">Created</p>
-      <TextHighlights3 />
-      <p className="font-['Inter:Regular',sans-serif] font-['SF_Pro:Medium',sans-serif] font-[510] font-normal leading-[0] not-italic relative shrink-0 text-[#5d5d5d] text-[0px] text-[18px] w-[233px] whitespace-pre-wrap" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <span className="leading-[normal]">{`Accessibility Checker, `}</span>
-        <span className="leading-[normal]">trained with WCAG 2.2 + ASU standards.</span>
-      </p>
-    </div>
+    <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.4] text-[#5d5d5d] text-[18px] w-[233px] whitespace-pre-wrap shrink-0">
+      Created <span className="bg-[#ffc627] font-['Inter:Bold',sans-serif] font-bold text-[#191919] px-[4px] tracking-[-0.54px] inline-block mb-[2px]">Custom GPT</span> Accessibility Checker, trained with WCAG 2.2 + ASU standards.
+    </p>
   );
 }
 
@@ -580,8 +530,8 @@ function Frame6() {
 
 function GearCodeSolidFull() {
   return (
-    <div className="h-[61px] relative shrink-0 w-[59.778px]" data-name="gear-code-solid-full">
-      <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 59.7784 61">
+    <div className="relative shrink-0 size-[60px]" data-name="gear-code-solid-full">
+      <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 60 60">
         <g id="gear-code-solid-full">
           <path d={svgPaths.p38982300} fill="var(--fill-0, #191919)" id="Vector" />
         </g>
@@ -590,33 +540,11 @@ function GearCodeSolidFull() {
   );
 }
 
-function TextHighlights4() {
-  return (
-    <div className="absolute bg-[#ffc627] content-stretch flex items-center left-[-0.28px] px-[4px] top-[73.05px] w-[107px]" data-name="Text highlights">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#191919] text-[18px] tracking-[-0.54px] whitespace-nowrap">
-        <p className="leading-[24px]">Scalability</p>
-      </div>
-    </div>
-  );
-}
-
-function TextHighlights5() {
-  return (
-    <div className="absolute bg-[#ffc627] content-stretch flex items-center left-[79.72px] px-[4px] top-[46.05px] w-[130px]" data-name="Text highlights">
-      <div className="flex flex-col font-['Inter:Bold',sans-serif] font-bold justify-center leading-[0] not-italic relative shrink-0 text-[#191919] text-[18px] tracking-[-0.54px] whitespace-nowrap">
-        <p className="leading-[24px]">{`flexibility and `}</p>
-      </div>
-    </div>
-  );
-}
-
 function Frame11() {
   return (
-    <div className="h-[105px] relative shrink-0 w-[225px]">
-      <p className="absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-0 not-italic text-[#5d5d5d] text-[18px] top-0 w-[225px] whitespace-pre-wrap">Partnered with developers to refine props and states, ensuring</p>
-      <TextHighlights4 />
-      <TextHighlights5 />
-    </div>
+    <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.4] text-[#5d5d5d] text-[18px] w-[225px] whitespace-pre-wrap shrink-0">
+      Partnered with developers to refine props and states, ensuring <span className="bg-[#ffc627] font-['Inter:Bold',sans-serif] font-bold text-[#191919] px-[4px] tracking-[-0.54px] inline-block mb-[2px]">flexibility and</span> <span className="bg-[#ffc627] font-['Inter:Bold',sans-serif] font-bold text-[#191919] px-[4px] tracking-[-0.54px] inline-block mt-[2px]">Scalability</span>
+    </p>
   );
 }
 
@@ -1370,7 +1298,7 @@ export default function RdsEdPlus() {
           <div className="space-y-6">
             <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-2">Component Creation</h2>
             <p className="font-['Inter'] text-[#484848] text-base">
-              This was the heart of my contribution—designing, testing, and documenting reusable components.
+              This was the heart of my contribution - designing, testing, and documenting reusable components.
             </p>
 
             <ul className="grid grid-cols-1 gap-3">

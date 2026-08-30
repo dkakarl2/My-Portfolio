@@ -1,46 +1,83 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 
 export function useScrollAnimation() {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
   useEffect(() => {
-    // CRITICAL: Only animate elements INSIDE [data-case-study-content].
-    // Never query the entire document — that would break fixed-position UI
-    // elements like ScrollToTop, AIAssistant, etc.
+    // Respect prefers-reduced-motion user preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     const container = document.querySelector('[data-case-study-content]');
     if (!container) return;
 
-    const textSelectors = 'p, h1, h2, h3, h4, h5, h6, li, span, div[class*="text-"], img';
-    const elements = container.querySelectorAll(textSelectors);
+    // Target case-study text elements for subtle scroll reveal
+    const targetSelectors = [
+      '.bg-\\[\\#fafafa\\] h2',
+      '.bg-\\[\\#fafafa\\] p',
+      'h2.border-b',
+      'h4',
+      'p.text-base',
+      'p.text-sm',
+      'div.text-2xl.font-bold',
+      'span.text-2xl',
+      'span.text-xs.uppercase',
+      'span.text-xs.tracking-wider',
+      '.text-\\[40px\\]',
+      '.font-\\[\\\'Inter\\:Bold\\\'\\,sans-serif\\].text-\\[24px\\]',
+      '.font-\\[\\\'SF_Pro_Display\\:Bold\\\'\\,sans-serif\\].text-\\[24px\\]'
+    ].join(', ');
 
+    const elements = Array.from(container.querySelectorAll(targetSelectors)) as HTMLElement[];
+
+    // Exclude navigation, footer, fixed UI overlays, buttons, and images
+    const validElements = elements.filter(el => {
+      if (
+        el.closest('nav') ||
+        el.closest('footer') ||
+        el.closest('[data-scroll-to-top]') ||
+        el.closest('button') ||
+        el.tagName === 'IMG'
+      ) {
+        return false;
+      }
+      return true;
+    });
+
+    if (validElements.length === 0) return;
+
+    // Group elements by immediate parent container to set subtle sequential stagger delays (0ms, 90ms, 180ms...)
+    const parentMap = new Map<HTMLElement, number>();
+
+    validElements.forEach(el => {
+      const parent = el.parentElement || container;
+      const count = parentMap.get(parent as HTMLElement) || 0;
+      el.style.setProperty('--reveal-delay', `${Math.min(count, 4)}`); // Cap stagger delay to max 4 items (360ms)
+      parentMap.set(parent as HTMLElement, count + 1);
+      el.classList.add('cs-reveal');
+    });
+
+    // IntersectionObserver to trigger reveal once when ~15% of element enters viewport
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-visible');
+            entry.target.classList.add('cs-revealed');
             observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: '-50px',
-      },
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px'
+      }
     );
 
-    elements.forEach((element, index) => {
-      const hasText = (element.textContent?.trim().length ?? 0) > 0;
-      const isImage = element.tagName === 'IMG';
-
-      if (hasText || isImage) {
-        element.classList.add('fade-in-initial');
-        const delay = Math.min(index * 0.05, 0.5);
-        (element as HTMLElement).style.transitionDelay = `${delay}s`;
-        observer.observe(element);
-      }
+    const rafId = requestAnimationFrame(() => {
+      validElements.forEach(el => observer.observe(el));
     });
 
     return () => {
+      cancelAnimationFrame(rafId);
       observer.disconnect();
     };
   }, []);

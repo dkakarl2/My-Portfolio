@@ -22,7 +22,7 @@ export function HackathonNextProjects() {
         <Link to="/edufund-case-study" className="group relative block w-full max-w-[420px] transition-all duration-300 hover:scale-[1.02] hover:drop-shadow-lg">
            <img 
              src={imgEduFundProject} 
-             alt="EduFund - Internship, 2024" 
+             alt="EduFund - Fintech Product Design, 2024" 
              className="w-full h-auto object-contain"
            />
         </Link>

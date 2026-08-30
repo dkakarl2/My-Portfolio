@@ -99,7 +99,7 @@ export function EdPlusHoverCard() {
       </div>
 
       {/* Text content inside white panel */}
-      <div className="absolute content-stretch flex flex-col font-['Inter'] font-medium gap-[73px] h-[160px] items-start leading-[normal] left-[65.65px] not-italic top-[263.18px] w-auto">
+      <div className="absolute content-stretch flex flex-col font-['Manrope'] font-medium gap-[73px] h-[160px] items-start leading-[normal] left-[65.65px] not-italic top-[263.18px] w-auto">
         <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-[20px] w-[152.056px]">
           <p className="relative shrink-0 text-black w-full">Hackathon</p>
           <p className="relative shrink-0 text-[#797979] w-full">24 hours</p>

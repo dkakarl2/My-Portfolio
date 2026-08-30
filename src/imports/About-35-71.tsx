@@ -51,7 +51,7 @@ function Frame() {
 function Frame4() {
   return (
     <div className="absolute content-stretch flex items-center left-[834px] top-[583px] w-[437px]">
-      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] font-['Inter:Medium',sans-serif] font-medium leading-[0] not-italic relative shrink-0 text-[#747474] text-[24px] w-[437px]">
+      <p className="css-4hzbpn font-['Caveat_Brush:Regular',sans-serif] font-medium leading-[0] not-italic relative shrink-0 text-[#747474] text-[24px] w-[437px]">
         <span className="leading-[normal]">{`An architecture mindset means I think `}</span>
         <span className="leading-[normal] text-[#191919]">about foundations, edge cases, and how things hold up over time.</span>
       </p>
@@ -222,7 +222,7 @@ function Frame16() {
 export default function About() {
   return (
     <div className="bg-white relative size-full" data-name="About">
-      <p className="absolute css-4hzbpn font-['Inter:Bold',sans-serif] font-bold leading-[50px] left-[calc(50%-371px)] not-italic text-[48px] text-black top-[417px] w-[743px]">Because form follows function, I design systems that hold the experience together.</p>
+      <p className="absolute css-4hzbpn font-['Manrope',sans-serif] font-bold leading-[50px] left-[calc(50%-371px)] not-italic text-[48px] text-black top-[417px] w-[743px]">Because form follows function, I design systems that hold the experience together.</p>
       <Frame />
       <Group1 />
       <div className="absolute h-[92px] left-[111px] pointer-events-none top-[696px] w-[449px]" data-name="image 57">

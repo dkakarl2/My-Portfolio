@@ -4,17 +4,29 @@ export const portfolioData = {
   // Personal Information
   personal: {
     name: "Deepika",
+    fullName: "Deepika Prabhakar",
     title: "UX Designer",
     tagline: "I design digital products the way architects design spaces - with intention, usability, and flow.",
-    description: "Systems-minded UX designer and researcher, collaborative team player seeking internship opportunities.",
+    description: "Systems-minded UX designer and researcher, collaborative team player seeking full-time opportunities. I bring an architecture mindset to design - thinking about foundations, edge cases, and how things hold up over time.",
     focus: "Product designer focused on interaction logic, scalable usability, and consistent experience systems.",
     approach: "I design with feasibility in mind, clear flows, edge cases, and implementation-ready systems.",
     philosophy: "Because form follows function, I design systems that hold the experience together.",
-    status: "Open to conversation, projects and internship roles!",
+    status: "Open to conversation, projects and full-time roles!",
     contact: {
-      email: "deepika@example.com",
-      linkedin: "https://linkedin.com"
+      email: "dkakarl2@asu.edu",
+      linkedin: "https://www.linkedin.com/in/deepika111/",
+      resume: "https://drive.google.com/file/d/1-AMMFEqh1kL1o4waWsPSVXKjS_sT7zqS/view?usp=sharing"
     }
+  },
+
+  // Education
+  education: {
+    degree: "Master of Science in User Experience",
+    university: "Arizona State University (ASU)",
+    graduationYear: "2026 (Expected)",
+    previousDegree: "Bachelor of Architecture",
+    previousUniversity: "Anna University, India",
+    note: "Deepika transitioned from architecture to UX design, bringing spatial thinking, systems design, and human-centered thinking from her architectural background into digital product design."
   },
 
   // Projects / Case Studies
@@ -22,25 +34,44 @@ export const portfolioData = {
     {
       id: "mayo-clinic",
       title: "ChemoBuddy - Mayo Clinic",
-      description: "I designed ChemoBuddy with Mayo Clinic to turn overwhelming chemotherapy journeys into guided, understandable experiences.",
+      description: "ChemoBuddy: Patient companion app simplifying chemotherapy symptom tracking, awarded the Mayo Clinic Observership.",
       role: "UX and Interaction Designer",
       company: "Mayo Clinic",
-      timeline: "Fall 2025",
+      timeline: "Healthcare UX",
       duration: "10 Weeks",
       link: "/mayo-clinic-case-study",
-      details: "A companion tool for cancer patients undergoing chemotherapy. I led the UX research and design to help patients track symptoms, manage medications, and stay connected with their care team.",
-      impact: "Helping patients navigate complex medical treatments with clarity and support."
+      details: "ChemoBuddy is a companion tool for cancer patients undergoing chemotherapy. Deepika led the UX research and design to help patients track symptoms, manage medications, and stay connected with their care team. She conducted user interviews with oncology nurses and patients, created journey maps of the chemotherapy experience, designed information architecture for medication tracking, built interactive prototypes and ran usability tests, and iterated based on feedback from healthcare professionals.",
+      impact: "Awarded the Mayo Clinic Observership - a recognition of the project's impact and quality. The design helped patients navigate complex medical treatments with clarity and support, reducing information overwhelm and increasing patient confidence.",
+      achievements: ["Awardee of Mayo Clinic Observership"],
+      methods: ["User Research", "Journey Mapping", "Usability Testing", "Iterative Design", "Stakeholder Interviews"]
+    },
+    {
+      id: "edufund",
+      title: "EduFund - Fixed Deposit Experience",
+      description: "EduFund Fixed Deposits: A mobile-first investment flow that simplified financial onboarding, resulting in a 30% increase in user engagement.",
+      role: "Research and UX Designer",
+      company: "EduFund",
+      timeline: "Fintech Product Design",
+      duration: "2024",
+      link: "/edufund-case-study",
+      details: "At EduFund, the mission was to make educational financial planning simple and trustworthy. While mutual fund investments were already available, many parents were looking for safer, fixed-return options. Deepika designed the end-to-end Fixed Deposit experience in partnership with Shriram Finance, including competitive research across Mahindra Finance, Bajaj Finance, and Stable Money, simplified onboarding and trust-focused design, a guided mobile-first FD journey, and weekly sprint reviews with wireframe iterations.",
+      impact: "Shipped in 2024. Engagement increased by 30% and drop-off reduced by 15%. The FD integration successfully launched, offering a secure option for parents planning their children's education.",
+      achievements: ["Shipped in 2024", "30% engagement increase", "15% drop-off reduction"],
+      methods: ["Competitive Research", "User Research", "Wireframing", "Mobile-First Design", "Sprint Reviews", "Usability Testing"]
     },
     {
       id: "rocket-design-system",
       title: "Rocket Design System",
-      description: "I designed and scaled the Rocket Design System at ASU to turn digital experiences into consistent, accessible, and reusable interfaces.",
-      role: "UX and Design system designer",
+      description: "Rocket Design System: A WCAG 2.1 AA compliant UI library at ASU that standardized digital products and reduced QA cycles by 30%.",
+      role: "UX and Design System Designer",
       company: "EdPlus at ASU",
       timeline: "Design systems",
       duration: "2025 - Present",
-      details: "Building scalable design systems with components, variables, and spacing guidelines that ensure consistency across all EdPlus digital products.",
-      impact: "Creating systematic approaches to design that scale across multiple platforms."
+      link: "/rocket-design-system-case-study",
+      details: "Building and scaling a comprehensive design system with 10+ published components, design tokens (variables, spacing, typography), accessibility-first component architecture, documentation and usage guidelines for development teams, and systematic approaches to design that scale across multiple EdPlus digital platforms.",
+      impact: "Published 10+ components. Creating systematic approaches to design that scale across multiple platforms and ensure consistent, accessible experiences across all EdPlus digital products.",
+      achievements: ["Published 10+ components", "Currently active project"],
+      methods: ["Design Systems", "Component Architecture", "Accessibility Design", "Documentation", "Token Systems", "Cross-team Collaboration"]
     },
     {
       id: "edplus-hackathon",
@@ -51,19 +82,10 @@ export const portfolioData = {
       timeline: "Hackathon",
       duration: "24 hours",
       link: "/ed-plus-hackathon-case-study",
-      details: "Rapid prototyping and design thinking in a high-pressure, collaborative setting focused on educational technology solutions.",
-      impact: "Demonstrating ability to ideate, design, and deliver under tight deadlines."
-    },
-    {
-      id: "edufund",
-      title: "EduFund",
-      description: "I designed digital financial experiences at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.",
-      role: "Research and UX Designer",
-      company: "EduFund",
-      timeline: "Internship",
-      duration: "2024",
-      details: "Focused on fintech and educational finance, creating user-centered experiences for students and families navigating financial planning for education.",
-      impact: "Simplifying complex financial processes for educational planning."
+      details: "Rapid prototyping and design thinking in a high-pressure, collaborative setting focused on educational technology solutions. Demonstrated the ability to ideate, design, and deliver user-centered solutions under tight deadlines.",
+      impact: "Demonstrating ability to ideate, design, and deliver under tight deadlines.",
+      achievements: ["24-hour rapid delivery"],
+      methods: ["Rapid Prototyping", "Design Thinking", "Collaborative Ideation", "Time-boxed Design"]
     }
   ],
 
@@ -76,7 +98,16 @@ export const portfolioData = {
       "Prototyping",
       "Design Systems",
       "Usability Testing",
-      "Accessibility Design"
+      "Accessibility Design",
+      "Information Architecture",
+      "Wireframing",
+      "Visual Design",
+      "Journey Mapping",
+      "User Flows",
+      "Responsive Design",
+      "Mobile-First Design",
+      "AI-First Design",
+      "Designing for and with AI"
     ],
     tools: [
       "Figma",
@@ -85,7 +116,13 @@ export const portfolioData = {
       "UserTesting",
       "FigJam",
       "HTML/CSS",
-      "React (for prototyping)"
+      "React (for prototyping)",
+      "Miro",
+      "Adobe Creative Suite",
+      "Claude Code",
+      "Cursor",
+      "OpenAI Codex",
+      "Gemini Antigravity"
     ],
     methods: [
       "User Research",
@@ -93,8 +130,14 @@ export const portfolioData = {
       "Problem Definition",
       "Collaborative Ideation",
       "Rapid Prototyping",
-      "User Testing",
-      "Iterative Design"
+      "Usability Testing",
+      "Iterative Design",
+      "Competitive Analysis",
+      "Heuristic Evaluation",
+      "A/B Testing",
+      "Design Sprints",
+      "Stakeholder Interviews",
+      "Journey Mapping"
     ],
     strengths: [
       "Systems thinking",
@@ -104,30 +147,34 @@ export const portfolioData = {
       "Feasibility-focused design",
       "Clear user flows",
       "Edge case consideration",
-      "Implementation-ready systems"
+      "Implementation-ready systems",
+      "Cross-functional collaboration",
+      "Architecture mindset"
     ]
   },
 
-  // Experience
+  // Experience (Total: 1+ years combined industry experience)
   experience: [
     {
-      role: "UX and Design System Designer",
+      role: "UX Design Assistant Intern",
       company: "EdPlus at ASU",
       period: "2025 - Present",
-      description: "Designing and scaling the Rocket Design System for consistent, accessible digital experiences."
+      duration: "12 months",
+      description: "Designing and scaling the Rocket Design System for consistent, accessible digital experiences. Published 10+ components and design tokens."
     },
     {
       role: "UX and Interaction Designer",
       company: "Mayo Clinic",
       period: "Fall 2025",
       duration: "10 Weeks",
-      description: "Led UX research and design for ChemoBuddy, a chemotherapy companion app."
+      description: "Led UX research and design for ChemoBuddy, a chemotherapy companion app. Awarded Mayo Clinic Observership."
     },
     {
       role: "Research and UX Designer",
       company: "EduFund",
       period: "2024",
-      description: "Designed digital financial experiences for student finance and educational planning."
+      duration: "7 months",
+      description: "Designed digital financial experiences for student finance and educational planning. Shipped the Fixed Deposit feature, increasing engagement by 30%."
     }
   ],
 
@@ -150,16 +197,30 @@ export const portfolioData = {
       "UX Designer",
       "Product Designer",
       "UX Researcher",
-      "Design Systems Designer"
+      "Design Systems Designer",
+      "Interaction Designer"
     ],
     interests: [
       "Healthcare technology",
       "Educational platforms",
       "Fintech",
       "Meaningful products that improve lives",
-      "Internships",
+      "Full-time roles",
       "Contract work"
     ],
-    availability: "Open to conversation, projects and internship roles!"
+    availability: "Open to conversation, projects and full-time roles!"
+  },
+
+  // Navigation links for chatbot to reference
+  navigation: {
+    home: "/",
+    about: "/about",
+    mayoClinic: "/mayo-clinic-case-study",
+    edufund: "/edufund-case-study",
+    rocketDesignSystem: "/rocket-design-system-case-study",
+    edplusHackathon: "/ed-plus-hackathon-case-study",
+    contact: "/contact",
+    playground: "/#playground",
+    works: "/#work"
   }
 };

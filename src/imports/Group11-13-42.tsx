@@ -6,7 +6,7 @@ import imgImage2 from "figma:asset/e2a3f144890df13d498134c35c69a488c3384e95.png"
 function Frame() {
   return (
     <div className="content-stretch flex flex-col gap-[12px] items-start relative shrink-0 text-[20px] w-[152.056px]">
-      <p className="css-4hzbpn relative shrink-0 text-black w-full">Fall 2025</p>
+      <p className="css-4hzbpn relative shrink-0 text-black w-full">Healthcare UX</p>
       <p className="css-4hzbpn relative shrink-0 text-[#797979] w-full">10 Weeks</p>
     </div>
   );

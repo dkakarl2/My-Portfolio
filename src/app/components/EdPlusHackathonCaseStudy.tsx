@@ -6,16 +6,13 @@ import { Footer } from "@/app/components/Footer";
 import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 
 export function EdPlusHackathonCaseStudy() {
-  // Apply scroll animations to all text elements
   useScrollAnimation();
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden" data-case-study-content>
       <Navigation />
 
-      {/* Top Project Navigation */}
-
-      {/* Main content */}
+      {/* Main Content */}
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -31,7 +28,7 @@ export function EdPlusHackathonCaseStudy() {
         </motion.div>
       </motion.main>
 
-      {/* Footer - Wrapped to preserve layout spacing */}
+      {/* Footer Section */}
       <div className="lg:mt-[16700px] mt-0">
         <div className="flex justify-end pr-6 lg:pr-12 py-12">
           <CaseStudyNavArrows />
