@@ -8,8 +8,8 @@ import { Footer } from "@/app/components/Footer";
 import aisleVideo from "@/assets/Aisle video.mp4";
 import aisleHeroImage from "@/assets/Aisle hero.png";
 import aisleDashboardImage from "@/assets/Aisle dashboard.png";
-import aisleSearchImage from "@/assets/Aisle search.png";
-import aisleRecoveryImage from "@/assets/Aisle recovery.png";
+import aisleSearchImage from "@/assets/Aisle Search.png";
+import aisleRecoveryImage from "@/assets/Aisle Recovery.png";
 import aisleAuditTrailImage from "@/assets/Aisle Audit trail.png";
 
 // Placeholder component
