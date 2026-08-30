@@ -180,7 +180,7 @@ export function Navigation({ hideTopHeader = false }: { hideTopHeader?: boolean 
 
   const handleResumeClick = () => {
     window.open(
-      "https://drive.google.com/file/d/1-AMMFEqh1kL1o4waWsPSVXKjS_sT7zqS/view?usp=sharing",
+      "https://drive.google.com/file/d/1qxfm__-wXaeMcaJPTZ4RL98D4-clejkM/view?usp=sharing",
       "_blank",
       "noopener,noreferrer"
     );

@@ -32,7 +32,7 @@ export const Footer = memo(function Footer() {
           <div className="mt-12 flex items-center gap-10 text-sm font-bold text-[#111] pointer-events-auto">
             <a href="https://www.linkedin.com/in/deepika111/" target="_blank" rel="noopener noreferrer" className="hover:text-[#E74973] transition-colors">LinkedIn</a>
             <a href="https://mail.google.com/mail/?view=cm&to=dkakarl2@asu.edu" target="_blank" rel="noopener noreferrer" className="hover:text-[#E74973] transition-colors">Email</a>
-            <a href="https://drive.google.com/file/d/1-AMMFEqh1kL1o4waWsPSVXKjS_sT7zqS/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#E74973] transition-colors">Resume</a>
+            <a href="https://drive.google.com/file/d/1qxfm__-wXaeMcaJPTZ4RL98D4-clejkM/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-[#E74973] transition-colors">Resume</a>
           </div>
         </div>
 
