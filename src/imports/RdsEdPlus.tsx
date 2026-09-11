@@ -1,6 +1,5 @@
 import image_1c9b12e69f3c248f05ffdb1e0805ed4e92836839 from 'figma:asset/1c9b12e69f3c248f05ffdb1e0805ed4e92836839.png';
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import image_85df41b8503e0c1d73789aa9eca8e183b0810253 from 'figma:asset/85df41b8503e0c1d73789aa9eca8e183b0810253.png'
 import svgPaths from "./svg-guyf3ua2we";
 import imgComponent5 from "figma:asset/da71ab60a626af85354ff4eeeb327e6711792b31.png";
@@ -80,7 +79,7 @@ function Frame71() {
 
 function Component() {
   return (
-    <div className="absolute h-[632px] left-0 top-[392px] w-full" data-name="Component 5">
+    <div className="absolute h-[632px] left-0 top-[320px] w-full" data-name="Component 5">
       <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={rdsHeroImage} />
     </div>
   );
@@ -142,10 +141,7 @@ function Frame49() {
 function Frame48() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0">
-        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
       </div>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">The Rocket Design System (RDS) is a centralized design system used across ASU Online platforms and digital learning materials. It provides reusable components, design patterns, accessibility standards, and documentation that help teams create consistent, scalable, and user-friendly educational experiences.</p>
@@ -228,10 +224,7 @@ function Frame75() {
 function Frame78() {
   return (
     <div className="content-stretch flex items-center justify-center relative shrink-0">
-      <div className="content-stretch flex items-center justify-center gap-[12px] relative shrink-0">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-center relative shrink-0">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
       </div>
     </div>
@@ -302,10 +295,7 @@ function Frame76() {
 function Frame60() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">But… why do growing digital platforms struggle with consistency, scalability, and accessibility?</p>
@@ -325,10 +315,7 @@ function Frame67() {
 function Frame61() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[698px] whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Crafting Clarity Through Design Systems Thinking</p>
@@ -353,10 +340,7 @@ function Frame69() {
 function Frame63() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Design system library</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">{`Component Creation & Design QA`}</p>
@@ -892,10 +876,7 @@ function Frame15() {
 function Frame65() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`Research & System Audit`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Before building new components, we analyzed existing products.</p>
@@ -1028,10 +1009,7 @@ function Frame68() {
 function Frame66() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Documentation</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">The Component Playbook</p>
@@ -1094,10 +1072,7 @@ function Frame73() {
 function Frame70() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Key Learnings</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">It reminded me that great systems are living organisms, they evolve, adapt, and grow with every contribution.</p>
@@ -1119,7 +1094,7 @@ function Frame74() {
 
 function Frame77() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%-1px)] top-[1140px] w-[994px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%-1px)] top-[1024px] w-[994px]">
       <Frame76 />
       <Frame67 />
       <Frame69 />
@@ -1141,24 +1116,31 @@ export default function RdsEdPlus() {
           flexDirection: 'column',
           alignItems: 'flex-start',
           padding: '0px',
-          gap: '24px',
+          gap: '18px',
           position: 'absolute',
           width: '993px',
-          height: '114px',
-          left: '260px',
-          top: '180px'
+          height: 'auto',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '96px'
         }}>
-          <div className="flex flex-row justify-between items-start w-full">
-            <h1 className="font-['Inter:Bold',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
-              Rocket Design System
-            </h1>
-            <div className="mt-2 shrink-0">
-              <CaseStudyNavArrows />
-            </div>
-          </div>
-          <p className="font-['Inter'] text-[20px] leading-normal text-[#484848] m-0 p-0">
+          <h1 className="font-['Inter',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
+            Rocket Design System
+          </h1>
+          <p className="font-['Inter',sans-serif] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 p-0 w-full">
             Built at ASU EdPlus to transform digital products into consistent, accessible, and scalable design experiences.
           </p>
+          <div className="flex flex-row flex-wrap items-center gap-3 pt-1">
+            <span className="px-5 py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+              DESIGN SYSTEMS
+            </span>
+            <span className="px-5 py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+              10+ COMPONENTS
+            </span>
+            <span className="px-5 py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+              WCAG 2.1 AA
+            </span>
+          </div>
         </div>
         <Component />
         <Frame49 />
@@ -1167,25 +1149,26 @@ export default function RdsEdPlus() {
 
       {/* Mobile Layout - Responsive */}
       <div className="lg:hidden w-full flex flex-col items-center pb-32 bg-white">
-        {/* Mobile Header */}
-        <div className="w-full px-6 py-4 flex justify-between items-center bg-white/90 backdrop-blur sticky top-0 z-50 border-b border-gray-100">
-          <span className="font-['Caveat_Brush'] text-[28px] text-[#747474]">d.</span>
-        </div>
-
         {/* 1. Hero & Title */}
-        <div className="w-full px-6 pt-8 pb-12">
+        <div className="w-full px-6 pt-20 pb-12">
           <div className="flex flex-col gap-4 mb-6">
-            <div className="flex flex-row justify-between items-start w-full">
-              <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black">
-                Rocket Design System
-              </h1>
-              <div className="mt-1 shrink-0">
-                <CaseStudyNavArrows />
-              </div>
-            </div>
+            <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black">
+              Rocket Design System
+            </h1>
             <p className="font-['Inter'] text-lg leading-snug text-[#484848]">
               Built at ASU EdPlus to transform digital products into consistent, accessible, and scalable design experiences.
             </p>
+            <div className="flex flex-wrap gap-2 pt-1">
+              <span className="px-3.5 py-1.5 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+                DESIGN SYSTEMS
+              </span>
+              <span className="px-3.5 py-1.5 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+                10+ COMPONENTS
+              </span>
+              <span className="px-3.5 py-1.5 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+                WCAG 2.1 AA
+              </span>
+            </div>
           </div>
           <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-lg mb-8">
             <img src={rdsHeroImage} alt="Rocket Design System Hero" className="w-full h-full object-cover" />

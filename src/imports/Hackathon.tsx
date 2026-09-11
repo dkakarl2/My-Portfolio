@@ -1,6 +1,5 @@
 import image_e3d50b5cce2131ac1f6f3d1314461f9619e0b0a2 from 'figma:asset/e3d50b5cce2131ac1f6f3d1314461f9619e0b0a2.png'
 import svgPaths from "./svg-nfe4j2hmq5";
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import Frame70VideoDemo from "./Frame70";
 import ScreenRecording from "./ScreenRecording";
 import Gif from "./Gif";
@@ -1225,25 +1224,37 @@ export default function Hackathon() {
       <div className="hidden lg:block relative size-full" data-name="Hackathon">
         {/* Hero heading with title, subtext, and badge */}
         <div
-          className="absolute flex flex-col items-start gap-[24px]"
-          style={{ left: '320px', top: '150px', width: '993px' }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            padding: '0px',
+            gap: '18px',
+            position: 'absolute',
+            width: '993px',
+            height: 'auto',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            top: '96px'
+          }}
         >
-          {/* Title and subtext container */}
-          <div className="flex flex-col items-start gap-[16px] w-full">
-            <div className="flex flex-row justify-between items-start w-full">
-              <h1 className="font-['Inter'] font-bold text-[40px] leading-[50px] text-black">
-                AI Advising Assistant
-              </h1>
-              <div className="mt-2 shrink-0">
-                <CaseStudyNavArrows />
-              </div>
-            </div>
-            <p className="font-['Inter'] font-normal text-[20px] leading-[24px] text-[#484848] w-full">
-              Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
-            </p>
+          <h1 className="font-['Inter',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
+            AI Advising Assistant
+          </h1>
+          <p className="font-['Inter',sans-serif] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 p-0 w-full">
+            Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
+          </p>
+          <div className="flex flex-row flex-wrap items-center gap-3 pt-1">
+            <span className="px-5 py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+              EDPLUS HACKATHON
+            </span>
+            <span className="px-5 py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+              24-HOUR SPRINT
+            </span>
+            <span className="px-5 py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+              AI ADVISING
+            </span>
           </div>
-          {/* Badge */}
-
         </div>
         <div className="absolute left-0 top-[380px] w-full">
           <HackathonHero />
@@ -1256,22 +1267,24 @@ export default function Hackathon() {
       <div className="lg:hidden w-full flex flex-col items-center pb-16 bg-white">
 
         {/* 1. Hero / Title */}
-        <div className="w-full px-6 pt-24 pb-8 flex flex-col gap-6">
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-row justify-between items-start w-full">
-              <h1 className="font-['Inter'] font-bold text-[28px] leading-tight text-black">
-                AI Advising Assistant
-              </h1>
-              <div className="mt-1 shrink-0">
-                <CaseStudyNavArrows />
-              </div>
-            </div>
-            <p className="font-['Inter'] font-normal text-[16px] leading-[22px] text-[#484848]">
-              Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
-            </p>
+        <div className="w-full px-6 pt-20 pb-8 flex flex-col gap-4">
+          <h1 className="font-['Inter',sans-serif] font-bold text-3xl leading-tight text-black m-0 p-0">
+            AI Advising Assistant
+          </h1>
+          <p className="font-['Inter',sans-serif] text-lg text-[#484848] leading-snug m-0 p-0">
+            Built an AI-powered advising assistant for Arizona State University to simplify course selection and academic planning for students.
+          </p>
+          <div className="flex flex-wrap gap-2 pt-1 mb-2">
+            <span className="px-3.5 py-1.5 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+              EDPLUS HACKATHON
+            </span>
+            <span className="px-3.5 py-1.5 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+              24-HOUR SPRINT
+            </span>
+            <span className="px-3.5 py-1.5 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+              AI ADVISING
+            </span>
           </div>
-          {/* Badge */}
-
         </div>
 
         {/* Hero Image */}

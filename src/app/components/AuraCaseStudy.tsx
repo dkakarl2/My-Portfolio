@@ -1,7 +1,6 @@
 import { Navigation } from "@/app/components/Navigation";
 import { motion } from "motion/react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import { Footer } from "@/app/components/Footer";
 import { ExternalLink } from "lucide-react";
 import FigmaAuraCaseStudy from "@/imports/AuraCaseStudy/index";
@@ -91,7 +90,25 @@ export function AuraCaseStudy() {
 
   // Reusable responsive layout for Recruiter mode and mobile Explorer view
   const renderResponsiveLayout = () => (
-    <div className="pb-16 space-y-16 font-['Manrope',sans-serif]">
+    <div className="pb-16 space-y-12 font-['Manrope',sans-serif]">
+      {/* 1. Hero & Title */}
+      <div className="w-full px-6 pt-20 pb-4">
+        <h1 className="font-['Inter',sans-serif] font-bold text-3xl leading-tight text-black mb-4">
+          AURA
+        </h1>
+        <p className="font-['Inter',sans-serif] text-lg text-[#484848] leading-snug mb-4">
+          AURA gives workplaces an emotional layer, a consensual, AI-powered presence system that tells you if someone is open before you approach.
+        </p>
+        <div className="flex flex-wrap gap-2 pt-1 mb-4">
+          <span className="px-3.5 py-1.5 rounded-full border border-[#bf6264] bg-[rgba(191,98,100,0.18)] text-[#bf6264] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+            Figbuild Hackathon
+          </span>
+          <span className="px-3.5 py-1.5 rounded-full border border-[#bf6264] bg-[rgba(191,98,100,0.18)] text-[#bf6264] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+            Built in 72hr
+          </span>
+        </div>
+      </div>
+
       {/* Intro Hero Video - Matching Explorer Section Height (632px) and Full Width */}
       <div className="relative w-full h-[360px] sm:h-[480px] lg:h-[632px] overflow-hidden bg-black/5">
         <video
@@ -364,9 +381,6 @@ export function AuraCaseStudy() {
 
       {/* Footer Section */}
       <div className="mt-16 relative z-10 bg-white">
-        <div className="flex justify-end pr-6 lg:pr-12 py-12">
-          <CaseStudyNavArrows />
-        </div>
         <Footer />
       </div>
     </div>

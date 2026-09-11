@@ -89,28 +89,70 @@ const baseItems: PlaygroundItemData[] = [
 
 export function Playground() {
   const [cols, setCols] = useState(0);
+  const [numCells, setNumCells] = useState(1200);
+  const [activeTouchIdx, setActiveTouchIdx] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  // 3000 cells to cover even very large screens with 40x40 squares
-  const numCells = 3000; 
+  const touchTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const updateCols = () => {
+    const updateDimensions = () => {
       if (containerRef.current) {
-        setCols(Math.floor(containerRef.current.offsetWidth / 40));
+        const w = containerRef.current.offsetWidth || window.innerWidth;
+        const h = containerRef.current.offsetHeight || window.innerHeight;
+        const c = Math.floor(w / 40);
+        const r = Math.ceil(h / 40) + 1;
+        setCols(c);
+        // Only render the cells needed to cover the current viewport
+        setNumCells(Math.min(3000, Math.max(160, c * r)));
       }
     };
     
-    // Initial measurement
-    updateCols();
-    
-    // Measure on resize
-    window.addEventListener('resize', updateCols);
-    return () => window.removeEventListener('resize', updateCols);
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+      if (touchTimerRef.current) clearTimeout(touchTimerRef.current);
+    };
   }, []);
+
+  const handleTouch = (clientX: number, clientY: number) => {
+    if (touchTimerRef.current) {
+      clearTimeout(touchTimerRef.current);
+      touchTimerRef.current = null;
+    }
+    const target = document.elementFromPoint(clientX, clientY);
+    const cellEl = target?.closest('[data-playground-cell]');
+    if (cellEl) {
+      const idxStr = cellEl.getAttribute('data-cell-index');
+      if (idxStr !== null) {
+        const idx = parseInt(idxStr, 10);
+        if (!isNaN(idx)) {
+          setActiveTouchIdx(idx);
+        }
+      }
+    }
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length > 0) {
+      handleTouch(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length > 0) {
+      handleTouch(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    // Keep revealed briefly so it doesn't abruptly vanish, then fade smoothly
+    touchTimerRef.current = setTimeout(() => {
+      setActiveTouchIdx(null);
+    }, 1000);
+  };
   
   const gridCells = useMemo(() => {
-    // If we haven't measured the container yet, return an empty array to avoid hydration/layout mismatch
     if (cols === 0) return Array(numCells).fill(baseItems[0]);
 
     const cells: PlaygroundItemData[] = [];
@@ -137,8 +179,6 @@ export function Playground() {
       
       // Filter out forbidden items
       const available = baseItems.filter(item => !forbidden.has(item));
-      
-      // If strict separation forbids all items (very rare with 34 items), fallback to all items
       const candidates = available.length > 0 ? available : baseItems;
       
       cells.push(candidates[Math.floor(Math.random() * candidates.length)]);
@@ -148,29 +188,43 @@ export function Playground() {
   }, [cols, numCells]);
 
   return (
-    // Flex-wrap container ensuring exactly 40px x 40px squares, no gaps
-    <div ref={containerRef} className="w-full h-full flex flex-wrap content-start">
-      {gridCells.map((item, idx) => (
-        <div 
-          key={idx} 
-          className="relative w-[40px] h-[40px] group border-r border-b border-[#80808012]"
-        >
-          {/* Inner expanding box (Pure GPU-accelerated transition using scale and opacity) */}
+    // Flex-wrap container with touch-none for gesture handling
+    <div 
+      ref={containerRef} 
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchEnd}
+      className="w-full h-full flex flex-wrap content-start touch-none select-none"
+    >
+      {gridCells.map((item, idx) => {
+        const isTouchActive = activeTouchIdx === idx;
+        return (
           <div 
-            className="absolute -left-[140px] -top-[130px] w-[320px] h-[300px] bg-transparent
-                       transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                       opacity-0 scale-[0.5] group-hover:opacity-100 group-hover:scale-100
-                       z-0 group-hover:z-50 
-                       flex flex-col justify-end pointer-events-none
-                       origin-center will-change-[transform,opacity]"
+            key={idx} 
+            data-playground-cell="true"
+            data-cell-index={idx}
+            className="relative w-[40px] h-[40px] group border-r border-b border-[#80808012]"
           >
-            {/* Content only visible on hover */}
-            <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-               <img src={item.src} className="max-w-full max-h-full object-contain drop-shadow-2xl" alt={item.title} />
+            {/* Inner expanding box (Pure GPU-accelerated transition using scale and opacity) */}
+            <div 
+              className={`absolute -left-[120px] -top-[110px] w-[280px] h-[260px] sm:-left-[140px] sm:-top-[130px] sm:w-[320px] sm:h-[300px] bg-transparent
+                         transition-all duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+                         flex flex-col justify-end pointer-events-none
+                         origin-center will-change-[transform,opacity] ${
+                           isTouchActive
+                             ? 'opacity-100 scale-100 z-50'
+                             : 'opacity-0 scale-[0.5] z-0 group-hover:opacity-100 group-hover:scale-100 group-hover:z-50'
+                         }`}
+            >
+              {/* Content visible on hover or touch */}
+              <div className="absolute inset-0 w-full h-full flex items-center justify-center p-2">
+                 <img src={item.src} className="max-w-full max-h-full object-contain drop-shadow-2xl" alt={item.title} />
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

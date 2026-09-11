@@ -3,7 +3,6 @@ import { Wrench, Search, AlertTriangle } from "lucide-react";
 import { motion, useInView, animate } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import { Footer } from "@/app/components/Footer";
 import aisleVideo from "@/assets/Aisle video.mp4";
 import aisleHeroImage from "@/assets/Aisle hero.png";
@@ -75,29 +74,29 @@ export function AisleCaseStudy() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative w-full"
       >
-        <div className="pb-16 space-y-16 lg:space-y-24 font-['Manrope',sans-serif]">
+        <div className="pb-16 font-['Manrope',sans-serif]">
           {/* HERO */}
-          <div className="w-full pt-16">
-            <div className="max-w-[994px] mx-auto px-6 pt-24 lg:pt-32 pb-4">
-              <h1 className="text-[36px] md:text-[44px] font-bold text-[#111111] tracking-tight mb-4 font-['Inter',sans-serif]">
+          <div className="w-full">
+            <div className="w-full max-w-[993px] mx-auto px-6 lg:px-0 pt-[96px] pb-4 flex flex-col items-start gap-[18px]">
+              <h1 className="font-['Inter',sans-serif] font-bold text-3xl lg:text-[40px] leading-tight text-black m-0 p-0">
                 AIsle - AI Agent File Manager
               </h1>
-              <p className="text-[15px] md:text-[18px] text-[#555555] leading-[1.6] max-w-4xl mb-8 font-['Inter',sans-serif]">
+              <p className="font-['Inter',sans-serif] font-normal text-lg lg:text-[20px] leading-[1.4] text-[#484848] m-0 p-0 w-full">
                 Designing the missing layer for multi-agent AI workflows, a unified project layer above individual AI platforms that organises, connects, and makes searchable everything those tools produce.
               </p>
-              <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-1.5 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-bold tracking-wider uppercase font-['Inter',sans-serif]">
+              <div className="flex flex-row flex-wrap items-center gap-3 pt-1">
+                <span className="px-3.5 py-1.5 lg:px-5 lg:py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] lg:text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
                   AI & AGENTS
                 </span>
-                <span className="px-4 py-1.5 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-bold tracking-wider uppercase font-['Inter',sans-serif]">
+                <span className="px-3.5 py-1.5 lg:px-5 lg:py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] lg:text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
                   WORKFLOW UX
                 </span>
-                <span className="px-4 py-1.5 rounded-full border border-gray-200 bg-white text-gray-500 text-[11px] font-bold tracking-wider uppercase font-['Inter',sans-serif]">
+                <span className="px-3.5 py-1.5 lg:px-5 lg:py-2 rounded-full border border-[#DCE2EA] bg-[#F8FAFC]/80 text-[#334155] text-[11px] lg:text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
                   SAAS PRODUCT
                 </span>
               </div>
             </div>
-            <div className="max-w-[1440px] mx-auto mt-10">
+            <div className="max-w-[1440px] mx-auto mt-10 mb-[72px]">
               <img src={aisleHeroImage} alt="AIsle Hero Visual" className="w-full h-auto object-cover" />
             </div>
           </div>
@@ -105,7 +104,7 @@ export function AisleCaseStudy() {
           <div className="max-w-[994px] mx-auto px-6 space-y-24">
             
             {/* OVERVIEW */}
-            <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6, ease: "easeOut" }} className="space-y-8 pt-8">
+            <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6, ease: "easeOut" }} className="space-y-8">
               <h2 className="text-[22px] font-bold text-black font-['Inter',sans-serif]">Overview</h2>
               <p className="text-[15px] md:text-[16px] text-[#555555] leading-[1.6] max-w-4xl font-['Inter',sans-serif]">
                 Designing the missing layer for multi-agent AI workflows, a unified project layer above individual AI platforms that organizes, connects, and makes searchable everything those tools produce.
@@ -854,9 +853,6 @@ export function AisleCaseStudy() {
 
       {/* Footer Section */}
       <div className="mt-16 relative z-10 bg-white border-t border-gray-100">
-        <div className="flex justify-end pr-6 lg:pr-12 py-12">
-          <CaseStudyNavArrows />
-        </div>
         <Footer />
       </div>
     </div>

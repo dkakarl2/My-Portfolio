@@ -50,7 +50,7 @@ export function ScrollToTop() {
     <div
       data-scroll-to-top="true"
       ref={containerRef}
-      className="fixed right-6 bottom-6 md:right-[45px] md:bottom-[45px] z-[99999] flex flex-col items-end"
+      className="fixed right-4 bottom-20 sm:right-6 sm:bottom-20 md:right-[45px] md:bottom-[45px] z-[99999] flex flex-col items-end"
       style={{
         position: 'fixed',
         zIndex: 99999,
@@ -62,10 +62,10 @@ export function ScrollToTop() {
     >
       <button
         onClick={scrollToTop}
-        className="w-14 h-14 bg-black rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform cursor-pointer border-none outline-none -translate-y-[50px] md:translate-y-0"
+        className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-transform cursor-pointer border-none outline-none"
         aria-label="Scroll to top"
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <svg width="20" height="20" className="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none">
           <path d="M12 8L6 14L7.41 15.41L12 10.83L16.59 15.41L18 14L12 8Z" fill="#FFFFFF" />
         </svg>
       </button>

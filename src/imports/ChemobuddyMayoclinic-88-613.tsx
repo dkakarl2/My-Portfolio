@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Map, HeartPulse, ShieldCheck, Trophy, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import videoChemoBuddyCover from '@/assets/Chemobuddy cover.mov';
 import videoChemobuddy from '@/assets/Chemobuddy video.mp4';
 import videoChemoWireframes from '@/assets/chemo wireframes.mp4';
@@ -138,16 +137,18 @@ function Component() {
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      className="absolute left-0 top-[400px] w-full object-cover rounded-2xl pointer-events-none select-none"
-      src={videoChemoBuddyCover}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="auto"
-    />
+    <div className="absolute h-[632px] left-0 top-[320px] w-full overflow-hidden rounded-2xl">
+      <video
+        ref={videoRef}
+        className="w-full h-full object-cover pointer-events-none select-none"
+        src={videoChemoBuddyCover}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+      />
+    </div>
   );
 }
 
@@ -374,8 +375,7 @@ function OverviewCards() {
 function Frame52() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
-      <div className="flex items-center gap-3">
-        <div className="w-3 h-3 rounded-full bg-black shadow-[0_0_8px_black] shrink-0" />
+      <div className="flex items-center">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
       </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
@@ -627,8 +627,7 @@ function Frame130() {
 function Frame133() {
   return (
     <div className="content-stretch flex items-center justify-center relative shrink-0">
-      <div className="flex items-center gap-3">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
       </div>
     </div>
@@ -869,8 +868,7 @@ function Frame100() {
       {/* Header */}
       <div className="flex flex-col gap-[24px] items-start justify-center w-full">
         <div className="flex items-center justify-center">
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+          <div className="flex items-center">
             <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic text-[#484848] text-[20px]">Results and impact</p>
           </div>
         </div>
@@ -933,8 +931,7 @@ function Frame131() {
 function Frame74() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">But….. why does chemotherapy often feel so emotionally and informationally overwhelming for patients?</p>
@@ -1263,8 +1260,7 @@ function Frame84() {
 function Frame75() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-2">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[28px] text-black w-full">Designing Clarity in a Complex Care Journey</p>
@@ -2077,8 +2073,7 @@ function Frame24() {
 function Frame81() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Literature review (Week 1 - 2)</p>
@@ -2327,8 +2322,7 @@ function Frame26() {
 function Frame90() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">{`Competitive analysis - Existing Oncology & Health Apps (Week 3)`}</p>
@@ -2429,9 +2423,8 @@ function Frame32() {
 function Frame94() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
-        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{` User research`}</p>
+      <div className="flex items-center mb-4">
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`User research`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Role-Play Testing with Oncology Mentor (Week 4-5)</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Because I did not have direct access to chemotherapy patients or caregivers, I conducted the user research phase under the ethical guidance of my oncology mentor, Dr. Umar. To ensure realism and clinical accuracy, I designed structured role-play sessions that mimicked authentic patient, caregiver interactions and decision-making moments during chemotherapy.</p>
@@ -2734,9 +2727,8 @@ function Frame93() {
 function Frame99() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
-        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` Data Synthesis & Findings`}</p>
+      <div className="flex items-center mb-4">
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Data Synthesis & Findings`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Affinity Mapping</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">
@@ -2775,9 +2767,8 @@ function Frame98() {
 function Frame102() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
-        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{` Data Synthesis & Findings`}</p>
+      <div className="flex items-center mb-4">
+        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Data Synthesis & Findings`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Personas</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">From the patterns identified during affinity mapping and mentor-led role-play sessions, I developed two key personas representing the primary users of ChemoBuddy, patients at different stages of chemotherapy with varying emotional, physical, and digital needs.</p>
@@ -2822,8 +2813,7 @@ function Frame101() {
 function Frame108() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Ideation & Concept Development`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Translating research insights into actionable design directions</p>
@@ -2871,8 +2861,7 @@ function Frame106() {
 function Frame123() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Design process</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Building an empathetic, accessible experience through iterative design</p>
@@ -2911,8 +2900,7 @@ function Frame122() {
 function Frame125() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Low fidelity wireframes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">From post-its to pixels - shaping the early experience</p>
@@ -2979,8 +2967,7 @@ function Frame35() {
 function Frame128() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Onboarding - A Gentle Start to a Complex Journey</p>
@@ -3159,8 +3146,7 @@ function Frame38() {
 function Frame139() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">{`Dashboard - Personalized Overview of Treatment & Daily Tasks`}</p>
@@ -3249,8 +3235,7 @@ function Frame41() {
 function Frame142() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Chatbot - Empathetic, Context-Aware Support</p>
@@ -3415,8 +3400,7 @@ function Frame44() {
 function Frame149() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Symptom Tracking - Simplifying Self-Monitoring Through Visual Design</p>
@@ -3587,8 +3571,7 @@ function Frame47() {
 function Frame156() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">{`Caregiver Access - Controlled Sharing for Safety & Support`}</p>
@@ -3672,8 +3655,7 @@ function Frame51() {
 function Frame159() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">User testing</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Listening, learning, and improving - shaping care through feedback</p>
@@ -4067,8 +4049,7 @@ function UsabilityTestingTabs() {
     <div id="nav-testing" className="w-full flex flex-col gap-8 my-4">
       {/* Usability Testing Section Header */}
       <div className="content-stretch flex flex-col gap-4 items-start justify-center not-italic relative shrink-0 w-full">
-        <div className="flex items-center gap-3">
-          <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+        <div className="flex items-center">
           <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] text-[#484848] text-[20px]">
             User testing
           </p>
@@ -4198,8 +4179,7 @@ function Frame57() {
 function Frame177() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Learnings</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">What the process taught me about designing for trust and vulnerability</p>
@@ -4628,8 +4608,7 @@ function Frame60() {
 function Frame184() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-3 h-3 rounded-full bg-[#484848] shadow-[0_0_8px_#484848] shrink-0" />
+      <div className="flex items-center mb-4">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Future enhancements</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Next steps toward integration and accessibility</p>
@@ -4665,7 +4644,7 @@ function SectionRevealWrapper({ children }: { children: React.ReactNode }) {
 
 function Frame132() {
   return (
-    <div className="relative mx-auto content-stretch flex flex-col gap-[144px] items-start pt-[1200px] pb-12 w-[1022px]">
+    <div className="relative mx-auto content-stretch flex flex-col gap-[144px] items-start pt-[1024px] pb-12 w-[1022px]">
       <SectionRevealWrapper><Frame131 /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame84 /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame85 /></SectionRevealWrapper>
@@ -4691,23 +4670,32 @@ export default function ChemobuddyMayoclinic() {
       {/* Desktop Layout - Preserved */}
       <div className="hidden lg:block relative min-h-0" data-name="Chemobuddy - Mayoclinic">
 
-        <div className="absolute flex flex-col items-start left-[calc(50%-496.5px)] top-[158px] w-[993px]">
-          <div className="flex flex-row justify-between items-start w-full mb-[16px]">
-            <h1 className="font-['Inter'] font-bold text-[40px] leading-tight text-black m-0">
-              ChemoBuddy
-            </h1>
-            <div className="mt-2">
-              <CaseStudyNavArrows />
-            </div>
-          </div>
-          <p className="font-['Inter'] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 mb-[24px]">
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          padding: '0px',
+          gap: '18px',
+          position: 'absolute',
+          width: '993px',
+          height: 'auto',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: '96px'
+        }}>
+          <h1 className="font-['Inter',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
+            ChemoBuddy
+          </h1>
+          <p className="font-['Inter',sans-serif] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 p-0 w-full">
             Developed in collaboration with Mayo Clinic to transform complex chemotherapy information into guided, easy-to-understand patient experiences.
           </p>
-          <div className="flex items-center justify-center px-6 py-3 bg-[#FBF4D8] border-[1.5px] border-[#DCC368] rounded-full gap-2">
-            <Trophy size={20} className="text-[#B59220]" fill="#FFC627" />
-            <span className="font-['Inter'] font-bold text-[#B59220] text-[16px]">
-              Awardee of Mayo Clinic Observership
-            </span>
+          <div className="flex flex-row flex-wrap items-center gap-3 pt-1">
+            <div className="flex items-center justify-center px-5 py-2 bg-[#FBF4D8] border border-[#DCC368] rounded-full gap-2 shadow-xs">
+              <Trophy size={16} className="text-[#B59220]" fill="#FFC627" />
+              <span className="font-['Inter',sans-serif] font-semibold text-[#B59220] text-[13px] tracking-wider uppercase">
+                Awardee of Mayo Clinic Observership
+              </span>
+            </div>
           </div>
         </div>
         <Component />
@@ -4716,24 +4704,20 @@ export default function ChemobuddyMayoclinic() {
 
       {/* Mobile Layout - Responsive */}
       <div className="lg:hidden w-full flex flex-col items-center pb-32 bg-white">
-        {/* Mobile Header */}
-        <div className="w-full px-6 py-4 flex justify-between items-center bg-white/90 backdrop-blur sticky top-0 z-50 border-b border-gray-100">
-          <span className="font-['Caveat_Brush'] text-[28px] text-[#747474]">d.</span>
-        </div>
-
         {/* 1. Overview */}
-        <div className="w-full px-6 pt-8 pb-8 bg-gradient-to-b from-[rgba(186,214,212,0.39)] to-[rgba(151,167,165,0.2)]">
-          <div className="flex flex-row justify-between items-start w-full mb-6">
-            <h1 className="font-['Inter'] font-bold text-3xl leading-tight text-black">
-              ChemoBuddy
-            </h1>
-            <div className="mt-1">
-              <CaseStudyNavArrows />
-            </div>
-          </div>
-          <p className="font-['Inter'] text-[#484848] text-lg leading-relaxed mb-6">
+        <div className="w-full px-6 pt-20 pb-8 bg-gradient-to-b from-[rgba(186,214,212,0.39)] to-[rgba(151,167,165,0.2)]">
+          <h1 className="font-['Inter',sans-serif] font-bold text-3xl leading-tight text-black mb-4">
+            ChemoBuddy
+          </h1>
+          <p className="font-['Inter',sans-serif] text-[#484848] text-lg leading-relaxed mb-4">
             Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.
           </p>
+          <div className="inline-flex items-center px-3.5 py-1.5 bg-[#FBF4D8] border border-[#DCC368] rounded-full gap-2 mb-6 shadow-xs">
+            <Trophy size={14} className="text-[#B59220]" fill="#FFC627" />
+            <span className="font-['Inter',sans-serif] font-semibold text-[#B59220] text-[11px] tracking-wider uppercase">
+              Awardee of Mayo Clinic Observership
+            </span>
+          </div>
 
           <div className="bg-white/60 p-6 rounded-xl space-y-4 mb-8">
             <h3 className="font-bold text-black mb-2">Key Features:</h3>
@@ -4787,8 +4771,7 @@ export default function ChemobuddyMayoclinic() {
           <div className="py-24 space-y-12"> {/* Added vertical padding to increase spacing above and below */}
             <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
               <div className="flex-1 space-y-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-2.5 h-2.5 rounded-full bg-[#484848]" />
+                <div className="flex items-center mb-2">
                   <h2 className="font-['Inter'] font-bold text-lg text-[#484848]">Role & Contribution</h2>
                 </div>
                 <h3 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black leading-snug">Designing Clarity in a Complex Care Journey</h3>

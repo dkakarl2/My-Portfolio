@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 // Define all case studies in order
 const caseStudies = [
-    { path: '/mayo-clinic-case-study', title: 'ChemoBuddy', shortTitle: 'Mayo Clinic' },
+    { path: '/mayo-clinic-case-study', title: 'ChemoBuddy', shortTitle: 'Mayo Clinic', aliases: ['/chemobuddy-case-study', '/chemobuddy'] },
     { path: '/aura-case-study', title: 'AURA', shortTitle: 'AURA' },
     { path: '/aisle-case-study', title: 'AIsle', shortTitle: 'AIsle' },
     { path: '/edufund-case-study', title: 'EduFund', shortTitle: 'EduFund' },
@@ -17,7 +17,9 @@ export function CaseStudyNavArrows() {
     const [isVisible, setIsVisible] = useState(true);
 
     // Find current case study index
-    const currentIndex = caseStudies.findIndex(cs => cs.path === location.pathname);
+    const currentIndex = caseStudies.findIndex(
+        cs => cs.path === location.pathname || (cs.aliases && cs.aliases.includes(location.pathname))
+    );
 
     // On case study pages, keep arrows visible alongside top-left Back button
     useEffect(() => {
@@ -38,7 +40,7 @@ export function CaseStudyNavArrows() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.9, y: -10 }}
                     transition={{ duration: 0.3, ease: 'easeInOut' }}
-                    className="fixed top-6 right-6 lg:top-8 lg:right-12 z-50 flex items-center gap-2 bg-[#f0f0f2]/90 backdrop-blur-xl p-1 px-3 rounded-[14px] shadow-md border border-[#e2e2e4] h-11"
+                    className="fixed top-5 right-4 sm:top-6 sm:right-6 lg:top-8 lg:right-12 z-50 flex items-center gap-1.5 sm:gap-2 bg-[#f0f0f2]/90 backdrop-blur-xl p-1 px-2.5 sm:px-3 rounded-[12px] sm:rounded-[14px] shadow-md border border-[#e2e2e4] h-10 sm:h-11"
                 >
                     {/* Previous Arrow */}
                     <Link

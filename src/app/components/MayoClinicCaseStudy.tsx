@@ -2,7 +2,6 @@ import ChemobuddyMayoclinic, { Frame8, Frame134, Frame9, Frame10, Frame11, Frame
 import { Navigation } from "@/app/components/Navigation";
 import { motion } from "motion/react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import { Footer } from "@/app/components/Footer";
 import { RecruiterCaseStudyHeader } from "@/app/components/RecruiterCaseStudyHeader";
 import { useMode } from "@/app/contexts/ModeContext";
@@ -181,9 +180,6 @@ export function MayoClinicCaseStudy() {
 
       {/* Footer Section */}
       <div className="mt-16">
-        <div className="flex justify-end pr-6 lg:pr-12 py-12">
-          <CaseStudyNavArrows />
-        </div>
         <Footer />
       </div>
     </div>

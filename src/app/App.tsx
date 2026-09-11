@@ -36,7 +36,7 @@ import imgEduFund2 from "figma:asset/64184af0c9ebee18abab8494831f8cc713d0485b.pn
 
 function AppContent() {
   const location = useLocation();
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(() => location.pathname === '/');
 
   useEffect(() => {
     // Skip intro if navigating to case study or about page
@@ -81,6 +81,7 @@ function AppContent() {
         {/* <Route path="/ai-assistant" element={<AIAssistant />} /> */}
 
       </Routes>
+
 
       {/* ScrollToTop should be the absolutely last element to ensure highest stacking context */}
       <ScrollToTop />

@@ -3,7 +3,6 @@ import { Navigation } from "@/app/components/Navigation";
 import { motion } from "motion/react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
 import { Footer } from "@/app/components/Footer";
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 
 export function RocketDesignSystemCaseStudy() {
   useScrollAnimation();
@@ -29,10 +28,7 @@ export function RocketDesignSystemCaseStudy() {
       </motion.main>
 
       {/* Footer Section */}
-      <div className="lg:mt-[6800px]">
-        <div className="flex justify-end pr-6 lg:pr-12 py-12">
-          <CaseStudyNavArrows />
-        </div>
+      <div className="lg:mt-[6684px]">
         <Footer />
       </div>
     </div>

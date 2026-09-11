@@ -14,9 +14,9 @@ export function PlaygroundPage() {
          <Playground />
       </div>
 
-      {/* Foreground Hero Content (pointer-events-none so we can hover through the gaps if needed, though hero text blocks it) */}
-      <main className="relative z-10 flex-1 flex flex-col justify-center items-center px-6 md:px-12 pointer-events-none">
-        <div className="text-center pointer-events-auto">
+      {/* Foreground Hero Content (pointer-events-none so touches and mouse pass directly to background grid) */}
+      <main className="relative z-10 flex-1 flex flex-col justify-center items-center px-6 md:px-12 pointer-events-none select-none">
+        <div className="text-center pointer-events-none">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

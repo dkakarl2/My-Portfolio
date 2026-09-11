@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import svgPaths from "./svg-9mk4eqkq47";
 import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
 import imgImage115 from "figma:asset/adf2f7f090fc9d8b0bc367bedff3d83b1ce9b693.png";
@@ -166,10 +165,7 @@ function Frame144() {
 function Frame143() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0">
-        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black">Overview</p>
       </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
@@ -320,10 +316,7 @@ function Frame182() {
 function Frame185() {
   return (
     <div className="content-stretch flex items-center justify-center relative shrink-0">
-      <div className="content-stretch flex items-center justify-center gap-[12px] relative shrink-0">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-center relative shrink-0">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px]">Results and impact</p>
       </div>
     </div>
@@ -391,10 +384,7 @@ function Frame183() {
 function Frame149() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[698px] whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Designing Clarity in a Complex Journey</p>
@@ -419,10 +409,7 @@ function Frame160() {
 function Frame150() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Context and Problem</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">But… why is something meant to feel secure often the most confusing step in financial planning?</p>
@@ -468,10 +455,7 @@ function Frame130() {
 function Frame154() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Research</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Before designing, I conducted deep research to understand both user needs and the financial product landscape.</p>
@@ -688,10 +672,7 @@ function Frame189() {
 function Frame155() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Ideation</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">User Flow Overview</p>
@@ -943,10 +924,7 @@ function Frame190() {
 function Frame156() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Ideation</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Investment Flow Design</p>
@@ -1118,10 +1096,7 @@ function Frame139() {
 function Frame163() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center relative shrink-0 w-full">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">High fidelity prototypes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Building Trust Through Design</p>
@@ -4980,10 +4955,7 @@ function Frame141() {
 function Frame152() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-[#484848] h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-[#484848] h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`Testing & Iterating`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Once high-fidelity designs were ready, we conducted internal usability testing</p>
@@ -5029,10 +5001,7 @@ function Frame193() {
 function Frame165() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Key Learnings</p>
       </div>
       <ol className="block font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full" style={{ listStyle: 'none' }}>
@@ -5064,10 +5033,7 @@ function Frame194() {
 function Frame166() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap mt-[0px] mr-[0px] mb-[64px] ml-[0px] pt-[0px] pr-[0px] pb-[64px] pl-[0px]">
-      <div className="content-stretch flex items-center justify-start gap-[12px] relative shrink-0 w-full">
-        <div className="bg-black h-[12px] relative rounded-[50px] shrink-0 w-[12px]">
-          <div className="bg-black h-[12px] opacity-[0.4] relative rounded-[50px] w-[12px] blur-[2px]" />
-        </div>
+      <div className="content-stretch flex items-center justify-start relative shrink-0 w-full">
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Final Reflection</p>
       </div>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">This project wasn’t just about adding a new feature, it was about helping parents make confident financial decisions for their children’s futures. By combining thoughtful UX, clear communication, and strong collaboration with financial partners, we created an experience that felt safe, simple, and empowering.</p>
@@ -5085,7 +5051,7 @@ function Frame195() {
 
 function Frame184() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%-1px)] top-[1140px] w-[994px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%-1px)] top-[1024px] w-[994px]">
       <Frame183 />
       <Frame160 />
       <Frame158 />
@@ -5109,139 +5075,32 @@ export default function EduFundFixedDeposit() {
         flexDirection: 'column',
         alignItems: 'flex-start',
         padding: '0px',
-        gap: '24px',
+        gap: '18px',
         position: 'absolute',
         width: '993px',
-        height: '181px',
-        left: '260px',
-        top: '150px'
+        height: 'auto',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        top: '96px'
       }}>
-        {/* Title & Subtext */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'flex-start',
-          padding: '0px',
-          gap: '16px',
-          width: '993px',
-          height: '114px',
-          flex: 'none',
-          order: 0,
-          alignSelf: 'stretch',
-          flexGrow: 0
-        }}>
-          <div className="flex flex-row justify-between items-start w-full">
-            <h1 style={{
-              width: 'auto',
-              flex: 1,
-              fontFamily: '"Manrope", sans-serif',
-              fontStyle: 'normal',
-              fontWeight: 700,
-              fontSize: '40px',
-              lineHeight: '50px',
-              color: '#000000',
-              margin: 0
-            }}>
-              EduFund’s Fixed deposit model
-            </h1>
-            <div className="mt-2 shrink-0">
-              <CaseStudyNavArrows />
-            </div>
-          </div>
-          <p style={{
-            width: '993px',
-            height: '48px',
-            fontFamily: '"Manrope", sans-serif',
-            fontStyle: 'normal',
-            fontWeight: 400,
-            fontSize: '20px',
-            lineHeight: '24px',
-            color: '#484848',
-            margin: 0
-          }}>
-            Digital financial experience at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys
-          </p>
-        </div>
-
-        {/* Badges */}
-        <div style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'flex-start',
-          padding: '0px',
-          gap: '24px',
-          width: '592px',
-          height: '43px',
-          flex: 'none',
-          order: 1,
-          flexGrow: 0
-        }}>
-          {/* Badge 1 */}
-          <div style={{
-            boxSizing: 'border-box',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '8px 24px',
-            gap: '10px',
-            width: 'max-content',
-            height: 'auto',
-            background: 'rgba(81, 206, 162, 0.25)',
-            border: '2px solid #51CEA2',
-            borderRadius: '24px',
-            flex: 'none',
-            order: 0,
-            flexGrow: 0
-          }}>
-            <span style={{
-              width: 'auto',
-              height: 'auto',
-              fontFamily: '"Manrope", sans-serif',
-              fontStyle: 'normal',
-              fontWeight: 700,
-              fontSize: '16px',
-              lineHeight: '19px',
-              color: '#0F6949',
-              whiteSpace: 'nowrap'
-            }}>Shipped in 2024</span>
-          </div>
-
-          {/* Badge 2 */}
-          <div style={{
-            boxSizing: 'border-box',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: '8px 24px',
-            gap: '10px',
-            width: 'max-content',
-            height: 'auto',
-            background: 'rgba(81, 206, 162, 0.25)',
-            border: '2px solid #51CEA2',
-            borderRadius: '24px',
-            flex: 'none',
-            order: 1,
-            flexGrow: 0
-          }}>
-            <span style={{
-              width: 'auto',
-              height: 'auto',
-              fontFamily: '"Manrope", sans-serif',
-              fontStyle: 'normal',
-              fontWeight: 700,
-              fontSize: '16px',
-              lineHeight: '19px',
-              color: '#0F6949',
-              whiteSpace: 'nowrap'
-            }}>Used by more than 250,000 families across India.</span>
-          </div>
+        <h1 className="font-['Inter',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
+          EduFund’s Fixed Deposit Model
+        </h1>
+        <p className="font-['Inter',sans-serif] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 p-0 w-full">
+          Digital financial experience at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.
+        </p>
+        <div className="flex flex-row flex-wrap items-center gap-3 pt-1">
+          <span className="px-5 py-2 rounded-full border border-[#51CEA2] bg-[rgba(81,206,162,0.18)] text-[#0F6949] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+            Shipped in 2024
+          </span>
+          <span className="px-5 py-2 rounded-full border border-[#51CEA2] bg-[rgba(81,206,162,0.18)] text-[#0F6949] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs">
+            250,000+ Families Across India
+          </span>
         </div>
       </div>
       <Frame144 />
       <Frame184 />
-      <div className="absolute h-[632px] left-0 top-[392px] w-full" data-name="image 16903">
+      <div className="absolute h-[632px] left-0 top-[320px] w-full" data-name="image 16903">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage16903} />
       </div>
     </div>

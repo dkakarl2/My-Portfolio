@@ -5042,7 +5042,7 @@ function Frame195() {
 
 function Frame184() {
   return (
-    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%-1px)] top-[1140px] w-[994px]">
+    <div className="-translate-x-1/2 absolute content-stretch flex flex-col gap-[144px] items-start left-[calc(50%-1px)] top-[1024px] w-[994px]">
       <Frame183 />
       <Frame160 />
       <Frame158 />
@@ -5065,7 +5065,7 @@ export default function EduFundFixedDeposit() {
       <p className="absolute font-['Inter:Bold',sans-serif] font-bold leading-[50px] left-[222px] not-italic text-[36px] text-black top-[185px] w-[993px] whitespace-pre-wrap">Digital financial experience at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.</p>
       <Frame144 />
       <Frame184 />
-      <div className="absolute h-[632px] left-0 top-[392px] w-[1440px]" data-name="image 16903">
+      <div className="absolute h-[632px] left-0 top-[320px] w-[1440px]" data-name="image 16903">
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgImage16903} />
       </div>
     </div>

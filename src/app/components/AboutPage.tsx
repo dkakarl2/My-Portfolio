@@ -22,16 +22,23 @@ export function AboutPage() {
   return (
     <div className="min-h-screen bg-white relative">
       <div className="overflow-x-hidden">
-        <Navigation hideTopHeader={false} />
-        
-        {/* Video Hero Section - Hidden for now */}
-        {/* <div className="pb-4">
-          <VideoHero />
-        </div> */}
+        <Navigation hideTopHeader={true} />
+
+        {/* Video Hero Section */}
+        <div className="w-full pt-4 pb-6 sm:pt-6 sm:pb-8 lg:pt-8 lg:pb-8 relative z-10 bg-white">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full"
+          >
+            <VideoHero />
+          </motion.div>
+        </div>
 
         {/* Light Interactive Hero Section */}
         <div 
-          className="w-full bg-[#FAFAFA] text-gray-900 relative z-10 pt-32 lg:pt-48 pb-20 lg:pb-32 rounded-b-[40px] lg:rounded-b-[60px] shadow-sm overflow-hidden border-b border-gray-100"
+          className="w-full bg-[#FAFAFA] text-gray-900 relative z-10 pt-16 lg:pt-24 pb-20 lg:pb-32 rounded-b-[40px] lg:rounded-b-[60px] shadow-sm overflow-hidden border-b border-gray-100"
         >
           {/* Subtle Background Pattern */}
           <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, black 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
@@ -88,7 +95,7 @@ export function AboutPage() {
 
                    {/* Subtitle */}
                    <motion.p 
-                     className="font-['Manrope'] text-lg lg:text-[20px] text-gray-600 max-w-lg leading-relaxed mb-10"
+                     className="font-['Manrope'] text-lg lg:text-[20px] text-gray-600 max-w-lg leading-relaxed mb-8"
                      initial={{ opacity: 0, y: 20 }}
                      animate={{ opacity: 1, y: 0 }}
                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}

@@ -275,6 +275,19 @@ export function CaseStudyNavigator() {
   const lastScrollY = useRef(0);
   const elemCacheRef = useRef<Map<string, HTMLElement>>(new Map());
   const navRef = useRef<HTMLElement>(null);
+  const activeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
+  // Auto-scroll active section pill into center of view on mobile/tablet
+  useEffect(() => {
+    if (activeBtnRef.current && scrollContainerRef.current) {
+      activeBtnRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
+  }, [activeSection]);
 
   // Track main navigation visibility (sync with Navigation.tsx logic)
   useEffect(() => {
@@ -421,7 +434,7 @@ export function CaseStudyNavigator() {
 
     let el = elemCacheRef.current.get(sec.id);
     if (!el || !document.body.contains(el)) {
-      const found = findSectionElement(sec.texts);
+      const found = findSectionElement(sec.texts, sec.id);
       if (found) {
         el = found;
         elemCacheRef.current.set(sec.id, found);
@@ -430,7 +443,8 @@ export function CaseStudyNavigator() {
 
     if (el) {
       const rect = el.getBoundingClientRect();
-      const targetY = rect.top + window.scrollY - 160; // 80px header + 50px nav bar + 30px padding
+      const isMobile = window.innerWidth < 768;
+      const targetY = rect.top + window.scrollY - (isMobile ? 75 : 140);
       smoothScrollTo(Math.max(0, targetY));
       setActiveSection(sec.label);
     }
@@ -442,25 +456,33 @@ export function CaseStudyNavigator() {
   const shouldShow = scrolledPastHero;
 
   // =========================================================================
-  // DESKTOP HORIZONTAL BAR – below header, full-width, pure inline styles
+  // RESPONSIVE NAVIGATOR:
+  // - Mobile: Floats at the bottom like a dock, leaving top bar clear for Back and Arrows
+  // - Desktop: Centers at the top between Back and Arrows
   // =========================================================================
   return (
     <nav
       ref={navRef}
-      className={`fixed top-6 lg:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
-        shouldShow ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
+      className={`fixed bottom-5 md:bottom-auto md:top-6 lg:top-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+        shouldShow
+          ? "opacity-100 translate-y-0 pointer-events-auto"
+          : "opacity-0 translate-y-6 md:-translate-y-4 pointer-events-none"
       }`}
       aria-label="Case study sections"
       data-case-study-nav
     >
-      <div className="h-11 flex items-center gap-1 sm:gap-1.5 p-1 bg-[#f0f0f2]/90 backdrop-blur-xl border border-[#e2e2e4] rounded-[14px] shadow-md max-w-[85vw] overflow-x-auto no-scrollbar">
+      <div 
+        ref={scrollContainerRef}
+        className="h-11 flex items-center gap-1 sm:gap-1.5 p-1 bg-[#f0f0f2]/90 backdrop-blur-xl border border-[#e2e2e4] rounded-[14px] shadow-lg max-w-[92vw] md:max-w-[85vw] overflow-x-auto no-scrollbar scroll-smooth"
+      >
         {displayedSections.map((sec) => {
           const isActive = activeSection === sec.label;
           return (
             <button
               key={sec.id}
+              ref={isActive ? activeBtnRef : null}
               onClick={() => handleSectionClick(sec)}
-              className={`px-3.5 py-1.5 rounded-[10px] text-[13px] font-medium transition-all duration-200 cursor-pointer whitespace-nowrap ${
+              className={`px-3.5 py-1.5 rounded-[10px] text-[13px] font-medium transition-all duration-200 cursor-pointer whitespace-nowrap shrink-0 ${
                 isActive
                   ? "bg-black text-white font-semibold shadow-xs"
                   : "text-[#555555] hover:text-black hover:bg-black/5"

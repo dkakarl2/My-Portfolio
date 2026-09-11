@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import EduFundFixedDepositDesktop from "@/imports/EduFundFixedDeposit-197-2063";
 import { Navigation } from "@/app/components/Navigation";
 import { Footer } from "@/app/components/Footer";
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
 import imgImage16903 from "figma:asset/7262f2bd5895888e15d48308002c4e7aa7b6e516.png";
@@ -33,31 +32,65 @@ export function EduFundCaseStudy() {
   useScrollAnimation();
 
   const [footerTop, setFooterTop] = useState(17500);
+  const [footerHeight, setFooterHeight] = useState(748);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Measure the exact position of the Final Reflection block
-    // so we can place the footer perfectly without a huge gap.
-    const checkHeight = () => {
+    // and exact height of Footer so there is zero extra space below.
+    const updateHeight = () => {
       const finalReflectionEl = document.getElementById("edufund-final-reflection");
-      if (finalReflectionEl) {
-        const container = finalReflectionEl.closest('.desktop-container');
-        if (container) {
-          const containerRect = container.getBoundingClientRect();
-          const finalRect = finalReflectionEl.getBoundingClientRect();
-          const distance = finalRect.bottom - containerRect.top;
-          if (distance > 0) {
-            setFooterTop(distance);
-          }
+      const container = containerRef.current;
+      if (finalReflectionEl && container) {
+        const containerRect = container.getBoundingClientRect();
+        const finalRect = finalReflectionEl.getBoundingClientRect();
+        const distance = finalRect.bottom - containerRect.top;
+        if (distance > 0) {
+          setFooterTop(distance);
+        }
+      }
+      if (footerRef.current) {
+        const h = footerRef.current.offsetHeight;
+        if (h > 0) {
+          setFooterHeight(h);
         }
       }
     };
-    
-    // Check after a short delay to allow fonts/images to load
-    const timeout = setTimeout(checkHeight, 100);
-    window.addEventListener('resize', checkHeight);
+
+    updateHeight();
+    const t1 = setTimeout(updateHeight, 100);
+    const t2 = setTimeout(updateHeight, 500);
+    const t3 = setTimeout(updateHeight, 1500);
+
+    let observer: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== 'undefined' && containerRef.current) {
+      observer = new ResizeObserver(() => {
+        updateHeight();
+      });
+      observer.observe(containerRef.current);
+      if (footerRef.current) {
+        observer.observe(footerRef.current);
+      }
+      const finalReflectionEl = document.getElementById("edufund-final-reflection");
+      if (finalReflectionEl) {
+        observer.observe(finalReflectionEl);
+      }
+    }
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(updateHeight);
+    }
+    window.addEventListener('resize', updateHeight);
+    window.addEventListener('load', updateHeight);
+
     return () => {
-      clearTimeout(timeout);
-      window.removeEventListener('resize', checkHeight);
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      if (observer) observer.disconnect();
+      window.removeEventListener('resize', updateHeight);
+      window.removeEventListener('load', updateHeight);
     };
   }, []);
 
@@ -73,12 +106,17 @@ export function EduFundCaseStudy() {
         className="relative"
       >
         {/* Desktop Layout - Using the Figma Import */}
-        <div className="desktop-container hidden lg:block relative w-full mx-auto overflow-hidden" style={{ minHeight: `${footerTop + 900}px` }}>
+        <div 
+          ref={containerRef}
+          className="desktop-container hidden lg:block relative w-full mx-auto overflow-hidden" 
+          style={{ height: `${footerTop + footerHeight}px` }}
+        >
           <EduFundFixedDepositDesktop />
-          <div className="absolute left-0 w-full z-10" style={{ top: `${footerTop}px` }}>
-            <div className="flex justify-end pr-12 py-12">
-              <CaseStudyNavArrows />
-            </div>
+          <div 
+            ref={footerRef}
+            className="absolute left-0 w-full z-10" 
+            style={{ top: `${footerTop}px` }}
+          >
             <Footer />
           </div>
         </div>
@@ -86,14 +124,20 @@ export function EduFundCaseStudy() {
         {/* Mobile Layout - Built from scratch */}
         <div className="lg:hidden w-full flex flex-col items-center pb-32 bg-white px-6">
           {/* 1. Hero & Title */}
-          <div className="w-full pt-8 pb-12">
-            <div className="flex justify-between items-start gap-4 mb-6">
-              <h1 className="font-['Manrope'] font-bold text-2xl leading-tight text-black flex-1">
-                Digital financial experience at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.
-              </h1>
-              <div className="mt-1 shrink-0">
-                <CaseStudyNavArrows />
-              </div>
+          <div className="w-full pt-20 pb-12">
+            <h1 className="font-['Inter',sans-serif] font-bold text-3xl leading-tight text-black mb-4">
+              EduFund’s Fixed Deposit Model
+            </h1>
+            <p className="font-['Inter',sans-serif] text-lg text-[#484848] leading-snug mb-4">
+              Digital financial experience at EduFund to turn complex student finance processes into simple, guided, and trustworthy user journeys.
+            </p>
+            <div className="flex flex-wrap gap-2 pt-1 mb-6">
+              <span className="px-3.5 py-1.5 rounded-full border border-[#51CEA2] bg-[rgba(81,206,162,0.18)] text-[#0F6949] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+                Shipped in 2024
+              </span>
+              <span className="px-3.5 py-1.5 rounded-full border border-[#51CEA2] bg-[rgba(81,206,162,0.18)] text-[#0F6949] text-[11px] font-semibold tracking-wider uppercase font-['Inter',sans-serif]">
+                250,000+ Families
+              </span>
             </div>
             <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-lg mb-8">
               <img src={imgImage16903} alt="EduFund Hero" className="w-full h-full object-cover" />

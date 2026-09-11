@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
+import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 
 // 1. Minimal B&W Gradient Vector Icons matching user images
 function HomeIcon() {
@@ -139,7 +140,7 @@ export function Navigation({ hideTopHeader = false }: { hideTopHeader?: boolean 
 
   const isHomePage = location.pathname === "/";
   const isAboutPage = location.pathname === "/about";
-  const isCaseStudyPage = location.pathname.includes("-case-study");
+  const isCaseStudyPage = location.pathname.includes("-case-study") || location.pathname === "/chemobuddy";
 
   // Scroll direction detection: disappear when scrolling down, appear when scrolling up
   useEffect(() => {
@@ -217,22 +218,25 @@ export function Navigation({ hideTopHeader = false }: { hideTopHeader?: boolean 
     },
   ];
 
-  // If on a case study page, hide top header & bottom dock, render ONLY a top-left Back button to home page
+  // If on a case study page, hide top header & bottom dock, render top-left Back button and top-right case study arrows
   if (isCaseStudyPage) {
     return (
-      <div className="fixed top-6 left-6 lg:top-8 lg:left-12 z-50 pointer-events-auto">
-        <motion.button
-          onClick={() => navigate("/")}
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.94 }}
-          className="w-11 h-11 rounded-[14px] bg-[#f0f0f2]/90 backdrop-blur-xl text-black hover:bg-black hover:text-white transition-all duration-200 shadow-md border border-[#e2e2e4] flex items-center justify-center cursor-pointer"
-          aria-label="Back to Home"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-          </svg>
-        </motion.button>
-      </div>
+      <>
+        <div className="fixed top-5 left-4 sm:top-6 sm:left-6 lg:top-8 lg:left-12 z-50 pointer-events-auto">
+          <motion.button
+            onClick={() => navigate("/")}
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.94 }}
+            className="w-10 h-10 sm:w-11 sm:h-11 rounded-[12px] sm:rounded-[14px] bg-[#f0f0f2]/90 backdrop-blur-xl text-black hover:bg-black hover:text-white transition-all duration-200 shadow-md border border-[#e2e2e4] flex items-center justify-center cursor-pointer"
+            aria-label="Back to Home"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+            </svg>
+          </motion.button>
+        </div>
+        <CaseStudyNavArrows />
+      </>
     );
   }
 

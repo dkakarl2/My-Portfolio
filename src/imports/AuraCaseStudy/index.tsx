@@ -36,9 +36,17 @@ import imgImage38 from "./823e78dd6ff74fa43c21fe22d8ec1523fd76b855.png";
 
 function Frame168() {
   return (
-    <div className="[word-break:break-word] relative content-stretch flex flex-col gap-[16px] items-start w-[993px] mx-auto mt-[140px] mb-[24px]">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[40px] text-black w-full">Aura</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">AURA gives workplaces an emotional layer, a consensual, AI-powered presence system that tells you if someone is open before you approach.</p>
+    <div className="relative flex flex-col gap-[18px] items-start w-[993px] mx-auto mt-[96px] mb-[48px]">
+      <h1 className="font-['Inter',sans-serif] font-bold text-[40px] leading-tight text-black m-0 p-0">
+        AURA
+      </h1>
+      <p className="font-['Inter',sans-serif] font-normal text-[20px] leading-[1.4] text-[#484848] m-0 p-0 w-full">
+        AURA gives workplaces an emotional layer, a consensual, AI-powered presence system that tells you if someone is open before you approach.
+      </p>
+      <div className="flex flex-row flex-wrap items-center gap-3 pt-1">
+        <Frame167 />
+        <Frame169 />
+      </div>
     </div>
   );
 }
@@ -46,7 +54,7 @@ function Frame168() {
 function Frame180() {
   return (
     <div className="[word-break:break-word] content-stretch flex flex-col gap-[24px] items-start not-italic relative shrink-0 w-full">
-      <p className="font-['SF_Pro_Display:Bold',sans-serif] leading-[50px] relative shrink-0 text-[24px] text-black whitespace-nowrap">Overview</p>
+      <p className="font-['SF_Pro_Display:Bold',sans-serif] font-bold leading-[50px] relative shrink-0 text-[24px] text-black whitespace-nowrap">Overview</p>
       <p className="font-['SF_Pro_Display:Regular',sans-serif] leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content]">{`Modern workplaces stripped away every social cue we rely on to read each other. AURA restores them. Built in 72 hours at the Figbuild Hackathon, it's an AI-powered emotional presence layer that broadcasts how you're feeling, consensually, so conversations happen at the right moment, not the wrong one.`}</p>
     </div>
   );
@@ -39633,19 +39641,17 @@ function Frame155() {
 
 function Frame167() {
   return (
-    <div className="relative bg-[rgba(191,98,100,0.18)] content-stretch flex items-center justify-center p-[12px] rounded-[24px]">
-      <div aria-hidden className="absolute border-2 border-[#bf6264] border-solid inset-0 pointer-events-none rounded-[24px]" />
-      <p className="[word-break:break-word] font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#bf6264] text-[16px] whitespace-nowrap">Figbuild Hackathon</p>
-    </div>
+    <span className="px-5 py-2 rounded-full border border-[#bf6264] bg-[rgba(191,98,100,0.18)] text-[#bf6264] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs whitespace-nowrap">
+      Figbuild Hackathon
+    </span>
   );
 }
 
 function Frame169() {
   return (
-    <div className="relative bg-[rgba(191,98,100,0.18)] content-stretch flex items-center justify-center p-[12px] rounded-[24px]">
-      <div aria-hidden className="absolute border-2 border-[#bf6264] border-solid inset-0 pointer-events-none rounded-[24px]" />
-      <p className="[word-break:break-word] font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#bf6264] text-[16px] whitespace-nowrap">Build in 72hr</p>
-    </div>
+    <span className="px-5 py-2 rounded-full border border-[#bf6264] bg-[rgba(191,98,100,0.18)] text-[#bf6264] text-[13px] font-semibold tracking-wider uppercase font-['Inter',sans-serif] shadow-xs whitespace-nowrap">
+      Built in 72hr
+    </span>
   );
 }
 
@@ -39663,10 +39669,6 @@ export default function AuraCaseStudy() {
   return (
     <div className="bg-white relative w-full h-auto flex flex-col items-center" data-name="Aura case study">
       <Frame168 />
-      <div className="flex gap-[12px] w-[993px] mx-auto mb-[48px]">
-        <Frame167 />
-        <Frame169 />
-      </div>
       <div className="relative w-full h-[632px] mb-[72px] overflow-hidden bg-black/5" data-name="image 16903">
         <video
           ref={videoRef}

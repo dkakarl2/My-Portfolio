@@ -24,18 +24,17 @@ export function InteractivePhysics() {
     engineRef.current = engine;
     const world = engine.world;
 
-    // Height of our canvas
-    const CANVAS_HEIGHT = 450;
-    // Ground Y position - exactly at the bottom of the canvas
-    const GROUND_Y = CANVAS_HEIGHT + 25;
+    const initialWidth = sceneRef.current.clientWidth;
+    const isMobile = initialWidth < 768;
+    const initialHeight = isMobile ? 220 : 450;
 
     // create renderer
     const render = Render.create({
       element: sceneRef.current,
       engine: engine,
       options: {
-        width: sceneRef.current.clientWidth,
-        height: CANVAS_HEIGHT,
+        width: initialWidth,
+        height: initialHeight,
         background: 'transparent',
         wireframes: false,
         pixelRatio: typeof window !== 'undefined' ? window.devicePixelRatio : 1,
@@ -49,22 +48,20 @@ export function InteractivePhysics() {
     Runner.run(runner, engine);
 
     // Add boundaries (walls and ground)
-    const addBoundaries = () => {
-      const width = render.options.width!;
-      
-      // Ground is exactly at the bottom. We make it 50px thick, centered at CANVAS_HEIGHT + 25, 
-      // so its top edge is exactly at CANVAS_HEIGHT.
-      const ground = Bodies.rectangle(width / 2, GROUND_Y, width * 2, 50, { 
+    const addBoundaries = (w: number, h: number) => {
+      // Ground is exactly at the bottom. We make it 50px thick, centered at h + 25, 
+      // so its top edge is exactly at h.
+      const ground = Bodies.rectangle(w / 2, h + 25, w * 2, 50, { 
         isStatic: true, 
         render: { fillStyle: 'transparent' } 
       });
       
       // Invisible side walls
-      const leftWall = Bodies.rectangle(-30, CANVAS_HEIGHT / 2, 60, CANVAS_HEIGHT * 2, { 
+      const leftWall = Bodies.rectangle(-30, h / 2, 60, h * 2, { 
         isStatic: true, 
         render: { fillStyle: 'transparent' } 
       });
-      const rightWall = Bodies.rectangle(width + 30, CANVAS_HEIGHT / 2, 60, CANVAS_HEIGHT * 2, { 
+      const rightWall = Bodies.rectangle(w + 30, h / 2, 60, h * 2, { 
         isStatic: true, 
         render: { fillStyle: 'transparent' } 
       });
@@ -73,7 +70,7 @@ export function InteractivePhysics() {
       return { ground, leftWall, rightWall };
     };
     
-    let boundaries = addBoundaries();
+    let boundaries = addBoundaries(initialWidth, initialHeight);
 
     // Humaan-like vivid palette (Cyan, Green, Yellow, Pink)
     const colors = ['#FDE047', '#F9A8D4', '#67E8F9', '#86EFAC'];
@@ -82,6 +79,7 @@ export function InteractivePhysics() {
     const generateShapes = () => {
       const shapes: Matter.Body[] = [];
       const width = render.options.width!;
+      const mobile = width < 768;
       
       const createArc = (x: number, y: number, radius: number, thickness: number, color: string, startAngle: number, endAngle: number, segments: number) => {
           const parts = [];
@@ -102,53 +100,55 @@ export function InteractivePhysics() {
           
           return Body.create({
               parts: parts,
-              restitution: 0.4,
+              restitution: 0.35,
               friction: 0.1,
           });
       };
 
-      for (let i = 0; i < 15; i++) {
-          // Spawn freely across the entire line
-          const x = width * 0.05 + Math.random() * (width * 0.9);
-          const y = -Math.random() * 800 - 200; 
+      const shapeCount = mobile ? 7 : 15;
+
+      for (let i = 0; i < shapeCount; i++) {
+          // Spawn freely across the line
+          const x = width * (mobile ? 0.08 : 0.05) + Math.random() * (width * (mobile ? 0.84 : 0.9));
+          const y = -Math.random() * (mobile ? 300 : 800) - (mobile ? 40 : 200); 
           const color = colors[Math.floor(Math.random() * colors.length)];
           const type = Math.floor(Math.random() * 6); 
           
           let body;
-          const thickness = 25 + Math.random() * 10;
+          const thickness = mobile ? (13 + Math.random() * 4) : (25 + Math.random() * 10);
           
           if (type === 0) {
               // Semi-circle (U-shape)
-              const radius = 60 + Math.random() * 20;
-              body = createArc(x, y, radius, thickness, color, 0, Math.PI, 18);
+              const radius = mobile ? (26 + Math.random() * 8) : (60 + Math.random() * 20);
+              body = createArc(x, y, radius, thickness, color, 0, Math.PI, mobile ? 12 : 18);
           } else if (type === 1) {
               // Quarter-circle (J-shape)
-              const radius = 70 + Math.random() * 20;
-              body = createArc(x, y, radius, thickness, color, 0, Math.PI / 2, 10);
+              const radius = mobile ? (28 + Math.random() * 8) : (70 + Math.random() * 20);
+              body = createArc(x, y, radius, thickness, color, 0, Math.PI / 2, mobile ? 8 : 10);
           } else if (type === 2) {
               // Plus sign / Cross
-              const size = 100 + Math.random() * 30;
+              const size = mobile ? (42 + Math.random() * 14) : (100 + Math.random() * 30);
               const part1 = Bodies.rectangle(x, y, size, thickness, { render: { fillStyle: color } });
               const part2 = Bodies.rectangle(x, y, thickness, size, { render: { fillStyle: color } });
-              body = Body.create({ parts: [part1, part2], restitution: 0.4 });
+              body = Body.create({ parts: [part1, part2], restitution: 0.35 });
           } else if (type === 3) {
               // Ring (Hollow Circle)
-              const radius = 50 + Math.random() * 20;
-              body = createArc(x, y, radius, thickness, color, 0, Math.PI * 2, 24);
+              const radius = mobile ? (22 + Math.random() * 8) : (50 + Math.random() * 20);
+              body = createArc(x, y, radius, thickness, color, 0, Math.PI * 2, mobile ? 16 : 24);
           } else if (type === 4) {
               // Straight Bar
-              const length = 120 + Math.random() * 60;
+              const length = mobile ? (50 + Math.random() * 25) : (120 + Math.random() * 60);
               body = Bodies.rectangle(x, y, length, thickness, {
                   render: { fillStyle: color },
-                  restitution: 0.4
+                  restitution: 0.35
               });
           } else {
               // L-Shape
-              const size1 = 100 + Math.random() * 30;
-              const size2 = 80 + Math.random() * 20;
+              const size1 = mobile ? (44 + Math.random() * 12) : (100 + Math.random() * 30);
+              const size2 = mobile ? (34 + Math.random() * 10) : (80 + Math.random() * 20);
               const part1 = Bodies.rectangle(x, y, size1, thickness, { render: { fillStyle: color } });
               const part2 = Bodies.rectangle(x - size1/2 + thickness/2, y + size2/2 - thickness/2, thickness, size2, { render: { fillStyle: color } });
-              body = Body.create({ parts: [part1, part2], restitution: 0.4 });
+              body = Body.create({ parts: [part1, part2], restitution: 0.35 });
           }
           
           Body.setAngle(body, Math.random() * Math.PI * 2);
@@ -177,16 +177,17 @@ export function InteractivePhysics() {
     const handleResize = () => {
       if (!sceneRef.current) return;
       const newWidth = sceneRef.current.clientWidth;
+      const newHeight = newWidth < 768 ? 220 : 450;
       
       render.canvas.width = newWidth * (window.devicePixelRatio || 1);
-      render.canvas.height = CANVAS_HEIGHT * (window.devicePixelRatio || 1);
+      render.canvas.height = newHeight * (window.devicePixelRatio || 1);
       
       render.options.width = newWidth;
-      render.options.height = CANVAS_HEIGHT;
+      render.options.height = newHeight;
       
       // Update boundary positions
       Composite.remove(world, [boundaries.ground, boundaries.leftWall, boundaries.rightWall]);
-      boundaries = addBoundaries();
+      boundaries = addBoundaries(newWidth, newHeight);
     };
 
     window.addEventListener('resize', handleResize);
@@ -222,7 +223,7 @@ export function InteractivePhysics() {
   return (
     <div 
       ref={sceneRef} 
-      className="w-full h-[450px] absolute -bottom-[1px] right-0 pointer-events-auto z-0 border-b-2 border-[#06D6A0]" 
+      className="w-full h-[220px] md:h-[450px] absolute bottom-0 right-0 pointer-events-auto z-0" 
       style={{ overflow: 'hidden' }}
     />
   );

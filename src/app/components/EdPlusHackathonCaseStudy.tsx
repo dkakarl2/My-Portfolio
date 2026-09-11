@@ -3,7 +3,6 @@ import { Navigation } from "@/app/components/Navigation";
 import { motion } from "motion/react";
 import { useScrollAnimation } from "@/app/components/useScrollAnimation";
 import { Footer } from "@/app/components/Footer";
-import { CaseStudyNavArrows } from "@/app/components/CaseStudyNavArrows";
 
 export function EdPlusHackathonCaseStudy() {
   useScrollAnimation();
@@ -30,9 +29,6 @@ export function EdPlusHackathonCaseStudy() {
 
       {/* Footer Section */}
       <div className="lg:mt-[16700px] mt-0">
-        <div className="flex justify-end pr-6 lg:pr-12 py-12">
-          <CaseStudyNavArrows />
-        </div>
         <Footer />
       </div>
     </div>
