@@ -64,15 +64,20 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
   }, [isActive]);
 
   async function startSession() {
-    if (!import.meta.env.VITE_GEMINI_API_KEY) {
-      alert("Please add VITE_GEMINI_API_KEY to your Vercel Environment Variables to talk to Bingo!");
-      return;
-    }
     try {
       setIsActive(true);
       setState('connecting');
+      
+      // Fetch short-lived token from Vercel backend
+      const res = await fetch('/api/live-token');
+      const data = await res.json();
+      
+      if (!res.ok || !data.token) {
+        throw new Error(data.error || "Failed to fetch secure token");
+      }
+
       clientRef.current = new BingoClient({
-        apiKey: import.meta.env.VITE_GEMINI_API_KEY,
+        apiKey: data.token,
         voice: 'Puck',
         onStateChange: setState,
         onToolCall: (name, args) => handleToolCall(name, args),
