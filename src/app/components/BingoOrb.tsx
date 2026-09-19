@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mic, MicOff, X } from 'lucide-react';
+import { Mic, MicOff } from 'lucide-react';
 import { BingoClient, BingoState } from '@/app/services/BingoClient';
 import bingoCatImage from '@/assets/Bingo.png';
 
@@ -165,10 +165,13 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
 
         /* Equalizer Bars */
         @keyframes eq-bounce {
-          0%, 100% { transform: scaleY(0.4); }
+          0%, 100% { transform: scaleY(0.3); }
           50% { transform: scaleY(1); }
         }
         .eq-bar {
+          width: 4px;
+          background: #222222;
+          border-radius: 2px;
           animation: eq-bounce 1s ease-in-out infinite;
         }
       `}</style>
@@ -213,19 +216,18 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
                 {state === 'connecting' && <div className="w-2.5 h-2.5 rounded-full bg-yellow-400 animate-pulse" />}
                 {state === 'listening' && <div className="w-2.5 h-2.5 rounded-full bg-green-400 shadow-[0_0_10px_#4ade80]" />}
                 {state === 'thinking' && <div className="w-2.5 h-2.5 rounded-full bg-blue-400 animate-pulse" />}
-                
-                {state === 'speaking' ? (
-                  <div className="flex items-end gap-[3px] h-4">
-                    <div className="eq-bar h-full" style={{ animationDelay: '0.0s' }} />
-                    <div className="eq-bar h-full" style={{ animationDelay: '0.2s' }} />
-                    <div className="eq-bar h-full" style={{ animationDelay: '0.4s' }} />
-                    <div className="eq-bar h-full" style={{ animationDelay: '0.1s' }} />
+                {state === 'speaking' && (
+                  <div className="flex items-end gap-[3px] h-[18px]">
+                    <div className="eq-bar w-1 bg-[#1D7AFC] rounded-full h-[60%]" style={{ animationDelay: '0.0s' }} />
+                    <div className="eq-bar w-1 bg-[#1D7AFC] rounded-full h-[100%]" style={{ animationDelay: '0.2s' }} />
+                    <div className="eq-bar w-1 bg-[#1D7AFC] rounded-full h-[80%]" style={{ animationDelay: '0.4s' }} />
+                    <div className="eq-bar w-1 bg-[#1D7AFC] rounded-full h-[40%]" style={{ animationDelay: '0.1s' }} />
                   </div>
-                ) : (
-                  <span className="text-black/80 font-bold text-sm tracking-wide uppercase font-['Inter']">
-                    {state}
-                  </span>
                 )}
+                
+                <span className="text-black/80 font-bold text-sm tracking-wide uppercase font-['Inter']">
+                  {state}
+                </span>
               </div>
 
               <div className="w-px h-6 bg-black/10" />
