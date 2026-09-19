@@ -24,7 +24,8 @@ export function IntroAnimation({ onComplete }: IntroAnimationProps) {
     // Stage 3: Close after pause on "d."
     const completeTimer = setTimeout(() => {
       setShowIntro(false);
-      setTimeout(onComplete, 600);
+      window.dispatchEvent(new Event('INTRO_FINISHED')); // Fire early so Hero counters start matching fade
+      setTimeout(onComplete, 700);
     }, 3200);
 
     return () => {

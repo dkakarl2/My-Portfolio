@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Mic, MicOff } from 'lucide-react';
+import { Mic, MicOff, X } from 'lucide-react';
 import { BingoClient, BingoState } from '@/app/services/BingoClient';
 import bingoCatImage from '@/assets/Bingo.png';
 
@@ -109,7 +109,7 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
   };
 
   const handleToolCall = useCallback((name: string, args: any) => {
-    if (name === 'navigate' && args.path) {
+    if (name.toLowerCase() === 'navigate' && args.path) {
       navigate(args.path);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (name === 'scroll_to' && args.sectionId) {
@@ -165,13 +165,10 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
 
         /* Equalizer Bars */
         @keyframes eq-bounce {
-          0%, 100% { transform: scaleY(0.3); }
+          0%, 100% { transform: scaleY(0.4); }
           50% { transform: scaleY(1); }
         }
         .eq-bar {
-          width: 4px;
-          background: #222222;
-          border-radius: 2px;
           animation: eq-bounce 1s ease-in-out infinite;
         }
       `}</style>
