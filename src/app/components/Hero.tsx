@@ -40,7 +40,7 @@ function AnimatedCounter({ from, to, duration, isReady, suffix = "" }: { from: n
 }
 
 export function Hero() {
-  const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(() => !!window.hasIntroFinished);
   const [isBingoHovered, setIsBingoHovered] = useState(false);
   const [phraseIndex, setPhraseIndex] = useState(0);
 
@@ -84,7 +84,7 @@ export function Hero() {
     <section className="relative w-full max-w-[1000px] mx-auto px-6 pt-[120px] pb-[80px] lg:pt-[160px] lg:pb-[100px] flex flex-col items-center justify-center min-h-[70vh]">
       
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={window.hasIntroFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col items-center text-center w-full"
@@ -160,7 +160,7 @@ export function Hero() {
           onClick={handleBingoClick}
           onMouseEnter={() => setIsBingoHovered(true)}
           onMouseLeave={() => setIsBingoHovered(false)}
-          initial={{ opacity: 0, y: 20 }}
+          initial={window.hasIntroFinished ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           whileHover={{ scale: 1.05 }}

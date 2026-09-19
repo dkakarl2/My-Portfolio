@@ -48,6 +48,7 @@ function AppContent() {
 
   useEffect(() => {
     if (!showIntro) {
+      window.hasIntroFinished = true;
       setTimeout(() => window.dispatchEvent(new Event('INTRO_FINISHED')), 50);
     }
   }, [showIntro]);
@@ -95,6 +96,12 @@ function AppContent() {
       <ScrollToTop />
     </>
   );
+}
+
+declare global {
+  interface Window {
+    hasIntroFinished?: boolean;
+  }
 }
 
 export default function App() {
