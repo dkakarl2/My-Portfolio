@@ -64,6 +64,10 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
   }, [isActive]);
 
   async function startSession() {
+    if (!import.meta.env.VITE_GEMINI_API_KEY) {
+      alert("Please add VITE_GEMINI_API_KEY to your Vercel Environment Variables to talk to Bingo!");
+      return;
+    }
     try {
       setIsActive(true);
       setState('connecting');
