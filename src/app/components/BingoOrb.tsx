@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
+import { Mic, MicOff } from 'lucide-react';
 import { BingoClient, BingoState } from '@/app/services/BingoClient';
 import bingoCatImage from '@/assets/Bingo.png';
 
@@ -19,6 +20,7 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
   const location = useLocation();
   const [state, setState] = useState<BingoState>('idle');
   const [isActive, setIsActive] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const clientRef = useRef<BingoClient | null>(null);
 
   // Sync Bingo's Y-position with the Navigation Dock
@@ -91,11 +93,19 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
     }
   };
 
+  const toggleMute = () => {
+    if (!clientRef.current) return;
+    const newMuted = !isMuted;
+    clientRef.current.setMute(newMuted);
+    setIsMuted(newMuted);
+  };
+
   function endSession() {
     clientRef.current?.stop();
     clientRef.current = null;
     setIsActive(false);
     setState('idle');
+    setIsMuted(false);
   };
 
   const handleToolCall = useCallback((name: string, args: any) => {
@@ -224,7 +234,15 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
               <div className="w-px h-6 bg-black/10" />
 
               {/* Controls */}
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={toggleMute}
+                  className={`w-8 h-8 flex items-center justify-center rounded-full transition-colors ${
+                    isMuted ? 'bg-red-100 text-red-500' : 'hover:bg-black/5 text-[#444444]'
+                  }`}
+                >
+                  {isMuted ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
+                </button>
                 <button 
                   onClick={endSession}
                   className="text-red-500 hover:text-red-600 hover:bg-red-500/10 px-4 py-1.5 rounded-[12px] text-sm font-bold transition-colors"
