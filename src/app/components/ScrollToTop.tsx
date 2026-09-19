@@ -62,12 +62,14 @@ export function ScrollToTop() {
     >
       <button
         onClick={scrollToTop}
-        className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-black text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 active:scale-95 transition-transform cursor-pointer border-none outline-none"
+        className="w-11 h-11 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[#f0f0f2]/85 backdrop-blur-2xl border border-[#e2e2e4] rounded-[24px] flex items-center justify-center shadow-xl shadow-black/5 hover:scale-105 active:scale-95 transition-transform cursor-pointer outline-none"
         aria-label="Scroll to top"
       >
-        <svg width="20" height="20" className="md:w-6 md:h-6" viewBox="0 0 24 24" fill="none">
-          <path d="M12 8L6 14L7.41 15.41L12 10.83L16.59 15.41L18 14L12 8Z" fill="#FFFFFF" />
-        </svg>
+        <div className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-[14px] bg-white shadow-[0_4px_12px_rgba(0,0,0,0.06)] flex items-center justify-center">
+          <svg width="20" height="20" className="md:w-5 md:h-5" viewBox="0 0 24 24" fill="none">
+            <path d="M12 8L6 14L7.41 15.41L12 10.83L16.59 15.41L18 14L12 8Z" fill="#222222" />
+          </svg>
+        </div>
       </button>
     </div>
   );

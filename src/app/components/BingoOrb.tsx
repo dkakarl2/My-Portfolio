@@ -160,7 +160,7 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
         }
         .eq-bar {
           width: 4px;
-          background: white;
+          background: #222222;
           border-radius: 2px;
           animation: eq-bounce 1s ease-in-out infinite;
         }
@@ -188,7 +188,7 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
           {!isActive ? (
             <button 
               onClick={startSession}
-              className="w-16 h-16 rounded-full overflow-hidden shadow-2xl hover:scale-105 transition-transform bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/10 flex items-center justify-center p-1"
+              className="w-[68px] h-[68px] rounded-[24px] overflow-hidden shadow-xl shadow-black/5 hover:scale-105 transition-transform bg-[#f0f0f2]/85 backdrop-blur-2xl border border-[#e2e2e4] flex items-center justify-center p-1.5"
             >
               <motion.img 
                 src={bingoCatImage} 
@@ -199,7 +199,7 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
               />
             </button>
           ) : (
-            <div className="flex items-center gap-4 bg-[#0A0A0A]/90 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 shadow-2xl">
+            <div className="flex items-center gap-4 bg-[#f0f0f2]/85 backdrop-blur-2xl border border-[#e2e2e4] rounded-[24px] px-6 py-3 shadow-xl shadow-black/5">
               {/* Status Indicator */}
               <div className="flex items-center gap-3 min-w-[120px]">
                 {state === 'idle' && <div className="w-2.5 h-2.5 rounded-full bg-gray-500" />}
@@ -215,19 +215,19 @@ export function BingoOrb({ showIntro = false }: { showIntro?: boolean }) {
                     <div className="eq-bar h-full" style={{ animationDelay: '0.1s' }} />
                   </div>
                 ) : (
-                  <span className="text-white/80 font-medium text-sm tracking-wide uppercase font-['Inter']">
+                  <span className="text-black/80 font-bold text-sm tracking-wide uppercase font-['Inter']">
                     {state}
                   </span>
                 )}
               </div>
 
-              <div className="w-px h-6 bg-white/15" />
+              <div className="w-px h-6 bg-black/10" />
 
               {/* Controls */}
               <div className="flex items-center gap-2">
                 <button 
                   onClick={endSession}
-                  className="text-red-400 hover:text-red-300 hover:bg-red-400/10 px-4 py-1.5 rounded-full text-sm font-medium transition-colors"
+                  className="text-red-500 hover:text-red-600 hover:bg-red-500/10 px-4 py-1.5 rounded-[12px] text-sm font-bold transition-colors"
                 >
                   Close
                 </button>
