@@ -67,8 +67,8 @@ export function Hero() {
     const handleIntroFinished = () => setIsReady(true);
     window.addEventListener('INTRO_FINISHED', handleIntroFinished);
     
-    // Fallback if event never fires
-    const timer = setTimeout(() => setIsReady(true), 100); // Assuming intro might be disabled/quick
+    // Safe fallback in case event is missed
+    const timer = setTimeout(() => setIsReady(true), 4000); 
 
     return () => {
       window.removeEventListener('INTRO_FINISHED', handleIntroFinished);

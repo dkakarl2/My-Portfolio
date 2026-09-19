@@ -47,6 +47,12 @@ function AppContent() {
   }, [location.pathname]);
 
   useEffect(() => {
+    if (!showIntro) {
+      setTimeout(() => window.dispatchEvent(new Event('INTRO_FINISHED')), 50);
+    }
+  }, [showIntro]);
+
+  useEffect(() => {
     // If there's a hash in the URL (navigating to a section)
     if (location.hash) {
       // Scroll to section after a brief delay
