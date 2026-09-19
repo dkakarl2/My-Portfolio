@@ -502,3 +502,26 @@
   }
 
 }
+
+  /* Apple-style Scroll Reveal */
+  [data-case-study-content] .apple-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    will-change: opacity, transform;
+    transition: opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--reveal-delay, 0) * 100ms);
+  }
+
+  [data-case-study-content] .apple-reveal.apple-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-case-study-content] .apple-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }

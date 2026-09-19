@@ -1,223 +1,208 @@
-import svgPaths from "@/imports/svg-g3o4r0xxkh";
-import svgPathsRecruiter from "@/imports/svg-84xquja2n6";
-import svgPathsDesigners from "@/imports/svg-i6hjrkdulj";
-import svgPathsEngineers from "@/imports/svg-fijr3vxu39";
-import imgImage49 from "figma:asset/6e4de7965720e764d62d472550ce59788110d82a.png";
-import imgImage47 from "figma:asset/5a289eeecaadd3236ae5bc773c168b62d25e0654.png";
-import imgImage48Hover from "figma:asset/64e38f4a89033dda3d8718d3f85d0d54da6e10b7.png";
-import imgRectangle14249 from "figma:asset/eedfe714d0cf5d8f385501febadac14123fb1435.png";
-import { motion, AnimatePresence } from "motion/react";
-import { useState } from "react";
-import Group72 from "@/imports/Group72";
-import Group45 from "@/imports/Group45";
-import { ScribbleHighlight } from "@/app/components/ScribbleHighlight";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+
+// Import assets
+import imgDoodleHomepage from '@/assets/Doodle - homepage.svg';
+import imgBingoIcon from '@/assets/Bingo.svg';
+import imgSparkBingo from '@/assets/Spark bingo.svg';
+import imgSparkDoodle from '@/assets/Spark doodle.svg';
+import imgGreenScribble from '@/assets/Green scribble.svg';
+import imgBlueScribble from '@/assets/Blue scribble.svg';
+import imgPinkScribble from '@/assets/Pink scribble.svg';
+
+function AnimatedCounter({ from, to, duration, isReady, suffix = "" }: { from: number, to: number, duration: number, isReady: boolean, suffix?: string }) {
+  const [count, setCount] = useState(from);
+
+  useEffect(() => {
+    if (!isReady) return;
+    
+    let startTime: number;
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      
+      const easeOut = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(from + (to - from) * easeOut));
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [from, to, duration, isReady]);
+
+  return <span>{count}{suffix}</span>;
+}
 
 export function Hero() {
-  const [activeTab, setActiveTab] = useState<string>("anyone");
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isReady, setIsReady] = useState(false);
+  const [isBingoHovered, setIsBingoHovered] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
 
-  const tabs = [
-    { id: "anyone", label: "For anyone" },
-    { id: "designers", label: "For product designers" },
-    { id: "engineers", label: "For engineers" }
+  const bingoPhrases = [
+    "you can talk to him",
+    "ask him about me",
+    "ask him about her experience",
+    "ask him about her projects",
+    "he can show you around",
+    "he speaks multiple languages",
+    "he's still learning"
   ];
 
+  useEffect(() => {
+    if (!isReady) return;
+    const interval = setInterval(() => {
+      setPhraseIndex((prev) => (prev + 1) % bingoPhrases.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isReady]);
+
+  useEffect(() => {
+    // Sync with intro animation if needed
+    const handleIntroFinished = () => setIsReady(true);
+    window.addEventListener('INTRO_FINISHED', handleIntroFinished);
+    
+    // Fallback if event never fires
+    const timer = setTimeout(() => setIsReady(true), 100); // Assuming intro might be disabled/quick
+
+    return () => {
+      window.removeEventListener('INTRO_FINISHED', handleIntroFinished);
+      clearTimeout(timer);
+    };
+  }, []);
+
+  const handleBingoClick = () => {
+    window.dispatchEvent(new Event('START_BINGO'));
+  };
+
   return (
-    <section className="h-screen min-h-[650px] flex flex-col justify-center pt-20 pb-20 px-8 lg:px-0 lg:pl-[204px] max-w-[1224px] mx-auto overflow-hidden lg:overflow-visible relative">
-      <div className="relative flex flex-col lg:block">
-        {/* Category tabs */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap gap-3 lg:gap-4 mb-8 lg:mb-12"
-        >
-          {tabs.map((tab, i) => (
-            <motion.button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className="relative px-4 py-2 font-['Inter'] font-bold text-sm rounded-full border transition-colors"
-              style={{
-                borderColor: activeTab === tab.id ? '#000' : '#e0e0e0',
-                color: activeTab === tab.id ? '#000' : '#999',
-              }}
-              whileHover={{ scale: 1.05, borderColor: '#000' }}
-              whileTap={{ scale: 0.97 }}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                delay: 0.1 + i * 0.06,
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              <span className="relative z-10">{tab.label}</span>
-              {activeTab === tab.id && (
-                <motion.div
-                  layoutId="activeTab"
-                  className="absolute inset-0 bg-black rounded-full -z-0"
-                  transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
-                />
-              )}
-              {activeTab === tab.id && (
-                <span className="relative z-10 text-white" style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>
-                  {tab.label}
-                </span>
-              )}
-            </motion.button>
-          ))}
-        </motion.div>
-
-        {/* Content container */}
-        <div className="flex flex-col gap-[18px] mb-16">
-          {/* Hello intro */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="flex items-center gap-1"
+    <section className="relative w-full max-w-[1000px] mx-auto px-6 pt-[120px] pb-[80px] lg:pt-[160px] lg:pb-[100px] flex flex-col items-center justify-center min-h-[70vh]">
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex flex-col items-center text-center w-full"
+      >
+        
+        {/* Title Line 1 with Doodle */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-2">
+          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black tracking-tight leading-tight font-['Inter']">
+            Hello, I’m Deepika
+          </h1>
+          
+          {/* Animated Doodle */}
+          <motion.div 
+            className="relative w-[60px] h-[60px] md:w-[72px] md:h-[72px] shrink-0 mt-2 md:mt-0"
+            animate={{ rotate: [-8, 8, -8] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <p className="font-['Caveat_Brush'] text-xl lg:text-2xl text-[#747474]">
-              Hello, I'm Deepika
-            </p>
-            <motion.div 
-              className="w-[20px] h-[23px] lg:w-[23px] lg:h-[26px] relative"
-              animate={{ 
-                rotate: [0, 10, 0, -10, 0],
-              }}
-              transition={{ 
-                duration: 2, 
-                repeat: Infinity, 
-                ease: "easeInOut" 
-              }}
-            >
-              <img
-                src={imgImage49}
-                alt=""
-                className="absolute left-[-38.58%] top-[-24.59%] w-[173.27%] h-[150.81%] max-w-none object-contain"
-              />
-            </motion.div>
+            <img src={imgDoodleHomepage} alt="Deepika Doodle" className="w-full h-full object-contain" />
+            <img 
+              src={imgSparkDoodle} 
+              alt="" 
+              className="absolute -top-6 -right-6 w-10 h-10 object-contain pointer-events-none"
+            />
           </motion.div>
+        </div>
 
-          {/* Main headline with AnimatePresence for smooth transitions */}
-          <div className="relative min-h-[160px] lg:min-h-[200px]">
-            <AnimatePresence mode="wait">
-              {activeTab === "anyone" && (
-                <motion.div
-                  key="anyone"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="relative lg:absolute"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <h1 className="font-['Inter'] font-bold lg:text-[48px] leading-tight lg:leading-[50px] text-black text-[28px]">
-                    I{" "}
-                    <div className="inline-block relative z-10 mx-2 lg:mx-3 align-bottom lg:align-baseline">
-                      <ScribbleHighlight active={true} color={isHovered ? "#4AB7C4" : "#E74973"}>
-                        design
-                      </ScribbleHighlight>
-                    </div>{" "}
-                    digital products the way<br className="hidden lg:block" />
-                    architects design spaces - with<br className="hidden lg:block" />
-                    intention, usability, and flow.
-                  </h1>
-                </motion.div>
-              )}
+        {/* Title Line 2 */}
+        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black tracking-tight leading-tight font-['Inter'] mb-8">
+          UX & Design Systems Designer
+        </h2>
 
+        {/* Description Paragraph */}
+        <p className="max-w-[760px] text-center text-gray-500 text-lg md:text-[20px] leading-relaxed mb-12 font-['Inter']">
+          A 0 → 1 product designer designing scalable experiences across <br className="hidden md:block" />
+          healthcare, edtech, fintech, and AI - from patient education and <br className="hidden md:block" />
+          financial products to design systems and agentic interfaces.
+        </p>
 
+        {/* Stats Row */}
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 mb-16 font-['Inter'] font-bold text-sm md:text-base">
+          
+          {/* Stat 1 */}
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-[#8BC34A]">
+              <AnimatedCounter from={0} to={250} duration={2} isReady={isReady} suffix="K+ families reached" />
+            </span>
+            <img src={imgGreenScribble} alt="" className="h-[6px] w-[180px] object-cover object-center" />
+          </div>
+          
+          <span className="text-[#00BCD4] hidden md:block">•</span>
+          
+          {/* Stat 2 */}
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-[#00BCD4]">
+              <AnimatedCounter from={0} to={20} duration={2} isReady={isReady} suffix="+ components built" />
+            </span>
+            <img src={imgBlueScribble} alt="" className="h-[6px] w-[160px] object-cover object-center" />
+          </div>
 
-              {activeTab === "designers" && (
-                <motion.div
-                  key="designers"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="relative lg:absolute"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <h1 className="font-['Inter'] font-bold lg:text-[48px] leading-tight lg:leading-[50px] text-black text-[28px]">
-                    A Product designer focused on<br className="hidden lg:block" />
-                    interaction logic, scalable usability,<br className="hidden lg:block" />
-                    and consistent{" "}
-                    <div className="inline-block relative z-10 mx-2 lg:mx-3 align-bottom lg:align-baseline">
-                      <ScribbleHighlight active={true} color={isHovered ? "#4AB7C4" : "#E74973"}>
-                        experience
-                      </ScribbleHighlight>
-                    </div>{" "}
-                    systems.
-                  </h1>
-                </motion.div>
-              )}
-
-              {activeTab === "engineers" && (
-                <motion.div
-                  key="engineers"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: 10 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="relative lg:absolute"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
-                >
-                  <h1 className="font-['Inter'] font-bold lg:text-[48px] leading-tight lg:leading-[50px] text-black text-[28px]">
-                    I design with{" "}
-                    <div className="inline-block relative z-10 mx-2 lg:mx-3 align-bottom lg:align-baseline">
-                      <ScribbleHighlight active={true} color={isHovered ? "#4AB7C4" : "#E74973"}>
-                        feasibility
-                      </ScribbleHighlight>
-                    </div>{" "}
-                    in mind,<br className="hidden lg:block" />
-                    clear flows, edge cases, and<br className="hidden lg:block" />
-                    implementation-ready systems.
-                  </h1>
-                </motion.div>
-              )}
-            </AnimatePresence>
+          <span className="text-[#E91E63] hidden md:block">•</span>
+          
+          {/* Stat 3 */}
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-[#E91E63]">
+              <AnimatedCounter from={0} to={15} duration={2} isReady={isReady} suffix="+ ASU Online pages supported" />
+            </span>
+            <img src={imgPinkScribble} alt="" className="h-[6px] w-[220px] object-cover object-center" />
           </div>
         </div>
 
-        {/* Doodle illustration - original image with hover and float */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85, rotate: 12.33 }}
-          animate={{ 
-            opacity: 1, 
-            scale: 1,
-            y: [0, -12, 0],
-            rotate: [12.33, 14, 12.33, 10, 12.33]
-          }}
-          transition={{ 
-            opacity: { duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] },
-            scale: { duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] },
-            y: { duration: 5, repeat: Infinity, ease: "easeInOut" },
-            rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-          }}
-          className="relative mt-8 lg:mt-0 lg:absolute lg:left-[-102px] lg:top-[300px] w-48 h-40 lg:w-[261.29px] lg:h-[234.04px] cursor-pointer mx-auto lg:mx-0 hidden lg:block"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <img
-            src={isHovered ? imgImage48Hover : imgImage47}
-            alt="Doodle character"
-            className="w-full h-full object-contain transition-opacity duration-200"
-          />
-        </motion.div>
-
-        {/* Current role - positioned parallel to doodle */}
-        <motion.div
+        {/* Bingo Button */}
+        <motion.button
+          onClick={handleBingoClick}
+          onMouseEnter={() => setIsBingoHovered(true)}
+          onMouseLeave={() => setIsBingoHovered(false)}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-8 lg:mt-0 lg:absolute lg:left-[612px] lg:top-[320px] w-[360px] h-[66px] mx-auto lg:mx-0"
+          animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-3 bg-transparent cursor-pointer transition-all "
         >
-          <Group45 />
-        </motion.div>
-      </div>
+          {/* Animated Bingo Icon */}
+          <motion.div 
+            className="relative w-[52px] h-[52px]"
+            animate={{ rotate: isBingoHovered ? [-10, 10, -10] : [-5, 5, -5] }}
+            transition={{ duration: isBingoHovered ? 1.5 : 3, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <img src={imgBingoIcon} alt="Bingo" className="w-full h-full object-contain" />
+            <img 
+              src={imgSparkBingo} 
+              alt="Sparks" 
+              className="absolute -top-5 -left-5 w-8 h-8 object-contain pointer-events-none" 
+            />
+          </motion.div>
+          
+          {/* Text */}
+          <div className="font-['Inter'] flex items-center text-left">
+            <span className="font-bold text-[#333333] text-[15px]">Meet Bingo</span>
+            <span className="text-[#999999] font-medium mx-2">-</span>
+            <div className="relative overflow-hidden h-[20px] w-[220px] flex items-center">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={phraseIndex}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={isReady ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute left-0 text-[#999999] font-medium text-[15px] whitespace-nowrap"
+                >
+                  {bingoPhrases[phraseIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          </div>
+        </motion.button>
+        
+      </motion.div>
     </section>
   );
 }

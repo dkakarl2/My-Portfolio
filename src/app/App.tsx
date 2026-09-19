@@ -1,4 +1,5 @@
 import { IntroAnimation } from "@/app/components/IntroAnimation";
+import { BingoOrb } from "@/app/components/BingoOrb";
 import { CaseStudyNavigator } from "@/app/components/CaseStudyNavigator";
 import { AboutPage } from "@/app/components/AboutPage";
 import { HomePage } from "@/app/components/HomePage";
@@ -78,10 +79,11 @@ function AppContent() {
         <Route path="/edufund-case-study" element={<EduFundCaseStudy />} />
         <Route path="/aisle-case-study" element={<AisleCaseStudy />} />
         <Route path="/playground" element={<PlaygroundPage />} />
-        {/* <Route path="/ai-assistant" element={<AIAssistant />} /> */}
-
       </Routes>
 
+
+      {/* Bingo — AI voice assistant orb, floats above everything */}
+      <BingoOrb showIntro={showIntro} />
 
       {/* ScrollToTop should be the absolutely last element to ensure highest stacking context */}
       <ScrollToTop />

@@ -376,8 +376,36 @@ export function AuraCaseStudy() {
           <div className="lg:hidden w-full bg-white">
             {renderResponsiveLayout()}
           </div>
+
         </>
+
+        {/* Interactive Prototype Section */}
+        <div className="w-full bg-[#fafafa] pt-24 border-t border-gray-100 flex flex-col items-center">
+          <div className="max-w-[1200px] mx-auto px-6 flex flex-col items-center w-full">
+            <div className="text-center mb-8">
+              <span className="px-4 py-1.5 rounded-full border border-gray-200 bg-white text-xs font-bold tracking-wider uppercase mb-6 inline-block text-gray-500 shadow-sm">Interactive Experience</span>
+              <h2 className="text-3xl md:text-[40px] leading-tight font-bold text-black mb-6">Play with AURA</h2>
+              <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">Experience the emotional presence system directly in your browser. This is a fully functional Figma prototype—feel free to click through the onboarding flow, adjust presence status, and explore the UI.</p>
+            </div>
+          </div>
+          
+          <div className="w-full relative h-[100vh] min-h-[700px] mt-8 overflow-hidden bg-[#F6F5F2]">
+            <iframe 
+              src="https://aura2026.figma.site/" 
+              className="absolute top-0 left-0 border-0"
+              style={{
+                width: '133.33333%',
+                height: '133.33333%',
+                transform: 'scale(0.75)',
+                transformOrigin: 'top left'
+              }}
+              title="AURA Interactive Prototype"
+              allowFullScreen
+            />
+          </div>
+        </div>
       </motion.main>
+
 
       {/* Footer Section */}
       <div className="mt-16 relative z-10 bg-white">
