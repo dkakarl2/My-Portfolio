@@ -81,6 +81,11 @@ export class BingoClient {
         model: MODEL,
         config: {
           responseModalities: [Modality.AUDIO],
+          realtimeInputConfig: {
+            automaticActivityDetection: {
+              silenceDurationMs: 350, // Insanely fast VAD cutoff
+            }
+          },
           speechConfig: {
             voiceConfig: {
               prebuiltVoiceConfig: {
@@ -247,7 +252,7 @@ export class BingoClient {
 
   private useScriptProcessor() {
     if (!this.audioContext) return;
-    const bufferSize = 4096; // 128ms capture latency (very safe for WebSocket)
+    const bufferSize = 2048; // 128ms capture latency (very safe for WebSocket)
     // @ts-ignore
     this.scriptNode = this.audioContext.createScriptProcessor(bufferSize, 1, 1);
 
@@ -275,12 +280,8 @@ export class BingoClient {
     if (!this.session || this.isMuted) return;
     try {
       const bytes = new Uint8Array(buffer);
-      // Optimize base64 conversion to prevent main thread blocking
       let binary = '';
-      const chunkSize = 4096;
-      for (let i = 0; i < bytes.byteLength; i += chunkSize) {
-        binary += String.fromCharCode.apply(null, Array.from(bytes.subarray(i, i + chunkSize)));
-      }
+      for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
       const base64 = btoa(binary);
 
       this.session.sendRealtimeInput({
