@@ -318,6 +318,9 @@ export class BingoClient {
 
     if (msg.serverContent?.inputTranscription?.text) {
       this.options.onTranscript?.(msg.serverContent.inputTranscription.text, 'user');
+    }
+
+    if (msg.serverContent?.turnComplete) {
       this.setState('thinking');
     }
 
