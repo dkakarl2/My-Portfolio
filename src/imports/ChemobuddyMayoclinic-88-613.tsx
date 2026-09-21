@@ -3008,7 +3008,7 @@ function Frame135() {
   return (
     <div className="absolute h-[524px] left-[99px] rounded-[31px] top-[72px] w-[260px]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
-        <img alt="" className="absolute h-[100.13%] left-[-7.98%] max-w-none top-[-0.13%] w-[112.23%]" src={imgOnboardingGif} />
+        <video autoPlay loop muted playsInline className="absolute h-[100.13%] left-[-7.98%] max-w-none top-[-0.13%] w-[112.23%] object-cover" src={videoOnboarding} />
       </div>
     </div>
   );
@@ -3268,7 +3268,7 @@ function Frame145() {
   return (
     <div className="absolute h-[506px] left-[81px] rounded-[38px] top-[80px] w-[252px]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[38px]">
-        <img alt="" className="absolute h-full left-[0.11%] max-w-none top-0 w-[99.77%]" src={imgChatbotGif} />
+        <video autoPlay loop muted playsInline className="absolute h-full left-[0.11%] max-w-none top-0 w-[99.77%] object-cover" src={videoMultimodal} />
       </div>
     </div>
   );
@@ -3433,7 +3433,7 @@ function Frame152() {
   return (
     <div className="-translate-x-1/2 -translate-y-1/2 absolute h-[491px] left-[calc(50%+0.5px)] rounded-[35px] top-1/2 w-[244px]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[35px]">
-        <img alt="" className="absolute h-[100.01%] left-0 max-w-none top-[-0.01%] w-full" src={imgChatHistoryGif} />
+        <video autoPlay loop muted playsInline className="absolute h-[100.01%] left-0 max-w-none top-[-0.01%] w-full object-cover" src={videoSymptoms} />
       </div>
     </div>
   );
@@ -4842,7 +4842,7 @@ export default function ChemobuddyMayoclinic() {
               <strong>Goal:</strong> Simplify first-time setup and create immediate trust. Patients enter a secure clinic code to auto-sync their data.
             </p>
             <div className="flex justify-center">
-              <img src={imgOnboardingGif} alt="Onboarding Flow" className="w-[80%] rounded-3xl shadow-xl" />
+              <video src={videoOnboarding} autoPlay loop muted playsInline className="w-[80%] rounded-3xl shadow-xl" />
             </div>
           </div>
 
@@ -4864,7 +4864,7 @@ export default function ChemobuddyMayoclinic() {
               <strong>Goal:</strong> Deliver empathetic support. It detects "red flag" keywords like fever and escalates them while answering routine questions calmly.
             </p>
             <div className="flex justify-center">
-              <img src={imgChatbotGif} alt="Chatbot" className="w-[80%] rounded-3xl shadow-xl" />
+              <video src={videoMultimodal} autoPlay loop muted playsInline className="w-[80%] rounded-3xl shadow-xl" />
             </div>
           </div>
 
@@ -4875,7 +4875,7 @@ export default function ChemobuddyMayoclinic() {
               <strong>Goal:</strong> Help patients record symptoms quickly. Uses an interactive body map and color-coded severity sliders.
             </p>
             <div className="flex justify-center">
-              <img src={imgIMockupIPhone47} alt="Symptom Tracking" className="w-[80%] rounded-3xl shadow-xl" />
+              <video src={videoSymptoms} autoPlay loop muted playsInline className="w-[80%] rounded-3xl shadow-xl" />
             </div>
           </div>
 
