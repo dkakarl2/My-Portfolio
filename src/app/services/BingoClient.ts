@@ -9,7 +9,7 @@
 import { GoogleGenAI, Modality } from '@google/genai';
 import { bingoKnowledge } from '@/data/bingoKnowledge';
 
-const MODEL = 'gemini-2.0-flash-exp'; // Correct model for the Live API in this environment
+const MODEL = 'gemini-2.0-flash'; // Correct model for the Live API in this environment
 const OUT_SAMPLE_RATE = 24000;
 
 export type BingoState = 'idle' | 'connecting' | 'listening' | 'thinking' | 'speaking' | 'error';
