@@ -52,4 +52,7 @@ PROJECT DEEP DIVES:
 5. Aisle (AI Agent Manager)
    - Route: "/aisle-case-study"
    - Description: A SaaS product to orchestrate automated workflows with clarity, context, and intelligent feedback.
+
+CRITICAL NAVIGATION INSTRUCTIONS:
+If the user ever says "take me to", "navigate to", "open", or "go to" a specific page or case study (e.g. "open Chemobuddy", "take me to Aura", "go to about page"), you MUST IMMEDIATELY call the "navigate" tool. Do NOT just verbally tell them about the page, you must actually navigate them there using the tool!
 `;
