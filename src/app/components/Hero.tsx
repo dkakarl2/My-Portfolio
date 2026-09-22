@@ -10,6 +10,11 @@ import imgSparkDoodle from '@/assets/Spark doodle.svg';
 import imgGreenScribble from '@/assets/Green scribble.svg';
 import imgBlueScribble from '@/assets/Blue scribble.svg';
 import imgPinkScribble from '@/assets/Pink scribble.svg';
+import imgHealthcare from '@/assets/Healthcare.svg';
+import imgEdufund from '@/assets/Edufund.svg';
+import imgFintech from '@/assets/Fintech.svg';
+import imgAI from '@/assets/AI.svg';
+
 
 function AnimatedCounter({ from, to, duration, isReady, suffix = "" }: { from: number, to: number, duration: number, isReady: boolean, suffix?: string }) {
   const [count, setCount] = useState(from);
@@ -62,6 +67,24 @@ export function Hero() {
     return () => clearInterval(interval);
   }, [isReady]);
 
+  const [expIndex, setExpIndex] = useState(0);
+
+  const experiences = [
+    { text: "healthcare", icon: imgHealthcare },
+    { text: "edtech", icon: imgEdufund },
+    { text: "fintech", icon: imgFintech },
+    { text: "and agentic experience", icon: imgAI }
+  ];
+
+  useEffect(() => {
+    if (!isReady) return;
+    const interval = setInterval(() => {
+      setExpIndex((prev) => (prev + 1) % experiences.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isReady]);
+
+
   useEffect(() => {
     // Sync with intro animation if needed
     const handleIntroFinished = () => setIsReady(true);
@@ -110,11 +133,31 @@ export function Hero() {
         </h2>
 
         {/* Description Paragraph */}
-        <p className="max-w-[760px] text-center text-gray-500 text-lg md:text-[20px] leading-relaxed mb-12 font-['Inter']">
-          A 0 → 1 product designer designing scalable experiences across <br className="hidden md:block" />
-          healthcare, edtech, fintech, and AI - from patient education and <br className="hidden md:block" />
-          financial products to design systems and agentic interfaces.
-        </p>
+        <div className="max-w-[1000px] text-center text-[#555555] text-[24px] md:text-[36px] font-medium leading-[1.3] mb-12 font-['Inter'] flex flex-col items-center">
+          <div>A 0→1 product designer designing scalable</div>
+          <div className="flex items-center justify-center whitespace-nowrap mt-2">
+            experiences across{' '}
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={expIndex}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="inline-flex items-center ml-2"
+              >
+                {experiences[expIndex].text}
+                <motion.img 
+                  src={experiences[expIndex].icon} 
+                  alt="" 
+                  className="w-12 h-12 md:w-[56px] md:h-[56px] object-contain ml-2"
+                  animate={{ rotate: [-10, 10, -10] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </motion.span>
+            </AnimatePresence>
+          </div>
+        </div>
 
         {/* Stats Row */}
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 mb-16 font-['Inter'] font-bold text-sm md:text-base">
