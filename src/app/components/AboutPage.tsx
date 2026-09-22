@@ -16,7 +16,7 @@ import { TimeOffClock } from "@/app/components/TimeOffClock";
 import { BookShelf } from "@/app/components/BookShelf";
 import { Education } from "@/app/components/Education";
 import { RevealOnScroll } from "@/app/components/RevealOnScroll";
-import aboutHeroDoodle from "@/assets/About section hero doodle.png";
+import aboutHeroDoodleVideo from "@/assets/About section hero doodle.mp4";
 
 export function AboutPage() {
   return (
@@ -56,7 +56,7 @@ export function AboutPage() {
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               >
-                <img src={aboutHeroDoodle} alt="Hero doodle" className="w-[300px] lg:w-[500px] object-contain drop-shadow-xl opacity-95" />
+                <video src={aboutHeroDoodleVideo} autoPlay loop muted playsInline className="w-[300px] lg:w-[500px] object-contain drop-shadow-xl opacity-95 pointer-events-none" />
               </motion.div>
             </motion.div>
 
