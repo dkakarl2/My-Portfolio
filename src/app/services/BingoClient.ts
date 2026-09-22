@@ -83,7 +83,7 @@ export class BingoClient {
           responseModalities: [Modality.AUDIO],
           realtimeInputConfig: {
             automaticActivityDetection: {
-              silenceDurationMs: 350, // Insanely fast VAD cutoff
+              endOfSpeechSensitivity: 'END_SENSITIVITY_HIGH', startOfSpeechSensitivity: 'START_SENSITIVITY_HIGH', silenceDurationMs: 250, // Insanely fast VAD cutoff
             }
           },
           speechConfig: {
