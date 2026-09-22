@@ -202,34 +202,46 @@ function Frame188() {
 
 function Frame148() {
   return (
-    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px]">
+    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px] h-full">
       <img alt="Overwhelmed" className="w-[260px] h-[260px] object-contain shrink-0" src={imgImage115} />
       <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative text-[#484848] text-[16px] whitespace-pre-wrap">Parents exploring Fixed Deposits often faced long KYC processes, unclear return breakdowns, and rigid financial flows that felt intimidating. Most platforms lacked step-by-step guidance and didn’t explain financial details in a reassuring way.</p>
+      <div className="flex flex-col gap-[8px] items-center mt-auto w-full">
+        <p className="font-['Inter:Bold',sans-serif] font-bold text-[#bd4800] text-[32px]">Overwhelmed</p>
+        <p className="font-['Caveat_Brush:Regular',sans-serif] text-[#484848] text-[20px]">Problem</p>
+      </div>
     </div>
   );
 }
 
 function Frame146() {
   return (
-    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px]">
+    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px] h-full">
       <img alt="Guided" className="w-[260px] h-[260px] object-contain shrink-0" src={imgImage116} />
       <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative text-[#484848] text-[16px] whitespace-pre-wrap">We designed a step-by-step, mobile-first FD journey inside EduFund that simplified KYC, clarified returns and tenure, and blended Shriram Finance’s compliance flow with EduFund’s friendly, trustworthy design language.</p>
+      <div className="flex flex-col gap-[8px] items-center mt-auto w-full">
+        <p className="font-['Inter:Bold',sans-serif] font-bold text-[#ff7f32] text-[32px]">Guided</p>
+        <p className="font-['Caveat_Brush:Regular',sans-serif] text-[#484848] text-[20px]">Solution</p>
+      </div>
     </div>
   );
 }
 
 function Frame147() {
   return (
-    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px]">
+    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px] h-full">
       <img alt="Confident" className="w-[260px] h-[260px] object-contain shrink-0" src={imgImage107} />
       <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative text-[#484848] text-[16px] whitespace-pre-wrap">Parents could now invest in secure Fixed Deposits with clarity and confidence. The guided experience reduced confusion, improved completion rates, and strengthened trust in EduFund as a long-term financial planning partner.</p>
+      <div className="flex flex-col gap-[8px] items-center mt-auto w-full">
+        <p className="font-['Inter:Bold',sans-serif] font-bold text-[#7cb342] text-[32px]">Confident</p>
+        <p className="font-['Caveat_Brush:Regular',sans-serif] text-[#484848] text-[20px]">Impact</p>
+      </div>
     </div>
   );
 }
 
 function Frame186() {
   return (
-    <div className="content-stretch flex gap-[68px] items-start justify-between relative shrink-0 w-full">
+    <div className="content-stretch flex gap-[68px] items-stretch justify-between relative shrink-0 w-full">
       <Frame148 />
       <Frame146 />
       <Frame147 />
@@ -276,9 +288,8 @@ function Frame283() {
 
 function Frame280() {
   return (
-    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
       <Frame186 />
-      <Frame283 />
     </div>
   );
 }
