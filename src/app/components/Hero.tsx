@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 // Import assets
-import imgDoodleHomepage from '@/assets/Doodle - homepage.svg';
+import videoDoodleHomepage from '@/assets/doodle hompage.mp4';
 import imgBingoIcon from '@/assets/Bingo.svg';
 import imgSparkBingo from '@/assets/Spark bingo.svg';
 import imgSparkDoodle from '@/assets/Spark doodle.svg';
@@ -99,10 +99,8 @@ export function Hero() {
           {/* Animated Doodle */}
           <motion.div 
             className="relative w-[60px] h-[60px] md:w-[72px] md:h-[72px] shrink-0 mt-2 md:mt-0"
-            animate={{ rotate: [-8, 8, -8] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <img src={imgDoodleHomepage} alt="Deepika Doodle" className="w-full h-full object-contain" />
+            <video src={videoDoodleHomepage} autoPlay loop muted playsInline className="w-full h-full object-contain pointer-events-none" />
             <img 
               src={imgSparkDoodle} 
               alt="" 
@@ -169,7 +167,7 @@ export function Hero() {
         >
           {/* Animated Bingo Icon */}
           <motion.div 
-            className="relative w-[52px] h-[52px]"
+            className="relative w-[68.04px] h-[59.94px]"
             animate={{ rotate: isBingoHovered ? [-10, 10, -10] : [-5, 5, -5] }}
             transition={{ duration: isBingoHovered ? 1.5 : 3, repeat: Infinity, ease: "easeInOut" }}
           >
@@ -177,7 +175,7 @@ export function Hero() {
             <img 
               src={imgSparkBingo} 
               alt="Sparks" 
-              className="absolute -top-5 -left-5 w-8 h-8 object-contain pointer-events-none" 
+              className="absolute -top-[5px] -left-[12px] w-[22px] h-[22px] object-contain pointer-events-none" 
             />
           </motion.div>
           
