@@ -114,7 +114,7 @@ export function Hero() {
       >
         
         {/* Title Line 1 with Doodle */}
-        <div className="flex flex-col md:flex-row items-end justify-center gap-2 md:gap-4 mb-2 md:-mb-2">
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-2 md:gap-4 mb-2 md:-mb-2">
           <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black tracking-tight leading-tight font-['Inter']">
             Hello, I’m Deepika
           </h1>
@@ -133,10 +133,10 @@ export function Hero() {
         </h2>
 
         {/* Description Paragraph */}
-        <div className="max-w-[1000px] text-center text-[#555555] text-[32px] font-medium leading-[1.3] mb-12 font-['Inter'] flex flex-col items-center">
+        <div className="max-w-[1000px] text-center text-[#555555] text-[18px] sm:text-[24px] md:text-[32px] font-medium leading-[1.3] mb-12 px-4 md:px-0 font-['Inter'] flex flex-col items-center">
           <div>A 0→1 product designer designing scalable</div>
-          <div className="flex items-center justify-center whitespace-nowrap mt-2">
-            experiences across{' '}
+          <div className="flex flex-wrap md:flex-nowrap items-center justify-center mt-2 px-2">
+            <span>experiences across </span>
             <AnimatePresence mode="wait">
               <motion.span
                 key={expIndex}
@@ -219,7 +219,7 @@ export function Hero() {
           
           {/* Text */}
           <div className="font-['Inter'] flex items-center text-left">
-            <span className="font-bold text-[#333333] text-[15px]">Meet Bingo</span>
+            <span className="font-bold text-[#333333] text-[15px] whitespace-nowrap">Meet Bingo</span>
             <span className="text-[#999999] font-medium mx-2">-</span>
             <div className="relative overflow-hidden h-[20px] w-[220px] flex items-center">
               <AnimatePresence mode="wait">
