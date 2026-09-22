@@ -52,12 +52,9 @@ export function AboutPage() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
             >
-              <motion.div
-                animate={{ y: [0, -15, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <video src={aboutHeroDoodleVideo} autoPlay loop muted playsInline className="w-[300px] lg:w-[500px] object-contain drop-shadow-xl opacity-95 pointer-events-none" />
-              </motion.div>
+              <div>
+                <video src={aboutHeroDoodleVideo} autoPlay loop muted playsInline className="w-[300px] lg:w-[500px] object-contain opacity-95 pointer-events-none" />
+              </div>
             </motion.div>
 
             <div className="flex flex-col relative z-10">
