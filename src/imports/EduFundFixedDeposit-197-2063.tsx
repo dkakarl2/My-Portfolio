@@ -202,46 +202,34 @@ function Frame188() {
 
 function Frame148() {
   return (
-    <div className="content-stretch flex flex-col gap-[41px] h-[440px] items-center relative shrink-0 w-[298px]">
-      <div className="h-[266px] relative shrink-0 w-[244px]" data-name="image 115">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[165.7%] left-[-35.92%] max-w-none top-[-31.88%] w-[169.37%]" src={imgImage115} />
-        </div>
-      </div>
-      <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[16px] w-[min-content] whitespace-pre-wrap">Parents exploring Fixed Deposits often faced long KYC processes, unclear return breakdowns, and rigid financial flows that felt intimidating. Most platforms lacked step-by-step guidance and didn’t explain financial details in a reassuring way.</p>
+    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px]">
+      <img alt="Overwhelmed" className="w-[260px] h-[260px] object-contain shrink-0" src={imgImage115} />
+      <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative text-[#484848] text-[16px] whitespace-pre-wrap">Parents exploring Fixed Deposits often faced long KYC processes, unclear return breakdowns, and rigid financial flows that felt intimidating. Most platforms lacked step-by-step guidance and didn’t explain financial details in a reassuring way.</p>
     </div>
   );
 }
 
 function Frame146() {
   return (
-    <div className="content-stretch flex flex-col gap-[36px] h-[406px] items-center justify-center relative shrink-0 w-[286px]">
-      <div className="h-[237px] relative shrink-0 w-[190px]" data-name="image 116">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[189.98%] left-[-57.31%] max-w-none top-[-25.42%] w-[226.89%]" src={imgImage116} />
-        </div>
-      </div>
-      <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[16px] w-[min-content] whitespace-pre-wrap">We designed a step-by-step, mobile-first FD journey inside EduFund that simplified KYC, clarified returns and tenure, and blended Shriram Finance’s compliance flow with EduFund’s friendly, trustworthy design language.</p>
+    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px]">
+      <img alt="Guided" className="w-[260px] h-[260px] object-contain shrink-0" src={imgImage116} />
+      <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative text-[#484848] text-[16px] whitespace-pre-wrap">We designed a step-by-step, mobile-first FD journey inside EduFund that simplified KYC, clarified returns and tenure, and blended Shriram Finance’s compliance flow with EduFund’s friendly, trustworthy design language.</p>
     </div>
   );
 }
 
 function Frame147() {
   return (
-    <div className="content-stretch flex flex-col gap-[48px] items-center justify-center relative shrink-0 w-[280px]">
-      <div className="h-[240px] relative shrink-0 w-[223px]" data-name="image 107">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[157.54%] left-[-39.04%] max-w-none top-[-30.15%] w-[159.8%]" src={imgImage107} />
-        </div>
-      </div>
-      <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[16px] w-[min-content] whitespace-pre-wrap">Parents could now invest in secure Fixed Deposits with clarity and confidence. The guided experience reduced confusion, improved completion rates, and strengthened trust in EduFund as a long-term financial planning partner.</p>
+    <div className="flex flex-col gap-[32px] items-center justify-start relative shrink-0 w-[298px]">
+      <img alt="Confident" className="w-[260px] h-[260px] object-contain shrink-0" src={imgImage107} />
+      <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative text-[#484848] text-[16px] whitespace-pre-wrap">Parents could now invest in secure Fixed Deposits with clarity and confidence. The guided experience reduced confusion, improved completion rates, and strengthened trust in EduFund as a long-term financial planning partner.</p>
     </div>
   );
 }
 
 function Frame186() {
   return (
-    <div className="content-stretch flex gap-[68px] h-[436px] items-end relative shrink-0 w-full">
+    <div className="content-stretch flex gap-[68px] items-start justify-between relative shrink-0 w-full">
       <Frame148 />
       <Frame146 />
       <Frame147 />
@@ -251,7 +239,7 @@ function Frame186() {
 
 function Frame281() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
+    <div className="flex flex-col gap-[8px] items-center relative shrink-0 w-[298px]">
       <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#bd4800] text-[32px]">Overwhelmed</p>
       <p className="font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#484848] text-[20px]">Problem</p>
     </div>
@@ -260,7 +248,7 @@ function Frame281() {
 
 function Frame282() {
   return (
-    <div className="content-stretch flex flex-col gap-[8px] items-center relative shrink-0">
+    <div className="flex flex-col gap-[8px] items-center relative shrink-0 w-[298px]">
       <p className="font-['Inter:Bold',sans-serif] font-bold relative shrink-0 text-[#ff7f32] text-[32px]">Guided</p>
       <p className="font-['Caveat_Brush:Regular',sans-serif] relative shrink-0 text-[#484848] text-[20px]">Solution</p>
     </div>
@@ -288,7 +276,7 @@ function Frame283() {
 
 function Frame280() {
   return (
-    <div className="content-stretch flex flex-col gap-[10px] h-[544px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[32px] items-start relative shrink-0 w-full">
       <Frame186 />
       <Frame283 />
     </div>
@@ -297,7 +285,7 @@ function Frame280() {
 
 function Frame187() {
   return (
-    <div className="content-stretch flex flex-col h-[544px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col items-start relative shrink-0 w-full">
       <Frame280 />
     </div>
   );
@@ -305,7 +293,7 @@ function Frame187() {
 
 function Frame182() {
   return (
-    <div className="content-stretch flex flex-col gap-[84px] h-[1196px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex flex-col gap-[84px] items-start relative shrink-0 w-full">
       <Frame143 />
       <Frame188 />
       <Frame187 />
