@@ -91,14 +91,14 @@ export function Hero() {
       >
         
         {/* Title Line 1 with Doodle */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-2">
+        <div className="flex flex-col md:flex-row items-end justify-center gap-2 md:gap-4 mb-2 md:-mb-2">
           <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black tracking-tight leading-tight font-['Inter']">
             Hello, I’m Deepika
           </h1>
           
           {/* Animated Doodle */}
           <motion.div 
-            className="relative w-[120px] h-[120px] shrink-0 mt-2 md:mt-0"
+            className="relative w-[120px] h-[120px] shrink-0"
           >
             <video src={videoDoodleHomepage} autoPlay loop muted playsInline className="w-full h-full object-contain pointer-events-none" />
             <img 
@@ -111,7 +111,7 @@ export function Hero() {
 
         {/* Title Line 2 */}
         <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black tracking-tight leading-tight font-['Inter'] mb-8">
-          UX & Design Systems Designer
+          A UX & Design Systems Designer
         </h2>
 
         {/* Description Paragraph */}
