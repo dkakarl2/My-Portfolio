@@ -49,6 +49,8 @@ export class BingoClient {
     });
   }
 
+  static hasIntroduced = false;
+
   private currentState: BingoState = 'idle';
 
   private setState(state: BingoState) {
@@ -118,12 +120,9 @@ export class BingoClient {
                   name: 'scroll',
                   description: 'Scroll the page up or down.',
                   parameters: {
-                    type: 'OBJECT',
-                    properties: {
-                      direction: { type: 'STRING', description: 'up or down' },
-                      amount: { type: 'STRING', description: 'small or large' }
-                    },
-                    required: ['direction', 'amount']
+                    type: 'OBJECT', 
+                    properties: { direction: { type: 'STRING', enum: ['up', 'down'] } }, 
+                    required: ['direction'] 
                   }
                 },
                 {
@@ -160,11 +159,14 @@ export class BingoClient {
         },
       });
       
-      // Trigger Bingo's initial greeting NOW that this.session is defined
-      this.session.sendClientContent({
-        turns: [{ role: 'user', parts: [{ text: 'Introduce yourself briefly (1 sentence).' }] }],
-        turnComplete: true,
-      });
+      // Trigger Bingo's initial greeting ONLY if it hasn't introduced itself yet
+      if (!BingoClient.hasIntroduced) {
+        this.session.sendClientContent({
+          turns: [{ role: 'user', parts: [{ text: 'Introduce yourself briefly (1 sentence).' }] }],
+          turnComplete: true,
+        });
+        BingoClient.hasIntroduced = true;
+      }
     } catch (err: any) {
       console.error('[Bingo] connect() failed:', err);
       this.setState('error');
@@ -182,9 +184,12 @@ export class BingoClient {
     if (this.speakingTimeout) clearTimeout(this.speakingTimeout);
 
     if (this.micStream) {
-      this.micStream.getTracks().forEach((track) => track.stop());
-      this.micStream = null;
+      this.stopMic();
     }
+    
+    // Stop all audio playback instantly
+    this.interrupt();
+
     if (this.audioContext) {
       this.audioContext.close();
       this.audioContext = null;
@@ -342,15 +347,25 @@ export class BingoClient {
   private handleMessage(msg: any) {
     if (msg.setupComplete) {
       console.log('[Bingo] Setup complete');
-      this.setState('thinking');
+      if (!BingoClient.hasIntroduced) {
+        this.setState('thinking');
+      } else {
+        this.setState('listening');
+      }
     }
 
     if (msg.serverContent?.inputTranscription?.text) {
       this.options.onTranscript?.(msg.serverContent.inputTranscription.text, 'user');
+      // When the user finishes speaking, the server transcribes and starts thinking
+      this.setState('thinking');
     }
 
     if (msg.serverContent?.turnComplete) {
-      this.setState('thinking');
+      // If the model finished its turn but we aren't playing audio, go back to listening.
+      // If we are playing audio, the speakingTimeout will handle returning to listening.
+      if (!this.speakingTimeout || this.currentSources.length === 0) {
+        this.setState('listening');
+      }
     }
 
     // 1. Handle Audio & Text (msg.serverContent)
