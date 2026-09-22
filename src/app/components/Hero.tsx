@@ -133,7 +133,7 @@ export function Hero() {
         </h2>
 
         {/* Description Paragraph */}
-        <div className="max-w-[1000px] text-center text-[#555555] text-[24px] md:text-[32px] font-medium leading-[1.3] mb-12 font-['Inter'] flex flex-col items-center">
+        <div className="max-w-[1000px] text-center text-[#555555] text-[32px] font-medium leading-[1.3] mb-12 font-['Inter'] flex flex-col items-center">
           <div>A 0→1 product designer designing scalable</div>
           <div className="flex items-center justify-center whitespace-nowrap mt-2">
             experiences across{' '}
