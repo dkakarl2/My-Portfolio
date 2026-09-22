@@ -98,7 +98,7 @@ export function Hero() {
           
           {/* Animated Doodle */}
           <motion.div 
-            className="relative w-[60px] h-[60px] md:w-[72px] md:h-[72px] shrink-0 mt-2 md:mt-0"
+            className="relative w-[120px] h-[120px] shrink-0 mt-2 md:mt-0"
           >
             <video src={videoDoodleHomepage} autoPlay loop muted playsInline className="w-full h-full object-contain pointer-events-none" />
             <img 
