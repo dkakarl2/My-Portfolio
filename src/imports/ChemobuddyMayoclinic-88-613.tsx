@@ -22,8 +22,8 @@ import imgIMockupIPhone21 from "figma:asset/e045c91f83dd01e4f6afd27c4ed7d24f5420
 import imgIMockupIPhone22 from "figma:asset/e41a3d8f36936369ad1a2b20485b4293a8cfcd0c.png";
 import imgImage54 from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
 import imgImage106 from "figma:asset/c1366e9e4fa99b835ea3664cf295be514c999b29.png";
-import imgImage107 from "figma:asset/db0c048f566a005b6ae99b7d8e878dbb5a7d4c8e.png";
-import imgImage108 from "figma:asset/707c97d14934918ad3a4eea553555f8ad34e3acf.png";
+import imgImage107 from "@/assets/Confident.png";
+import imgImage108 from "@/assets/Guided.png";
 import imgImage109 from "figma:asset/45189c12896bd7ac8633c8f1229265acd4e2d9e6.png";
 import imgImage112 from "figma:asset/3ea8ddc2fcc8e226b09f672e7bf1038eb7ecc98b.png";
 import imgImage30 from "figma:asset/8312b4d0ed8e2101bb7daa1796b6a655a783e34a.png";

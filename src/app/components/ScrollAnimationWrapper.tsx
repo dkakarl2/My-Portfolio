@@ -1,8 +1,8 @@
 import svgPaths from "@/imports/svg-t4zg9il96f";
 import imgImage109 from "figma:asset/45189c12896bd7ac8633c8f1229265acd4e2d9e6.png";
 import imgImage106 from "figma:asset/c1366e9e4fa99b835ea3664cf295be514c999b29.png";
-import imgImage107 from "figma:asset/db0c048f566a005b6ae99b7d8e878dbb5a7d4c8e.png";
-import imgImage108 from "figma:asset/707c97d14934918ad3a4eea553555f8ad34e3acf.png";
+import imgImage107 from "@/assets/Confident.png";
+import imgImage108 from "@/assets/Guided.png";
 import imgImage54 from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
 import { motion } from "motion/react";
 import { useInView } from "react";

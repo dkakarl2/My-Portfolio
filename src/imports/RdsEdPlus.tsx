@@ -7,7 +7,7 @@ import heroAnimationGif from "@/assets/hero-animation.gif";
 import rdsHeroAnimationGif from "@/assets/rds-hero-animation.gif";
 import rdsHeroImage from "@/assets/Rocket design system hero image.png";
 import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
-import imgImage115 from "figma:asset/adf2f7f090fc9d8b0bc367bedff3d83b1ce9b693.png";
+import imgImage115 from "@/assets/Overwhelmed.png";
 import imgImage116 from "figma:asset/c550bafe6716d9f9ac000d2bfa546a5610cdb757.png";
 import imgImage117 from "@/assets/RDS 3rd doddle image.png";
 import imgImage118 from "figma:asset/eaea68abe48c23fd706c5cdb1cabcb6ff745c34c.png";
