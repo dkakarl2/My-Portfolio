@@ -1,5 +1,5 @@
 import svgPaths from "./svg-ne2ipre3xz";
-import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
+import imgDoodleImage from "@/assets/Overwhelmed.png";
 import imgImage115 from "@/assets/Overwhelmed.png";
 import imgImage116 from "@/assets/Guided.png";
 import imgImage107 from "@/assets/Confident.png";

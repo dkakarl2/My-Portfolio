@@ -13,7 +13,7 @@ import imgImage11 from "figma:asset/d349b829820164c6ffd8680038fb41c9c830b08e.png
 import imgFrame22 from "figma:asset/2096313866740ff08589de188acef2c08565190b.png";
 import imgFrame1000006081 from "figma:asset/eafd58cd408b75d2c671a24115c9d94c6665d7c4.png";
 import imgRectangle14249 from "figma:asset/eedfe714d0cf5d8f385501febadac14123fb1435.png";
-import imgImage55 from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
+import imgImage55 from "@/assets/Overwhelmed.png";
 import imgImage48 from "figma:asset/9463966d88cc839f2986963003088551f5d1fb18.png";
 
 function Group2() {

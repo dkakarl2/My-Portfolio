@@ -1,5 +1,5 @@
 import svgPaths from "./svg-be8uikjheg";
-import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
+import imgDoodleImage from "@/assets/Overwhelmed.png";
 
 function Group() {
   return (

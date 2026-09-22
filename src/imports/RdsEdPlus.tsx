@@ -1,4 +1,4 @@
-import image_1c9b12e69f3c248f05ffdb1e0805ed4e92836839 from 'figma:asset/1c9b12e69f3c248f05ffdb1e0805ed4e92836839.png';
+import imgWorried from '@/assets/Worried.png';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import image_85df41b8503e0c1d73789aa9eca8e183b0810253 from 'figma:asset/85df41b8503e0c1d73789aa9eca8e183b0810253.png'
 import svgPaths from "./svg-guyf3ua2we";
@@ -6,9 +6,9 @@ import imgComponent5 from "figma:asset/da71ab60a626af85354ff4eeeb327e6711792b31.
 import heroAnimationGif from "@/assets/hero-animation.gif";
 import rdsHeroAnimationGif from "@/assets/rds-hero-animation.gif";
 import rdsHeroImage from "@/assets/Rocket design system hero image.png";
-import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
+import imgDoodleImage from "@/assets/Overwhelmed.png";
+import imgRole from "@/assets/Role.png";
 import imgImage115 from "@/assets/Overwhelmed.png";
-import imgImage116 from "figma:asset/c550bafe6716d9f9ac000d2bfa546a5610cdb757.png";
 import imgImage117 from "@/assets/RDS 3rd doddle image.png";
 import imgImage118 from "figma:asset/eaea68abe48c23fd706c5cdb1cabcb6ff745c34c.png";
 import imgImage19 from "figma:asset/b9cbfac06415e7b762a5363acc6e0e853dc5fbae.png";
@@ -153,9 +153,7 @@ function Frame59() {
   return (
     <div className="content-stretch flex flex-col gap-[41px] h-[364px] items-center relative shrink-0 w-[298px]">
       <div className="h-[266px] relative shrink-0 w-[244px]" data-name="image 115">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[165.7%] left-[-35.92%] max-w-none top-[-31.88%] w-[169.37%]" src={imgImage115} />
-        </div>
+        <img alt="Fragmented experience doodle" className="w-full h-full object-contain" src={imgImage115} />
       </div>
       <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[16px] w-[min-content] whitespace-pre-wrap">Similar features looked and behaved differently across platforms, making products feel fragmented.</p>
     </div>
@@ -166,7 +164,7 @@ function Frame57() {
   return (
     <div className="content-stretch flex flex-col gap-[36px] h-[330px] items-center justify-center relative shrink-0 w-[286px]">
       <div className="relative shrink-0 w-full h-[237px]" data-name="image 116">
-        <img alt="" className="w-full h-full object-cover" src={image_1c9b12e69f3c248f05ffdb1e0805ed4e92836839} />
+        <img alt="Worried doodle" className="w-full h-full object-contain" src={imgWorried} />
       </div>
       <p className="font-['Inter:Italic',sans-serif] font-normal italic leading-[normal] relative shrink-0 text-[#484848] text-[16px] w-full whitespace-pre-wrap">Designers were recreating components from scratch instead of reusing standardized building blocks.</p>
     </div>
@@ -326,12 +324,12 @@ function Frame61() {
 
 function Frame69() {
   return (
-    <div className="content-stretch flex gap-[86px] items-start relative shrink-0 w-[994px]">
-      <Frame61 />
-      <div className="h-[258px] relative shrink-0 w-[233px]" data-name="image 118">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[139.67%] left-[-58.47%] max-w-none top-[-39.39%] w-[231.15%]" src={imgImage118} />
-        </div>
+    <div className="flex flex-col md:flex-row items-center w-[994px] py-16 gap-8 relative shrink-0">
+      <div className="flex-1">
+        <Frame61 />
+      </div>
+      <div className="flex-1 flex justify-center md:justify-end">
+        <img src={imgRole} alt="Role and Contribution doodle" className="max-w-full w-[450px] object-contain" />
       </div>
     </div>
   );
@@ -1205,7 +1203,7 @@ export default function RdsEdPlus() {
                 <p className="font-['Inter'] italic text-sm text-[#484848]">Fragmented experiences across platforms.</p>
               </div>
               <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
-                <img src={imgImage116} alt="Rework" className="w-full h-32 object-contain mb-2" />
+                <img src={imgWorried} alt="Rework" className="w-full h-32 object-contain mb-2" />
                 <p className="font-['Inter'] italic text-sm text-[#484848]">Redundant work recreating components.</p>
               </div>
               <div className="text-center bg-white border border-gray-100 p-4 rounded-xl shadow-sm">
@@ -1245,8 +1243,8 @@ export default function RdsEdPlus() {
             <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
               As a UX Designer focused on design systems, I contributed to the growth and refinement of the Rocket Design System by designing and improving reusable components, conducting UX audits, and ensuring alignment through design QA.
             </p>
-            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden shadow-lg mt-4">
-              <img src={imgImage118} alt="Design Process" className="absolute inset-0 w-full h-full object-cover" />
+            <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mt-4">
+              <img src={imgRole} alt="Design Process" className="absolute inset-0 w-full h-full object-contain" />
             </div>
           </div>
 

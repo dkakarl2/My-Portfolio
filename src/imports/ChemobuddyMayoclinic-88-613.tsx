@@ -4,7 +4,10 @@ import { motion, AnimatePresence } from 'motion/react';
 import videoChemoBuddyCover from '@/assets/Chemobuddy cover.mov';
 import videoChemobuddy from '@/assets/Chemobuddy video.mp4';
 import videoChemoWireframes from '@/assets/chemo wireframes.mp4';
-import mayoRoleDoodle from '@/assets/Role and contribution.png';
+import videoOnboarding from '@/assets/Onboarding.mov';
+import videoMultimodal from '@/assets/Multimodal.mov';
+import videoSymptoms from '@/assets/Symptoms.mov';
+import mayoRoleDoodle from '@/assets/Role and contribution.mp4';
 import imgHeroReplace from 'figma:asset/f620a291096457bf1aa42dee938f437a6005b47b.png';
 import imgSecondaryResearchSynthesis from '@/assets/secondary_research_synthesis.jpg';
 import image_1bf5f60255a20498a2f475250c718f058eaf3940 from 'figma:asset/1bf5f60255a20498a2f475250c718f058eaf3940.png'
@@ -20,7 +23,7 @@ import imgIMockupIPhone19 from "figma:asset/332043ce212addfd6db05a2fac75d0ca75c9
 import imgIMockupIPhone20 from "figma:asset/48819c699861360fb882a29927c13a6079c59f7f.png";
 import imgIMockupIPhone21 from "figma:asset/e045c91f83dd01e4f6afd27c4ed7d24f54209883.png";
 import imgIMockupIPhone22 from "figma:asset/e41a3d8f36936369ad1a2b20485b4293a8cfcd0c.png";
-import imgImage54 from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
+import imgImage54 from "@/assets/Overwhelmed.png";
 import imgImage106 from "figma:asset/c1366e9e4fa99b835ea3664cf295be514c999b29.png";
 import imgImage107 from "@/assets/Confident.png";
 import imgImage108 from "@/assets/Guided.png";
@@ -506,8 +509,8 @@ function TransformationFlowSection() {
       cardBg: "bg-gradient-to-b from-amber-50/60 via-white to-amber-50/20 border-amber-200/60",
       glowColor: "hover:border-amber-300 hover:shadow-amber-500/10",
       renderIllustration: () => (
-        <div className="h-48 flex items-center justify-center p-2">
-          <div className="w-36 h-full flex items-center justify-center">
+        <div className="h-48 flex items-center justify-center p-2 overflow-hidden">
+          <div className="w-56 h-56 flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
             <ConfusedGirlDoodle />
           </div>
         </div>
@@ -1276,7 +1279,7 @@ function Frame85() {
         <Frame75 />
       </div>
       <div className="flex-1 flex justify-center md:justify-end">
-        <img src={mayoRoleDoodle} alt="Role and Contribution doodle" className="max-w-full w-[450px] h-auto object-contain" />
+        <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
       </div>
     </div>
   );
@@ -3006,9 +3009,9 @@ export function Frame8() {
 
 function Frame135() {
   return (
-    <div className="absolute h-[524px] left-[99px] rounded-[31px] top-[72px] w-[260px]">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[31px]">
-        <video autoPlay loop muted playsInline className="absolute h-[100.13%] left-[-7.98%] max-w-none top-[-0.13%] w-[112.23%] object-cover" src={videoOnboarding} />
+    <div className="absolute h-[506px] left-[102px] rounded-[38px] top-[72px] w-[252px]">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none rounded-[38px]">
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover rounded-[38px]" src={videoOnboarding} />
       </div>
     </div>
   );
@@ -4780,7 +4783,7 @@ export default function ChemobuddyMayoclinic() {
                 </p>
               </div>
               <div className="flex-1 flex justify-center md:justify-end">
-                <img src={mayoRoleDoodle} alt="Role and Contribution doodle" className="max-w-full w-[450px] object-contain" />
+                <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
               </div>
             </div>
             

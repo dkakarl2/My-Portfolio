@@ -6,7 +6,7 @@ import Gif from "./Gif";
 import CourseRecommendation from "./CourseRecommendation";
 import Schedule from "./Schedule";
 import HackathonHero from "@/app/components/HackathonHero";
-import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
+import imgDoodleImage from "@/assets/Overwhelmed.png";
 import imgImage12 from "figma:asset/8b24a5a722a4b7edac106282ca74dc2dc283f855.png";
 import imgImage109 from "figma:asset/a1cf08022db7d3bb3e46c831846a5997e476d283.png";
 import imgImage110 from "figma:asset/b7c25b727340f1e2069b6db538fb1612e73523ae.png";

@@ -2,7 +2,7 @@ import React from "react";
 import { Navigation } from "@/app/components/Navigation";
 import { Playground } from "@/app/components/Playground";
 import { motion } from "framer-motion";
-import slideIcon from "@/assets/girl_on_slide.png";
+import slideVideo from "@/assets/Playground doodle.mp4";
 
 export function PlaygroundPage() {
   return (
@@ -24,7 +24,14 @@ export function PlaygroundPage() {
             className="flex flex-col items-center"
           >
             <div className="flex flex-row items-center justify-center gap-4 mb-3">
-              <img src={slideIcon} alt="Girl on slide doodle" className="w-[80px] object-contain" />
+              <video
+                src={slideVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-[80px] object-contain rounded-xl"
+              />
               <h1 className="text-4xl md:text-5xl font-bold text-black tracking-widest">Playground</h1>
             </div>
             <p className="text-[#555] text-base md:text-lg font-medium tracking-[0.1em] max-w-xl mx-auto leading-relaxed">

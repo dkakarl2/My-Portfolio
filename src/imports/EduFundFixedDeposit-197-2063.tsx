@@ -1,6 +1,11 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import svgPaths from "./svg-9mk4eqkq47";
-import imgDoodleImage from "figma:asset/ba81c99bc9fa2a7a974274dd5278fe652f58f7ca.png";
+import imgDoodleImage from "@/assets/Overwhelmed.png";
+import imgRole from "@/assets/Role.png";
+import imgEdufundHomepage from "@/assets/Edufund homepage.png";
+import imgEdufundFdPage from "@/assets/edufund FD page.png";
+import imgEdufundPortfolio from "@/assets/edufund portfolio.png";
+import imgEdufundBottomup from "@/assets/edufund bottomup.png";
 import imgImage115 from "@/assets/Overwhelmed.png";
 import imgImage116 from "@/assets/Guided.png";
 import imgImage107 from "@/assets/Confident.png";
@@ -394,12 +399,12 @@ function Frame149() {
 
 function Frame160() {
   return (
-    <div className="content-stretch flex gap-[86px] items-start relative shrink-0 w-[994px]">
-      <Frame149 />
-      <div className="h-[258px] relative shrink-0 w-[233px]" data-name="image 118">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <img alt="" className="absolute h-[139.67%] left-[-58.47%] max-w-none top-[-39.39%] w-[231.15%]" src={imgImage118} />
-        </div>
+    <div className="flex flex-col md:flex-row items-center w-[994px] py-16 gap-8 relative shrink-0">
+      <div className="flex-1">
+        <Frame149 />
+      </div>
+      <div className="flex-1 flex justify-center md:justify-end">
+        <img src={imgRole} alt="Role and Contribution doodle" className="max-w-full w-[450px] object-contain" />
       </div>
     </div>
   );
@@ -2730,12 +2735,7 @@ function Option2() {
 
 function Frame7() {
   return (
-    <div className="bg-[rgba(224,235,253,0.89)] h-[1192px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
-      <Option2 />
-      <div className="absolute h-[466px] left-[110px] top-[36.52px] w-[238px]" data-name="iMockup - Google Pixel 8 Pro">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgIMockupGooglePixel8Pro} />
-      </div>
-    </div>
+    <img src={imgEdufundHomepage} alt="Edufund homepage" className="w-[457px] h-auto shrink-0 object-cover rounded-[24px]" />
   );
 }
 
@@ -3519,12 +3519,7 @@ function BookFd() {
 
 function Frame9() {
   return (
-    <div className="bg-[rgba(224,235,253,0.89)] h-[745px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
-      <BookFd />
-      <div className="absolute h-[467px] left-[110px] top-[36.52px] w-[238px]" data-name="iMockup - Google Pixel 8 Pro">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgIMockupGooglePixel8Pro2} />
-      </div>
-    </div>
+    <img src={imgEdufundFdPage} alt="Edufund FD page" className="w-[457px] h-auto shrink-0 object-cover rounded-[24px]" />
   );
 }
 
@@ -4543,12 +4538,7 @@ function PortolioFixedDeposit() {
 
 function Frame13() {
   return (
-    <div className="bg-[rgba(224,235,253,0.89)] h-[777px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
-      <PortolioFixedDeposit />
-      <div className="absolute h-[467px] left-[110px] top-[36.52px] w-[238px]" data-name="iMockup - Google Pixel 8 Pro">
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgIMockupGooglePixel8Pro15} />
-      </div>
-    </div>
+    <img src={imgEdufundPortfolio} alt="Edufund portfolio" className="w-[457px] h-auto shrink-0 object-cover rounded-[24px]" />
   );
 }
 
@@ -4860,12 +4850,7 @@ function BottomUpSheet3() {
 
 function Frame14() {
   return (
-    <div className="bg-[rgba(224,235,253,0.89)] h-[778px] overflow-clip relative rounded-[24px] shrink-0 w-[457px]">
-      <BottomUpSheet />
-      <BottomUpSheet1 />
-      <BottomUpSheet2 />
-      <BottomUpSheet3 />
-    </div>
+    <img src={imgEdufundBottomup} alt="Edufund bottomup sheets" className="w-[457px] h-auto shrink-0 object-cover rounded-[24px]" />
   );
 }
 

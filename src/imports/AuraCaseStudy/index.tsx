@@ -6376,7 +6376,7 @@ function SectionLabelProcess1() {
 
 function Frame48() {
   return (
-    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] items-start overflow-clip px-[21px] py-[32px] relative rounded-[24px] shrink-0 w-[230px]">
+    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] items-start overflow-clip px-[21px] py-[32px] relative rounded-[24px] shrink-0 w-[230px] flex-1">
       <p className="font-['SF_Pro_Display:Semibold',sans-serif] relative shrink-0 text-[14px] text-black whitespace-nowrap">0-16hr</p>
       <p className="font-['SF_Pro_Display:Bold',sans-serif] relative shrink-0 text-[20px] text-black whitespace-nowrap">Define</p>
       <p className="font-['SF_Pro_Display:Regular',sans-serif] min-w-full relative shrink-0 text-[#5d5d5d] text-[18px] w-[min-content]">Problem framing, user research synthesis, concept exploration in FigJam</p>
@@ -6386,7 +6386,7 @@ function Frame48() {
 
 function Frame57() {
   return (
-    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] h-[209px] items-start overflow-clip px-[22px] py-[32px] relative rounded-[24px] shrink-0 w-[230px]">
+    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] items-start overflow-clip px-[22px] py-[32px] relative rounded-[24px] shrink-0 w-[230px] flex-1">
       <p className="font-['SF_Pro_Display:Semibold',sans-serif] relative shrink-0 text-[14px] text-black whitespace-nowrap">16-40hr</p>
       <p className="font-['SF_Pro_Display:Bold',sans-serif] relative shrink-0 text-[20px] text-black whitespace-nowrap">Generate</p>
       <p className="font-['SF_Pro_Display:Regular',sans-serif] min-w-full relative shrink-0 text-[#5d5d5d] text-[18px] w-[min-content]">Status orb design, color system, AI-assisted iteration in Figma Make</p>
@@ -6396,7 +6396,7 @@ function Frame57() {
 
 function Frame58() {
   return (
-    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] h-[209px] items-start overflow-clip px-[18px] py-[32px] relative rounded-[24px] shrink-0 w-[230px]">
+    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] items-start overflow-clip px-[18px] py-[32px] relative rounded-[24px] shrink-0 w-[230px] flex-1">
       <p className="font-['SF_Pro_Display:Semibold',sans-serif] relative shrink-0 text-[14px] text-black whitespace-nowrap">40-60hr</p>
       <p className="font-['SF_Pro_Display:Bold',sans-serif] relative shrink-0 text-[20px] text-black whitespace-nowrap">Build</p>
       <p className="font-['SF_Pro_Display:Regular',sans-serif] min-w-full relative shrink-0 text-[#5d5d5d] text-[18px] w-[min-content]">Moodboard-driven UI, token system, 3 use case flows</p>
@@ -6406,7 +6406,7 @@ function Frame58() {
 
 function Frame59() {
   return (
-    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] h-[209px] items-start overflow-clip px-[18px] py-[32px] relative rounded-[24px] shrink-0 w-[230px]">
+    <div className="bg-[#fafafa] content-stretch flex flex-col gap-[10px] items-start overflow-clip px-[18px] py-[32px] relative rounded-[24px] shrink-0 w-[230px] flex-1">
       <p className="font-['SF_Pro_Display:Semibold',sans-serif] relative shrink-0 text-[14px] text-black whitespace-nowrap">60-72hr</p>
       <p className="font-['SF_Pro_Display:Bold',sans-serif] relative shrink-0 text-[20px] text-black whitespace-nowrap">Ship</p>
       <p className="font-['SF_Pro_Display:Regular',sans-serif] min-w-full relative shrink-0 text-[#5d5d5d] text-[18px] w-[min-content]">Prototype, presentation polish, live site</p>
@@ -6416,7 +6416,7 @@ function Frame59() {
 
 function Frame121() {
   return (
-    <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-full">
+    <div className="content-stretch flex gap-[24px] items-stretch relative shrink-0 w-full">
       <Frame48 />
       <Frame57 />
       <Frame58 />

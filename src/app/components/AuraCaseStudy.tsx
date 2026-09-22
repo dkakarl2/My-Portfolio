@@ -182,7 +182,7 @@ export function AuraCaseStudy() {
             { phase: "Phase 3", name: "Build (40-60h)", desc: "Consolidated design tokens, structured 3 core user stories." },
             { phase: "Phase 4", name: "Polish (60-72h)", desc: "Interactive prototypes, Figma page publishing, presentation pitch." }
           ].map((step, idx) => (
-            <div key={idx} className="border border-gray-100 p-5 rounded-2xl bg-white space-y-1">
+            <div key={idx} className="border border-gray-100 p-5 rounded-2xl bg-white space-y-1 h-full">
               <span className="text-xs font-bold uppercase tracking-wider text-gray-400">{step.phase}</span>
               <h4 className="font-bold text-black text-sm">{step.name}</h4>
               <p className="text-xs text-gray-600 leading-relaxed">{step.desc}</p>

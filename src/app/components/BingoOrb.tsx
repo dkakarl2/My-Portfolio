@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Mic, MicOff } from 'lucide-react';
 import { BingoClient, BingoState } from '@/app/services/BingoClient';
-import bingoCatImage from '@/assets/Bingo.png';
+import bingoCatImage from '@/assets/Bingo.svg';
 
 // Pure CSS Bubbles generated outside React render cycle
 const STATIC_BUBBLES = Array.from({ length: 24 }).map((_, i) => ({
