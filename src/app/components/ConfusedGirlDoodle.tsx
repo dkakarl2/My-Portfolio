@@ -1,5 +1,5 @@
 
-import confusedGirlDoodle from "../../assets/confused_girl.png";
+import confusedGirlDoodle from "../../assets/Overwhelmed.png";
 
 export function ConfusedGirlDoodle() {
     return (
