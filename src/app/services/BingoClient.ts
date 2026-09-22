@@ -241,7 +241,7 @@ export class BingoClient {
 
       // We strictly use ScriptProcessorNode (like Chakku) to avoid CORS/build issues
       // and to ensure perfect 4096 buffer alignment.
-      this.useScriptProcessor();
+      await this.useAudioWorklet();
       
     } catch (err: any) {
       console.error('[Bingo] startMic error:', err);
@@ -250,30 +250,59 @@ export class BingoClient {
     }
   }
 
-  private useScriptProcessor() {
+  private async useAudioWorklet() {
     if (!this.audioContext) return;
-    const bufferSize = 2048; // 128ms capture latency (very safe for WebSocket)
-    // @ts-ignore
-    this.scriptNode = this.audioContext.createScriptProcessor(bufferSize, 1, 1);
-
-    this.scriptNode.onaudioprocess = (e: AudioProcessingEvent) => {
-      const float32 = e.inputBuffer.getChannelData(0);
-      const pcm16 = new Int16Array(float32.length);
-      for (let i = 0; i < float32.length; i++) {
-        const s = Math.max(-1, Math.min(1, float32[i]));
-        pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
+    
+    // Inline AudioWorkletProcessor to avoid Vite/CORS/Vercel static serving issues
+    const workletCode = `
+      class MicCaptureProcessor extends AudioWorkletProcessor {
+        constructor() {
+          super();
+          this.bufferSize = 2048;
+          this.buffer = new Float32Array(this.bufferSize);
+          this.framesRecorded = 0;
+        }
+        process(inputs) {
+          const input = inputs[0];
+          if (!input || !input[0]) return true;
+          const float32 = input[0];
+          for (let i = 0; i < float32.length; i++) {
+            this.buffer[this.framesRecorded++] = float32[i];
+            if (this.framesRecorded >= this.bufferSize) {
+              const pcm16 = new Int16Array(this.bufferSize);
+              for (let j = 0; j < this.bufferSize; j++) {
+                const s = Math.max(-1, Math.min(1, this.buffer[j]));
+                pcm16[j] = s < 0 ? s * 0x8000 : s * 0x7fff;
+              }
+              this.port.postMessage(pcm16.buffer, [pcm16.buffer]);
+              this.framesRecorded = 0;
+            }
+          }
+          return true;
+        }
       }
-      this.sendAudioChunk(pcm16.buffer);
-    };
+      registerProcessor('mic-capture-processor', MicCaptureProcessor);
+    `;
+    const blob = new Blob([workletCode], { type: 'application/javascript' });
+    const workletUrl = URL.createObjectURL(blob);
 
-    this.sourceNode!.connect(this.scriptNode);
-    // Removed scriptNode.connect(...) to prevent echo
-    // The scriptNode still fires onaudioprocess in most browsers without being connected to destination.
-    // If it requires connection, it's better to connect it to a dummy GainNode with 0 volume.
-    const dummyGain = this.audioContext.createGain();
-    dummyGain.gain.value = 0;
-    this.scriptNode.connect(dummyGain);
-    dummyGain.connect(this.audioContext.destination);
+    try {
+      await this.audioContext.audioWorklet.addModule(workletUrl);
+      this.workletNode = new AudioWorkletNode(this.audioContext, 'mic-capture-processor');
+      this.workletNode.port.onmessage = (e) => {
+        this.sendAudioChunk(e.data);
+      };
+      
+      const dummyGain = this.audioContext.createGain();
+      dummyGain.gain.value = 0;
+      this.sourceNode!.connect(this.workletNode);
+      this.workletNode.connect(dummyGain);
+      dummyGain.connect(this.audioContext.destination);
+    } catch (err) {
+      console.error('[Bingo] AudioWorklet failed, fallback disabled:', err);
+    } finally {
+      URL.revokeObjectURL(workletUrl);
+    }
   }
 
   private sendAudioChunk(buffer: ArrayBuffer) {
