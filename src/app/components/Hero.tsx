@@ -115,7 +115,7 @@ export function Hero() {
         
         {/* Title Line 1 with Doodle */}
         <div className="flex flex-col md:flex-row items-center md:items-end justify-center gap-2 md:gap-4 mb-2 md:-mb-2">
-          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black tracking-tight leading-tight font-['Inter']">
+          <h1 className="text-[32px] md:text-[48px] font-bold text-black tracking-tight leading-tight font-['Inter']">
             Hello, I’m Deepika
           </h1>
           
@@ -128,12 +128,12 @@ export function Hero() {
         </div>
 
         {/* Title Line 2 */}
-        <h2 className="text-4xl md:text-5xl lg:text-[56px] font-bold text-black tracking-tight leading-tight font-['Inter'] mb-8">
-          A UX & Design Systems Designer
+        <h2 className="text-[32px] md:text-[48px] font-bold text-black tracking-tight leading-tight font-['Inter'] mb-8">
+          UX & Design Systems Designer
         </h2>
 
         {/* Description Paragraph */}
-        <div className="max-w-[1000px] text-center text-[#555555] text-[18px] sm:text-[24px] md:text-[32px] font-medium leading-[1.3] mb-12 px-4 md:px-0 font-['Inter'] flex flex-col items-center">
+        <div className="max-w-[1000px] text-center text-[#555555] text-[18px] sm:text-[24px] md:text-[30px] font-medium leading-[1.3] mb-12 px-4 md:px-0 font-['Inter'] flex flex-col items-center">
           <div>A 0→1 product designer designing scalable</div>
           <div className="flex flex-wrap md:flex-nowrap items-center justify-center mt-2 px-2">
             <span>experiences across </span>
