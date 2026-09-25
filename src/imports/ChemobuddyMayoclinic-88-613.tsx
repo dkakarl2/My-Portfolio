@@ -4708,67 +4708,6 @@ function Frame132() {
 
 
 
-function SingleFeatureCard({
-  card,
-  index,
-  total,
-  scrollYProgress
-}: {
-  card: any;
-  index: number;
-  total: number;
-  scrollYProgress: MotionValue<number>;
-}) {
-  const startEnter = index === 0 ? 0 : (index - 1) / (total - 1);
-  const endEnter = index / (total - 1);
-
-  const yVal = useTransform(scrollYProgress, [startEnter, endEnter], ["150vh", "0vh"]);
-  const y = index === 0 ? "0vh" : yVal;
-
-  const segmentLength = 1 / (total - 1);
-  const startTransform = endEnter + segmentLength / 2;
-  const safeStartTransform = Math.min(startTransform, 0.999);
-
-  const scaleTarget = 1 - 0.05 * (total - 1 - index);
-  const scale = useTransform(scrollYProgress, [safeStartTransform, 1], [1, scaleTarget]);
-
-  const opacity = 1;
-
-  const blurTarget = 3.5 * (total - 1 - index);
-  const blurValue = useTransform(scrollYProgress, [safeStartTransform, 1], [0, blurTarget]);
-  
-  const brightnessTarget = 1 - 0.1 * (total - 1 - index);
-  const brightnessValue = useTransform(scrollYProgress, [safeStartTransform, 1], [1, brightnessTarget]);
-  
-  const filter = useMotionTemplate`blur(${blurValue}px) brightness(${brightnessValue})`;
-
-  const stackOffset = index * 36;
-
-  return (
-    <motion.div
-      style={{ y, scale, opacity, filter, zIndex: index }}
-      className="absolute w-full flex justify-center origin-top px-4"
-    >
-      <div 
-        className="w-full flex justify-center items-center"
-        style={{ marginTop: `${stackOffset}px` }}
-      >
-        <div className="flex flex-col md:flex-row items-stretch bg-white rounded-3xl overflow-hidden w-full max-w-5xl shadow-[0_4px_40px_rgba(0,0,0,0.06)] border border-gray-100">
-          <div className="flex-1 bg-[#FAFAFA] p-8 md:p-12 w-full flex flex-col justify-center">
-            <h3 className="font-['Inter'] font-bold text-xl text-black mb-6">{card.title}</h3>
-            <h4 className="font-['Inter'] font-bold text-black text-base mb-2">{card.subtitle}</h4>
-            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-              {card.description}
-            </p>
-          </div>
-          <div className="flex-1 w-full flex justify-center items-center bg-white p-6">
-            <img src={card.image} alt={card.title} className="w-full max-h-[500px] object-contain rounded-2xl" />
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-}
 
 function WhatIOwnedSection() {
   const cards = [
@@ -4798,41 +4737,33 @@ function WhatIOwnedSection() {
     }
   ];
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const numCards = cards.length;
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
   return (
-    <div className="w-full relative bg-white pb-32 pt-24" style={{ zIndex: 20 }}>
-      <div className="w-full max-w-6xl mx-auto px-6 md:px-0 mb-16 relative z-10">
+    <div className="w-full bg-white pb-32 pt-24">
+      <div className="w-full max-w-6xl mx-auto px-6 md:px-0 mb-16">
         <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black mb-4">What I owned</h2>
         <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
           Four areas I focused on to make chemotherapy education more understandable, actionable, and supportive.
         </p>
       </div>
 
-      <div 
-        ref={containerRef} 
-        className="relative w-full"
-        style={{ height: `${numCards * 100}vh` }}
-      >
-        <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-          <div className="relative w-full max-w-6xl mx-auto h-full flex items-center justify-center">
-            {cards.map((card, index) => (
-              <SingleFeatureCard
-                key={index}
-                card={card}
-                index={index}
-                total={numCards}
-                scrollYProgress={scrollYProgress}
-              />
-            ))}
+      <div className="w-full max-w-6xl mx-auto px-6 md:px-0 flex flex-col gap-12 lg:gap-24 items-center">
+        {cards.map((card, index) => (
+          <div 
+            key={index}
+            className="flex flex-col md:flex-row items-stretch bg-white rounded-3xl overflow-hidden w-full max-w-5xl shadow-[0_4px_40px_rgba(0,0,0,0.06)] border border-gray-100"
+          >
+            <div className="flex-1 bg-[#FAFAFA] p-8 md:p-12 w-full flex flex-col justify-center">
+              <h3 className="font-['Inter'] font-bold text-xl text-black mb-6">{card.title}</h3>
+              <h4 className="font-['Inter'] font-bold text-black text-base mb-2">{card.subtitle}</h4>
+              <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+                {card.description}
+              </p>
+            </div>
+            <div className="flex-1 w-full flex justify-center items-center bg-white p-6">
+              <img src={card.image} alt={card.title} className="w-full h-auto max-h-[500px] object-contain rounded-2xl" />
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
