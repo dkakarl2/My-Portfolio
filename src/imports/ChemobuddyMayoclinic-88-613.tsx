@@ -375,6 +375,29 @@ function OverviewCards() {
   );
 }
 
+function ProjectDetails() {
+  return (
+    <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-6 my-12 mb-16">
+      <div className="flex flex-col gap-3">
+        <span className="font-['Inter',sans-serif] font-bold text-black text-[18px]">Role</span>
+        <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">Research, UX &<br/>Design system designer</span>
+      </div>
+      <div className="flex flex-col gap-3">
+        <span className="font-['Inter',sans-serif] font-bold text-black text-[18px]">Team</span>
+        <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">7 members and 1<br/>clinical oncology mentor</span>
+      </div>
+      <div className="flex flex-col gap-3">
+        <span className="font-['Inter',sans-serif] font-bold text-black text-[18px]">Tools</span>
+        <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">Figma</span>
+      </div>
+      <div className="flex flex-col gap-3">
+        <span className="font-['Inter',sans-serif] font-bold text-black text-[18px]">Platform</span>
+        <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">Mobile</span>
+      </div>
+    </div>
+  );
+}
+
 function Frame52() {
   return (
     <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-[994px]">
@@ -383,6 +406,7 @@ function Frame52() {
       </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="leading-[normal] mb-0">Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.</p>
+        <ProjectDetails />
         <p className="leading-[normal] mb-0">&nbsp;</p>
         <OverviewCards />
       </div>
@@ -4715,6 +4739,7 @@ export default function ChemobuddyMayoclinic() {
           <p className="font-['Inter',sans-serif] text-[#484848] text-lg leading-relaxed mb-4">
             Chemotherapy education is often overwhelming, confusing, and emotionally heavy for patients. ChemoBuddy transforms complex treatment information into guided, supportive learning so patients can feel informed, prepared, and more in control of their care.
           </p>
+          <ProjectDetails />
           <div className="inline-flex items-center px-3.5 py-1.5 bg-[#FBF4D8] border border-[#DCC368] rounded-full gap-2 mb-6 shadow-xs">
             <Trophy size={14} className="text-[#B59220]" fill="#FFC627" />
             <span className="font-['Inter',sans-serif] font-semibold text-[#B59220] text-[11px] tracking-wider uppercase">
