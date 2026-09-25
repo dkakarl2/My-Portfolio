@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Map, HeartPulse, ShieldCheck, Trophy, ChevronLeft, ChevronRight, ArrowRight, Sparkles } from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence, useScroll, useTransform, useMotionTemplate, MotionValue } from 'motion/react';
 import videoChemoBuddyCover from '@/assets/Chemobuddy cover.mov';
 import videoChemobuddy from '@/assets/Chemobuddy video.mp4';
 import videoChemoWireframes from '@/assets/chemo wireframes.mp4';
@@ -84,6 +84,7 @@ import imgChatHistoryGif from "figma:asset/259e2c63d8b9c2342eb8a8daa6f434a035054
 import imgResearchGif from "figma:asset/7db52d7e82ca83f78490bd0efa1d31ce216b7265.png";
 import { ConfusedGirlDoodle } from "@/app/components/ConfusedGirlDoodle";
 
+import React, { useRef } from 'react';
 import conversationalAssistantImg from '@/assets/Conversational assistant.png';
 import symptomTrackingImg from '@/assets/Symptom tracking.png';
 import caregiverPermissionsImg from '@/assets/Caregiver permissions.png';
@@ -4706,6 +4707,69 @@ function Frame132() {
 }
 
 
+
+function SingleFeatureCard({
+  card,
+  index,
+  total,
+  scrollYProgress
+}: {
+  card: any;
+  index: number;
+  total: number;
+  scrollYProgress: MotionValue<number>;
+}) {
+  const startEnter = index === 0 ? 0 : (index - 1) / (total - 1);
+  const endEnter = index / (total - 1);
+
+  const yVal = useTransform(scrollYProgress, [startEnter, endEnter], ["150vh", "0vh"]);
+  const y = index === 0 ? "0vh" : yVal;
+
+  const segmentLength = 1 / (total - 1);
+  const startTransform = endEnter + segmentLength / 2;
+  const safeStartTransform = Math.min(startTransform, 0.999);
+
+  const scaleTarget = 1 - 0.05 * (total - 1 - index);
+  const scale = useTransform(scrollYProgress, [safeStartTransform, 1], [1, scaleTarget]);
+
+  const opacity = 1;
+
+  const blurTarget = 3.5 * (total - 1 - index);
+  const blurValue = useTransform(scrollYProgress, [safeStartTransform, 1], [0, blurTarget]);
+  
+  const brightnessTarget = 1 - 0.1 * (total - 1 - index);
+  const brightnessValue = useTransform(scrollYProgress, [safeStartTransform, 1], [1, brightnessTarget]);
+  
+  const filter = useMotionTemplate`blur(${blurValue}px) brightness(${brightnessValue})`;
+
+  const stackOffset = index * 36;
+
+  return (
+    <motion.div
+      style={{ y, scale, opacity, filter, zIndex: index }}
+      className="absolute w-full flex justify-center origin-top px-4"
+    >
+      <div 
+        className="w-full flex justify-center items-center"
+        style={{ marginTop: `${stackOffset}px` }}
+      >
+        <div className="flex flex-col md:flex-row items-stretch bg-white rounded-3xl overflow-hidden w-full max-w-5xl shadow-[0_4px_40px_rgba(0,0,0,0.06)] border border-gray-100">
+          <div className="flex-1 bg-[#FAFAFA] p-8 md:p-12 w-full flex flex-col justify-center">
+            <h3 className="font-['Inter'] font-bold text-xl text-black mb-6">{card.title}</h3>
+            <h4 className="font-['Inter'] font-bold text-black text-base mb-2">{card.subtitle}</h4>
+            <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+              {card.description}
+            </p>
+          </div>
+          <div className="flex-1 w-full flex justify-center items-center bg-white p-6">
+            <img src={card.image} alt={card.title} className="w-full max-h-[500px] object-contain rounded-2xl" />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 function WhatIOwnedSection() {
   const cards = [
     {
@@ -4734,45 +4798,46 @@ function WhatIOwnedSection() {
     }
   ];
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const numCards = cards.length;
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
+
   return (
-    <div className="w-full max-w-6xl mx-auto py-24 px-6 md:px-0" >
-      <div className="space-y-4 mb-16">
-        <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black">What I owned</h2>
+    <div className="w-full relative bg-white pb-32 pt-24" style={{ zIndex: 20 }}>
+      <div className="w-full max-w-6xl mx-auto px-6 md:px-0 mb-16 relative z-10">
+        <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black mb-4">What I owned</h2>
         <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
           Four areas I focused on to make chemotherapy education more understandable, actionable, and supportive.
         </p>
       </div>
 
-      <div className="relative">
-        {cards.map((card, index) => (
-          <div 
-            key={index}
-            className="sticky flex flex-col md:flex-row gap-6 lg:gap-12 items-center bg-white"
-            style={{ 
-              top: `calc(120px + ${index * 40}px)`, 
-              zIndex: 10 + index,
-              paddingTop: index === 0 ? "0" : "32px",
-              paddingBottom: "32px"
-            }}
-          >
-            {/* Text side */}
-            <div className="flex-1 bg-[#FAFAFA] rounded-3xl p-8 md:p-12 w-full self-stretch flex flex-col justify-center">
-              <h3 className="font-['Inter'] font-bold text-xl text-black mb-6">{card.title}</h3>
-              <h4 className="font-['Inter'] font-bold text-black text-base mb-2">{card.subtitle}</h4>
-              <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-                {card.description}
-              </p>
-            </div>
-            {/* Image side */}
-            <div className="flex-1 w-full flex justify-center items-center">
-              <img src={card.image} alt={card.title} className="w-full h-auto object-contain rounded-3xl" />
-            </div>
+      <div 
+        ref={containerRef} 
+        className="relative w-full"
+        style={{ height: `${numCards * 100}vh` }}
+      >
+        <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+          <div className="relative w-full max-w-6xl mx-auto h-full flex items-center justify-center">
+            {cards.map((card, index) => (
+              <SingleFeatureCard
+                key={index}
+                card={card}
+                index={index}
+                total={numCards}
+                scrollYProgress={scrollYProgress}
+              />
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
 }
+
 export default function ChemobuddyMayoclinic() {
   return (
     <div className="bg-white relative w-full">
