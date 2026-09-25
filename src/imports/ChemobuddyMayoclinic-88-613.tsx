@@ -84,6 +84,11 @@ import imgChatHistoryGif from "figma:asset/259e2c63d8b9c2342eb8a8daa6f434a035054
 import imgResearchGif from "figma:asset/7db52d7e82ca83f78490bd0efa1d31ce216b7265.png";
 import { ConfusedGirlDoodle } from "@/app/components/ConfusedGirlDoodle";
 
+import conversationalAssistantImg from '@/assets/Conversational assistant.png';
+import symptomTrackingImg from '@/assets/Symptom tracking.png';
+import caregiverPermissionsImg from '@/assets/Caregiver permissions.png';
+import clinicalSafetyImg from '@/assets/Clinical safety.png';
+
 function Frame28() {
   return (
     <div className="-translate-x-1/2 -translate-y-1/2 absolute content-stretch flex font-['Caveat_Brush:Regular',sans-serif] gap-[56px] items-center leading-[normal] left-1/2 not-italic text-[#747474] text-[20px] top-1/2">
@@ -4683,6 +4688,7 @@ function Frame132() {
       <SectionRevealWrapper><Frame131 /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame84 /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame85 /></SectionRevealWrapper>
+      <SectionRevealWrapper><WhatIOwnedSection /></SectionRevealWrapper>
       <SectionRevealWrapper><ChemobuddyVideoPlayer /></SectionRevealWrapper>
       <SectionRevealWrapper><InteractiveResearchSection /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame106 /></SectionRevealWrapper>
@@ -4699,6 +4705,74 @@ function Frame132() {
   );
 }
 
+
+function WhatIOwnedSection() {
+  const cards = [
+    {
+      title: "Conversational assistant",
+      subtitle: "Designed the core conversational experience",
+      description: "Created a compassionate, context-aware assistant to help patients ask questions, understand treatment information, and access educational guidance in plain language.",
+      image: conversationalAssistantImg
+    },
+    {
+      title: "Symptom tracking",
+      subtitle: "Designed a simpler way to understand symptoms",
+      description: "Owned the body-map interaction and symptom logging flow, helping patients record what they were experiencing and distinguish everyday symptoms from situations requiring attention.",
+      image: symptomTrackingImg
+    },
+    {
+      title: "Caregiver permissions",
+      subtitle: "Designed consent-based information sharing",
+      description: "Created the caregiver access experience with role-based permissions, giving patients control over what information they share and with whom.",
+      image: caregiverPermissionsImg
+    },
+    {
+      title: "Clinical safety",
+      subtitle: "Translated clinical guidance into interaction rules",
+      description: "Worked with Dr. Umar across three rounds of review to refine symptom-to-urgency thresholds and ensure the experience maintained clear boundaries between education and medical escalation.",
+      image: clinicalSafetyImg
+    }
+  ];
+
+  return (
+    <div className="w-full max-w-6xl mx-auto py-24 px-6 md:px-0" >
+      <div className="space-y-4 mb-16">
+        <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black">What I owned</h2>
+        <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+          Four areas I focused on to make chemotherapy education more understandable, actionable, and supportive.
+        </p>
+      </div>
+
+      <div className="relative">
+        {cards.map((card, index) => (
+          <div 
+            key={index}
+            className="sticky flex flex-col md:flex-row gap-6 lg:gap-12 items-center bg-white"
+            style={{ 
+              top: `calc(120px + ${index * 40}px)`, 
+              zIndex: 10 + index,
+              paddingTop: index === 0 ? "0" : "32px",
+              paddingBottom: "32px"
+            }}
+          >
+            {/* Text side */}
+            <div className="flex-1 bg-[#FAFAFA] rounded-3xl p-8 md:p-12 w-full self-stretch flex flex-col justify-center">
+              <h3 className="font-['Inter'] font-bold text-xl text-black mb-6">{card.title}</h3>
+              <h4 className="font-['Inter'] font-bold text-black text-base mb-2">{card.subtitle}</h4>
+              <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
+                {card.description}
+              </p>
+            </div>
+            {/* Image side */}
+            <div className="flex-1 w-full flex justify-center items-center">
+              <img src={card.image} alt={card.title} className="w-full h-auto object-contain rounded-3xl" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 export default function ChemobuddyMayoclinic() {
   return (
     <div className="bg-white relative w-full">
@@ -4825,6 +4899,7 @@ export default function ChemobuddyMayoclinic() {
                 <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
               </div>
             </div>
+            <WhatIOwnedSection />
             
             {/* Keeping the video player below the text row */}
             <div className="w-full">
