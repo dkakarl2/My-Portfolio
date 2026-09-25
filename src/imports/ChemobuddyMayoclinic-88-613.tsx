@@ -412,7 +412,7 @@ function Frame52() {
       </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
         <p className="mb-0 font-['Inter:Bold',sans-serif] !font-bold text-black">{`Result - Patients move from anxious & uncertain to informed & confident`}</p>
-        <p>I validated the experience through patient-centered research, iterative prototyping, and clinician feedback to ensure medical clarity, emotional sensitivity, and real-world usability.</p>
+        <p>We validated the experience through patient-centered research, iterative prototyping, and clinician feedback to ensure medical clarity, emotional sensitivity, and real-world usability.</p>
       </div>
     </div>
   );
@@ -1310,9 +1310,12 @@ function Frame75() {
 
 function Frame85() {
   return (
-    <div className="flex flex-col items-center w-[994px] py-16 gap-8 relative shrink-0">
-      <div className="w-full flex justify-center">
+    <div className="flex flex-col md:flex-row items-center w-[994px] py-16 gap-12 relative shrink-0">
+      <div className="flex-1">
         <Frame75 />
+      </div>
+      <div className="flex-1 flex justify-center md:justify-end">
+        <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
       </div>
     </div>
   );
@@ -1413,9 +1416,9 @@ function Frame79() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Understanding the Needs of Patients and Caregivers</p>
       <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">A 10-week exploration to understand how chemotherapy patients learn, cope, and communicate</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">
-        <p className="mb-0">{` I followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives to uncover what truly matters during chemotherapy. What began as a goal to simplify education evolved into an exploration of how patients process medical information, manage fear, and depend on family support.`}</p>
+        <p className="mb-0">{` We followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives to uncover what truly matters during chemotherapy. What began as a goal to simplify education evolved into an exploration of how patients process medical information, manage fear, and depend on family support.`}</p>
         <p className="mb-0">&nbsp;</p>
-        <p>Through this 10-week process, I moved from literature and competitive analysis to real user interactions, validating each design decision through evidence and empathy.</p>
+        <p>Through this 10-week process, we moved from literature and competitive analysis to real user interactions, validating each design decision through evidence and empathy.</p>
       </div>
     </div>
   );
@@ -1695,11 +1698,11 @@ function InteractiveResearchSection() {
         </div>
 
         <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl">
-          I followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives to uncover what truly matters during chemotherapy. What began as a goal to simplify education evolved into an exploration of how patients process medical information, manage fear, and depend on family support.
+          We followed a structured 4-phase research approach, combining clinical insights, patient emotions, and caregiver perspectives to uncover what truly matters during chemotherapy. What began as a goal to simplify education evolved into an exploration of how patients process medical information, manage fear, and depend on family support.
         </p>
 
         <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl">
-          Through this 10-week process, I moved from literature and competitive analysis to role-play research under oncology mentor guidance and usability testing, validating each design direction through evidence and clinical guidance.
+          Through this 10-week process, we moved from literature and competitive analysis to role-play research under oncology mentor guidance and usability testing, validating each design direction through evidence and clinical guidance.
         </p>
 
         {/* 4-Phase Timeline Bar */}
@@ -1780,7 +1783,7 @@ function InteractiveResearchSection() {
                   <span className="text-xs text-[#747474] font-medium bg-white px-3 py-1 rounded-full border border-gray-200">Week 1–2</span>
                 </div>
                 <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-                  I started with a literature review to ground my work in existing oncology and digital health research, instead of relying on assumptions.
+                  We started with a literature review to ground our work in existing oncology and digital health research, instead of relying on assumptions.
                 </p>
 
                 <div className="space-y-3 pt-2">
@@ -1800,15 +1803,15 @@ function InteractiveResearchSection() {
                     </li>
                     <li className="bg-white p-3.5 rounded-xl border border-gray-100 flex items-start gap-2.5">
                       <span className="w-5 h-5 rounded-full bg-[#00A3E0]/10 text-[#00A3E0] font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
-                      <span>What clinical risks and safety boundaries must I respect as a designer?</span>
+                      <span>What clinical risks and safety boundaries must we respect as a designer?</span>
                     </li>
                   </ul>
                 </div>
 
                 <div className="space-y-2 pt-2">
-                  <h4 className="font-bold text-sm text-black uppercase tracking-wider">What I Did:</h4>
+                  <h4 className="font-bold text-sm text-black uppercase tracking-wider">What We Did:</h4>
                   <p className="text-sm text-gray-600 leading-relaxed">
-                    I reviewed 11 peer-reviewed oncology studies and digital health journals focusing on: (1) mHealth cancer apps, (2) symptom management & patient-reported outcomes (PROs), (3) digital education tools and treatment adherence, and (4) early experiments with chatbots in oncology.
+                    We reviewed 11 peer-reviewed oncology studies and digital health journals focusing on: (1) mHealth cancer apps, (2) symptom management & patient-reported outcomes (PROs), (3) digital education tools and treatment adherence, and (4) early experiments with chatbots in oncology.
                   </p>
                 </div>
 
@@ -1862,7 +1865,7 @@ function InteractiveResearchSection() {
               </div>
 
               <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-                I conducted a competitive evaluation of 8 healthcare and oncology platforms (including MyChart, Cancer.Net, Belong, and hospital portals) to identify what existing tools do well and where they fall short.
+                We conducted a competitive evaluation of 8 healthcare and oncology platforms (including MyChart, Cancer.Net, Belong, and hospital portals) to identify what existing tools do well and where they fall short.
               </p>
 
               <div className="space-y-3">
@@ -1933,17 +1936,17 @@ function InteractiveResearchSection() {
               <div className="bg-amber-500/10 border border-amber-500/30 p-5 rounded-xl text-amber-900 space-y-1.5">
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-800">Research Integrity & Methodology Notice</span>
                 <p className="text-sm leading-relaxed">
-                  Because direct access to active chemotherapy patients or caregivers was not available due to clinical privacy restrictions, I conducted the user research phase under the ethical guidance of my oncology mentor, Dr. Umar.
+                  Because direct access to active chemotherapy patients or caregivers was not available due to clinical privacy restrictions, we conducted the user research phase under the ethical guidance of our oncology mentor, Dr. Umar.
                 </p>
                 <p className="text-sm leading-relaxed">
-                  To ensure realism and clinical accuracy, I designed structured role-play sessions that mimicked authentic patient and caregiver interactions and decision-making moments during chemotherapy.
+                  To ensure realism and clinical accuracy, we designed structured role-play sessions that mimicked authentic patient and caregiver interactions and decision-making moments during chemotherapy.
                 </p>
               </div>
 
               <div className="space-y-3">
                 <h4 className="font-bold text-sm text-black uppercase tracking-wider">Methodology — Survey Simulation:</h4>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  I adapted my survey questions into a structured interview checklist and used them during the role-play sessions with Dr. Umar. This allowed me to collect qualitative insights without violating confidentiality or requiring real patient participation.
+                  We adapted our survey questions into a structured interview checklist and used them during the role-play sessions with Dr. Umar. This allowed us to collect qualitative insights without violating confidentiality or requiring real patient participation.
                 </p>
               </div>
 
@@ -1984,7 +1987,7 @@ function InteractiveResearchSection() {
               <div className="bg-white p-5 rounded-xl border border-gray-100 space-y-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-black">Outcome</span>
                 <p className="text-sm text-gray-700 leading-relaxed">
-                  Although this research phase did not include real patient interviews, the collaboration with a clinical mentor allowed me to simulate authentic emotional and behavioral responses while maintaining research ethics and safety. The resulting insights became the foundation for persona creation and journey mapping in the next stage.
+                  Although this research phase did not include real patient interviews, the collaboration with a clinical mentor allowed us to simulate authentic emotional and behavioral responses while maintaining research ethics and safety. The resulting insights became the foundation for persona creation and journey mapping in the next stage.
                 </p>
               </div>
             </div>
@@ -2008,7 +2011,7 @@ function InteractiveResearchSection() {
               </div>
 
               <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-                After the role-play research, I transcribed observations, quotes, and pain points onto digital sticky notes in FigJam, then clustered them into five core themes.
+                After the role-play research, we transcribed observations, quotes, and pain points onto digital sticky notes in FigJam, then clustered them into five core themes.
               </p>
 
               <div className="space-y-3">
@@ -2061,7 +2064,7 @@ function Frame23() {
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">{`Research goals `}</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">
-        <p className="leading-[normal] mb-0">I wanted to answer four core questions</p>
+        <p className="leading-[normal] mb-0">We wanted to answer four core questions</p>
         <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">How do chemotherapy patients currently receive education and support?</span>
@@ -2073,7 +2076,7 @@ function Frame23() {
             <span className="leading-[normal]">What has already been tried with digital health, symptom trackers, and AI chatbots?</span>
           </li>
           <li className="ms-[30px]">
-            <span className="leading-[normal]">What clinical risks and safety boundaries must I respect as a designer?</span>
+            <span className="leading-[normal]">What clinical risks and safety boundaries must we respect as a designer?</span>
           </li>
         </ol>
       </div>
@@ -2084,9 +2087,9 @@ function Frame23() {
 function Frame24() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">What I did</p>
+      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">What we did</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[792px] whitespace-pre-wrap">
-        <p className="mb-0">I reviewed 11 peer-reviewed journals and oncology studies focusing on:</p>
+        <p className="mb-0">We reviewed 11 peer-reviewed journals and oncology studies focusing on:</p>
         <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">Mobile health (mHealth) apps for cancer patients</span>
@@ -2113,7 +2116,7 @@ function Frame81() {
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Literature review (Week 1 - 2)</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">I started with a literature review to ground my work in existing oncology and digital health research, instead of relying on assumptions.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">We started with a literature review to ground our work in existing oncology and digital health research, instead of relying on assumptions.</p>
       <Frame23 />
       <Frame24 />
     </div>
@@ -2306,7 +2309,7 @@ function Frame25() {
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">{`Research goals `}</p>
       <ol className="list-decimal list-outside ml-5 block css-8097nc font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap" start={1}>
         <li className="mb-0 ms-[30px]">
-          <span className="leading-[normal]">What are existing apps already doing well that I can learn from?</span>
+          <span className="leading-[normal]">What are existing apps already doing well that we can learn from?</span>
         </li>
         <li className="mb-0 ms-[30px]">
           <span className="leading-[normal]">Where do they fall short in terms of emotional support, education clarity, and caregiver involvement?</span>
@@ -2322,11 +2325,11 @@ function Frame25() {
 function Frame26() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] not-italic relative shrink-0 text-black">What I did</p>
+      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] not-italic relative shrink-0 text-black">What we did</p>
       <div className="font-['SF_Pro:Medium',sans-serif] font-[510] leading-[0] relative shrink-0 text-[#484848] w-[792px] whitespace-pre-wrap" style={{ fontVariationSettings: "'wdth' 100" }}>
-        <p className="leading-[1.6] mb-0">I selected 8 apps to analyze, including - MyChart, Cancer.Net, Belong, and several symptom-tracking or hospital portal apps.</p>
+        <p className="leading-[1.6] mb-0">We selected 8 apps to analyze, including - MyChart, Cancer.Net, Belong, and several symptom-tracking or hospital portal apps.</p>
         <p className="leading-[1.6] mb-0">&nbsp;</p>
-        <p className="leading-[1.6] mb-0">For each app, I evaluated:</p>
+        <p className="leading-[1.6] mb-0">For each app, we evaluated:</p>
         <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[1.6]">{` Onboarding experience (how easy it is to get started)`}</span>
@@ -2362,10 +2365,10 @@ function Frame90() {
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Secondary research</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">{`Competitive analysis - Existing Oncology & Health Apps (Week 3)`}</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Next, I wanted to understand what real patients currently experience when using digital tools.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Next, we wanted to understand what real patients currently experience when using digital tools.</p>
       <Frame25 />
       <Frame26 />
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">I captured this feature wise, marking which features existed, how visible they were, and how well they supported users in stressful situations.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">We captured this feature wise, marking which features existed, how visible they were, and how well they supported users in stressful situations.</p>
     </div>
   );
 }
@@ -2406,7 +2409,7 @@ function Frame76() {
     <div className="bg-[#f9f9f9] relative rounded-[24px] shrink-0 w-[997px]">
       <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip px-[88px] py-[60px] relative rounded-[inherit] w-full">
         <Frame105 />
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-[767px] whitespace-pre-wrap">I captured this feature wise, marking which features existed, how visible they were, and how well they supported users in stressful situations.</p>
+        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-[767px] whitespace-pre-wrap">We captured this feature wise, marking which features existed, how visible they were, and how well they supported users in stressful situations.</p>
       </div>
       <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.1)] border-solid inset-0 pointer-events-none rounded-[24px] shadow-[0px_138px_39px_0px_rgba(0,0,0,0),0px_88px_35px_0px_rgba(0,0,0,0.01),0px_22px_22px_0px_rgba(0,0,0,0.03)]" />
     </div>
@@ -2463,7 +2466,7 @@ function Frame94() {
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">{`User research`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] not-italic relative shrink-0 text-[24px] text-black w-full whitespace-pre-wrap">Role-Play Testing with Oncology Mentor (Week 4-5)</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Because I did not have direct access to chemotherapy patients or caregivers, I conducted the user research phase under the ethical guidance of my oncology mentor, Dr. Umar. To ensure realism and clinical accuracy, I designed structured role-play sessions that mimicked authentic patient, caregiver interactions and decision-making moments during chemotherapy.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">Because we did not have direct access to chemotherapy patients or caregivers, we conducted the user research phase under the ethical guidance of our oncology mentor, Dr. Umar. To ensure realism and clinical accuracy, we designed structured role-play sessions that mimicked authentic patient, caregiver interactions and decision-making moments during chemotherapy.</p>
       <Frame27 />
       <Frame32 />
     </div>
@@ -2486,7 +2489,7 @@ function Frame33() {
   return (
     <div className="content-stretch flex items-start justify-between not-italic relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Survey simulation</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">I adapted my survey questions into an interview checklist and used them during the role-play sessions. This allowed me to collect qualitative insights without violating confidentiality or requiring real patient participation.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">We adapted our survey questions into an interview checklist and used them during the role-play sessions. This allowed us to collect qualitative insights without violating confidentiality or requiring real patient participation.</p>
     </div>
   );
 }
@@ -2725,7 +2728,7 @@ function Frame77() {
     <div className="bg-[#f9f9f9] relative rounded-[24px] shrink-0 w-[997px]">
       <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip px-[88px] py-[60px] relative rounded-[inherit] w-full">
         <Frame104 />
-        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-[767px] whitespace-pre-wrap">Although this research phase did not include real patient interviews, the collaboration with a clinical mentor allowed me to simulate authentic emotional and behavioral responses while maintaining research ethics and safety. The resulting insights became the foundation for persona creation and journey mapping in the next stage.</p>
+        <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-[767px] whitespace-pre-wrap">Although this research phase did not include real patient interviews, the collaboration with a clinical mentor allowed us to simulate authentic emotional and behavioral responses while maintaining research ethics and safety. The resulting insights became the foundation for persona creation and journey mapping in the next stage.</p>
       </div>
       <div aria-hidden="true" className="absolute border border-[rgba(0,0,0,0.1)] border-solid inset-0 pointer-events-none rounded-[24px] shadow-[0px_138px_39px_0px_rgba(0,0,0,0),0px_88px_35px_0px_rgba(0,0,0,0.01),0px_22px_22px_0px_rgba(0,0,0,0.03)]" />
     </div>
@@ -2768,7 +2771,7 @@ function Frame99() {
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Affinity Mapping</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">
-        <p className="mb-0">I transcribed key quotes, pain points, and observations onto digital sticky notes in FigJam. Then I grouped them into clusters such as</p>
+        <p className="mb-0">We transcribed key quotes, pain points, and observations onto digital sticky notes in FigJam. Then we grouped them into clusters such as</p>
         <p className="mb-0">{`	1. Overwhelm & fatigue`}</p>
         <p className="mb-0">{`	2. “Is this normal?” symptom confusion`}</p>
         <p className="mb-0">{`	3. Trust and credibility`}</p>
@@ -2807,7 +2810,7 @@ function Frame102() {
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Data Synthesis & Findings`}</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Personas</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">From the patterns identified during affinity mapping and mentor-led role-play sessions, I developed two key personas representing the primary users of ChemoBuddy, patients at different stages of chemotherapy with varying emotional, physical, and digital needs.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">From the patterns identified during affinity mapping and mentor-led role-play sessions, we developed two key personas representing the primary users of ChemoBuddy, patients at different stages of chemotherapy with varying emotional, physical, and digital needs.</p>
     </div>
   );
 }
@@ -2854,7 +2857,7 @@ function Frame108() {
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Translating research insights into actionable design directions</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
-        <p className="leading-[normal] mb-0">{`Based on the research findings, I began ideation by using “How Might We” statements to frame challenges creatively. `}</p>
+        <p className="leading-[normal] mb-0">{`Based on the research findings, we began ideation by using “How Might We” statements to frame challenges creatively. `}</p>
         <p className="leading-[normal] mb-0">&nbsp;</p>
         <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
@@ -2889,7 +2892,7 @@ function Frame106() {
     <div className="content-stretch flex flex-col gap-[80px] items-start relative shrink-0 w-[997px]">
       <Frame108 />
       <Frame6 />
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">After feedback from mentors, I merged these into one unified platform, ChemoBuddy, a mobile-first digital tool offering personalized learning, symptom tracking, and communication for both patients and caregivers.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] not-italic relative shrink-0 text-[#484848] text-[20px] w-full whitespace-pre-wrap">After feedback from mentors, we merged these into one unified platform, ChemoBuddy, a mobile-first digital tool offering personalized learning, symptom tracking, and communication for both patients and caregivers.</p>
     </div>
   );
 }
@@ -2902,7 +2905,7 @@ function Frame123() {
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Building an empathetic, accessible experience through iterative design</p>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[0] relative shrink-0 text-[#484848] text-[20px] w-full">
-        <p className="leading-[normal] mb-0">I structured the experience around five key stages</p>
+        <p className="leading-[normal] mb-0">We structured the experience around five key stages</p>
         <ol className="list-decimal list-outside ml-5 css-8097nc" start={1}>
           <li className="mb-0 ms-[30px]">
             <span className="leading-[normal]">Onboarding - Patients connect to Mayo Clinic’s system using a unique patient code, syncing treatment details automatically.</span>
@@ -2940,7 +2943,7 @@ function Frame125() {
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Low fidelity wireframes</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">From post-its to pixels - shaping the early experience</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">I started with sketches that emphasized minimal interaction steps and clear readability. Older patients often have limited digital comfort, so I focused on simple navigation and large visual elements.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">We started with sketches that emphasized minimal interaction steps and clear readability. Older patients often have limited digital comfort, so we focused on simple navigation and large visual elements.</p>
     </div>
   );
 }
@@ -3661,7 +3664,7 @@ function Frame49() {
   return (
     <div className="content-stretch flex items-start justify-between relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Testing setup</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">I conducted three usability sessions, one with oncology mentor Dr. Umar and two with role-playing participants (patient and caregiver). The think-aloud method was used to capture spontaneous feedback.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">We conducted three usability sessions, one with oncology mentor Dr. Umar and two with role-playing participants (patient and caregiver). The think-aloud method was used to capture spontaneous feedback.</p>
     </div>
   );
 }
@@ -3836,7 +3839,7 @@ function Frame53() {
   return (
     <div className="content-stretch flex items-start justify-between not-italic relative shrink-0 text-[20px] w-full">
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.6] relative shrink-0 text-black">Design Rationale</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">Enhanced the user interface by incorporating additional whitespace, which improves readability and visual appeal. Additionally, I have introduced alternating message colors to create a more dynamic and engaging experience for users.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] w-[793px] whitespace-pre-wrap">Enhanced the user interface by incorporating additional whitespace, which improves readability and visual appeal. Additionally, we have introduced alternating message colors to create a more dynamic and engaging experience for users.</p>
     </div>
   );
 }
@@ -4648,7 +4651,7 @@ function Frame184() {
         <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">Future enhancements</p>
       </div>
       <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[24px] text-black w-full">Next steps toward integration and accessibility</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">With the current prototype validated, I identified several future directions based on feedback from Dr. Umar and test participants.</p>
+      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">With the current prototype validated, we identified several future directions based on feedback from Dr. Umar and test participants.</p>
       <Frame58 />
       <Frame59 />
       <Frame60 />
@@ -4806,8 +4809,8 @@ export default function ChemobuddyMayoclinic() {
 
           {/* 4. Role & Contribution */}
           <div className="py-24 space-y-12"> {/* Added vertical padding to increase spacing above and below */}
-            <div className="flex flex-col items-center gap-12 lg:gap-20 max-w-4xl mx-auto">
-              <div className="w-full space-y-6">
+            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 max-w-6xl mx-auto">
+              <div className="flex-1 w-full space-y-6">
                 <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black">Role & Contribution</h2>
                 <ul className="list-disc pl-5 font-['Inter'] text-[#484848] text-base leading-relaxed space-y-4">
                   <li>
@@ -4823,6 +4826,9 @@ export default function ChemobuddyMayoclinic() {
                     <span className="font-bold text-black">Collaborated with Dr. Umar through three rounds of clinical safety review</span>, refining symptom-to-urgency thresholds to clearly distinguish educational guidance from situations requiring immediate medical attention.
                   </li>
                 </ul>
+              </div>
+              <div className="flex-1 flex justify-center md:justify-end">
+                <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
               </div>
             </div>
             
@@ -4842,7 +4848,7 @@ export default function ChemobuddyMayoclinic() {
               <h2 className="font-['Inter'] font-bold text-2xl text-black border-b pb-3">Translating research insights into actionable design directions</h2>
             </div>
             <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl">
-              Based on the research findings, I began ideation by using "How Might We" statements to frame challenges creatively:
+              Based on the research findings, we began ideation by using "How Might We" statements to frame challenges creatively:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-gray-50 border border-gray-100 p-6 rounded-2xl space-y-2">
@@ -4862,7 +4868,7 @@ export default function ChemobuddyMayoclinic() {
               </div>
             </div>
             <p className="font-['Inter'] text-[#484848] text-base leading-relaxed max-w-3xl pt-2">
-              After feedback from mentors, I merged these into one unified platform, <strong>ChemoBuddy</strong>—a mobile-first digital tool offering personalized learning, symptom tracking, and communication for both patients and caregivers.
+              After feedback from mentors, we merged these into one unified platform, <strong>ChemoBuddy</strong>—a mobile-first digital tool offering personalized learning, symptom tracking, and communication for both patients and caregivers.
             </p>
             <img src={imgImage35} alt="Ideation Sketches" className="w-full rounded-xl shadow-lg" />
           </div>
