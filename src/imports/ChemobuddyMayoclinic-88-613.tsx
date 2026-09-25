@@ -1286,24 +1286,33 @@ function Frame84() {
 
 function Frame75() {
   return (
-    <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full whitespace-pre-wrap">
-      <div className="flex items-center mb-2">
-        <p className="font-['Inter:Bold',sans-serif] font-bold leading-[normal] relative shrink-0 text-[#484848] text-[20px] w-full">{`Role & Contribution`}</p>
+    <div className="content-stretch flex flex-col gap-[24px] items-start justify-center not-italic relative shrink-0 w-full max-w-4xl mx-auto whitespace-pre-wrap">
+      <div className="flex items-center mb-4">
+        <h2 className="font-['Inter:Bold',sans-serif] !font-bold leading-[normal] relative shrink-0 text-black text-[28px] w-full">{`Role & Contribution`}</h2>
       </div>
-      <p className="font-['Inter:Bold',sans-serif] font-bold leading-[1.3] relative shrink-0 text-[28px] text-black w-full">Designing Clarity in a Complex Care Journey</p>
-      <p className="font-['Inter:Regular',sans-serif] font-normal leading-[1.5] relative shrink-0 text-[#484848] text-[18px] w-full pr-12">{`UX and instructional designer for ChemoBuddy, translating complex chemotherapy information into structured, patient-friendly learning experiences. Conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.`}</p>
+      <ul className="list-disc pl-5 font-['Inter:Regular',sans-serif] font-normal leading-[1.6] relative shrink-0 text-[#484848] text-[18px] w-full flex flex-col gap-4">
+        <li>
+          <span className="font-bold text-black">Researcher, UX Designer, and Design Systems Designer</span> contributing across research, product strategy, interaction design, and scalable UI systems.
+        </li>
+        <li>
+          <span className="font-bold text-black">Partnered with Dr. Umar at Mayo Clinic</span> to conduct <span className="font-bold text-black">12 structured patient and caregiver role-play sessions</span> using the sessions to evaluate and refine the experience around real-world chemotherapy scenarios.
+        </li>
+        <li>
+          <span className="font-bold text-black">Owned the conversational assistant, body-map symptom tracking, and caregiver permission flows</span> translating complex clinical requirements into approachable, patient-centered interactions.
+        </li>
+        <li>
+          <span className="font-bold text-black">Collaborated with Dr. Umar through three rounds of clinical safety review</span>, refining symptom-to-urgency thresholds to clearly distinguish educational guidance from situations requiring immediate medical attention.
+        </li>
+      </ul>
     </div>
   );
 }
 
 function Frame85() {
   return (
-    <div className="flex flex-col md:flex-row items-center w-[994px] py-16 gap-8 relative shrink-0">
-      <div className="flex-1">
+    <div className="flex flex-col items-center w-[994px] py-16 gap-8 relative shrink-0">
+      <div className="w-full flex justify-center">
         <Frame75 />
-      </div>
-      <div className="flex-1 flex justify-center md:justify-end">
-        <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
       </div>
     </div>
   );
@@ -4797,22 +4806,27 @@ export default function ChemobuddyMayoclinic() {
 
           {/* 4. Role & Contribution */}
           <div className="py-24 space-y-12"> {/* Added vertical padding to increase spacing above and below */}
-            <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-              <div className="flex-1 space-y-4">
-                <div className="flex items-center mb-2">
-                  <h2 className="font-['Inter'] font-bold text-lg text-[#484848]">Role & Contribution</h2>
-                </div>
-                <h3 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black leading-snug">Designing Clarity in a Complex Care Journey</h3>
-                <p className="font-['Inter'] text-[#484848] text-base leading-relaxed">
-                  UX and instructional designer for ChemoBuddy, translating complex chemotherapy information into structured, patient-friendly learning experiences. Conducted research, mapped learning flows, and designed supportive, accessible interfaces aligned with clinical guidance from Mayo Clinic.
-                </p>
-              </div>
-              <div className="flex-1 flex justify-center md:justify-end">
-                <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
+            <div className="flex flex-col items-center gap-12 lg:gap-20 max-w-4xl mx-auto">
+              <div className="w-full space-y-6">
+                <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black">Role & Contribution</h2>
+                <ul className="list-disc pl-5 font-['Inter'] text-[#484848] text-base leading-relaxed space-y-4">
+                  <li>
+                    <span className="font-bold text-black">Researcher, UX Designer, and Design Systems Designer</span> contributing across research, product strategy, interaction design, and scalable UI systems.
+                  </li>
+                  <li>
+                    <span className="font-bold text-black">Partnered with Dr. Umar at Mayo Clinic</span> to conduct <span className="font-bold text-black">12 structured patient and caregiver role-play sessions</span> using the sessions to evaluate and refine the experience around real-world chemotherapy scenarios.
+                  </li>
+                  <li>
+                    <span className="font-bold text-black">Owned the conversational assistant, body-map symptom tracking, and caregiver permission flows</span> translating complex clinical requirements into approachable, patient-centered interactions.
+                  </li>
+                  <li>
+                    <span className="font-bold text-black">Collaborated with Dr. Umar through three rounds of clinical safety review</span>, refining symptom-to-urgency thresholds to clearly distinguish educational guidance from situations requiring immediate medical attention.
+                  </li>
+                </ul>
               </div>
             </div>
             
-            {/* Keeping the video player below the text/doodle row */}
+            {/* Keeping the video player below the text row */}
             <div className="w-full">
               <ChemobuddyVideoPlayer />
             </div>
