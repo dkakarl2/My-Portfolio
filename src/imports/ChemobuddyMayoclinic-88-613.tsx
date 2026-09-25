@@ -1290,20 +1290,16 @@ function Frame75() {
       <div className="flex items-center mb-4">
         <h2 className="font-['Inter:Bold',sans-serif] !font-bold leading-[normal] relative shrink-0 text-black text-[28px] w-full">{`Role & Contribution`}</h2>
       </div>
-      <ul className="list-disc pl-5 font-['Inter:Regular',sans-serif] font-normal leading-[1.6] relative shrink-0 text-[#484848] text-[18px] w-full flex flex-col gap-4">
-        <li>
-          <span className="font-bold text-black">Researcher, UX Designer, and Design Systems Designer</span> contributing across research, product strategy, interaction design, and scalable UI systems.
-        </li>
-        <li>
-          <span className="font-bold text-black">Partnered with Dr. Umar at Mayo Clinic</span> to conduct <span className="font-bold text-black">12 structured patient and caregiver role-play sessions</span> using the sessions to evaluate and refine the experience around real-world chemotherapy scenarios.
-        </li>
-        <li>
-          <span className="font-bold text-black">Owned the conversational assistant, body-map symptom tracking, and caregiver permission flows</span> translating complex clinical requirements into approachable, patient-centered interactions.
-        </li>
-        <li>
-          <span className="font-bold text-black">Collaborated with Dr. Umar through three rounds of clinical safety review</span>, refining symptom-to-urgency thresholds to clearly distinguish educational guidance from situations requiring immediate medical attention.
-        </li>
-      </ul>
+      <div className="font-['Inter:Regular',sans-serif] font-normal leading-[1.6] relative shrink-0 text-[#484848] text-[18px] w-full flex flex-col gap-4">
+        <p className="font-bold text-black m-0">Research · UX Design · Design Systems</p>
+        <p className="m-0">I worked across research, interaction design, and scalable UI systems, with a focus on translating complex clinical requirements into approachable patient experiences.</p>
+        <ul className="list-disc pl-5 m-0 flex flex-col gap-2">
+          <li>Conducted 12 structured patient and caregiver role-play sessions in collaboration with Dr. Umar at Mayo Clinic.</li>
+          <li>Owned the conversational assistant, symptom tracking, and caregiver permission experiences.</li>
+          <li>Led interaction and UX decisions across key patient and caregiver flows.</li>
+          <li>Participated in three rounds of clinical safety review, refining symptom-to-urgency thresholds with clinical guidance.</li>
+        </ul>
+      </div>
     </div>
   );
 }
@@ -4812,20 +4808,18 @@ export default function ChemobuddyMayoclinic() {
             <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 max-w-6xl mx-auto">
               <div className="flex-1 w-full space-y-6">
                 <h2 className="font-['Inter'] font-bold text-2xl lg:text-3xl text-black">Role & Contribution</h2>
-                <ul className="list-disc pl-5 font-['Inter'] text-[#484848] text-base leading-relaxed space-y-4">
-                  <li>
-                    <span className="font-bold text-black">Researcher, UX Designer, and Design Systems Designer</span> contributing across research, product strategy, interaction design, and scalable UI systems.
-                  </li>
-                  <li>
-                    <span className="font-bold text-black">Partnered with Dr. Umar at Mayo Clinic</span> to conduct <span className="font-bold text-black">12 structured patient and caregiver role-play sessions</span> using the sessions to evaluate and refine the experience around real-world chemotherapy scenarios.
-                  </li>
-                  <li>
-                    <span className="font-bold text-black">Owned the conversational assistant, body-map symptom tracking, and caregiver permission flows</span> translating complex clinical requirements into approachable, patient-centered interactions.
-                  </li>
-                  <li>
-                    <span className="font-bold text-black">Collaborated with Dr. Umar through three rounds of clinical safety review</span>, refining symptom-to-urgency thresholds to clearly distinguish educational guidance from situations requiring immediate medical attention.
-                  </li>
-                </ul>
+                
+                <div className="font-['Inter'] text-[#484848] text-base leading-relaxed space-y-4">
+                  <p className="font-bold text-black m-0">Research · UX Design · Design Systems</p>
+                  <p className="m-0">I worked across research, interaction design, and scalable UI systems, with a focus on translating complex clinical requirements into approachable patient experiences.</p>
+                  
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>Conducted 12 structured patient and caregiver role-play sessions in collaboration with Dr. Umar at Mayo Clinic.</li>
+                    <li>Owned the conversational assistant, symptom tracking, and caregiver permission experiences.</li>
+                    <li>Led interaction and UX decisions across key patient and caregiver flows.</li>
+                    <li>Participated in three rounds of clinical safety review, refining symptom-to-urgency thresholds with clinical guidance.</li>
+                  </ul>
+                </div>
               </div>
               <div className="flex-1 flex justify-center md:justify-end">
                 <video src={mayoRoleDoodle} autoPlay loop muted playsInline className="max-w-full w-[550px] h-auto object-contain rounded-2xl" />
