@@ -4688,7 +4688,7 @@ function Frame132() {
       <SectionRevealWrapper><Frame131 /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame84 /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame85 /></SectionRevealWrapper>
-      <SectionRevealWrapper><WhatIOwnedSection /></SectionRevealWrapper>
+      <WhatIOwnedSection />
       <SectionRevealWrapper><ChemobuddyVideoPlayer /></SectionRevealWrapper>
       <SectionRevealWrapper><InteractiveResearchSection /></SectionRevealWrapper>
       <SectionRevealWrapper><Frame106 /></SectionRevealWrapper>
