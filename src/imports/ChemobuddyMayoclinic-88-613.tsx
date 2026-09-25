@@ -379,19 +379,19 @@ function ProjectDetails() {
   return (
     <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-6 my-12 mb-16">
       <div className="flex flex-col gap-3">
-        <span className="font-['Inter:Bold',sans-serif] font-bold text-black text-[18px]">Role</span>
+        <span className="font-['Inter:Bold',sans-serif] !font-bold text-black text-[18px]">Role</span>
         <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">Research, UX &<br/>Design system designer</span>
       </div>
       <div className="flex flex-col gap-3">
-        <span className="font-['Inter:Bold',sans-serif] font-bold text-black text-[18px]">Team</span>
+        <span className="font-['Inter:Bold',sans-serif] !font-bold text-black text-[18px]">Team</span>
         <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">7 members and 1<br/>clinical oncology mentor</span>
       </div>
       <div className="flex flex-col gap-3">
-        <span className="font-['Inter:Bold',sans-serif] font-bold text-black text-[18px]">Tools</span>
+        <span className="font-['Inter:Bold',sans-serif] !font-bold text-black text-[18px]">Tools</span>
         <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">Figma</span>
       </div>
       <div className="flex flex-col gap-3">
-        <span className="font-['Inter:Bold',sans-serif] font-bold text-black text-[18px]">Platform</span>
+        <span className="font-['Inter:Bold',sans-serif] !font-bold text-black text-[18px]">Platform</span>
         <span className="font-['Inter',sans-serif] text-[#484848] text-[16px] leading-relaxed">Mobile</span>
       </div>
     </div>
@@ -411,7 +411,7 @@ function Frame52() {
         <OverviewCards />
       </div>
       <div className="font-['Inter:Regular',sans-serif] font-normal leading-[normal] min-w-full relative shrink-0 text-[#484848] text-[20px] w-[min-content] whitespace-pre-wrap">
-        <p className="mb-0 font-['Inter:Bold',sans-serif] font-bold text-black">{`Result - Patients move from anxious & uncertain to informed & confident`}</p>
+        <p className="mb-0 font-['Inter:Bold',sans-serif] !font-bold text-black">{`Result - Patients move from anxious & uncertain to informed & confident`}</p>
         <p>I validated the experience through patient-centered research, iterative prototyping, and clinician feedback to ensure medical clarity, emotional sensitivity, and real-world usability.</p>
       </div>
     </div>
